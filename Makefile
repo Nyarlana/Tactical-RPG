@@ -8,6 +8,9 @@ else
 	LINKER_FLAGS = $(LINK_SFML)
 endif
 
-all :
-	g++ $(INCLUDE) -c src/main.cpp -o obj/main.o
-	g++ $(LIB) -o bin/main.exe -o obj/main.o $(LINKER_FLAGS)
+all : GameManager.o
+	g++ $(INCLUDE) -c src/main.cpp -o obj/main.o obj/GameManager.o
+	g++ $(LIB) -o bin/main.exe -g obj/main.o obj/GameManager.o $(LINKER_FLAGS)
+
+GameManager.o :
+	g++ $(INCLUDE) -c src/gameManager/gameManager.cpp -o obj/GameManager.o
