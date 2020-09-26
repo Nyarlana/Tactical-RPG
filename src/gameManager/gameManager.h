@@ -1,3 +1,4 @@
+/**@file Game Manager header*/
 #include <SFML/Graphics.hpp>
 #include <SFML/Main.hpp>
 
