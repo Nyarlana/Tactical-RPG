@@ -10,4 +10,4 @@ endif
 
 all :
 	g++ $(INCLUDE) -c src/main.cpp -o obj/main.o
-	g++ $(LIB) -o bin/main.exe -o obj/main.o $(LINKER_FLAGS)
+	g++ $(LIB) -o bin/main.exe obj/main.o $(LINKER_FLAGS)
