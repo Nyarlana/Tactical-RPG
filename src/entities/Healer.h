@@ -3,7 +3,6 @@
 
 #include <Fighter.h>
 
-
 class Healer : public Fighter
 {
     public:
