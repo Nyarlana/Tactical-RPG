@@ -39,7 +39,7 @@ void GameManager::mainloop() {
 
     window.clear();
     for (size_t i = 0; i < components.size(); i++) {
-      components[i]->_draw();
+      components[i]->_draw(window);
     }
     window.display();
   }

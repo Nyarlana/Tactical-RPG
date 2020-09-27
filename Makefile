@@ -13,7 +13,7 @@ all : GameManager.o
 	g++ $(LIB) -o bin/main.exe -g obj/main.o obj/GameManager.o $(LINKER_FLAGS)
 
 GameManager.o : Component.o
-	g++ $(INCLUDE) -c src/gameManager/gameManager.cpp -o obj/GameManager.o -g obj/Component.o
+	g++ $(INCLUDE) -c src/gameManager/gameManager.cpp -o obj/GameManager.o -g obj/Component.o $(LINKER_FLAGS)
 
 Component.o :
-	g++ $(INCLUDE) -c src/gameManager/component.cpp -o obj/Component.o
+	g++ $(INCLUDE) -c src/gameManager/component.cpp -o obj/Component.o $(LINKER_FLAGS)
