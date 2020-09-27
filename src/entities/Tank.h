@@ -10,7 +10,7 @@ class Tank : public Fighter
         Tank();
         void action();
         void tease();               //increases by ?? points the threat Aliens around see in this Tank
-        void taunt(Alien* alien);   //multiplies by ?? the threat the selected Alien see in this Tank
+        void taunt(std::shared_ptr<Alien> alien);   //multiplies by ?? the threat the selected Alien see in this Tank
         virtual ~Tank();
 
     protected:

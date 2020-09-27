@@ -18,7 +18,7 @@ class Miner :: public Entity
 
     private:
         int bagSize;                                //maximum weight the Miner's bag can contain
-        unordered_map<string, int> bag;             //bag content
+        unordered_map<std::string, int> bag;             //bag content
         vector<pair(int,int)> objectives_positions; //positions of the ora objectives to collect
 };
 

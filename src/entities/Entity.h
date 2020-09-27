@@ -1,7 +1,6 @@
 #ifndef ENTITY_H
 #define ENTITY_H
 
-
 class Entity
 {
     public:
@@ -9,8 +8,8 @@ class Entity
         virtual ~Entity();
         void takeDamage(int value); //lowers this.lp by value, then if lp<=0, the entity is considered dead and so calls die()
         void die();                 //dying action (including the destruction of the object)
-        void action();
-        //move();
+        virtual void action();
+        virtual void moveOut();
 
     protected:
 
