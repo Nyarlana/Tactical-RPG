@@ -16,7 +16,7 @@ void GameManager::init() {
   window.setVerticalSyncEnabled(true);
 
   for (size_t i = 0; i < components.size(); i++) {
-    components[i]._init();
+    components[i]->_init();
   }
 
   mainloop();
@@ -34,12 +34,12 @@ void GameManager::mainloop() {
     }
 
     for (size_t i = 0; i < components.size(); i++) {
-      components[i]._update();
+      components[i]->_update();
     }
 
     window.clear();
     for (size_t i = 0; i < components.size(); i++) {
-      components[i]._draw();
+      components[i]->_draw();
     }
     window.display();
   }
