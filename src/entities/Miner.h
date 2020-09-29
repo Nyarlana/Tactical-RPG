@@ -2,6 +2,10 @@
 #define MINER_H
 
 #include <Entity.h>
+#include <unordered_map>
+#include <string>
+#include <vector>
+#include <utility>
 
 class Miner :: public Entity
 {
@@ -18,8 +22,8 @@ class Miner :: public Entity
 
     private:
         int bagSize;                                //maximum weight the Miner's bag can contain
-        unordered_map<std::string, int> bag;             //bag content
-        vector<pair(int,int)> objectives_positions; //positions of the ora objectives to collect
+        std::unordered_map<std::string, int> bag;             //bag content
+        std::vector<pair(int,int)> objectives_positions; //positions of the ora objectives to collect
 };
 
 #endif // MINER_H
