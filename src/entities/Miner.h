@@ -7,7 +7,7 @@
 #include <vector>
 #include <utility>
 
-class Miner :: public Entity
+class Miner : public Entity
 {
     public:
         Miner(int max_LP, int xPos, int yPos, int speed, int bagSize);
@@ -23,7 +23,7 @@ class Miner :: public Entity
     private:
         int bagSize;                                //maximum weight the Miner's bag can contain
         std::unordered_map<std::string, int> bag;             //bag content
-        std::vector<pair(int,int)> objectives_positions; //positions of the ora objectives to collect
+        std::vector<std::pair<int,int>> objectives_positions; //positions of the ora objectives to collect
 };
 
 #endif // MINER_H

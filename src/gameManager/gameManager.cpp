@@ -1,7 +1,9 @@
 /**@file game manager code*/
 #include <SFML/Graphics.hpp>
 #include <SFML/Main.hpp>
+#include <memory>
 #include "gameManager.h"
+#include "component.h"
 
 GameManager::GameManager() {
 }
@@ -12,6 +14,11 @@ GameManager::~GameManager() {
 void GameManager::init() {
   window.create(sf::VideoMode(800, 600), "My window");
   window.setVerticalSyncEnabled(true);
+
+  for (size_t i = 0; i < components.size(); i++) {
+    components[i]->_init();
+  }
+
   mainloop();
 }
 
@@ -26,8 +33,14 @@ void GameManager::mainloop() {
       window.close();
     }
 
+    for (size_t i = 0; i < components.size(); i++) {
+      components[i]->_update();
+    }
+
     window.clear();
-    // Draw function here
+    for (size_t i = 0; i < components.size(); i++) {
+      components[i]->_draw(window);
+    }
     window.display();
   }
 }
