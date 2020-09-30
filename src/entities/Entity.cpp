@@ -9,7 +9,7 @@ Entity::Entity(int max_LP, int xPos, int yPos, int speed)
     this.speed  = speed;
 }
 
-void takeDamage(int value) //critical section
+void Entity::takeDamage(int value) //critical section
 {
     lp-=value;
 
@@ -25,7 +25,7 @@ void takeDamage(int value) //critical section
     }
 }
 
-void die()
+void Entity::die()
 {
     ~Entity();
 }
