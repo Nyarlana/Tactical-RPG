@@ -12,7 +12,9 @@
     @brief manages the game*/
 class GameManager {
 public:
+  /**@brief class constructor*/
   GameManager();
+  /**@brief class destructor*/
   ~GameManager();
   /**@brief initializes the game*/
   void init();
