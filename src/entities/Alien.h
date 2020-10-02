@@ -9,6 +9,7 @@ class Alien : public Fighter
         Alien(int lp, int xPos, int yPos, int speed, bool hasAggressiveBehavior, int targetCheckArea, int threatfullTargetCheckArea);
         void action();
         void moveOut();
+        void attack();
         void die();                                                 //overrides Entity::die(), destructs itself after notifying its group of its death
         virtual ~Alien();
 
