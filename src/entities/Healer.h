@@ -6,12 +6,18 @@
 class Healer : public Fighter
 {
     public:
-        Healer(int lp, int xPos, int yPos, int speed, int targetCheckArea); //threatfullTargetCheckArea=0
+        //constructor
+        Healer(int xPos, int yPos); //threatfullTargetCheckArea=0
+        //destructor
+        virtual ~Healer();
+
+        //inherited functions
         void action();
+        void attack();
+
+        //Class skills
         void setNeed(std::shared_ptr<Entity> target, int needSet);   //sets heal need of a specific target, if the target isn't already is the target list, adds it to the list
         void heal(std::shared_ptr<Entity> target); //heals the target's life points by ?? points
-        void attack();
-        virtual ~Healer();
 
     protected:
 

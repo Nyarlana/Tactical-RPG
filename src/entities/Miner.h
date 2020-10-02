@@ -10,13 +10,18 @@
 class Miner : public Entity
 {
     public:
-        Miner(int max_LP, int xPos, int yPos, int speed, int bagSize);
+        //constructor
+        Miner(int xPos, int yPos);
+        //destructor
+        virtual ~Miner();
+
+        //inherited function
         void action();
+
+        //Class skills
         void checkForOre(); //looks for ore on the map and saves their positions in objectives_positions
         void mine();        //takes ore next to it (at 1 tile distance ?)
-        //void bagSizeUpdate(); => increase size after depositing ore at the base ?
         bool canAddToBag();
-        virtual ~Miner();
 
     protected:
 
