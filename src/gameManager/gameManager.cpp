@@ -2,8 +2,10 @@
 #include <SFML/Graphics.hpp>
 #include <SFML/Main.hpp>
 #include <memory>
+#include <iostream>
 #include "gameManager.h"
 #include "component.h"
+#include "Observer.h"
 
 GameManager::GameManager() {
 }
@@ -42,5 +44,12 @@ void GameManager::mainloop() {
       components[i]->_draw(window);
     }
     window.display();
+  }
+}
+
+void GameManager::on_Notify(Event event) {
+  switch (event) {
+    case EVENT_TEST:
+      std::cout<<"Test event"<<std::endl;
   }
 }
