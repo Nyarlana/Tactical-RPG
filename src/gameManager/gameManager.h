@@ -6,7 +6,7 @@
 #include <SFML/Main.hpp>
 #include <memory>
 #include <vector>
-#include "component.h"
+#include "Component.h"
 #include "Observer.h"
 
 /** @class GameManager
@@ -22,7 +22,7 @@ public:
   /**@brief main loop of the game*/
   void mainloop();
   /**@brief observer implementation*/
-  virtual void on_Notify(Event event);
+  virtual void on_Notify(const Component& subject, Event event);
 private:
   sf::RenderWindow window;
   std::vector<std::shared_ptr<Component>> components;

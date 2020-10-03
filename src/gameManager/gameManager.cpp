@@ -3,8 +3,8 @@
 #include <SFML/Main.hpp>
 #include <memory>
 #include <iostream>
-#include "gameManager.h"
-#include "component.h"
+#include "GameManager.h"
+#include "Component.h"
 #include "Observer.h"
 
 GameManager::GameManager() {
@@ -47,7 +47,7 @@ void GameManager::mainloop() {
   }
 }
 
-void GameManager::on_Notify(Event event) {
+void GameManager::on_Notify(const Component& subject, Event event) {
   switch (event) {
     case EVENT_TEST:
       std::cout<<"Test event"<<std::endl;
