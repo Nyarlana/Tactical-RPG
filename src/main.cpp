@@ -1,6 +1,6 @@
 #include <SFML/Graphics.hpp>
 #include <SFML/Main.hpp>
-#include "gameManager/gameManager.h"
+#include "gameManager/GameManager.h"
 
 int main() {
   GameManager gm;

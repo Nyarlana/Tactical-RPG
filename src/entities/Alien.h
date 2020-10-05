@@ -6,11 +6,16 @@
 class Alien : public Fighter
 {
     public:
-        Alien(int lp, int xPos, int yPos, int speed, bool hasAggressiveBehavior, int targetCheckArea, int threatfullTargetCheckArea);
+        //constructor
+        Alien(int xPos, int yPos, bool hasAggressiveBehavior);
+        //destructor
+        virtual ~Alien();
+
+        //inherited functions
         void action();
         void moveOut();
         void die();                                                 //overrides Entity::die(), destructs itself after notifying its group of its death
-        virtual ~Alien();
+        void attack();
 
     protected:
 

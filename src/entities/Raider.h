@@ -7,11 +7,18 @@
 class Raider : public Fighter
 {
     public:
-        Raider(int lp, int xPos, int yPos, int speed, int targetCheckArea, int threatfullTargetCheckArea);
+        //constructor
+        Raider(int xPos, int yPos);
+        //destructor
+        virtual ~Raider();
+
+        //inherited functions
         void action();
+        void attack();
+
+        //Class skills
         void speedup();     //accelerates the Raider's speed
         void lowProfile();  //decreases the Raider's threat value by ?? points the Aliens see in this Raider
-        virtual ~Raider();
 
     protected:
 

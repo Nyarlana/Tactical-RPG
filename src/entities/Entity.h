@@ -4,12 +4,18 @@
 class Entity
 {
     public:
+        //constructor
         Entity(int max_LP, int xPos, int yPos, int speed);
+        //destructor
         virtual ~Entity();
+
+        //modifiers
         void takeDamage(int value); //lowers this.lp by value, then if lp<=0, the entity is considered dead and so calls die()
         void die();                 //dying action (including the destruction of the object)
-        virtual void action();
-        virtual void moveOut();
+
+        //actions
+        virtual void action() = 0;
+        virtual void moveOut() = 0;
 
     protected:
 
