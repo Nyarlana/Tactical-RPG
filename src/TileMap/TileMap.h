@@ -1,19 +1,20 @@
 #ifndef TILEMAP_H
 #define TILEMAP_H
 #include "FileReader.h"
+#include "Tile.h"
 
 class TileMap
 {
     public:
         TileMap();
-        virtual ~TileMap();
+        ~TileMap();
         void setTab();
         void printTab();
 
     protected:
 
     private:
-        char tilemap_tab[10][10];
+        Tile tilemap_tab[10][10];
 };
 
 #endif // TILEMAP_H

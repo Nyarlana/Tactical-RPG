@@ -14,7 +14,15 @@ TileMap::~TileMap()
 void TileMap::setTab()
 {
     FileReader f;
-    f.readFile(tilemap_tab);
+    char intermediate_tab[10][10];
+    f.readFile(intermediate_tab);
+    for(int i=0;i<=9;++i)
+    {
+        for(int j=0;j<=9;++j)
+        {
+            tilemap_tab[i][j].setTile(intermediate_tab[i][j]);
+        }
+    }
 }
 
 void TileMap::printTab()
@@ -23,7 +31,7 @@ void TileMap::printTab()
     {
         for(int j=0;j<=9;++j)
         {
-            std::cout<<tilemap_tab[i][j];
+            std::cout<<tilemap_tab[i][j].returnTileValue();
         }
         std::cout<<std::endl;
     }
