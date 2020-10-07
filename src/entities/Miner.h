@@ -1,3 +1,4 @@
+/**@file Miner header*/
 #ifndef MINER_H
 #define MINER_H
 
@@ -7,21 +8,28 @@
 #include <vector>
 #include <utility>
 
+/**@class Miner class
+@brief Type of Entity meant to mine for Ore, which is the objective of a game */
 class Miner : public Entity
 {
     public:
         //constructor
+        /** @brief constructor */
         Miner(int xPos, int yPos);
-        //destructor
+        /** @brief destructor */
         virtual ~Miner();
 
         //inherited function
         void action();
 
         //Class skills
-        void checkForOre(); //looks for ore on the map and saves their positions in objectives_positions
-        void mine();        //takes ore next to it (at 1 tile distance ?)
-        bool canAddToBag();
+        /** @brief looks for ore on the map and saves their positions in
+        objectives_positions */
+        void checkForOre();
+        /** @brief takes ore next to it (1 tile distance) */
+        void mine();
+        /** @brief gives the base the collected ore (1 tile distance) */
+        void depositOre();
 
     protected:
 

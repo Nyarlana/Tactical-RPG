@@ -1,24 +1,29 @@
+/**@file Tank header*/
 #ifndef TANK_H
 #define TANK_H
 
 #include <Fighter.h>
 
 
-class Tank : public Fighter
+/**@class Tank class
+@brief Type of Entity meant to be able to fight against other entities*/
+class Tank : public Tank
 {
     public:
-        //constructor
+        /** @brief constructor */
         Tank(int xPos, int yPos);
-        //destructor
+        /** @brief destructor */
         virtual ~Tank();
 
         //inherited functions
         void action();
-        void attack();
+        void attack(std::shared_ptr<Entity> target);
 
         //Class skills
-        void tease();               //increases by ?? points the threat Aliens around see in this Tank
-        void taunt(std::shared_ptr<Alien> alien);   //multiplies by ?? the threat the selected Alien see in this Tank
+        /** @brief increases by ?? points the threat Aliens around see in this Tank */
+        void tease();
+        /** @brief multiplies by ?? the threat the selected Alien see in this Tank */
+        void taunt(std::shared_ptr<Alien> alien);
 
     protected:
 

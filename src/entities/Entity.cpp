@@ -1,12 +1,9 @@
 #include "Entity.h"
 
-Entity::Entity(int max_LP, int xPos, int yPos, int speed)
+using namespace std;
+
+Entity::Entity() : max_LP(max_LP), xPos(xPos), yPos(yPos), speed(speed)
 {
-    this.max_LP = max_LP;
-    this.lp     = max_LP;
-    this.xPos   = xPos;
-    this.yPos   = yPos;
-    this.speed  = speed;
 }
 
 void Entity::takeDamage(int value) //critical section

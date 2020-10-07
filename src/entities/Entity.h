@@ -1,20 +1,29 @@
+/**@file Entity header*/
 #ifndef ENTITY_H
 #define ENTITY_H
 
+/**@class Entity class
+@brief Base Class to emulate Rovers and Aliens */
 class Entity
 {
     public:
         //constructor
+        /** @brief constructor */
         Entity(int max_LP, int xPos, int yPos, int speed);
-        //destructor
+        /** @brief destructor */
         virtual ~Entity();
 
         //modifiers
-        void takeDamage(int value); //lowers this.lp by value, then if lp<=0, the entity is considered dead and so calls die()
-        void die();                 //dying action (including the destruction of the object)
+        /** @brief Lowers this.lp by value, then if lp<=0, the entity is considered dead and so calls die()
+        @param value amount of points lp is lowered*/
+        void takeDamage(int value);
+        /** @brief dying action (including the destruction of the object) */
+        void die();
 
         //actions
+        /** @brief The Entity general behavior*/
         virtual void action() = 0;
+        /** @brief action to move for an Entity*/
         virtual void moveOut() = 0;
 
     protected:

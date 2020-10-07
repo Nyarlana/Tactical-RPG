@@ -4,10 +4,9 @@
 
 using namespace std;
 
-Fighter::Fighter(int xPos, int yPos)
+Fighter::Fighter() : Entity(max_LP, xPos, yPos, speed), targetCheckArea(targetCheckArea), threatfulTargetCheckArea(threatfulTargetCheckArea)
 {
-    this.xPos   = xPos;
-    this.yPos   = yPos;
+
 }
 
 Fighter::getTargets()

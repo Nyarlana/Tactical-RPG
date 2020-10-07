@@ -1,3 +1,4 @@
+/**@file Fighter header*/
 #ifndef FIGHTER_H
 #define FIGHTER_H
 
@@ -5,12 +6,14 @@
 #include <unordered_map>
 #include <memory>
 
+/**@class Fighter class
+  @brief Type of Entity meant to be able to fight against other entities*/
 class Fighter : public Entity
 {
     public:
-        //constructor
-        Fighter(int xPos, int yPos);
-        //destructor
+        /** @brief constructor */
+        Fighter(int max_LP, int xPos, int yPos, int speed, int targetCheckArea, int threatfulTargetCheckArea);
+        /** @brief destructor */
         virtual ~Fighter();
 
         //inherited functions
@@ -18,10 +21,20 @@ class Fighter : public Entity
         virtual void moveOut() = 0;
 
         //accessor
-        *std::unordered_map<std::shared_ptr<Entity>, int> getTargets();            //gives access to target list
+        /** @brief gives access to the target list
+            @return targets*/
+        *std::unordered_map<std::shared_ptr<Entity>, int> getTargets();
         //modifier
-        void increaseThreat(std::shared_ptr<Entity> target, int threatIncrease);   //increases threat of a specific target, if the target isn't already is the target list, adds it to the list
+        /** @brief increases threat of a specific target, if the target isn't
+            already is the target list, adds it to the list
+            @param target the target which will get a threat increase
+            @param threatIncrease amount of threat that will be added
+        */
+        void increaseThreat(std::shared_ptr<Entity> target, int threatIncrease);
         //action
+        /** @brief simple attack against another Entity, depending on the subclass
+            of this Fighter
+            @param target target that will be attacked*/
         virtual void attack(std::shared_ptr<Entity> target) = 0;
 
 
