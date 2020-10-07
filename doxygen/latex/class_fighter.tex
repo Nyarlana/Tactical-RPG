@@ -1,0 +1,35 @@
+\hypertarget{class_fighter}{}\doxysection{Fighter Class Reference}
+\label{class_fighter}\index{Fighter@{Fighter}}
+Inheritance diagram for Fighter\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_fighter}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_fighter_ae1db37244ef64cdd77722d68cc0bdbbf}\label{class_fighter_ae1db37244ef64cdd77722d68cc0bdbbf}} 
+{\bfseries Fighter} (int x\+Pos, int y\+Pos)
+\item 
+\mbox{\Hypertarget{class_fighter_abcfcb1bcecfc61302043619899b4a231}\label{class_fighter_abcfcb1bcecfc61302043619899b4a231}} 
+virtual void {\bfseries action} ()=0
+\item 
+\mbox{\Hypertarget{class_fighter_a6c2124b0c1b197e3056d1cd90b4923ee}\label{class_fighter_a6c2124b0c1b197e3056d1cd90b4923ee}} 
+virtual void {\bfseries move\+Out} ()=0
+\item 
+\mbox{\Hypertarget{class_fighter_ae7c288e5e140382e3a1ac47961854f8f}\label{class_fighter_ae7c288e5e140382e3a1ac47961854f8f}} 
+$\ast$std\+::unordered\+\_\+map$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_entity}{Entity}} $>$, int $>$ {\bfseries get\+Targets} ()
+\item 
+\mbox{\Hypertarget{class_fighter_aea5cc48d5bc5a31a79d6bc163c1c3876}\label{class_fighter_aea5cc48d5bc5a31a79d6bc163c1c3876}} 
+void {\bfseries increase\+Threat} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_entity}{Entity}} $>$ target, int threat\+Increase)
+\item 
+\mbox{\Hypertarget{class_fighter_aeab77cf3172e1ea3baffd8b92c5fed7c}\label{class_fighter_aeab77cf3172e1ea3baffd8b92c5fed7c}} 
+virtual void {\bfseries attack} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_entity}{Entity}} $>$ target)=0
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/entities/Fighter.\+h\item 
+src/entities/Fighter.\+cpp\end{DoxyCompactItemize}

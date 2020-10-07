@@ -1,0 +1,50 @@
+\hypertarget{class_component}{}\doxysection{Component Class Reference}
+\label{class_component}\index{Component@{Component}}
+
+
+components of the GM class  
+
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_component_a8775db6d1a2c1afc2e77cd3c8f39da6f}\label{class_component_a8775db6d1a2c1afc2e77cd3c8f39da6f}} 
+\mbox{\hyperlink{class_component_a8775db6d1a2c1afc2e77cd3c8f39da6f}{Component}} ()
+\begin{DoxyCompactList}\small\item\em class constructor \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_component_a2e9aa4348314d981f05f67397ad2f872}\label{class_component_a2e9aa4348314d981f05f67397ad2f872}} 
+virtual \mbox{\hyperlink{class_component_a2e9aa4348314d981f05f67397ad2f872}{$\sim$\+Component}} ()
+\begin{DoxyCompactList}\small\item\em class destructor \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_component_a53d12dbae56a7db96aede32837056684}\label{class_component_a53d12dbae56a7db96aede32837056684}} 
+virtual void \mbox{\hyperlink{class_component_a53d12dbae56a7db96aede32837056684}{\+\_\+init}} ()=0
+\begin{DoxyCompactList}\small\item\em init method overwritten by children classes, called at gm init \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_component_aa02959fdfeee1fd9dd6f33ad14f5b6e4}\label{class_component_aa02959fdfeee1fd9dd6f33ad14f5b6e4}} 
+virtual void \mbox{\hyperlink{class_component_aa02959fdfeee1fd9dd6f33ad14f5b6e4}{\+\_\+update}} ()=0
+\begin{DoxyCompactList}\small\item\em update method called every frame, updates game logic \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_component_a56712f5491879798ca4a052defc7dabc}{\+\_\+draw}} (sf\+::\+Render\+Window \&window)=0
+\begin{DoxyCompactList}\small\item\em draw method called every frame, draws component on window \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+components of the GM class 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_component_a56712f5491879798ca4a052defc7dabc}\label{class_component_a56712f5491879798ca4a052defc7dabc}} 
+\index{Component@{Component}!\_draw@{\_draw}}
+\index{\_draw@{\_draw}!Component@{Component}}
+\doxysubsubsection{\texorpdfstring{\_draw()}{\_draw()}}
+{\footnotesize\ttfamily virtual void Component\+::\+\_\+draw (\begin{DoxyParamCaption}\item[{sf\+::\+Render\+Window \&}]{window }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+draw method called every frame, draws component on window 
+
+
+\begin{DoxyParams}{Parameters}
+{\em window} & window to draw in \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/game\+Manager/Component.\+h\end{DoxyCompactItemize}

@@ -1,0 +1,43 @@
+\hypertarget{class_subject}{}\doxysection{Subject Class Reference}
+\label{class_subject}\index{Subject@{Subject}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \mbox{\hyperlink{class_subject_aa9848a867108ec2819767e87d0b5a230}{notify}} (const \mbox{\hyperlink{class_component}{Component}} \&\mbox{\hyperlink{classsubject}{subject}}, Event event)
+\begin{DoxyCompactList}\small\item\em notifies all observers \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_subject_a43a10fc9d535375a324310205855da22}\label{class_subject_a43a10fc9d535375a324310205855da22}} 
+void \mbox{\hyperlink{class_subject_a43a10fc9d535375a324310205855da22}{add\+\_\+\+Observer}} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_observer}{Observer}} $>$ obs)
+\begin{DoxyCompactList}\small\item\em add an observer \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_subject_a4a327738992312141160470c8c6172e8}\label{class_subject_a4a327738992312141160470c8c6172e8}} 
+void \mbox{\hyperlink{class_subject_a4a327738992312141160470c8c6172e8}{remove\+\_\+\+Observer}} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_observer}{Observer}} $>$ obs)
+\begin{DoxyCompactList}\small\item\em removes an observer \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_subject_ab8b404a56f172645e95d23e86f1b8d95}\label{class_subject_ab8b404a56f172645e95d23e86f1b8d95}} 
+std\+::vector$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_observer}{Observer}} $>$ $>$ {\bfseries observers}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_subject_aa9848a867108ec2819767e87d0b5a230}\label{class_subject_aa9848a867108ec2819767e87d0b5a230}} 
+\index{Subject@{Subject}!notify@{notify}}
+\index{notify@{notify}!Subject@{Subject}}
+\doxysubsubsection{\texorpdfstring{notify()}{notify()}}
+{\footnotesize\ttfamily void Subject\+::notify (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_component}{Component}} \&}]{subject,  }\item[{Event}]{event }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+notifies all observers 
+
+
+\begin{DoxyParams}{Parameters}
+{\em event} & chosen event \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/game\+Manager/Observer.\+h\item 
+src/game\+Manager/Observer.\+cpp\end{DoxyCompactItemize}
