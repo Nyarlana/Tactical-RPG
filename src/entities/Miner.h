@@ -2,7 +2,7 @@
 #ifndef MINER_H
 #define MINER_H
 
-#include <Entity.h>
+#include "Entity.h"
 #include <unordered_map>
 #include <string>
 #include <vector>
@@ -21,6 +21,7 @@ class Miner : public Entity
 
         //inherited function
         void action();
+        void moveOut();
 
         //Class skills
         /** @brief looks for ore on the map and saves their positions in

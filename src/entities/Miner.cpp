@@ -2,7 +2,7 @@
 
 using namespace std;
 
-Miner::Miner() : Entity(4, xPos, yPos, 3)
+Miner::Miner(int xPos_, int yPos_) : Entity(4, xPos_, yPos_, 3)
 {
     //ctor
 }
@@ -16,6 +16,11 @@ Miner::~Miner()
 void Miner::action()
 {
     //dtor
+}
+
+void Miner::moveOut()
+{
+  //lol
 }
 
 //Class skills

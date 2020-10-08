@@ -1,12 +1,17 @@
 #include "Entity.h"
 
-#include <shared_ptr>
+#include <memory>
 #include <vector>
+#include <iostream>
 
 using namespace std;
 
-Entity::Entity() : max_LP(max_LP), xPos(xPos), yPos(yPos), speed(speed)
+Entity::Entity(int _max_LP, int _xPos, int _yPos, int _speed)
 {
+  max_LP = _max_LP;
+  xPos = _xPos;
+  yPos = _yPos;
+  speed = _speed;
 }
 
 void Entity::takeDamage(int value) //critical section
@@ -27,10 +32,9 @@ void Entity::takeDamage(int value) //critical section
 
 void Entity::die()
 {
-    ~Entity();
+    std::cout<<"Deleted at "<<xPos<<", "<<yPos<<std::endl;
 }
 
 Entity::~Entity()
 {
-    //dtor
 }

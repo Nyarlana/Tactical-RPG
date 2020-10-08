@@ -4,7 +4,7 @@
 
 #include <Fighter.h>
 
-#include <shared_ptr>
+#include <memory>
 #include <vector>
 
 /**@class Tank class

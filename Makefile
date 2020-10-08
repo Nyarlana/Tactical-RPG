@@ -8,7 +8,7 @@ else
 	LINKER_FLAGS = $(LINK_SFML)
 endif
 
-all : main testTilemap
+all : main testTilemap testEntity
 
 main : GameManager.o
 	g++ $(INCLUDE) -c src/main.cpp -o obj/main.o obj/GameManager.o
@@ -17,6 +17,11 @@ main : GameManager.o
 testTilemap : TileMap.o
 	g++ $(INCLUDE) -c src/main/testTilemap.cpp -o obj/testTilemap.o obj/TileMap.o
 	g++ $(LIB) -o bin/testTilemap.exe -g obj/testTilemap.o obj/TileMap.o obj/FileReader.o obj/Tile.o $(LINKER_FLAGS)
+
+testEntity : Miner.o
+	g++ $(INCLUDE) -c src/main/testEntities.cpp -o obj/testEntity.o obj/Miner.o
+	g++ $(LIB) -o bin/testEntity.exe -g obj/testEntity.o obj/Miner.o obj/Entity.o $(LINKER_FLAGS)
+
 
 GameManager.o : Component.o Observer.o
 	g++ $(INCLUDE) -c src/gameManager/GameManager.cpp -o obj/GameManager.o -g obj/Component.o obj/Observer.o
@@ -35,3 +40,9 @@ FileReader.o :
 
 Tile.o :
 	g++ $(INCLUDE) -c src/TileMap/Tile.cpp -o obj/Tile.o $(LINKER_FLAGS)
+
+Miner.o : Entity.o
+	g++ $(INCLUDE) -c src/entities/Miner.cpp -o obj/Miner.o -g obj/Entity.o
+
+Entity.o :
+	g++ $(INCLUDE) -c src/entities/Entity.cpp -o obj/Entity.o

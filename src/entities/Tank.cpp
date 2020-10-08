@@ -1,6 +1,6 @@
 #include "Tank.h"
 
-#include <shared_ptr>
+#include <memory>
 #include <vector>
 
 using namespace std;
