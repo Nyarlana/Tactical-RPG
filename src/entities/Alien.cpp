@@ -1,5 +1,8 @@
 #include "Alien.h"
 
+#include <shared_ptr>
+#include <vector>
+
 using namespace std;
 
 Alien::Alien() : Fighter(max_LP, xPos, yPos, speed, targetCheckArea, threatfulTargetCheckArea), hasAggressiveBehavior(hasAggressiveBehavior)

@@ -1,5 +1,8 @@
 #include "Tank.h"
 
+#include <shared_ptr>
+#include <vector>
+
 using namespace std;
 
 Tank::Tank() : Fighter(10, xPos, yPos, 2, 3, 4)
@@ -31,7 +34,7 @@ void Tank::tease()
 }
 
 /** @brief multiplies by ?? the threat the selected Alien see in this Tank */
-void Tank::taunt(std::shared_ptr<Alien> alien)
+void Tank::taunt(shared_ptr<Alien> alien)
 {
     //alien->increaseThreat(shared_ptr<Entity>(this), ??)
 }

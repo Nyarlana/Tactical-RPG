@@ -1,5 +1,6 @@
 #include "Fighter.h"
 
+#include <shared_ptr>
 #include <vector>
 
 using namespace std;

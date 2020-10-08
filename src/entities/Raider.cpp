@@ -1,5 +1,8 @@
 #include "Raider.h"
 
+#include <shared_ptr>
+#include <vector>
+
 using namespace std;
 
 Raider::Raider() : Fighter(6, xPos, yPos, 4, 3, 4)

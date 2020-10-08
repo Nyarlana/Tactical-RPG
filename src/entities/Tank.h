@@ -4,6 +4,8 @@
 
 #include <Fighter.h>
 
+#include <shared_ptr>
+#include <vector>
 
 /**@class Tank class
 @brief Type of Entity meant to be able to fight against other entities*/

@@ -1,5 +1,8 @@
 #include "Healer.h"
 
+#include <shared_ptr>
+#include <vector>
+
 using namespace std;
 
 Healer::Healer() : Fighter(8, xPos, yPos, 3, 1, 3)

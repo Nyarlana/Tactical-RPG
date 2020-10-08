@@ -1,5 +1,8 @@
 #include "Entity.h"
 
+#include <shared_ptr>
+#include <vector>
+
 using namespace std;
 
 Entity::Entity() : max_LP(max_LP), xPos(xPos), yPos(yPos), speed(speed)
