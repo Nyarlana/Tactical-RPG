@@ -1,4 +1,6 @@
 #include "TileMap.h"
+#include "Tile.h"
+#include "FileReader.h"
 #include <iostream>
 
 TileMap::TileMap()

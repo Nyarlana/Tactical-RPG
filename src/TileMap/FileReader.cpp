@@ -19,7 +19,7 @@ void FileReader::readFile(char tab[10][10])
 {
     string line;
     int line_index=0;
-    ifstream tilemap_file ("../tilemap.txt");
+    ifstream tilemap_file ("src/tilemap.txt");
     if (tilemap_file.is_open())
     {
         while (getline (tilemap_file,line))
