@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['on_5fnotify_48',['on_Notify',['../class_game_manager.html#a37204b1d9ed57007fa814c39395223b9',1,'GameManager::on_Notify()'],['../class_observer.html#a955b35d811139672822627a4c958e07d',1,'Observer::on_Notify()']]]
+  ['heal_78',['heal',['../class_healer.html#a48621f5b4e0d8c1a0f783d1fcd69266c',1,'Healer']]],
+  ['healer_79',['Healer',['../class_healer.html#aa5fcb86bf99adcf158628a6e6869cbad',1,'Healer']]]
 ];

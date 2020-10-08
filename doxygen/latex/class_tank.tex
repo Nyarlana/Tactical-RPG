@@ -1,30 +1,35 @@
 \hypertarget{class_tank}{}\doxysection{Tank Class Reference}
 \label{class_tank}\index{Tank@{Tank}}
-Inheritance diagram for Tank\+:\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[height=3.000000cm]{class_tank}
-\end{center}
-\end{figure}
+
+
+Type of \mbox{\hyperlink{class_entity}{Entity}} meant to be able to fight against other entities.  
+
+
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\Hypertarget{class_tank_ab813fc37696f159ec74dd05a8c111f34}\label{class_tank_ab813fc37696f159ec74dd05a8c111f34}} 
-{\bfseries Tank} (int x\+Pos, int y\+Pos)
-\item 
+\mbox{\hyperlink{class_tank_ab813fc37696f159ec74dd05a8c111f34}{Tank}} (int x\+Pos, int y\+Pos)
+\begin{DoxyCompactList}\small\item\em constructor \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_tank_a9e4fce49ae7fe871894c1a3122c10269}\label{class_tank_a9e4fce49ae7fe871894c1a3122c10269}} 
+virtual \mbox{\hyperlink{class_tank_a9e4fce49ae7fe871894c1a3122c10269}{$\sim$\+Tank}} ()
+\begin{DoxyCompactList}\small\item\em destructor \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{class_tank_ab678a5d50edb89449568ba6024d34675}\label{class_tank_ab678a5d50edb89449568ba6024d34675}} 
 void {\bfseries action} ()
 \item 
-\mbox{\Hypertarget{class_tank_abee72fc465289354de4e790ccad9c93d}\label{class_tank_abee72fc465289354de4e790ccad9c93d}} 
-void {\bfseries attack} ()
+\mbox{\Hypertarget{class_tank_a07791f6d1c9fb3439f36664b87621b71}\label{class_tank_a07791f6d1c9fb3439f36664b87621b71}} 
+void {\bfseries attack} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_entity}{Entity}} $>$ target)
 \item 
 \mbox{\Hypertarget{class_tank_a70eebf421a8aaf0135ba22c93d9bcbb2}\label{class_tank_a70eebf421a8aaf0135ba22c93d9bcbb2}} 
-void {\bfseries tease} ()
-\item 
+void \mbox{\hyperlink{class_tank_a70eebf421a8aaf0135ba22c93d9bcbb2}{tease}} ()
+\begin{DoxyCompactList}\small\item\em increases by ?? points the threat Aliens around see in this \mbox{\hyperlink{class_tank}{Tank}} \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{class_tank_a673986bbc185c18cb21e5bc5aed45f0a}\label{class_tank_a673986bbc185c18cb21e5bc5aed45f0a}} 
-void {\bfseries taunt} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_alien}{Alien}} $>$ alien)
-\end{DoxyCompactItemize}
+void \mbox{\hyperlink{class_tank_a673986bbc185c18cb21e5bc5aed45f0a}{taunt}} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_alien}{Alien}} $>$ alien)
+\begin{DoxyCompactList}\small\item\em multiplies by ?? the threat the selected \mbox{\hyperlink{class_alien}{Alien}} see in this \mbox{\hyperlink{class_tank}{Tank}} \end{DoxyCompactList}\end{DoxyCompactItemize}
 
+
+\doxysubsection{Detailed Description}
+Type of \mbox{\hyperlink{class_entity}{Entity}} meant to be able to fight against other entities. 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 

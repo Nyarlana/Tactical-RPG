@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['gamemanager_44',['GameManager',['../class_game_manager.html#aa0e2424dc1a39d380e5b6605b179bf05',1,'GameManager']]]
+  ['depositore_72',['depositOre',['../class_miner.html#a846cc5340559ca9008aa208d74a60282',1,'Miner']]],
+  ['die_73',['die',['../class_entity.html#a87466c642875c59e774830e3168b485b',1,'Entity']]]
 ];

@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['raider_17',['Raider',['../class_raider.html',1,'']]],
-  ['remove_5fobserver_18',['remove_Observer',['../class_subject.html#a4a327738992312141160470c8c6172e8',1,'Subject']]]
+  ['notify_26',['notify',['../class_subject.html#aa9848a867108ec2819767e87d0b5a230',1,'Subject']]]
 ];

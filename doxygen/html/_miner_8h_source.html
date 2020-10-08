@@ -71,42 +71,50 @@ $(function() {
 <div class="title">Miner.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef MINER_H</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define MINER_H</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160; </div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;Entity.h&gt;</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &lt;unordered_map&gt;</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &lt;utility&gt;</span></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160; </div>
-<div class="line"><a name="l00010"></a><span class="lineno"><a class="line" href="class_miner.html">   10</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_miner.html">Miner</a> : <span class="keyword">public</span> <a class="code" href="class_entity.html">Entity</a></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;{</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;        <span class="comment">//constructor</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;        <a class="code" href="class_miner.html">Miner</a>(<span class="keywordtype">int</span> xPos, <span class="keywordtype">int</span> yPos);</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;        <span class="comment">//destructor</span></div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;        <span class="keyword">virtual</span> ~<a class="code" href="class_miner.html">Miner</a>();</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;        <span class="comment">//inherited function</span></div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;        <span class="keywordtype">void</span> action();</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;        <span class="comment">//Class skills</span></div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;        <span class="keywordtype">void</span> checkForOre(); <span class="comment">//looks for ore on the map and saves their positions in objectives_positions</span></div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;        <span class="keywordtype">void</span> mine();        <span class="comment">//takes ore next to it (at 1 tile distance ?)</span></div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        <span class="keywordtype">bool</span> canAddToBag();</div>
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160; </div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#ifndef MINER_H</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#define MINER_H</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160; </div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;Entity.h&quot;</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &lt;unordered_map&gt;</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &lt;utility&gt;</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160; </div>
+<div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="class_miner.html">   13</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_miner.html">Miner</a> : <span class="keyword">public</span> <a class="code" href="class_entity.html">Entity</a></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;{</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;        <span class="comment">//constructor</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="comment"></span>        <a class="code" href="class_miner.html#ac6c487fd584bd4f656574283e7ffa80a">Miner</a>(<span class="keywordtype">int</span> xPos, <span class="keywordtype">int</span> yPos);</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;        <span class="keyword">virtual</span> <a class="code" href="class_miner.html#ae453647fcb8d9a73c5db19115b7a906f">~Miner</a>();</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;        <span class="comment">//inherited function</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_miner.html#a939a8b8d64d3effcbd97be3f2970a4fa">action</a>();</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_miner.html#a7094bde6011bf3b6a0ede65cd871c304">moveOut</a>();</div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="keyword">protected</span>:</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        <span class="keywordtype">bool</span> bagFull;                                         <span class="comment">//has an ore</span></div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        std::vector&lt;std::pair&lt;int,int&gt;&gt; objectives_positions; <span class="comment">//positions of the ora objectives to collect</span></div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;};</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="preprocessor">#endif // MINER_H</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        <span class="comment">//Class skills</span></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="comment"></span>        <span class="keywordtype">void</span> <a class="code" href="class_miner.html#abe011ddf7ce53f4966030c877d21b51c">checkForOre</a>();</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_miner.html#acfbf4c865a8dc5b3b96e9e5322a51ae2">mine</a>();</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_miner.html#a846cc5340559ca9008aa208d74a60282">depositOre</a>();</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        <span class="keywordtype">bool</span> bagFull;                                         <span class="comment">//has an ore</span></div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        std::vector&lt;std::pair&lt;int,int&gt;&gt; objectives_positions; <span class="comment">//positions of the ora objectives to collect</span></div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;};</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; </div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="preprocessor">#endif // MINER_H</span></div>
 </div><!-- fragment --></div><!-- contents -->
-<div class="ttc" id="aclass_miner_html"><div class="ttname"><a href="class_miner.html">Miner</a></div><div class="ttdef"><b>Definition:</b> Miner.h:10</div></div>
-<div class="ttc" id="aclass_entity_html"><div class="ttname"><a href="class_entity.html">Entity</a></div><div class="ttdef"><b>Definition:</b> Entity.h:4</div></div>
+<div class="ttc" id="aclass_miner_html_ac6c487fd584bd4f656574283e7ffa80a"><div class="ttname"><a href="class_miner.html#ac6c487fd584bd4f656574283e7ffa80a">Miner::Miner</a></div><div class="ttdeci">Miner(int xPos, int yPos)</div><div class="ttdoc">constructor</div><div class="ttdef"><b>Definition:</b> Miner.cpp:5</div></div>
+<div class="ttc" id="aclass_miner_html"><div class="ttname"><a href="class_miner.html">Miner</a></div><div class="ttdoc">Type of Entity meant to mine for Ore, which is the objective of a game.</div><div class="ttdef"><b>Definition:</b> Miner.h:13</div></div>
+<div class="ttc" id="aclass_miner_html_a846cc5340559ca9008aa208d74a60282"><div class="ttname"><a href="class_miner.html#a846cc5340559ca9008aa208d74a60282">Miner::depositOre</a></div><div class="ttdeci">void depositOre()</div><div class="ttdoc">gives the base the collected ore (1 tile distance)</div><div class="ttdef"><b>Definition:</b> Miner.cpp:41</div></div>
+<div class="ttc" id="aclass_miner_html_abe011ddf7ce53f4966030c877d21b51c"><div class="ttname"><a href="class_miner.html#abe011ddf7ce53f4966030c877d21b51c">Miner::checkForOre</a></div><div class="ttdeci">void checkForOre()</div><div class="ttdoc">looks for ore on the map and saves their positions in objectives_positions</div><div class="ttdef"><b>Definition:</b> Miner.cpp:29</div></div>
+<div class="ttc" id="aclass_miner_html_ae453647fcb8d9a73c5db19115b7a906f"><div class="ttname"><a href="class_miner.html#ae453647fcb8d9a73c5db19115b7a906f">Miner::~Miner</a></div><div class="ttdeci">virtual ~Miner()</div><div class="ttdoc">destructor</div><div class="ttdef"><b>Definition:</b> Miner.cpp:10</div></div>
+<div class="ttc" id="aclass_miner_html_a939a8b8d64d3effcbd97be3f2970a4fa"><div class="ttname"><a href="class_miner.html#a939a8b8d64d3effcbd97be3f2970a4fa">Miner::action</a></div><div class="ttdeci">void action()</div><div class="ttdoc">The Entity general behavior.</div><div class="ttdef"><b>Definition:</b> Miner.cpp:16</div></div>
+<div class="ttc" id="aclass_entity_html"><div class="ttname"><a href="class_entity.html">Entity</a></div><div class="ttdoc">Base Class to emulate Rovers and Aliens.</div><div class="ttdef"><b>Definition:</b> Entity.h:7</div></div>
+<div class="ttc" id="aclass_miner_html_a7094bde6011bf3b6a0ede65cd871c304"><div class="ttname"><a href="class_miner.html#a7094bde6011bf3b6a0ede65cd871c304">Miner::moveOut</a></div><div class="ttdeci">void moveOut()</div><div class="ttdoc">action to move for an Entity</div><div class="ttdef"><b>Definition:</b> Miner.cpp:21</div></div>
+<div class="ttc" id="aclass_miner_html_acfbf4c865a8dc5b3b96e9e5322a51ae2"><div class="ttname"><a href="class_miner.html#acfbf4c865a8dc5b3b96e9e5322a51ae2">Miner::mine</a></div><div class="ttdeci">void mine()</div><div class="ttdoc">takes ore next to it (1 tile distance)</div><div class="ttdef"><b>Definition:</b> Miner.cpp:35</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by &#160;<a href="http://www.doxygen.org/index.html">

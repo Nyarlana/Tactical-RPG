@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['tank_20',['Tank',['../class_tank.html',1,'']]],
-  ['tile_21',['Tile',['../class_tile.html',1,'']]],
-  ['tilemap_22',['TileMap',['../class_tile_map.html',1,'']]]
+  ['raider_29',['Raider',['../class_raider.html',1,'Raider'],['../class_raider.html#a9dffb2507c1db0920edc65d675ce8aeb',1,'Raider::Raider()']]],
+  ['remove_5fobserver_30',['remove_Observer',['../class_subject.html#a4a327738992312141160470c8c6172e8',1,'Subject']]]
 ];

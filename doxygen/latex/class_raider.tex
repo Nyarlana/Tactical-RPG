@@ -1,30 +1,35 @@
 \hypertarget{class_raider}{}\doxysection{Raider Class Reference}
 \label{class_raider}\index{Raider@{Raider}}
-Inheritance diagram for Raider\+:\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[height=3.000000cm]{class_raider}
-\end{center}
-\end{figure}
+
+
+Type of \mbox{\hyperlink{class_entity}{Entity}} meant to be able to fight against other entities.  
+
+
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\Hypertarget{class_raider_a9dffb2507c1db0920edc65d675ce8aeb}\label{class_raider_a9dffb2507c1db0920edc65d675ce8aeb}} 
-{\bfseries Raider} (int x\+Pos, int y\+Pos)
-\item 
+\mbox{\hyperlink{class_raider_a9dffb2507c1db0920edc65d675ce8aeb}{Raider}} (int x\+Pos, int y\+Pos)
+\begin{DoxyCompactList}\small\item\em constructor \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_raider_a06b75c1fbbd12d526423776bc751c867}\label{class_raider_a06b75c1fbbd12d526423776bc751c867}} 
+virtual \mbox{\hyperlink{class_raider_a06b75c1fbbd12d526423776bc751c867}{$\sim$\+Raider}} ()
+\begin{DoxyCompactList}\small\item\em destructor \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{class_raider_ab97ba4aa3e2701b7c6bda3d45bd15dd8}\label{class_raider_ab97ba4aa3e2701b7c6bda3d45bd15dd8}} 
 void {\bfseries action} ()
 \item 
-\mbox{\Hypertarget{class_raider_a8c167bf3d30d9b6677767ba9f6bf4489}\label{class_raider_a8c167bf3d30d9b6677767ba9f6bf4489}} 
-void {\bfseries attack} ()
+\mbox{\Hypertarget{class_raider_ac0273202faa69a14e92bf96db2cff68c}\label{class_raider_ac0273202faa69a14e92bf96db2cff68c}} 
+void {\bfseries attack} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_entity}{Entity}} $>$ target)
 \item 
 \mbox{\Hypertarget{class_raider_a2c29882a2fe873250e116dce69d40868}\label{class_raider_a2c29882a2fe873250e116dce69d40868}} 
-void {\bfseries speedup} ()
-\item 
+void \mbox{\hyperlink{class_raider_a2c29882a2fe873250e116dce69d40868}{speedup}} ()
+\begin{DoxyCompactList}\small\item\em raises the \mbox{\hyperlink{class_raider}{Raider}}\textquotesingle{}s speed \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{class_raider_ae73ccbf26c564853054befdcee521254}\label{class_raider_ae73ccbf26c564853054befdcee521254}} 
-void {\bfseries low\+Profile} ()
-\end{DoxyCompactItemize}
+void \mbox{\hyperlink{class_raider_ae73ccbf26c564853054befdcee521254}{low\+Profile}} ()
+\begin{DoxyCompactList}\small\item\em decreases the \mbox{\hyperlink{class_raider}{Raider}}\textquotesingle{}s threat value by ?? points the Aliens see in this \mbox{\hyperlink{class_raider}{Raider}} \end{DoxyCompactList}\end{DoxyCompactItemize}
 
+
+\doxysubsection{Detailed Description}
+Type of \mbox{\hyperlink{class_entity}{Entity}} meant to be able to fight against other entities. 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 

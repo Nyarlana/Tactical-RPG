@@ -70,62 +70,38 @@ $(function() {
 <div class="title">Tank Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="dynheader">
-Inheritance diagram for Tank:</div>
-<div class="dyncontent">
- <div class="center">
-  <img src="class_tank.png" usemap="#Tank_map" alt=""/>
-  <map id="Tank_map" name="Tank_map">
-<area href="class_fighter.html" alt="Fighter" shape="rect" coords="0,56,52,80"/>
-<area href="class_entity.html" alt="Entity" shape="rect" coords="0,0,52,24"/>
-  </map>
-</div></div>
+
+<p>Type of <a class="el" href="class_entity.html" title="Base Class to emulate Rovers and Aliens.">Entity</a> meant to be able to fight against other entities.  
+ <a href="class_tank.html#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:ab813fc37696f159ec74dd05a8c111f34"><td class="memItemLeft" align="right" valign="top"><a id="ab813fc37696f159ec74dd05a8c111f34"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>Tank</b> (int xPos, int yPos)</td></tr>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_tank.html#ab813fc37696f159ec74dd05a8c111f34">Tank</a> (int xPos, int yPos)</td></tr>
+<tr class="memdesc:ab813fc37696f159ec74dd05a8c111f34"><td class="mdescLeft">&#160;</td><td class="mdescRight">constructor <br /></td></tr>
 <tr class="separator:ab813fc37696f159ec74dd05a8c111f34"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9e4fce49ae7fe871894c1a3122c10269"><td class="memItemLeft" align="right" valign="top"><a id="a9e4fce49ae7fe871894c1a3122c10269"></a>
+virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_tank.html#a9e4fce49ae7fe871894c1a3122c10269">~Tank</a> ()</td></tr>
+<tr class="memdesc:a9e4fce49ae7fe871894c1a3122c10269"><td class="mdescLeft">&#160;</td><td class="mdescRight">destructor <br /></td></tr>
+<tr class="separator:a9e4fce49ae7fe871894c1a3122c10269"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab678a5d50edb89449568ba6024d34675"><td class="memItemLeft" align="right" valign="top"><a id="ab678a5d50edb89449568ba6024d34675"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>action</b> ()</td></tr>
 <tr class="separator:ab678a5d50edb89449568ba6024d34675"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abee72fc465289354de4e790ccad9c93d"><td class="memItemLeft" align="right" valign="top"><a id="abee72fc465289354de4e790ccad9c93d"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>attack</b> ()</td></tr>
-<tr class="separator:abee72fc465289354de4e790ccad9c93d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a07791f6d1c9fb3439f36664b87621b71"><td class="memItemLeft" align="right" valign="top"><a id="a07791f6d1c9fb3439f36664b87621b71"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>attack</b> (std::shared_ptr&lt; <a class="el" href="class_entity.html">Entity</a> &gt; target)</td></tr>
+<tr class="separator:a07791f6d1c9fb3439f36664b87621b71"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a70eebf421a8aaf0135ba22c93d9bcbb2"><td class="memItemLeft" align="right" valign="top"><a id="a70eebf421a8aaf0135ba22c93d9bcbb2"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>tease</b> ()</td></tr>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_tank.html#a70eebf421a8aaf0135ba22c93d9bcbb2">tease</a> ()</td></tr>
+<tr class="memdesc:a70eebf421a8aaf0135ba22c93d9bcbb2"><td class="mdescLeft">&#160;</td><td class="mdescRight">increases by ?? points the threat Aliens around see in this <a class="el" href="class_tank.html" title="Type of Entity meant to be able to fight against other entities.">Tank</a> <br /></td></tr>
 <tr class="separator:a70eebf421a8aaf0135ba22c93d9bcbb2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a673986bbc185c18cb21e5bc5aed45f0a"><td class="memItemLeft" align="right" valign="top"><a id="a673986bbc185c18cb21e5bc5aed45f0a"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>taunt</b> (std::shared_ptr&lt; <a class="el" href="class_alien.html">Alien</a> &gt; alien)</td></tr>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_tank.html#a673986bbc185c18cb21e5bc5aed45f0a">taunt</a> (std::shared_ptr&lt; <a class="el" href="class_alien.html">Alien</a> &gt; alien)</td></tr>
+<tr class="memdesc:a673986bbc185c18cb21e5bc5aed45f0a"><td class="mdescLeft">&#160;</td><td class="mdescRight">multiplies by ?? the threat the selected <a class="el" href="class_alien.html" title="Type of Entity meant to annoy Rovers.">Alien</a> see in this <a class="el" href="class_tank.html" title="Type of Entity meant to be able to fight against other entities.">Tank</a> <br /></td></tr>
 <tr class="separator:a673986bbc185c18cb21e5bc5aed45f0a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="inherit_header pub_methods_class_fighter"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_fighter')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="class_fighter.html">Fighter</a></td></tr>
-<tr class="memitem:ae1db37244ef64cdd77722d68cc0bdbbf inherit pub_methods_class_fighter"><td class="memItemLeft" align="right" valign="top"><a id="ae1db37244ef64cdd77722d68cc0bdbbf"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>Fighter</b> (int xPos, int yPos)</td></tr>
-<tr class="separator:ae1db37244ef64cdd77722d68cc0bdbbf inherit pub_methods_class_fighter"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6c2124b0c1b197e3056d1cd90b4923ee inherit pub_methods_class_fighter"><td class="memItemLeft" align="right" valign="top"><a id="a6c2124b0c1b197e3056d1cd90b4923ee"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>moveOut</b> ()=0</td></tr>
-<tr class="separator:a6c2124b0c1b197e3056d1cd90b4923ee inherit pub_methods_class_fighter"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae7c288e5e140382e3a1ac47961854f8f inherit pub_methods_class_fighter"><td class="memItemLeft" align="right" valign="top"><a id="ae7c288e5e140382e3a1ac47961854f8f"></a>
-*std::unordered_map&lt; std::shared_ptr&lt; <a class="el" href="class_entity.html">Entity</a> &gt;, int &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>getTargets</b> ()</td></tr>
-<tr class="separator:ae7c288e5e140382e3a1ac47961854f8f inherit pub_methods_class_fighter"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aea5cc48d5bc5a31a79d6bc163c1c3876 inherit pub_methods_class_fighter"><td class="memItemLeft" align="right" valign="top"><a id="aea5cc48d5bc5a31a79d6bc163c1c3876"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>increaseThreat</b> (std::shared_ptr&lt; <a class="el" href="class_entity.html">Entity</a> &gt; target, int threatIncrease)</td></tr>
-<tr class="separator:aea5cc48d5bc5a31a79d6bc163c1c3876 inherit pub_methods_class_fighter"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aeab77cf3172e1ea3baffd8b92c5fed7c inherit pub_methods_class_fighter"><td class="memItemLeft" align="right" valign="top"><a id="aeab77cf3172e1ea3baffd8b92c5fed7c"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>attack</b> (std::shared_ptr&lt; <a class="el" href="class_entity.html">Entity</a> &gt; target)=0</td></tr>
-<tr class="separator:aeab77cf3172e1ea3baffd8b92c5fed7c inherit pub_methods_class_fighter"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="inherit_header pub_methods_class_entity"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_entity')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="class_entity.html">Entity</a></td></tr>
-<tr class="memitem:ad9a8aea2bf997668edbbd1274560ef94 inherit pub_methods_class_entity"><td class="memItemLeft" align="right" valign="top"><a id="ad9a8aea2bf997668edbbd1274560ef94"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>Entity</b> (int max_LP, int xPos, int yPos, int speed)</td></tr>
-<tr class="separator:ad9a8aea2bf997668edbbd1274560ef94 inherit pub_methods_class_entity"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9e19cd1578b990ba6176d83930124a65 inherit pub_methods_class_entity"><td class="memItemLeft" align="right" valign="top"><a id="a9e19cd1578b990ba6176d83930124a65"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>takeDamage</b> (int value)</td></tr>
-<tr class="separator:a9e19cd1578b990ba6176d83930124a65 inherit pub_methods_class_entity"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a87466c642875c59e774830e3168b485b inherit pub_methods_class_entity"><td class="memItemLeft" align="right" valign="top"><a id="a87466c642875c59e774830e3168b485b"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>die</b> ()</td></tr>
-<tr class="separator:a87466c642875c59e774830e3168b485b inherit pub_methods_class_entity"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<hr/>The documentation for this class was generated from the following files:<ul>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Type of <a class="el" href="class_entity.html" title="Base Class to emulate Rovers and Aliens.">Entity</a> meant to be able to fight against other entities. </p>
+</div><hr/>The documentation for this class was generated from the following files:<ul>
 <li>src/entities/<a class="el" href="_tank_8h_source.html">Tank.h</a></li>
 <li>src/entities/Tank.cpp</li>
 </ul>

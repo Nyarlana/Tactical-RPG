@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['remove_5fobserver_49',['remove_Observer',['../class_subject.html#a4a327738992312141160470c8c6172e8',1,'Subject']]]
+  ['increasethreat_80',['increaseThreat',['../class_fighter.html#aea5cc48d5bc5a31a79d6bc163c1c3876',1,'Fighter']]],
+  ['init_81',['init',['../class_game_manager.html#a849df8c09486d7c84f368d52716b56d2',1,'GameManager']]]
 ];

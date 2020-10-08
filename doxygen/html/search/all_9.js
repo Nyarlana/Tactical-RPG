@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['notify_14',['notify',['../class_subject.html#aa9848a867108ec2819767e87d0b5a230',1,'Subject']]]
+  ['lowprofile_21',['lowProfile',['../class_raider.html#ae73ccbf26c564853054befdcee521254',1,'Raider']]]
 ];

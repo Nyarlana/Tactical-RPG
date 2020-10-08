@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['mainloop_46',['mainloop',['../class_game_manager.html#a519ccd05d154ae2a6ff0624c094a8dac',1,'GameManager']]]
+  ['fighter_75',['Fighter',['../class_fighter.html#a5f5872dd45fe5bb29e6d162bfb1183bd',1,'Fighter']]]
 ];

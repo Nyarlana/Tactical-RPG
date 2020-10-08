@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['gamemanager_9',['GameManager',['../class_game_manager.html',1,'GameManager'],['../class_game_manager.html#aa0e2424dc1a39d380e5b6605b179bf05',1,'GameManager::GameManager()']]]
+  ['fighter_13',['Fighter',['../class_fighter.html',1,'Fighter'],['../class_fighter.html#a5f5872dd45fe5bb29e6d162bfb1183bd',1,'Fighter::Fighter()']]],
+  ['filereader_14',['FileReader',['../class_file_reader.html',1,'']]]
 ];

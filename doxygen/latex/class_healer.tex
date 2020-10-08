@@ -1,29 +1,67 @@
 \hypertarget{class_healer}{}\doxysection{Healer Class Reference}
 \label{class_healer}\index{Healer@{Healer}}
-Inheritance diagram for Healer\+:\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[height=3.000000cm]{class_healer}
-\end{center}
-\end{figure}
+
+
+Type of \mbox{\hyperlink{class_entity}{Entity}} meant to heal and protect other entities, able to fight but hits weakly.  
+
+
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\Hypertarget{class_healer_aa5fcb86bf99adcf158628a6e6869cbad}\label{class_healer_aa5fcb86bf99adcf158628a6e6869cbad}} 
-{\bfseries Healer} (int x\+Pos, int y\+Pos)
-\item 
+\mbox{\hyperlink{class_healer_aa5fcb86bf99adcf158628a6e6869cbad}{Healer}} (int x\+Pos, int y\+Pos)
+\begin{DoxyCompactList}\small\item\em constructor \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_healer_a8e82ac0ff223ecd6f4dda4a161622ee5}\label{class_healer_a8e82ac0ff223ecd6f4dda4a161622ee5}} 
+virtual \mbox{\hyperlink{class_healer_a8e82ac0ff223ecd6f4dda4a161622ee5}{$\sim$\+Healer}} ()
+\begin{DoxyCompactList}\small\item\em destructor \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{class_healer_ae7024d3b88999f7fbc96cead76ac0d84}\label{class_healer_ae7024d3b88999f7fbc96cead76ac0d84}} 
 void {\bfseries action} ()
 \item 
-\mbox{\Hypertarget{class_healer_a0a4f92cf4a94e3b7babe69a09e8c5266}\label{class_healer_a0a4f92cf4a94e3b7babe69a09e8c5266}} 
-void {\bfseries attack} ()
+\mbox{\Hypertarget{class_healer_a9e637f00a19b3a617ee7dcfd959ec3c8}\label{class_healer_a9e637f00a19b3a617ee7dcfd959ec3c8}} 
+void {\bfseries attack} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_entity}{Entity}} $>$ target)
 \item 
-\mbox{\Hypertarget{class_healer_a99533c04eb3b77b7200c93e012afe239}\label{class_healer_a99533c04eb3b77b7200c93e012afe239}} 
-void {\bfseries set\+Need} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_entity}{Entity}} $>$ target, int need\+Set)
-\item 
+void \mbox{\hyperlink{class_healer_af8e8bb01301f1da8556d0b9a036968e4}{change\+Need}} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_entity}{Entity}} $>$ target, int value)
+\begin{DoxyCompactList}\small\item\em changes heal need of a specific target, if the target isn\textquotesingle{}t already is the target list, adds it to the list \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_healer_a48621f5b4e0d8c1a0f783d1fcd69266c}{heal}} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_entity}{Entity}} $>$ target)
+\begin{DoxyCompactList}\small\item\em heals the target\textquotesingle{}s life points by ?? points \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Type of \mbox{\hyperlink{class_entity}{Entity}} meant to heal and protect other entities, able to fight but hits weakly. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_healer_af8e8bb01301f1da8556d0b9a036968e4}\label{class_healer_af8e8bb01301f1da8556d0b9a036968e4}} 
+\index{Healer@{Healer}!changeNeed@{changeNeed}}
+\index{changeNeed@{changeNeed}!Healer@{Healer}}
+\doxysubsubsection{\texorpdfstring{changeNeed()}{changeNeed()}}
+{\footnotesize\ttfamily void Healer\+::change\+Need (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_entity}{Entity}} $>$}]{target,  }\item[{int}]{value }\end{DoxyParamCaption})}
+
+
+
+changes heal need of a specific target, if the target isn\textquotesingle{}t already is the target list, adds it to the list 
+
+
+\begin{DoxyParams}{Parameters}
+{\em target} & target thats need of heal changes \\
+\hline
+{\em value} & amount of point by which a target needs heal \\
+\hline
+\end{DoxyParams}
 \mbox{\Hypertarget{class_healer_a48621f5b4e0d8c1a0f783d1fcd69266c}\label{class_healer_a48621f5b4e0d8c1a0f783d1fcd69266c}} 
-void {\bfseries heal} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_entity}{Entity}} $>$ target)
-\end{DoxyCompactItemize}
+\index{Healer@{Healer}!heal@{heal}}
+\index{heal@{heal}!Healer@{Healer}}
+\doxysubsubsection{\texorpdfstring{heal()}{heal()}}
+{\footnotesize\ttfamily void Healer\+::heal (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_entity}{Entity}} $>$}]{target }\end{DoxyParamCaption})}
+
+
+
+heals the target\textquotesingle{}s life points by ?? points 
+
+
+\begin{DoxyParams}{Parameters}
+{\em target} & target that will get a heal \\
+\hline
+\end{DoxyParams}
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}

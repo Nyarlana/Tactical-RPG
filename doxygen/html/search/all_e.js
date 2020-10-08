@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['_7ecomponent_23',['~Component',['../class_component.html#a2e9aa4348314d981f05f67397ad2f872',1,'Component']]],
-  ['_7egamemanager_24',['~GameManager',['../class_game_manager.html#aaae63e38e358379c1fe507c5197a8435',1,'GameManager']]]
+  ['speedup_31',['speedup',['../class_raider.html#a2c29882a2fe873250e116dce69d40868',1,'Raider']]],
+  ['subject_32',['subject',['../classsubject.html',1,'subject'],['../class_subject.html',1,'Subject']]]
 ];
