@@ -15,8 +15,6 @@ class Entity
         //constructor
         /** @brief constructor */
         Entity(int max_LP, int xPos, int yPos, int speed);
-        /** @brief destructor */
-        virtual ~Entity();
 
         //Getter
         /** @brief gets the distance to another Entity */
@@ -41,6 +39,10 @@ class Entity
         int speed;                  //number of Tiles the Entity can go through in one move()
 
     private:
+        //Base type definition
+        typedef Component super;
+
+        //attributes
         int max_LP;                 //max life points of the Entity,
         int lp;                     //life points of the Entity,
         int xPos, yPos;             //position of the Entity

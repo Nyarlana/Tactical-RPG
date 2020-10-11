@@ -15,8 +15,6 @@ class Tank : public Fighter
     public:
         /** @brief constructor */
         Tank(int xPos, int yPos);
-        /** @brief destructor */
-        virtual ~Tank();
 
         //inherited functions
         void action();
@@ -32,6 +30,8 @@ class Tank : public Fighter
     protected:
 
     private:
+        //Base type definition
+        typedef Fighter super;
 };
 
 #endif // TANK_H

@@ -12,8 +12,6 @@ class Raider : public Fighter
     public:
         /** @brief constructor */
         Raider(int xPos, int yPos);
-        /** @brief destructor */
-        virtual ~Raider();
 
         //inherited functions
         void action();
@@ -29,6 +27,8 @@ class Raider : public Fighter
     protected:
 
     private:
+        //Base type definition
+        typedef Fighter super;
 };
 
 #endif // RAIDER_H

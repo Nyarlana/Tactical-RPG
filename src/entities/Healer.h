@@ -12,8 +12,6 @@ class Healer : public Fighter
     public:
         /** @brief constructor */
         Healer(int xPos, int yPos); //threatfullTargetCheckArea=0
-        /** @brief destructor */
-        virtual ~Healer();
 
         //inherited functions
         void action();
@@ -36,6 +34,10 @@ class Healer : public Fighter
     protected:
 
     private:
+        //Base type definition
+        typedef Fighter super;
+
+        //attributes
         int heal_power;
         std::unordered_map<std::shared_ptr<Entity>, int> heal_targets; //targets associated with their threat level
 };
