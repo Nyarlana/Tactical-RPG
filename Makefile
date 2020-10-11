@@ -16,7 +16,7 @@ main : GameManager.o
 
 testTilemap : TileMap.o
 	g++ $(INCLUDE) -c src/main/testTilemap.cpp -o obj/testTilemap.o obj/TileMap.o
-	g++ $(LIB) -o bin/testTilemap.exe -g obj/testTilemap.o obj/TileMap.o obj/FileReader.o obj/Tile.o $(LINKER_FLAGS)
+	g++ $(LIB) -o bin/testTilemap.exe -g obj/testTilemap.o obj/TileMap.o obj/FileReader.o obj/Tile.o obj/Component.o obj/Observer.o $(LINKER_FLAGS)
 
 testEntity : Miner.o Alien.o Healer.o Raider.o Tank.o
 	g++ $(INCLUDE) --std=c++11 -c src/main/testEntities.cpp -o obj/testEntity.o obj/Miner.o obj/Alien.o obj/Healer.o obj/Raider.o obj/Tank.o
@@ -32,8 +32,8 @@ Observer.o : Component.o
 Component.o :
 	g++ $(INCLUDE) -c src/gameManager/Component.cpp -o obj/Component.o $(LINKER_FLAGS)
 
-TileMap.o : FileReader.o Tile.o
-	g++ $(INCLUDE) -c src/TileMap/TileMap.cpp -o obj/TileMap.o -g obj/FileReader.o obj/Tile.o
+TileMap.o : FileReader.o Tile.o Component.o Observer.o
+	g++ $(INCLUDE) -c src/TileMap/TileMap.cpp -o obj/TileMap.o -g obj/FileReader.o obj/Tile.o obj/Component.o obj/Observer.o
 
 FileReader.o :
 	g++ $(INCLUDE) -c src/TileMap/FileReader.cpp -o obj/FileReader.o $(LINKER_FLAGS)

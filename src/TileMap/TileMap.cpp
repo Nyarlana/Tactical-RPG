@@ -38,3 +38,21 @@ void TileMap::printTab()
         std::cout<<std::endl;
     }
 }
+
+void TileMap::on_Notify(const Component& subject, Event event) {
+  switch (event) {
+    case EVENT_TEST: printf("hello\n");
+  }
+}
+
+void TileMap::_init() {
+
+}
+
+void TileMap::_update() {
+
+}
+
+void TileMap::_draw(sf::RenderWindow & window) {
+
+}
