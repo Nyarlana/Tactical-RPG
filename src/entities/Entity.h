@@ -2,6 +2,8 @@
 #ifndef ENTITY_H
 #define ENTITY_H
 
+#include "../gameManager/Component.h"
+
 #include <math.h>
 #include <memory>
 
@@ -37,7 +39,7 @@ class Entity
 
     protected:
         int speed;                  //number of Tiles the Entity can go through in one move()
-        
+
     private:
         int max_LP;                 //max life points of the Entity,
         int lp;                     //life points of the Entity,

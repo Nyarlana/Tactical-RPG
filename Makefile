@@ -59,5 +59,5 @@ Fighter.o : Entity.o
 Miner.o : Entity.o
 	g++ $(INCLUDE) --std=c++11 -c src/entities/Miner.cpp -o obj/Miner.o -g obj/Entity.o
 
-Entity.o :
-	g++ $(INCLUDE) --std=c++11 -c src/entities/Entity.cpp -o obj/Entity.o
+Entity.o : Component.o
+	g++ $(INCLUDE) --std=c++11 -c src/entities/Entity.cpp -o obj/Entity.o -g obj/Component.o
