@@ -2,7 +2,7 @@
 
 using namespace std;
 
-Miner::Miner(int xPos_, int yPos_) : Entity(4, xPos_, yPos_, 3)
+Miner::Miner(int xPos, int yPos) : Entity(4, xPos, yPos, 3)
 {
     //ctor
 }

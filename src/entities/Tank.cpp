@@ -5,7 +5,7 @@
 
 using namespace std;
 
-Tank::Tank() : Fighter(10, xPos, yPos, 2, 3, 4)
+Tank::Tank(int xPos, int yPos) : Fighter(10, xPos, yPos, 2, 3, 4)
 {
     //ctor
 }
@@ -17,6 +17,11 @@ Tank::~Tank()
 
 //inherited functions
 void Tank::action()
+{
+    //dtor
+}
+
+void Tank::moveOut()
 {
     //dtor
 }

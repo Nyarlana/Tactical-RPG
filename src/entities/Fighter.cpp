@@ -1,23 +1,25 @@
 #include "Fighter.h"
 
 #include <memory>
+#include <list>
 #include <vector>
 
 using namespace std;
 
-Fighter::Fighter() : Entity(max_LP, xPos, yPos, speed), targetCheckArea(targetCheckArea), threatfulTargetCheckArea(threatfulTargetCheckArea)
+Fighter::Fighter(int max_LP, int xPos, int yPos, int speed, int targetCheckArea, int threatfulTargetCheckArea) : Entity(max_LP, xPos, yPos, speed), targetCheckArea(targetCheckArea), threatfulTargetCheckArea(threatfulTargetCheckArea)
 {
 
 }
 
-Fighter::getTargets()
+unordered_map<shared_ptr<Entity>, int> Fighter::getTargets()
 {
-    unordered_map<shared_ptr<Entity>, int> *ptr = targets;
+    //unordered_map<shared_ptr<Entity>, int> *ptr;
+    //ptr = targets;
 
-    return ptr;
+    return targets;
 }
 
-Fighter::increaseThreat(shared_ptr<Entity> target, int threatIncrease)
+void Fighter::increaseThreat(shared_ptr<Entity> target, int threatIncrease)
 {
     unordered_map<shared_ptr<Entity>, int>::const_iterator got = targets.find (target);
 
@@ -27,11 +29,11 @@ Fighter::increaseThreat(shared_ptr<Entity> target, int threatIncrease)
         targets[got->first]+=threatIncrease;
 }
 
-Fighter::checkTargets()
+void Fighter::checkTargets()
 {
     bool is_threatful;
     int max_distance;
-    vector<shared_ptr<Entity>> to_remove;
+    list<shared_ptr<Entity>> to_remove;
 
     for ( auto it = targets.cbegin(); it != targets.cend(); ++it )
     {
@@ -46,12 +48,13 @@ Fighter::checkTargets()
             max_distance = targetCheckArea;
 
         if(getDistanceTo(it->first)>max_distance)
-            to_remove.pushback(it->first);
+            to_remove.push_back(it->first);
     }
 
-    for ( auto it = to_remove.cbegin(); it != to_remove.cend(); ++it )
+    while(!to_remove.empty())
     {
-        targets.erase(it);
+        targets.erase(to_remove.front());
+        to_remove.pop_front();
     }
 
     //asking map for vector<shared_ptr<Entity>> within circle :

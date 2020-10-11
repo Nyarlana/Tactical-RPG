@@ -5,9 +5,9 @@
 
 using namespace std;
 
-Healer::Healer() : Fighter(8, xPos, yPos, 3, 1, 3)
+Healer::Healer(int xPos, int yPos) : Fighter(8, xPos, yPos, 3, 1, 3)
 {
-    //ctor
+    heal_power=2;
 }
 
 Healer::~Healer()
@@ -17,6 +17,11 @@ Healer::~Healer()
 
 //inherited functions
 void Healer::action()
+{
+    //dtor
+}
+
+void Healer::moveOut()
 {
     //dtor
 }
@@ -31,24 +36,19 @@ void Healer::attack(shared_ptr<Entity> target)
 already is the target list, adds it to the list
 @param target target thats need of heal changes
 @param value amount of point by which a target needs heal*/
-void Healer::changeNeed(shared_ptr<Entity> target, int value)
+void Healer::changeNeed(shared_ptr<Entity> heal_target, int value)
 {
-    unordered_map<shared_ptr<Entity>, int>::const_iterator got = targets.find (target);
+    unordered_map<shared_ptr<Entity>, int>::const_iterator got = heal_targets.find (heal_target);
 
-    if ( got == targets.end() )
-        targets.emplace (target, value);
+    if ( got == heal_targets.end() )
+        heal_targets.emplace (heal_target, value);
     else
-        targets[got->first]+=value;
+        heal_targets[got->first]+=value;
 }
 
 /** @brief heals the target's life points by ?? points
 @param target target that will get a heal*/
-void Healer::heal(std::shared_ptr<Entity> target)
+void Healer::heal(std::shared_ptr<Entity> heal_target)
 {
-    target->takeDamage(heal_power*-1);
-}
-
-Healer::checkTargets()
-{
-    //dtor
+    heal_target->takeDamage(heal_power*-1);
 }
