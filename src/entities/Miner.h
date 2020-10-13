@@ -17,6 +17,9 @@ class Miner : public Entity
         //constructor
         /** @brief constructor */
         Miner(int xPos, int yPos);
+        // destructor
+        /** @brief destructor */
+        ~Miner();
 
         //inherited function
         void action();

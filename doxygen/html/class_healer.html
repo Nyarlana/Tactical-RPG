@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Tactical RPG - Projet L3
-   &#160;<span id="projectnumber">0.1</span>
+   &#160;<span id="projectnumber">0.1.0.1</span>
    </div>
    <div id="projectbrief">Un jeu de tactical rpg/simulation créé dans le cadre d&#39;un projet de L3 informatique</div>
   </td>
@@ -73,6 +73,16 @@ $(function() {
 
 <p>Type of <a class="el" href="class_entity.html" title="Base Class to emulate Rovers and Aliens.">Entity</a> meant to heal and protect other entities, able to fight but hits weakly.  
  <a href="class_healer.html#details">More...</a></p>
+<div class="dynheader">
+Inheritance diagram for Healer:</div>
+<div class="dyncontent">
+ <div class="center">
+  <img src="class_healer.png" usemap="#Healer_map" alt=""/>
+  <map id="Healer_map" name="Healer_map">
+<area href="class_fighter.html" title="Type of Entity meant to be able to fight against other entities." alt="Fighter" shape="rect" coords="0,56,52,80"/>
+<area href="class_entity.html" title="Base Class to emulate Rovers and Aliens." alt="Entity" shape="rect" coords="0,0,52,24"/>
+  </map>
+</div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -81,27 +91,116 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:aa5fcb86bf99adcf158628a6e6869cbad"><td class="mdescLeft">&#160;</td><td class="mdescRight">constructor <br /></td></tr>
 <tr class="separator:aa5fcb86bf99adcf158628a6e6869cbad"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8e82ac0ff223ecd6f4dda4a161622ee5"><td class="memItemLeft" align="right" valign="top"><a id="a8e82ac0ff223ecd6f4dda4a161622ee5"></a>
-virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_healer.html#a8e82ac0ff223ecd6f4dda4a161622ee5">~Healer</a> ()</td></tr>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_healer.html#a8e82ac0ff223ecd6f4dda4a161622ee5">~Healer</a> ()</td></tr>
 <tr class="memdesc:a8e82ac0ff223ecd6f4dda4a161622ee5"><td class="mdescLeft">&#160;</td><td class="mdescRight">destructor <br /></td></tr>
 <tr class="separator:a8e82ac0ff223ecd6f4dda4a161622ee5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae7024d3b88999f7fbc96cead76ac0d84"><td class="memItemLeft" align="right" valign="top"><a id="ae7024d3b88999f7fbc96cead76ac0d84"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>action</b> ()</td></tr>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_healer.html#ae7024d3b88999f7fbc96cead76ac0d84">action</a> ()</td></tr>
+<tr class="memdesc:ae7024d3b88999f7fbc96cead76ac0d84"><td class="mdescLeft">&#160;</td><td class="mdescRight">The <a class="el" href="class_entity.html" title="Base Class to emulate Rovers and Aliens.">Entity</a> general behavior. <br /></td></tr>
 <tr class="separator:ae7024d3b88999f7fbc96cead76ac0d84"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9e637f00a19b3a617ee7dcfd959ec3c8"><td class="memItemLeft" align="right" valign="top"><a id="a9e637f00a19b3a617ee7dcfd959ec3c8"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>attack</b> (std::shared_ptr&lt; <a class="el" href="class_entity.html">Entity</a> &gt; target)</td></tr>
+<tr class="memitem:a98a3543245ed0e35ddd07236c95d2c73"><td class="memItemLeft" align="right" valign="top"><a id="a98a3543245ed0e35ddd07236c95d2c73"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_healer.html#a98a3543245ed0e35ddd07236c95d2c73">moveOut</a> ()</td></tr>
+<tr class="memdesc:a98a3543245ed0e35ddd07236c95d2c73"><td class="mdescLeft">&#160;</td><td class="mdescRight">action to move for an <a class="el" href="class_entity.html" title="Base Class to emulate Rovers and Aliens.">Entity</a> <br /></td></tr>
+<tr class="separator:a98a3543245ed0e35ddd07236c95d2c73"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9e637f00a19b3a617ee7dcfd959ec3c8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_healer.html#a9e637f00a19b3a617ee7dcfd959ec3c8">attack</a> (std::shared_ptr&lt; <a class="el" href="class_entity.html">Entity</a> &gt; target)</td></tr>
+<tr class="memdesc:a9e637f00a19b3a617ee7dcfd959ec3c8"><td class="mdescLeft">&#160;</td><td class="mdescRight">simple attack against another <a class="el" href="class_entity.html" title="Base Class to emulate Rovers and Aliens.">Entity</a>, depending on the subclass of this <a class="el" href="class_fighter.html" title="Type of Entity meant to be able to fight against other entities.">Fighter</a>  <a href="class_healer.html#a9e637f00a19b3a617ee7dcfd959ec3c8">More...</a><br /></td></tr>
 <tr class="separator:a9e637f00a19b3a617ee7dcfd959ec3c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af8e8bb01301f1da8556d0b9a036968e4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_healer.html#af8e8bb01301f1da8556d0b9a036968e4">changeNeed</a> (std::shared_ptr&lt; <a class="el" href="class_entity.html">Entity</a> &gt; target, int value)</td></tr>
-<tr class="memdesc:af8e8bb01301f1da8556d0b9a036968e4"><td class="mdescLeft">&#160;</td><td class="mdescRight">changes heal need of a specific target, if the target isn't already is the target list, adds it to the list  <a href="class_healer.html#af8e8bb01301f1da8556d0b9a036968e4">More...</a><br /></td></tr>
-<tr class="separator:af8e8bb01301f1da8556d0b9a036968e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a48621f5b4e0d8c1a0f783d1fcd69266c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_healer.html#a48621f5b4e0d8c1a0f783d1fcd69266c">heal</a> (std::shared_ptr&lt; <a class="el" href="class_entity.html">Entity</a> &gt; target)</td></tr>
-<tr class="memdesc:a48621f5b4e0d8c1a0f783d1fcd69266c"><td class="mdescLeft">&#160;</td><td class="mdescRight">heals the target's life points by ?? points  <a href="class_healer.html#a48621f5b4e0d8c1a0f783d1fcd69266c">More...</a><br /></td></tr>
-<tr class="separator:a48621f5b4e0d8c1a0f783d1fcd69266c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab15f9caefdc7fbd83cf2cb8b9fad9f82"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_healer.html#ab15f9caefdc7fbd83cf2cb8b9fad9f82">changeNeed</a> (std::shared_ptr&lt; <a class="el" href="class_entity.html">Entity</a> &gt; heal_target, int value)</td></tr>
+<tr class="memdesc:ab15f9caefdc7fbd83cf2cb8b9fad9f82"><td class="mdescLeft">&#160;</td><td class="mdescRight">changes heal need of a specific target, if the target isn't already is the target list, adds it to the list  <a href="class_healer.html#ab15f9caefdc7fbd83cf2cb8b9fad9f82">More...</a><br /></td></tr>
+<tr class="separator:ab15f9caefdc7fbd83cf2cb8b9fad9f82"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab2e5bfcdc4f14b1af9677a9970b3cd60"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_healer.html#ab2e5bfcdc4f14b1af9677a9970b3cd60">heal</a> (std::shared_ptr&lt; <a class="el" href="class_entity.html">Entity</a> &gt; heal_target)</td></tr>
+<tr class="memdesc:ab2e5bfcdc4f14b1af9677a9970b3cd60"><td class="mdescLeft">&#160;</td><td class="mdescRight">heals the target's life points by ?? points  <a href="class_healer.html#ab2e5bfcdc4f14b1af9677a9970b3cd60">More...</a><br /></td></tr>
+<tr class="separator:ab2e5bfcdc4f14b1af9677a9970b3cd60"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4b9d1e5516301a8fd52dc56a79fc77ec"><td class="memItemLeft" align="right" valign="top"><a id="a4b9d1e5516301a8fd52dc56a79fc77ec"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_healer.html#a4b9d1e5516301a8fd52dc56a79fc77ec">checkHealTargets</a> ()</td></tr>
+<tr class="memdesc:a4b9d1e5516301a8fd52dc56a79fc77ec"><td class="mdescLeft">&#160;</td><td class="mdescRight">looks for targets in its areas and erases targets outside them <br /></td></tr>
+<tr class="separator:a4b9d1e5516301a8fd52dc56a79fc77ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_methods_class_fighter"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_fighter')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="class_fighter.html">Fighter</a></td></tr>
+<tr class="memitem:a5f5872dd45fe5bb29e6d162bfb1183bd inherit pub_methods_class_fighter"><td class="memItemLeft" align="right" valign="top"><a id="a5f5872dd45fe5bb29e6d162bfb1183bd"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_fighter.html#a5f5872dd45fe5bb29e6d162bfb1183bd">Fighter</a> (int max_LP, int xPos, int yPos, int speed, int targetCheckArea, int threatfulTargetCheckArea)</td></tr>
+<tr class="memdesc:a5f5872dd45fe5bb29e6d162bfb1183bd inherit pub_methods_class_fighter"><td class="mdescLeft">&#160;</td><td class="mdescRight">constructor <br /></td></tr>
+<tr class="separator:a5f5872dd45fe5bb29e6d162bfb1183bd inherit pub_methods_class_fighter"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2289c984195695dd459bb77b6062ed26 inherit pub_methods_class_fighter"><td class="memItemLeft" align="right" valign="top">std::unordered_map&lt; std::shared_ptr&lt; <a class="el" href="class_entity.html">Entity</a> &gt;, int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_fighter.html#a2289c984195695dd459bb77b6062ed26">getTargets</a> ()</td></tr>
+<tr class="memdesc:a2289c984195695dd459bb77b6062ed26 inherit pub_methods_class_fighter"><td class="mdescLeft">&#160;</td><td class="mdescRight">gives access to the target list  <a href="class_fighter.html#a2289c984195695dd459bb77b6062ed26">More...</a><br /></td></tr>
+<tr class="separator:a2289c984195695dd459bb77b6062ed26 inherit pub_methods_class_fighter"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a13b30514a8a114d8ccae176c2c445809 inherit pub_methods_class_fighter"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_fighter.html#a13b30514a8a114d8ccae176c2c445809">increaseThreat</a> (std::shared_ptr&lt; <a class="el" href="class_entity.html">Entity</a> &gt; target, int threatIncrease)</td></tr>
+<tr class="memdesc:a13b30514a8a114d8ccae176c2c445809 inherit pub_methods_class_fighter"><td class="mdescLeft">&#160;</td><td class="mdescRight">increases threat of a specific target, if the target isn't already is the target list, adds it to the list  <a href="class_fighter.html#a13b30514a8a114d8ccae176c2c445809">More...</a><br /></td></tr>
+<tr class="separator:a13b30514a8a114d8ccae176c2c445809 inherit pub_methods_class_fighter"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_methods_class_entity"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_entity')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="class_entity.html">Entity</a></td></tr>
+<tr class="memitem:ad9a8aea2bf997668edbbd1274560ef94 inherit pub_methods_class_entity"><td class="memItemLeft" align="right" valign="top"><a id="ad9a8aea2bf997668edbbd1274560ef94"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity.html#ad9a8aea2bf997668edbbd1274560ef94">Entity</a> (int max_LP, int xPos, int yPos, int speed)</td></tr>
+<tr class="memdesc:ad9a8aea2bf997668edbbd1274560ef94 inherit pub_methods_class_entity"><td class="mdescLeft">&#160;</td><td class="mdescRight">constructor <br /></td></tr>
+<tr class="separator:ad9a8aea2bf997668edbbd1274560ef94 inherit pub_methods_class_entity"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adf6d3f7cb1b2ba029b6b048a395cc8ae inherit pub_methods_class_entity"><td class="memItemLeft" align="right" valign="top"><a id="adf6d3f7cb1b2ba029b6b048a395cc8ae"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity.html#adf6d3f7cb1b2ba029b6b048a395cc8ae">~Entity</a> ()</td></tr>
+<tr class="memdesc:adf6d3f7cb1b2ba029b6b048a395cc8ae inherit pub_methods_class_entity"><td class="mdescLeft">&#160;</td><td class="mdescRight">destructor <br /></td></tr>
+<tr class="separator:adf6d3f7cb1b2ba029b6b048a395cc8ae inherit pub_methods_class_entity"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0be9d16acca47749b5450954b7cd8865 inherit pub_methods_class_entity"><td class="memItemLeft" align="right" valign="top"><a id="a0be9d16acca47749b5450954b7cd8865"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity.html#a0be9d16acca47749b5450954b7cd8865">getXPos</a> ()</td></tr>
+<tr class="memdesc:a0be9d16acca47749b5450954b7cd8865 inherit pub_methods_class_entity"><td class="mdescLeft">&#160;</td><td class="mdescRight">gets the distance to another <a class="el" href="class_entity.html" title="Base Class to emulate Rovers and Aliens.">Entity</a> <br /></td></tr>
+<tr class="separator:a0be9d16acca47749b5450954b7cd8865 inherit pub_methods_class_entity"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a84360a6824c2e29fa324eb9cc0d988e0 inherit pub_methods_class_entity"><td class="memItemLeft" align="right" valign="top"><a id="a84360a6824c2e29fa324eb9cc0d988e0"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>getYPos</b> ()</td></tr>
+<tr class="separator:a84360a6824c2e29fa324eb9cc0d988e0 inherit pub_methods_class_entity"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afa12388b2e85e2cd6ffbf82ba80c0fcc inherit pub_methods_class_entity"><td class="memItemLeft" align="right" valign="top"><a id="afa12388b2e85e2cd6ffbf82ba80c0fcc"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>getDistanceTo</b> (std::shared_ptr&lt; <a class="el" href="class_entity.html">Entity</a> &gt; e)</td></tr>
+<tr class="separator:afa12388b2e85e2cd6ffbf82ba80c0fcc inherit pub_methods_class_entity"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9e19cd1578b990ba6176d83930124a65 inherit pub_methods_class_entity"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity.html#a9e19cd1578b990ba6176d83930124a65">takeDamage</a> (int value)</td></tr>
+<tr class="memdesc:a9e19cd1578b990ba6176d83930124a65 inherit pub_methods_class_entity"><td class="mdescLeft">&#160;</td><td class="mdescRight">Lowers this.lp by value, then if lp&lt;=0, the entity is considered dead and so calls <a class="el" href="class_entity.html#a87466c642875c59e774830e3168b485b" title="dying action (including the destruction of the object)">die()</a>  <a href="class_entity.html#a9e19cd1578b990ba6176d83930124a65">More...</a><br /></td></tr>
+<tr class="separator:a9e19cd1578b990ba6176d83930124a65 inherit pub_methods_class_entity"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a87466c642875c59e774830e3168b485b inherit pub_methods_class_entity"><td class="memItemLeft" align="right" valign="top"><a id="a87466c642875c59e774830e3168b485b"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity.html#a87466c642875c59e774830e3168b485b">die</a> ()</td></tr>
+<tr class="memdesc:a87466c642875c59e774830e3168b485b inherit pub_methods_class_entity"><td class="mdescLeft">&#160;</td><td class="mdescRight">dying action (including the destruction of the object) <br /></td></tr>
+<tr class="separator:a87466c642875c59e774830e3168b485b inherit pub_methods_class_entity"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
+Additional Inherited Members</h2></td></tr>
+<tr class="inherit_header pro_attribs_class_entity"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_class_entity')"><img src="closed.png" alt="-"/>&#160;Protected Attributes inherited from <a class="el" href="class_entity.html">Entity</a></td></tr>
+<tr class="memitem:a12ea871d945d59cbf57b8f8f7d2179ed inherit pro_attribs_class_entity"><td class="memItemLeft" align="right" valign="top"><a id="a12ea871d945d59cbf57b8f8f7d2179ed"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>speed</b></td></tr>
+<tr class="separator:a12ea871d945d59cbf57b8f8f7d2179ed inherit pro_attribs_class_entity"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Type of <a class="el" href="class_entity.html" title="Base Class to emulate Rovers and Aliens.">Entity</a> meant to heal and protect other entities, able to fight but hits weakly. </p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
-<a id="af8e8bb01301f1da8556d0b9a036968e4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af8e8bb01301f1da8556d0b9a036968e4">&#9670;&nbsp;</a></span>changeNeed()</h2>
+<a id="a9e637f00a19b3a617ee7dcfd959ec3c8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9e637f00a19b3a617ee7dcfd959ec3c8">&#9670;&nbsp;</a></span>attack()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Healer::attack </td>
+          <td>(</td>
+          <td class="paramtype">std::shared_ptr&lt; <a class="el" href="class_entity.html">Entity</a> &gt;&#160;</td>
+          <td class="paramname"><em>target</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>simple attack against another <a class="el" href="class_entity.html" title="Base Class to emulate Rovers and Aliens.">Entity</a>, depending on the subclass of this <a class="el" href="class_fighter.html" title="Type of Entity meant to be able to fight against other entities.">Fighter</a> </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">target</td><td>target that will be attacked </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Implements <a class="el" href="class_fighter.html#aeab77cf3172e1ea3baffd8b92c5fed7c">Fighter</a>.</p>
+
+</div>
+</div>
+<a id="ab15f9caefdc7fbd83cf2cb8b9fad9f82"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab15f9caefdc7fbd83cf2cb8b9fad9f82">&#9670;&nbsp;</a></span>changeNeed()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -110,7 +209,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>attack</b> (std::shar
           <td class="memname">void Healer::changeNeed </td>
           <td>(</td>
           <td class="paramtype">std::shared_ptr&lt; <a class="el" href="class_entity.html">Entity</a> &gt;&#160;</td>
-          <td class="paramname"><em>target</em>, </td>
+          <td class="paramname"><em>heal_target</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -137,8 +236,8 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>attack</b> (std::shar
 
 </div>
 </div>
-<a id="a48621f5b4e0d8c1a0f783d1fcd69266c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a48621f5b4e0d8c1a0f783d1fcd69266c">&#9670;&nbsp;</a></span>heal()</h2>
+<a id="ab2e5bfcdc4f14b1af9677a9970b3cd60"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab2e5bfcdc4f14b1af9677a9970b3cd60">&#9670;&nbsp;</a></span>heal()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -147,7 +246,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>attack</b> (std::shar
           <td class="memname">void Healer::heal </td>
           <td>(</td>
           <td class="paramtype">std::shared_ptr&lt; <a class="el" href="class_entity.html">Entity</a> &gt;&#160;</td>
-          <td class="paramname"><em>target</em></td><td>)</td>
+          <td class="paramname"><em>heal_target</em></td><td>)</td>
           <td></td>
         </tr>
       </table>

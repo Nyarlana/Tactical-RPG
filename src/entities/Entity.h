@@ -15,6 +15,9 @@ class Entity
         //constructor
         /** @brief constructor */
         Entity(int max_LP, int xPos, int yPos, int speed);
+        //destructor
+        /** @brief destructor */
+        ~Entity();
 
         //Getter
         /** @brief gets the distance to another Entity */

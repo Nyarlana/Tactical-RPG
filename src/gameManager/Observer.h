@@ -2,7 +2,7 @@
 #ifndef OBSRV_SUBJ_H
 #define OBSRV_SUBJ_H
 
-#include <vector>
+// #include <vector>
 #include <memory>
 #include "Component.h"
 
@@ -22,6 +22,11 @@ public:
   virtual void on_Notify(const Component& subject, Event event) = 0;
 };
 
+struct ObsNode {
+  std::shared_ptr<Observer> obs;
+  std::shared_ptr<ObsNode> next;
+};
+
 /**@class subject class*/
 class Subject {
 public:
@@ -34,7 +39,8 @@ public:
   void remove_Observer(std::shared_ptr<Observer> obs);
 
 protected:
-  std::vector<std::shared_ptr<Observer>> observers;
+  // std::vector<std::shared_ptr<Observer>> observers;
+  std::shared_ptr<ObsNode> first = nullptr;
 };
 
 #endif

@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Tactical RPG - Projet L3
-   &#160;<span id="projectnumber">0.1</span>
+   &#160;<span id="projectnumber">0.1.0.1</span>
    </div>
    <div id="projectbrief">Un jeu de tactical rpg/simulation créé dans le cadre d&#39;un projet de L3 informatique</div>
   </td>
@@ -65,6 +65,7 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pro-attribs">Protected Attributes</a> &#124;
 <a href="class_entity-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">Entity Class Reference<span class="mlabels"><span class="mlabel">abstract</span></span></div>  </div>
@@ -79,9 +80,16 @@ Inheritance diagram for Entity:</div>
  <div class="center">
   <img src="class_entity.png" usemap="#Entity_map" alt=""/>
   <map id="Entity_map" name="Entity_map">
-<area href="class_fighter.html" title="Type of Entity meant to be able to fight against other entities." alt="Fighter" shape="rect" coords="0,56,52,80"/>
-<area href="class_miner.html" title="Type of Entity meant to mine for Ore, which is the objective of a game." alt="Miner" shape="rect" coords="62,56,114,80"/>
-<area href="class_alien.html" title="Type of Entity meant to annoy Rovers." alt="Alien" shape="rect" coords="0,112,52,136"/>
+<area href="class_fighter.html" title="Type of Entity meant to be able to fight against other entities." alt="Fighter" shape="rect" coords="126,56,200,80"/>
+<area href="class_miner.html" title="Type of Entity meant to mine for Ore, which is the objective of a game." alt="Miner" shape="rect" coords="210,56,284,80"/>
+<area href="class_rover.html" title="Rover type of Entity." alt="Rover" shape="rect" coords="378,56,452,80"/>
+<area href="class_rover_base.html" title="RoverBase type of Entity." alt="RoverBase" shape="rect" coords="462,56,536,80"/>
+<area href="class_alien.html" title="Type of Entity meant to annoy Rovers." alt="Alien" shape="rect" coords="0,112,74,136"/>
+<area href="class_healer.html" title="Type of Entity meant to heal and protect other entities, able to fight but hits weakly." alt="Healer" shape="rect" coords="84,112,158,136"/>
+<area href="class_raider.html" title="Type of Entity meant to be able to fight against other entities." alt="Raider" shape="rect" coords="168,112,242,136"/>
+<area href="class_tank.html" title="Type of Entity meant to be able to fight against other entities." alt="Tank" shape="rect" coords="252,112,326,136"/>
+<area href="class_explorer.html" title="Explorer type of Rover." alt="Explorer" shape="rect" coords="336,112,410,136"/>
+<area href="class_protector.html" title="Protector type of Rover." alt="Protector" shape="rect" coords="420,112,494,136"/>
   </map>
 </div></div>
 <table class="memberdecls">
@@ -92,9 +100,19 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:ad9a8aea2bf997668edbbd1274560ef94"><td class="mdescLeft">&#160;</td><td class="mdescRight">constructor <br /></td></tr>
 <tr class="separator:ad9a8aea2bf997668edbbd1274560ef94"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adf6d3f7cb1b2ba029b6b048a395cc8ae"><td class="memItemLeft" align="right" valign="top"><a id="adf6d3f7cb1b2ba029b6b048a395cc8ae"></a>
-virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity.html#adf6d3f7cb1b2ba029b6b048a395cc8ae">~Entity</a> ()</td></tr>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity.html#adf6d3f7cb1b2ba029b6b048a395cc8ae">~Entity</a> ()</td></tr>
 <tr class="memdesc:adf6d3f7cb1b2ba029b6b048a395cc8ae"><td class="mdescLeft">&#160;</td><td class="mdescRight">destructor <br /></td></tr>
 <tr class="separator:adf6d3f7cb1b2ba029b6b048a395cc8ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0be9d16acca47749b5450954b7cd8865"><td class="memItemLeft" align="right" valign="top"><a id="a0be9d16acca47749b5450954b7cd8865"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity.html#a0be9d16acca47749b5450954b7cd8865">getXPos</a> ()</td></tr>
+<tr class="memdesc:a0be9d16acca47749b5450954b7cd8865"><td class="mdescLeft">&#160;</td><td class="mdescRight">gets the distance to another <a class="el" href="class_entity.html" title="Base Class to emulate Rovers and Aliens.">Entity</a> <br /></td></tr>
+<tr class="separator:a0be9d16acca47749b5450954b7cd8865"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a84360a6824c2e29fa324eb9cc0d988e0"><td class="memItemLeft" align="right" valign="top"><a id="a84360a6824c2e29fa324eb9cc0d988e0"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>getYPos</b> ()</td></tr>
+<tr class="separator:a84360a6824c2e29fa324eb9cc0d988e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afa12388b2e85e2cd6ffbf82ba80c0fcc"><td class="memItemLeft" align="right" valign="top"><a id="afa12388b2e85e2cd6ffbf82ba80c0fcc"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>getDistanceTo</b> (std::shared_ptr&lt; <a class="el" href="class_entity.html">Entity</a> &gt; e)</td></tr>
+<tr class="separator:afa12388b2e85e2cd6ffbf82ba80c0fcc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9e19cd1578b990ba6176d83930124a65"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity.html#a9e19cd1578b990ba6176d83930124a65">takeDamage</a> (int value)</td></tr>
 <tr class="memdesc:a9e19cd1578b990ba6176d83930124a65"><td class="mdescLeft">&#160;</td><td class="mdescRight">Lowers this.lp by value, then if lp&lt;=0, the entity is considered dead and so calls <a class="el" href="class_entity.html#a87466c642875c59e774830e3168b485b" title="dying action (including the destruction of the object)">die()</a>  <a href="class_entity.html#a9e19cd1578b990ba6176d83930124a65">More...</a><br /></td></tr>
 <tr class="separator:a9e19cd1578b990ba6176d83930124a65"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -110,6 +128,12 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" hr
 virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity.html#acdd2a8996e7f00640ecfa84e947a6238">moveOut</a> ()=0</td></tr>
 <tr class="memdesc:acdd2a8996e7f00640ecfa84e947a6238"><td class="mdescLeft">&#160;</td><td class="mdescRight">action to move for an <a class="el" href="class_entity.html" title="Base Class to emulate Rovers and Aliens.">Entity</a> <br /></td></tr>
 <tr class="separator:acdd2a8996e7f00640ecfa84e947a6238"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
+Protected Attributes</h2></td></tr>
+<tr class="memitem:a12ea871d945d59cbf57b8f8f7d2179ed"><td class="memItemLeft" align="right" valign="top"><a id="a12ea871d945d59cbf57b8f8f7d2179ed"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>speed</b></td></tr>
+<tr class="separator:a12ea871d945d59cbf57b8f8f7d2179ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Base Class to emulate Rovers and Aliens. </p>

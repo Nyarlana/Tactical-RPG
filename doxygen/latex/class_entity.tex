@@ -8,7 +8,7 @@ Base Class to emulate Rovers and Aliens.
 Inheritance diagram for Entity\+:\begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[height=3.000000cm]{class_entity}
+\includegraphics[height=2.926829cm]{class_entity}
 \end{center}
 \end{figure}
 \doxysubsection*{Public Member Functions}
@@ -18,8 +18,17 @@ Inheritance diagram for Entity\+:\begin{figure}[H]
 \mbox{\hyperlink{class_entity_ad9a8aea2bf997668edbbd1274560ef94}{Entity}} (int max\+\_\+\+LP, int x\+Pos, int y\+Pos, int speed)
 \begin{DoxyCompactList}\small\item\em constructor \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{class_entity_adf6d3f7cb1b2ba029b6b048a395cc8ae}\label{class_entity_adf6d3f7cb1b2ba029b6b048a395cc8ae}} 
-virtual \mbox{\hyperlink{class_entity_adf6d3f7cb1b2ba029b6b048a395cc8ae}{$\sim$\+Entity}} ()
+\mbox{\hyperlink{class_entity_adf6d3f7cb1b2ba029b6b048a395cc8ae}{$\sim$\+Entity}} ()
 \begin{DoxyCompactList}\small\item\em destructor \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_entity_a0be9d16acca47749b5450954b7cd8865}\label{class_entity_a0be9d16acca47749b5450954b7cd8865}} 
+int \mbox{\hyperlink{class_entity_a0be9d16acca47749b5450954b7cd8865}{get\+X\+Pos}} ()
+\begin{DoxyCompactList}\small\item\em gets the distance to another \mbox{\hyperlink{class_entity}{Entity}} \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_entity_a84360a6824c2e29fa324eb9cc0d988e0}\label{class_entity_a84360a6824c2e29fa324eb9cc0d988e0}} 
+int {\bfseries get\+Y\+Pos} ()
+\item 
+\mbox{\Hypertarget{class_entity_afa12388b2e85e2cd6ffbf82ba80c0fcc}\label{class_entity_afa12388b2e85e2cd6ffbf82ba80c0fcc}} 
+int {\bfseries get\+Distance\+To} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_entity}{Entity}} $>$ e)
+\item 
 void \mbox{\hyperlink{class_entity_a9e19cd1578b990ba6176d83930124a65}{take\+Damage}} (int value)
 \begin{DoxyCompactList}\small\item\em Lowers this.\+lp by value, then if lp$<$=0, the entity is considered dead and so calls \mbox{\hyperlink{class_entity_a87466c642875c59e774830e3168b485b}{die()}} \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{class_entity_a87466c642875c59e774830e3168b485b}\label{class_entity_a87466c642875c59e774830e3168b485b}} 
@@ -31,6 +40,12 @@ virtual void \mbox{\hyperlink{class_entity_a2c0041dd88fc65a5ab15f969bebc7de3}{ac
 \mbox{\Hypertarget{class_entity_acdd2a8996e7f00640ecfa84e947a6238}\label{class_entity_acdd2a8996e7f00640ecfa84e947a6238}} 
 virtual void \mbox{\hyperlink{class_entity_acdd2a8996e7f00640ecfa84e947a6238}{move\+Out}} ()=0
 \begin{DoxyCompactList}\small\item\em action to move for an \mbox{\hyperlink{class_entity}{Entity}} \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_entity_a12ea871d945d59cbf57b8f8f7d2179ed}\label{class_entity_a12ea871d945d59cbf57b8f8f7d2179ed}} 
+int {\bfseries speed}
+\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}

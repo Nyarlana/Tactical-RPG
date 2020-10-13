@@ -1,4 +1,6 @@
 var searchData=
 [
-  ['subject_58',['subject',['../classsubject.html',1,'subject'],['../class_subject.html',1,'Subject']]]
+  ['raider_65',['Raider',['../class_raider.html',1,'']]],
+  ['rover_66',['Rover',['../class_rover.html',1,'']]],
+  ['roverbase_67',['RoverBase',['../class_rover_base.html',1,'']]]
 ];

@@ -15,6 +15,8 @@ class Tank : public Fighter
     public:
         /** @brief constructor */
         Tank(int xPos, int yPos);
+        /** @brief destructor */
+        ~Tank();
 
         //inherited functions
         void action();
