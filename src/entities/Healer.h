@@ -13,7 +13,7 @@ class Healer : public Fighter
         /** @brief constructor */
         Healer(int xPos, int yPos); //threatfullTargetCheckArea=0
         /** @brief destructor */
-        virtual ~Healer();
+        ~Healer();
 
         //inherited functions
         void action();

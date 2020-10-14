@@ -12,8 +12,8 @@ class Raider : public Fighter
     public:
         /** @brief constructor */
         Raider(int xPos, int yPos);
-        /** @brief destructor */
-        virtual ~Raider();
+        /** @bref destructor */
+        ~Raider();
 
         //inherited functions
         void action();

@@ -17,21 +17,19 @@ Inheritance diagram for Fighter\+:\begin{figure}[H]
 \mbox{\Hypertarget{class_fighter_a5f5872dd45fe5bb29e6d162bfb1183bd}\label{class_fighter_a5f5872dd45fe5bb29e6d162bfb1183bd}} 
 \mbox{\hyperlink{class_fighter_a5f5872dd45fe5bb29e6d162bfb1183bd}{Fighter}} (int max\+\_\+\+LP, int x\+Pos, int y\+Pos, int speed, int target\+Check\+Area, int threatful\+Target\+Check\+Area)
 \begin{DoxyCompactList}\small\item\em constructor \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{class_fighter_abd5c2c5ff458a5c40af2edb248458437}\label{class_fighter_abd5c2c5ff458a5c40af2edb248458437}} 
-virtual \mbox{\hyperlink{class_fighter_abd5c2c5ff458a5c40af2edb248458437}{$\sim$\+Fighter}} ()
-\begin{DoxyCompactList}\small\item\em destructor \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{class_fighter_abcfcb1bcecfc61302043619899b4a231}\label{class_fighter_abcfcb1bcecfc61302043619899b4a231}} 
 virtual void \mbox{\hyperlink{class_fighter_abcfcb1bcecfc61302043619899b4a231}{action}} ()=0
 \begin{DoxyCompactList}\small\item\em The \mbox{\hyperlink{class_entity}{Entity}} general behavior. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{class_fighter_a6c2124b0c1b197e3056d1cd90b4923ee}\label{class_fighter_a6c2124b0c1b197e3056d1cd90b4923ee}} 
 virtual void \mbox{\hyperlink{class_fighter_a6c2124b0c1b197e3056d1cd90b4923ee}{move\+Out}} ()=0
 \begin{DoxyCompactList}\small\item\em action to move for an \mbox{\hyperlink{class_entity}{Entity}} \end{DoxyCompactList}\item 
-$\ast$std\+::unordered\+\_\+map$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_entity}{Entity}} $>$, int $>$ \mbox{\hyperlink{class_fighter_ae7c288e5e140382e3a1ac47961854f8f}{get\+Targets}} ()
+std\+::unordered\+\_\+map$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_entity}{Entity}} $>$, int $>$ \mbox{\hyperlink{class_fighter_a2289c984195695dd459bb77b6062ed26}{get\+Targets}} ()
 \begin{DoxyCompactList}\small\item\em gives access to the target list \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{class_fighter_aea5cc48d5bc5a31a79d6bc163c1c3876}{increase\+Threat}} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_entity}{Entity}} $>$ target, int threat\+Increase)
+void \mbox{\hyperlink{class_fighter_a13b30514a8a114d8ccae176c2c445809}{increase\+Threat}} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_entity}{Entity}} $>$ target, int threat\+Increase)
 \begin{DoxyCompactList}\small\item\em increases threat of a specific target, if the target isn\textquotesingle{}t already is the target list, adds it to the list \end{DoxyCompactList}\item 
 virtual void \mbox{\hyperlink{class_fighter_aeab77cf3172e1ea3baffd8b92c5fed7c}{attack}} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_entity}{Entity}} $>$ target)=0
 \begin{DoxyCompactList}\small\item\em simple attack against another \mbox{\hyperlink{class_entity}{Entity}}, depending on the subclass of this \mbox{\hyperlink{class_fighter}{Fighter}} \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
 
 
 \doxysubsection{Detailed Description}
@@ -55,13 +53,13 @@ simple attack against another \mbox{\hyperlink{class_entity}{Entity}}, depending
 \end{DoxyParams}
 
 
-Implemented in \mbox{\hyperlink{class_alien_a87af809137de6947c12994bd4235ceee}{Alien}}.
+Implemented in \mbox{\hyperlink{class_tank_a07791f6d1c9fb3439f36664b87621b71}{Tank}}, \mbox{\hyperlink{class_healer_a9e637f00a19b3a617ee7dcfd959ec3c8}{Healer}}, \mbox{\hyperlink{class_raider_ac0273202faa69a14e92bf96db2cff68c}{Raider}}, and \mbox{\hyperlink{class_alien_a87af809137de6947c12994bd4235ceee}{Alien}}.
 
-\mbox{\Hypertarget{class_fighter_ae7c288e5e140382e3a1ac47961854f8f}\label{class_fighter_ae7c288e5e140382e3a1ac47961854f8f}} 
+\mbox{\Hypertarget{class_fighter_a2289c984195695dd459bb77b6062ed26}\label{class_fighter_a2289c984195695dd459bb77b6062ed26}} 
 \index{Fighter@{Fighter}!getTargets@{getTargets}}
 \index{getTargets@{getTargets}!Fighter@{Fighter}}
 \doxysubsubsection{\texorpdfstring{getTargets()}{getTargets()}}
-{\footnotesize\ttfamily Fighter\+::get\+Targets (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily unordered\+\_\+map$<$ shared\+\_\+ptr$<$ \mbox{\hyperlink{class_entity}{Entity}} $>$, int $>$ Fighter\+::get\+Targets (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 
 
@@ -70,11 +68,11 @@ gives access to the target list
 \begin{DoxyReturn}{Returns}
 targets 
 \end{DoxyReturn}
-\mbox{\Hypertarget{class_fighter_aea5cc48d5bc5a31a79d6bc163c1c3876}\label{class_fighter_aea5cc48d5bc5a31a79d6bc163c1c3876}} 
+\mbox{\Hypertarget{class_fighter_a13b30514a8a114d8ccae176c2c445809}\label{class_fighter_a13b30514a8a114d8ccae176c2c445809}} 
 \index{Fighter@{Fighter}!increaseThreat@{increaseThreat}}
 \index{increaseThreat@{increaseThreat}!Fighter@{Fighter}}
 \doxysubsubsection{\texorpdfstring{increaseThreat()}{increaseThreat()}}
-{\footnotesize\ttfamily Fighter\+::increase\+Threat (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_entity}{Entity}} $>$}]{target,  }\item[{int}]{threat\+Increase }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void Fighter\+::increase\+Threat (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_entity}{Entity}} $>$}]{target,  }\item[{int}]{threat\+Increase }\end{DoxyParamCaption})}
 
 
 

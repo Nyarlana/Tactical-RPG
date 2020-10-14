@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Tactical RPG - Projet L3
-   &#160;<span id="projectnumber">0.1</span>
+   &#160;<span id="projectnumber">0.1.0.1</span>
    </div>
    <div id="projectbrief">Un jeu de tactical rpg/simulation créé dans le cadre d&#39;un projet de L3 informatique</div>
   </td>
@@ -68,12 +68,15 @@ $(function() {
 <h3><a id="index__5F"></a>- _ -</h3><ul>
 <li>_draw()
 : <a class="el" href="class_component.html#a56712f5491879798ca4a052defc7dabc">Component</a>
+, <a class="el" href="class_tile_map.html#a2db1841ac6df40b0c400eb51935f6aee">TileMap</a>
 </li>
 <li>_init()
 : <a class="el" href="class_component.html#a53d12dbae56a7db96aede32837056684">Component</a>
+, <a class="el" href="class_tile_map.html#a178fda66a0b791e52e0417b9a59b854f">TileMap</a>
 </li>
 <li>_update()
 : <a class="el" href="class_component.html#aa02959fdfeee1fd9dd6f33ad14f5b6e4">Component</a>
+, <a class="el" href="class_tile_map.html#a1a12f8c5fb9a0465126d05ff6c52cbf1">TileMap</a>
 </li>
 </ul>
 
@@ -82,8 +85,15 @@ $(function() {
 <li>action()
 : <a class="el" href="class_alien.html#af2993fecd2b49de07a4f05f3abf26f18">Alien</a>
 , <a class="el" href="class_entity.html#a2c0041dd88fc65a5ab15f969bebc7de3">Entity</a>
+, <a class="el" href="class_explorer.html#ac242ccc1e0acdbffd6749dcca2db4d02">Explorer</a>
 , <a class="el" href="class_fighter.html#abcfcb1bcecfc61302043619899b4a231">Fighter</a>
+, <a class="el" href="class_healer.html#ae7024d3b88999f7fbc96cead76ac0d84">Healer</a>
 , <a class="el" href="class_miner.html#a939a8b8d64d3effcbd97be3f2970a4fa">Miner</a>
+, <a class="el" href="class_protector.html#ab3934dab69e5d1f1808511a5d8753d5d">Protector</a>
+, <a class="el" href="class_raider.html#ab97ba4aa3e2701b7c6bda3d45bd15dd8">Raider</a>
+, <a class="el" href="class_rover.html#a56b3aa13995c81be81de3f8555eafc1e">Rover</a>
+, <a class="el" href="class_rover_base.html#a38c9b21a10309933484fc0e148089aaf">RoverBase</a>
+, <a class="el" href="class_tank.html#ab678a5d50edb89449568ba6024d34675">Tank</a>
 </li>
 <li>add_Observer()
 : <a class="el" href="class_subject.html#a43a10fc9d535375a324310205855da22">Subject</a>
@@ -94,16 +104,22 @@ $(function() {
 <li>attack()
 : <a class="el" href="class_alien.html#a87af809137de6947c12994bd4235ceee">Alien</a>
 , <a class="el" href="class_fighter.html#aeab77cf3172e1ea3baffd8b92c5fed7c">Fighter</a>
+, <a class="el" href="class_healer.html#a9e637f00a19b3a617ee7dcfd959ec3c8">Healer</a>
+, <a class="el" href="class_raider.html#ac0273202faa69a14e92bf96db2cff68c">Raider</a>
+, <a class="el" href="class_tank.html#a07791f6d1c9fb3439f36664b87621b71">Tank</a>
 </li>
 </ul>
 
 
 <h3><a id="index_c"></a>- c -</h3><ul>
 <li>changeNeed()
-: <a class="el" href="class_healer.html#af8e8bb01301f1da8556d0b9a036968e4">Healer</a>
+: <a class="el" href="class_healer.html#ab15f9caefdc7fbd83cf2cb8b9fad9f82">Healer</a>
 </li>
 <li>checkForOre()
 : <a class="el" href="class_miner.html#abe011ddf7ce53f4966030c877d21b51c">Miner</a>
+</li>
+<li>checkHealTargets()
+: <a class="el" href="class_healer.html#a4b9d1e5516301a8fd52dc56a79fc77ec">Healer</a>
 </li>
 <li>Component()
 : <a class="el" href="class_component.html#a8775db6d1a2c1afc2e77cd3c8f39da6f">Component</a>
@@ -125,6 +141,9 @@ $(function() {
 <li>Entity()
 : <a class="el" href="class_entity.html#ad9a8aea2bf997668edbbd1274560ef94">Entity</a>
 </li>
+<li>Explorer()
+: <a class="el" href="class_explorer.html#a391563c59e5c3bb09a496f1a8beb4a21">Explorer</a>
+</li>
 </ul>
 
 
@@ -140,14 +159,17 @@ $(function() {
 : <a class="el" href="class_game_manager.html#aa0e2424dc1a39d380e5b6605b179bf05">GameManager</a>
 </li>
 <li>getTargets()
-: <a class="el" href="class_fighter.html#ae7c288e5e140382e3a1ac47961854f8f">Fighter</a>
+: <a class="el" href="class_fighter.html#a2289c984195695dd459bb77b6062ed26">Fighter</a>
+</li>
+<li>getXPos()
+: <a class="el" href="class_entity.html#a0be9d16acca47749b5450954b7cd8865">Entity</a>
 </li>
 </ul>
 
 
 <h3><a id="index_h"></a>- h -</h3><ul>
 <li>heal()
-: <a class="el" href="class_healer.html#a48621f5b4e0d8c1a0f783d1fcd69266c">Healer</a>
+: <a class="el" href="class_healer.html#ab2e5bfcdc4f14b1af9677a9970b3cd60">Healer</a>
 </li>
 <li>Healer()
 : <a class="el" href="class_healer.html#aa5fcb86bf99adcf158628a6e6869cbad">Healer</a>
@@ -157,7 +179,7 @@ $(function() {
 
 <h3><a id="index_i"></a>- i -</h3><ul>
 <li>increaseThreat()
-: <a class="el" href="class_fighter.html#aea5cc48d5bc5a31a79d6bc163c1c3876">Fighter</a>
+: <a class="el" href="class_fighter.html#a13b30514a8a114d8ccae176c2c445809">Fighter</a>
 </li>
 <li>init()
 : <a class="el" href="class_game_manager.html#a849df8c09486d7c84f368d52716b56d2">GameManager</a>
@@ -185,8 +207,15 @@ $(function() {
 <li>moveOut()
 : <a class="el" href="class_alien.html#ae266d237b429f7f9b638ef6625d7fc3b">Alien</a>
 , <a class="el" href="class_entity.html#acdd2a8996e7f00640ecfa84e947a6238">Entity</a>
+, <a class="el" href="class_explorer.html#a47568e6d7011378c0c12d12815ac473a">Explorer</a>
 , <a class="el" href="class_fighter.html#a6c2124b0c1b197e3056d1cd90b4923ee">Fighter</a>
+, <a class="el" href="class_healer.html#a98a3543245ed0e35ddd07236c95d2c73">Healer</a>
 , <a class="el" href="class_miner.html#a7094bde6011bf3b6a0ede65cd871c304">Miner</a>
+, <a class="el" href="class_protector.html#a03de022a31a1b3f2d7cac4c60fa2d640">Protector</a>
+, <a class="el" href="class_raider.html#a6de33c2d4de526e19e04dd01a84f1810">Raider</a>
+, <a class="el" href="class_rover.html#a78db9eccc83ed353a22c69694d9ff16b">Rover</a>
+, <a class="el" href="class_rover_base.html#a6dde41a7f0045df094aacedd18cfa349">RoverBase</a>
+, <a class="el" href="class_tank.html#af9c07a79d2fe66c638f295ebaa47ba44">Tank</a>
 </li>
 </ul>
 
@@ -202,6 +231,14 @@ $(function() {
 <li>on_Notify()
 : <a class="el" href="class_game_manager.html#a37204b1d9ed57007fa814c39395223b9">GameManager</a>
 , <a class="el" href="class_observer.html#a955b35d811139672822627a4c958e07d">Observer</a>
+, <a class="el" href="class_tile_map.html#a574ab84f4613776bcbd553643a4874c2">TileMap</a>
+</li>
+</ul>
+
+
+<h3><a id="index_p"></a>- p -</h3><ul>
+<li>Protector()
+: <a class="el" href="class_protector.html#a6aceacc58c75489747ef2c9179f48819">Protector</a>
 </li>
 </ul>
 
@@ -212,6 +249,12 @@ $(function() {
 </li>
 <li>remove_Observer()
 : <a class="el" href="class_subject.html#a4a327738992312141160470c8c6172e8">Subject</a>
+</li>
+<li>Rover()
+: <a class="el" href="class_rover.html#a0351e27329c2e2951fa86fdbaad0ea98">Rover</a>
+</li>
+<li>RoverBase()
+: <a class="el" href="class_rover_base.html#a550c6357792938d32afeeb62a0daeaf2">RoverBase</a>
 </li>
 </ul>
 
@@ -240,17 +283,11 @@ $(function() {
 
 
 <h3><a id="index__7E"></a>- ~ -</h3><ul>
-<li>~Alien()
-: <a class="el" href="class_alien.html#a7cdfd79d84b51a18003bf41585aedd43">Alien</a>
-</li>
 <li>~Component()
-: <a class="el" href="class_component.html#a2e9aa4348314d981f05f67397ad2f872">Component</a>
+: <a class="el" href="class_component.html#ab8378fa275af98e568a7e91d33d867af">Component</a>
 </li>
 <li>~Entity()
 : <a class="el" href="class_entity.html#adf6d3f7cb1b2ba029b6b048a395cc8ae">Entity</a>
-</li>
-<li>~Fighter()
-: <a class="el" href="class_fighter.html#abd5c2c5ff458a5c40af2edb248458437">Fighter</a>
 </li>
 <li>~GameManager()
 : <a class="el" href="class_game_manager.html#aaae63e38e358379c1fe507c5197a8435">GameManager</a>

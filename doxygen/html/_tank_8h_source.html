@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Tactical RPG - Projet L3
-   &#160;<span id="projectnumber">0.1</span>
+   &#160;<span id="projectnumber">0.1.0.1</span>
    </div>
    <div id="projectbrief">Un jeu de tactical rpg/simulation créé dans le cadre d&#39;un projet de L3 informatique</div>
   </td>
@@ -75,37 +75,46 @@ $(function() {
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#ifndef TANK_H</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#define TANK_H</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160; </div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &lt;Fighter.h&gt;</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160; </div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &lt;memory&gt;</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160; </div>
-<div class="line"><a name="l00012"></a><span class="lineno"><a class="line" href="class_tank.html">   12</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_tank.html">Tank</a> : <span class="keyword">public</span> <a class="code" href="class_tank.html">Tank</a></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;{</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;        <a class="code" href="class_tank.html#ab813fc37696f159ec74dd05a8c111f34">Tank</a>(<span class="keywordtype">int</span> xPos, <span class="keywordtype">int</span> yPos);</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;        <span class="keyword">virtual</span> <a class="code" href="class_tank.html#a9e4fce49ae7fe871894c1a3122c10269">~Tank</a>();</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;        <span class="comment">//inherited functions</span></div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;        <span class="keywordtype">void</span> action();</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;        <span class="keywordtype">void</span> attack(std::shared_ptr&lt;Entity&gt; target);</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        <span class="comment">//Class skills</span></div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="comment"></span>        <span class="keywordtype">void</span> <a class="code" href="class_tank.html#a70eebf421a8aaf0135ba22c93d9bcbb2">tease</a>();</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_tank.html#a673986bbc185c18cb21e5bc5aed45f0a">taunt</a>(std::shared_ptr&lt;Alien&gt; alien);</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;Fighter.h&quot;</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &quot;Alien.h&quot;</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160; </div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &lt;memory&gt;</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160; </div>
+<div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="class_tank.html">   13</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_tank.html">Tank</a> : <span class="keyword">public</span> <a class="code" href="class_fighter.html">Fighter</a></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;{</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;        <a class="code" href="class_tank.html#ab813fc37696f159ec74dd05a8c111f34">Tank</a>(<span class="keywordtype">int</span> xPos, <span class="keywordtype">int</span> yPos);</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;        <a class="code" href="class_tank.html#a9e4fce49ae7fe871894c1a3122c10269">~Tank</a>();</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;        <span class="comment">//inherited functions</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_tank.html#ab678a5d50edb89449568ba6024d34675">action</a>();</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_tank.html#af9c07a79d2fe66c638f295ebaa47ba44">moveOut</a>();</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_tank.html#a07791f6d1c9fb3439f36664b87621b71">attack</a>(std::shared_ptr&lt;Entity&gt; target);</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        <span class="comment">//Class skills</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="comment"></span>        <span class="keywordtype">void</span> <a class="code" href="class_tank.html#a70eebf421a8aaf0135ba22c93d9bcbb2">tease</a>();</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_tank.html#a673986bbc185c18cb21e5bc5aed45f0a">taunt</a>(std::shared_ptr&lt;Alien&gt; alien);</div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;};</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="preprocessor">#endif // TANK_H</span></div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        <span class="comment">//Base type definition</span></div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        <span class="keyword">typedef</span> <a class="code" href="class_fighter.html">Fighter</a> <a class="code" href="class_component.html">super</a>;</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;};</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; </div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="preprocessor">#endif // TANK_H</span></div>
 </div><!-- fragment --></div><!-- contents -->
 <div class="ttc" id="aclass_tank_html_ab813fc37696f159ec74dd05a8c111f34"><div class="ttname"><a href="class_tank.html#ab813fc37696f159ec74dd05a8c111f34">Tank::Tank</a></div><div class="ttdeci">Tank(int xPos, int yPos)</div><div class="ttdoc">constructor</div><div class="ttdef"><b>Definition:</b> Tank.cpp:8</div></div>
-<div class="ttc" id="aclass_tank_html"><div class="ttname"><a href="class_tank.html">Tank</a></div><div class="ttdoc">Type of Entity meant to be able to fight against other entities.</div><div class="ttdef"><b>Definition:</b> Tank.h:12</div></div>
-<div class="ttc" id="aclass_tank_html_a673986bbc185c18cb21e5bc5aed45f0a"><div class="ttname"><a href="class_tank.html#a673986bbc185c18cb21e5bc5aed45f0a">Tank::taunt</a></div><div class="ttdeci">void taunt(std::shared_ptr&lt; Alien &gt; alien)</div><div class="ttdoc">multiplies by ?? the threat the selected Alien see in this Tank</div><div class="ttdef"><b>Definition:</b> Tank.cpp:37</div></div>
-<div class="ttc" id="aclass_tank_html_a70eebf421a8aaf0135ba22c93d9bcbb2"><div class="ttname"><a href="class_tank.html#a70eebf421a8aaf0135ba22c93d9bcbb2">Tank::tease</a></div><div class="ttdeci">void tease()</div><div class="ttdoc">increases by ?? points the threat Aliens around see in this Tank</div><div class="ttdef"><b>Definition:</b> Tank.cpp:31</div></div>
-<div class="ttc" id="aclass_tank_html_a9e4fce49ae7fe871894c1a3122c10269"><div class="ttname"><a href="class_tank.html#a9e4fce49ae7fe871894c1a3122c10269">Tank::~Tank</a></div><div class="ttdeci">virtual ~Tank()</div><div class="ttdoc">destructor</div><div class="ttdef"><b>Definition:</b> Tank.cpp:13</div></div>
+<div class="ttc" id="aclass_fighter_html"><div class="ttname"><a href="class_fighter.html">Fighter</a></div><div class="ttdoc">Type of Entity meant to be able to fight against other entities.</div><div class="ttdef"><b>Definition:</b> Fighter.h:12</div></div>
+<div class="ttc" id="aclass_component_html"><div class="ttname"><a href="class_component.html">Component</a></div><div class="ttdoc">components of the GM class</div><div class="ttdef"><b>Definition:</b> Component.h:9</div></div>
+<div class="ttc" id="aclass_tank_html"><div class="ttname"><a href="class_tank.html">Tank</a></div><div class="ttdoc">Type of Entity meant to be able to fight against other entities.</div><div class="ttdef"><b>Definition:</b> Tank.h:13</div></div>
+<div class="ttc" id="aclass_tank_html_af9c07a79d2fe66c638f295ebaa47ba44"><div class="ttname"><a href="class_tank.html#af9c07a79d2fe66c638f295ebaa47ba44">Tank::moveOut</a></div><div class="ttdeci">void moveOut()</div><div class="ttdoc">action to move for an Entity</div><div class="ttdef"><b>Definition:</b> Tank.cpp:24</div></div>
+<div class="ttc" id="aclass_tank_html_a673986bbc185c18cb21e5bc5aed45f0a"><div class="ttname"><a href="class_tank.html#a673986bbc185c18cb21e5bc5aed45f0a">Tank::taunt</a></div><div class="ttdeci">void taunt(std::shared_ptr&lt; Alien &gt; alien)</div><div class="ttdoc">multiplies by ?? the threat the selected Alien see in this Tank</div><div class="ttdef"><b>Definition:</b> Tank.cpp:42</div></div>
+<div class="ttc" id="aclass_tank_html_a70eebf421a8aaf0135ba22c93d9bcbb2"><div class="ttname"><a href="class_tank.html#a70eebf421a8aaf0135ba22c93d9bcbb2">Tank::tease</a></div><div class="ttdeci">void tease()</div><div class="ttdoc">increases by ?? points the threat Aliens around see in this Tank</div><div class="ttdef"><b>Definition:</b> Tank.cpp:36</div></div>
+<div class="ttc" id="aclass_tank_html_ab678a5d50edb89449568ba6024d34675"><div class="ttname"><a href="class_tank.html#ab678a5d50edb89449568ba6024d34675">Tank::action</a></div><div class="ttdeci">void action()</div><div class="ttdoc">The Entity general behavior.</div><div class="ttdef"><b>Definition:</b> Tank.cpp:19</div></div>
+<div class="ttc" id="aclass_tank_html_a07791f6d1c9fb3439f36664b87621b71"><div class="ttname"><a href="class_tank.html#a07791f6d1c9fb3439f36664b87621b71">Tank::attack</a></div><div class="ttdeci">void attack(std::shared_ptr&lt; Entity &gt; target)</div><div class="ttdoc">simple attack against another Entity, depending on the subclass of this Fighter</div><div class="ttdef"><b>Definition:</b> Tank.cpp:29</div></div>
+<div class="ttc" id="aclass_tank_html_a9e4fce49ae7fe871894c1a3122c10269"><div class="ttname"><a href="class_tank.html#a9e4fce49ae7fe871894c1a3122c10269">Tank::~Tank</a></div><div class="ttdeci">~Tank()</div><div class="ttdoc">destructor</div><div class="ttdef"><b>Definition:</b> Tank.cpp:13</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by &#160;<a href="http://www.doxygen.org/index.html">

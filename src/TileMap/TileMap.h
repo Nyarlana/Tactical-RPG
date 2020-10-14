@@ -1,3 +1,4 @@
+/**@file Tile Map header*/
 #ifndef TILEMAP_H
 #define TILEMAP_H
 #include "FileReader.h"
@@ -5,12 +6,18 @@
 #include "../gameManager/Observer.h"
 #include "Tile.h"
 
+/**@class TileMap
+@brief The map on which the game happens*/
 class TileMap : public Component, public Observer, public Subject
 {
     public:
+        /**@brief Class constructor*/
         TileMap();
+        /**@brief Class destructor*/
         ~TileMap();
+        /**@brief Calls FileReader and sets the tilemap_tab with read values*/
         void setTab();
+        /**@brief Temporary function, for testing*/
         void printTab();
         // Surcharge
         virtual void on_Notify(const Component& subject, Event event);
