@@ -3,6 +3,7 @@
 #define MINER_H
 
 #include "Entity.h"
+
 #include <unordered_map>
 #include <string>
 #include <vector>
@@ -35,6 +36,10 @@ class Miner : public Entity
     protected:
 
     private:
+        //Base type definition
+        typedef Entity super;
+
+        //attributes
         bool bagFull;                                         //has an ore
         std::vector<std::pair<int,int>> objectives_positions; //positions of the ora objectives to collect
 };

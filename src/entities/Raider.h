@@ -29,6 +29,8 @@ class Raider : public Fighter
     protected:
 
     private:
+        //Base type definition
+        typedef Fighter super;
 };
 
 #endif // RAIDER_H

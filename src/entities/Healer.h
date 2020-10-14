@@ -36,6 +36,10 @@ class Healer : public Fighter
     protected:
 
     private:
+        //Base type definition
+        typedef Fighter super;
+
+        //attributes
         int heal_power;
         std::unordered_map<std::shared_ptr<Entity>, int> heal_targets; //targets associated with their threat level
 };

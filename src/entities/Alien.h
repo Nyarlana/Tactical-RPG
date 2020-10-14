@@ -21,6 +21,10 @@ class Alien : public Fighter
     protected:
 
     private:
+        //Base type definition
+        typedef Fighter super;
+
+        //attribute
         bool hasAggressiveBehavior;         //constant, inherited through its Alien-type
 };
 

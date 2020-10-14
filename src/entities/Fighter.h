@@ -3,6 +3,7 @@
 #define FIGHTER_H
 
 #include "Entity.h"
+
 #include <unordered_map>
 #include <memory>
 
@@ -39,6 +40,10 @@ class Fighter : public Entity
     protected:
 
     private:
+        //Base type definition
+        typedef Entity super;
+
+        //attributes
         std::unordered_map<std::shared_ptr<Entity>, int> targets; //targets associated with their threat level
         int  targetCheckArea;               //radius within which checkTarget() will look for targets
         int  threatfulTargetCheckArea;     //radius within which checkTarget() will look for threatful targets

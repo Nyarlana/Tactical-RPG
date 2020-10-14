@@ -9,7 +9,7 @@
 
 /**@class Entity class
 @brief Base Class to emulate Rovers and Aliens */
-class Entity
+class Entity : public Component
 {
     public:
         //constructor
@@ -41,6 +41,10 @@ class Entity
         int speed;                  //number of Tiles the Entity can go through in one move()
 
     private:
+        //Base type definition
+        typedef Component super;
+
+        //attributes
         int max_LP;                 //max life points of the Entity,
         int lp;                     //life points of the Entity,
         int xPos, yPos;             //position of the Entity

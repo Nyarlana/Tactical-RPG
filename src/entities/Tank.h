@@ -32,6 +32,8 @@ class Tank : public Fighter
     protected:
 
     private:
+        //Base type definition
+        typedef Fighter super;
 };
 
 #endif // TANK_H
