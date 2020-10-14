@@ -16,6 +16,21 @@ Healer::~Healer()
 }
 
 //inherited functions
+void Healer::_init()
+{
+
+}
+
+void Healer::_update()
+{
+
+}
+
+void Healer::_draw(sf::RenderWindow & window)
+{
+
+}
+
 void Healer::action()
 {
     //dtor

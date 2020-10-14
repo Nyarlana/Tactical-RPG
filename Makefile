@@ -20,7 +20,7 @@ testTilemap : TileMap.o
 
 testEntity : Miner.o Alien.o Healer.o Raider.o Tank.o
 	g++ $(INCLUDE) --std=c++11 -c src/main/testEntities.cpp -o obj/testEntity.o obj/Miner.o obj/Alien.o obj/Healer.o obj/Raider.o obj/Tank.o
-	g++ $(LIB) -o bin/testEntity.exe -g obj/testEntity.o obj/Miner.o obj/Alien.o obj/Healer.o obj/Raider.o obj/Tank.o obj/Fighter.o obj/Entity.o $(LINKER_FLAGS)
+	g++ $(LIB) -o bin/testEntity.exe -g obj/testEntity.o obj/Miner.o obj/Alien.o obj/Healer.o obj/Raider.o obj/Tank.o obj/Fighter.o obj/Entity.o obj/Component.o $(LINKER_FLAGS)
 
 
 GameManager.o : Component.o Observer.o
@@ -42,22 +42,22 @@ Tile.o :
 	g++ $(INCLUDE) -c src/TileMap/Tile.cpp -o obj/Tile.o $(LINKER_FLAGS)
 
 Alien.o : Fighter.o
-	g++ $(INCLUDE) --std=c++11 -c src/entities/Alien.cpp -o obj/Alien.o -g obj/Fighter.o
+	g++ $(INCLUDE) --std=c++11 -c src/entities/Alien.cpp -o obj/Alien.o -g obj/Fighter.o $(LINKER_FLAGS)
 
 Healer.o : Fighter.o
-	g++ $(INCLUDE) --std=c++11 -c src/entities/Healer.cpp -o obj/Healer.o -g obj/Fighter.o
+	g++ $(INCLUDE) --std=c++11 -c src/entities/Healer.cpp -o obj/Healer.o -g obj/Fighter.o $(LINKER_FLAGS)
 
 Tank.o : Fighter.o
-	g++ $(INCLUDE) --std=c++11 -c src/entities/Tank.cpp -o obj/Tank.o -g obj/Fighter.o
+	g++ $(INCLUDE) --std=c++11 -c src/entities/Tank.cpp -o obj/Tank.o -g obj/Fighter.o $(LINKER_FLAGS)
 
 Raider.o : Fighter.o
-	g++ $(INCLUDE) --std=c++11 -c src/entities/Raider.cpp -o obj/Raider.o -g obj/Fighter.o
+	g++ $(INCLUDE) --std=c++11 -c src/entities/Raider.cpp -o obj/Raider.o -g obj/Fighter.o $(LINKER_FLAGS)
 
 Fighter.o : Entity.o
-	g++ $(INCLUDE) --std=c++11 -c src/entities/Fighter.cpp -o obj/Fighter.o -g obj/Entity.o
+	g++ $(INCLUDE) --std=c++11 -c src/entities/Fighter.cpp -o obj/Fighter.o -g obj/Entity.o $(LINKER_FLAGS)
 
 Miner.o : Entity.o
-	g++ $(INCLUDE) --std=c++11 -c src/entities/Miner.cpp -o obj/Miner.o -g obj/Entity.o
+	g++ $(INCLUDE) --std=c++11 -c src/entities/Miner.cpp -o obj/Miner.o -g obj/Entity.o $(LINKER_FLAGS)
 
 Entity.o : Component.o
-	g++ $(INCLUDE) --std=c++11 -c src/entities/Entity.cpp -o obj/Entity.o -g obj/Component.o
+	g++ $(INCLUDE) --std=c++11 -c src/entities/Entity.cpp -o obj/Entity.o -g obj/Component.o $(LINKER_FLAGS)

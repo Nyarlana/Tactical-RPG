@@ -3,6 +3,9 @@
 #define ALIEN_H
 
 #include "Fighter.h"
+#include "Rover.h"
+#include <SFML/Graphics.hpp>
+#include <SFML/Main.hpp>
 
 /**@class Alien class
 @brief Type of Entity meant to annoy Rovers*/
@@ -13,6 +16,9 @@ class Alien : public Fighter
         Alien(int max_LP, int xPos, int yPos, int speed, int targetCheckArea, int threatfulTargetCheckArea, bool hasAggressiveBehavior);
 
         //inherited functions
+        void _init();
+        void _update();
+        void _draw(sf::RenderWindow & window);
         void action();
         void moveOut();
         void die();                                                 //overrides Entity::die(), destructs itself after notifying its group of its death

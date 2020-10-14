@@ -3,6 +3,8 @@
 #define MINER_H
 
 #include "Entity.h"
+#include <SFML/Graphics.hpp>
+#include <SFML/Main.hpp>
 
 #include <unordered_map>
 #include <string>
@@ -22,6 +24,9 @@ class Miner : public Entity
         ~Miner();
 
         //inherited function
+        void _init();
+        void _update();
+        void _draw(sf::RenderWindow & window);
         void action();
         void moveOut();
 

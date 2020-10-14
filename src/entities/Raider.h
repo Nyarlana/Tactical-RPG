@@ -3,7 +3,8 @@
 #define RAIDER_H
 
 #include "Fighter.h"
-
+#include <SFML/Graphics.hpp>
+#include <SFML/Main.hpp>
 
 /**@class Raider class
 @brief Type of Entity meant to be able to fight against other entities*/
@@ -16,6 +17,9 @@ class Raider : public Fighter
         ~Raider();
 
         //inherited functions
+        void _init();
+        void _update();
+        void _draw(sf::RenderWindow & window);
         void action();
         void moveOut();
         void attack(std::shared_ptr<Entity> target);

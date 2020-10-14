@@ -3,6 +3,8 @@
 #define TANK_H
 
 #include "Fighter.h"
+#include <SFML/Graphics.hpp>
+#include <SFML/Main.hpp>
 #include "Alien.h"
 
 #include <memory>
@@ -19,6 +21,9 @@ class Tank : public Fighter
         ~Tank();
 
         //inherited functions
+        void _init();
+        void _update();
+        void _draw(sf::RenderWindow & window);
         void action();
         void moveOut();
         void attack(std::shared_ptr<Entity> target);

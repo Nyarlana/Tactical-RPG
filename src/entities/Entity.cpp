@@ -1,18 +1,15 @@
 #include "Entity.h"
 
+#include "../gameManager/Component.h"
+
 #include <memory>
 #include <vector>
 #include <iostream>
 
 using namespace std;
 
-Entity::Entity(int _max_LP, int _xPos, int _yPos, int _speed)
+Entity::Entity(int _max_LP, int _xPos, int _yPos, int _speed) : max_LP(_max_LP), lp(_max_LP), xPos(_xPos), yPos(_yPos), speed(_speed)
 {
-    max_LP = _max_LP;
-    lp = max_LP;
-    xPos = _xPos;
-    yPos = _yPos;
-    speed = _speed;
 }
 
 int Entity::getXPos()
@@ -33,6 +30,11 @@ int Entity::getDistanceTo(shared_ptr<Entity> e)
     y = e.get()->getYPos()-yPos;
 
     return (int) sqrt(x*x+y*y);
+}
+
+bool Entity::isDead()
+{
+    return lp<1;
 }
 
 void Entity::takeDamage(int value) //critical section

@@ -16,6 +16,21 @@ Tank::~Tank()
 }
 
 //inherited functions
+void Tank::_init()
+{
+
+}
+
+void Tank::_update()
+{
+
+}
+
+void Tank::_draw(sf::RenderWindow & window)
+{
+
+}
+
 void Tank::action()
 {
     //dtor

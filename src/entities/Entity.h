@@ -3,6 +3,8 @@
 #define ENTITY_H
 
 #include "../gameManager/Component.h"
+#include <SFML/Graphics.hpp>
+#include <SFML/Main.hpp>
 
 #include <math.h>
 #include <memory>
@@ -19,11 +21,18 @@ class Entity : public Component
         /** @brief destructor */
         ~Entity();
 
+        //inherited functions
+        virtual void _init() = 0;
+        virtual void _update() = 0;
+        virtual void _draw(sf::RenderWindow & window) = 0;
+
         //Getter
         /** @brief gets the distance to another Entity */
         int getXPos();
         int getYPos();
         int getDistanceTo(std::shared_ptr<Entity> e);
+        /** @brief tells if the Entity is dead */
+        bool isDead();
 
         //modifiers
         /** @brief Lowers this.lp by value, then if lp<=0, the entity is considered dead and so calls die()
@@ -40,6 +49,7 @@ class Entity : public Component
 
     protected:
         int speed;                  //number of Tiles the Entity can go through in one move()
+        int lp;                     //life points of the Entity,
 
     private:
         //Base type definition
@@ -47,7 +57,6 @@ class Entity : public Component
 
         //attributes
         int max_LP;                 //max life points of the Entity,
-        int lp;                     //life points of the Entity,
         int xPos, yPos;             //position of the Entity
 };
 

@@ -16,6 +16,9 @@ class Fighter : public Entity
         Fighter(int max_LP, int xPos, int yPos, int speed, int targetCheckArea, int threatfulTargetCheckArea);
 
         //inherited functions
+        virtual void _init()   = 0;
+        virtual void _update() = 0;
+        virtual void _draw(sf::RenderWindow & window) = 0;
         virtual void action()  = 0;
         virtual void moveOut() = 0;
 
@@ -38,17 +41,16 @@ class Fighter : public Entity
 
 
     protected:
-
-    private:
-        //Base type definition
-        typedef Entity super;
-
         //attributes
         std::unordered_map<std::shared_ptr<Entity>, int> targets; //targets associated with their threat level
         int  targetCheckArea;               //radius within which checkTarget() will look for targets
         int  threatfulTargetCheckArea;     //radius within which checkTarget() will look for threatful targets
 
         void checkTargets();                //looks for targets in its areas and erases targets outside them
+
+    private:
+        //Base type definition
+        typedef Entity super;
 };
 
 #endif // FIGHTER_H

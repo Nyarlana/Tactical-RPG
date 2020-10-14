@@ -16,6 +16,21 @@ Raider::~Raider()
 }
 
 //inherited functions
+void Raider::_init()
+{
+
+}
+
+void Raider::_update()
+{
+
+}
+
+void Raider::_draw(sf::RenderWindow & window)
+{
+
+}
+
 void Raider::action()
 {
     //dtor

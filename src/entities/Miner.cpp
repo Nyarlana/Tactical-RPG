@@ -13,6 +13,21 @@ Miner::~Miner()
 }
 
 //inherited function
+void Miner::_init()
+{
+
+}
+
+void Miner::_update()
+{
+
+}
+
+void Miner::_draw(sf::RenderWindow & window)
+{
+
+}
+
 void Miner::action()
 {
     //dtor

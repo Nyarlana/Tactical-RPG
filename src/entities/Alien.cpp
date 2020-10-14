@@ -12,9 +12,27 @@ Alien::Alien(int max_LP, int xPos, int yPos, int speed, int targetCheckArea, int
 }
 
 //inherited functions
+void Alien::_init()
+{
+
+}
+
+void Alien::_update()
+{
+
+}
+
+void Alien::_draw(sf::RenderWindow & window)
+{
+
+}
+
 void Alien::action()
 {
-    //dtor
+    while (lp>0)
+    {
+        super::checkTargets();
+    }
 }
 
 void Alien::moveOut()
@@ -30,4 +48,9 @@ void Alien::die()
 void Alien::attack(shared_ptr<Entity> target)
 {
     target->takeDamage(2);
+
+    if (target->isDead())
+    {
+        targets.erase(target);
+    }
 }

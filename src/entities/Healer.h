@@ -3,6 +3,8 @@
 #define HEALER_H
 
 #include "Fighter.h"
+#include <SFML/Graphics.hpp>
+#include <SFML/Main.hpp>
 
 /**@class Healer class
 @brief Type of Entity meant to heal and protect other entities, able to fight
@@ -16,6 +18,9 @@ class Healer : public Fighter
         ~Healer();
 
         //inherited functions
+        void _init();
+        void _update();
+        void _draw(sf::RenderWindow & window);
         void action();
         void moveOut();
         void attack(std::shared_ptr<Entity> target);
