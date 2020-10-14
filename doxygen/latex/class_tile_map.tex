@@ -1,5 +1,11 @@
 \hypertarget{class_tile_map}{}\doxysection{Tile\+Map Class Reference}
 \label{class_tile_map}\index{TileMap@{TileMap}}
+Inheritance diagram for Tile\+Map\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_tile_map}
+\end{center}
+\end{figure}
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
@@ -8,7 +14,61 @@ void {\bfseries set\+Tab} ()
 \item 
 \mbox{\Hypertarget{class_tile_map_a9e35f89584f388288f7654466a556286}\label{class_tile_map_a9e35f89584f388288f7654466a556286}} 
 void {\bfseries print\+Tab} ()
-\end{DoxyCompactItemize}
+\item 
+virtual void \mbox{\hyperlink{class_tile_map_a574ab84f4613776bcbd553643a4874c2}{on\+\_\+\+Notify}} (const \mbox{\hyperlink{class_component}{Component}} \&\mbox{\hyperlink{classsubject}{subject}}, Event event)
+\begin{DoxyCompactList}\small\item\em class destructor \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_tile_map_a178fda66a0b791e52e0417b9a59b854f}\label{class_tile_map_a178fda66a0b791e52e0417b9a59b854f}} 
+virtual void \mbox{\hyperlink{class_tile_map_a178fda66a0b791e52e0417b9a59b854f}{\+\_\+init}} ()
+\begin{DoxyCompactList}\small\item\em init method overwritten by children classes, called at gm init \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_tile_map_a1a12f8c5fb9a0465126d05ff6c52cbf1}\label{class_tile_map_a1a12f8c5fb9a0465126d05ff6c52cbf1}} 
+virtual void \mbox{\hyperlink{class_tile_map_a1a12f8c5fb9a0465126d05ff6c52cbf1}{\+\_\+update}} ()
+\begin{DoxyCompactList}\small\item\em update method called every frame, updates game logic \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_tile_map_a2db1841ac6df40b0c400eb51935f6aee}{\+\_\+draw}} (sf\+::\+Render\+Window \&window)
+\begin{DoxyCompactList}\small\item\em draw method called every frame, draws component on window \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_tile_map_a2db1841ac6df40b0c400eb51935f6aee}\label{class_tile_map_a2db1841ac6df40b0c400eb51935f6aee}} 
+\index{TileMap@{TileMap}!\_draw@{\_draw}}
+\index{\_draw@{\_draw}!TileMap@{TileMap}}
+\doxysubsubsection{\texorpdfstring{\_draw()}{\_draw()}}
+{\footnotesize\ttfamily void Tile\+Map\+::\+\_\+draw (\begin{DoxyParamCaption}\item[{sf\+::\+Render\+Window \&}]{window }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+draw method called every frame, draws component on window 
+
+
+\begin{DoxyParams}{Parameters}
+{\em window} & window to draw in \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{class_component_a56712f5491879798ca4a052defc7dabc}{Component}}.
+
+\mbox{\Hypertarget{class_tile_map_a574ab84f4613776bcbd553643a4874c2}\label{class_tile_map_a574ab84f4613776bcbd553643a4874c2}} 
+\index{TileMap@{TileMap}!on\_Notify@{on\_Notify}}
+\index{on\_Notify@{on\_Notify}!TileMap@{TileMap}}
+\doxysubsubsection{\texorpdfstring{on\_Notify()}{on\_Notify()}}
+{\footnotesize\ttfamily void Tile\+Map\+::on\+\_\+\+Notify (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_component}{Component}} \&}]{subject,  }\item[{Event}]{event }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+class destructor 
+
+called by subject notify, launches different method based on the event overriten by every child, forks to a function 
+\begin{DoxyParams}{Parameters}
+{\em subject} & the subject that sent the signal \\
+\hline
+{\em event} & chosen event \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{class_observer_a955b35d811139672822627a4c958e07d}{Observer}}.
+
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}

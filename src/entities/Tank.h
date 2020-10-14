@@ -2,23 +2,25 @@
 #ifndef TANK_H
 #define TANK_H
 
-#include <Fighter.h>
+#include "Fighter.h"
+#include "Alien.h"
 
 #include <memory>
 #include <vector>
 
 /**@class Tank class
 @brief Type of Entity meant to be able to fight against other entities*/
-class Tank : public Tank
+class Tank : public Fighter
 {
     public:
         /** @brief constructor */
         Tank(int xPos, int yPos);
         /** @brief destructor */
-        virtual ~Tank();
+        ~Tank();
 
         //inherited functions
         void action();
+        void moveOut();
         void attack(std::shared_ptr<Entity> target);
 
         //Class skills
@@ -30,6 +32,8 @@ class Tank : public Tank
     protected:
 
     private:
+        //Base type definition
+        typedef Fighter super;
 };
 
 #endif // TANK_H

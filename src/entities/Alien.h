@@ -2,7 +2,7 @@
 #ifndef ALIEN_H
 #define ALIEN_H
 
-#include <Fighter.h>
+#include "Fighter.h"
 
 /**@class Alien class
 @brief Type of Entity meant to annoy Rovers*/
@@ -11,8 +11,6 @@ class Alien : public Fighter
     public:
         /** @brief constructor */
         Alien(int max_LP, int xPos, int yPos, int speed, int targetCheckArea, int threatfulTargetCheckArea, bool hasAggressiveBehavior);
-        /** @brief destructor */
-        virtual ~Alien();
 
         //inherited functions
         void action();
@@ -23,6 +21,10 @@ class Alien : public Fighter
     protected:
 
     private:
+        //Base type definition
+        typedef Fighter super;
+
+        //attribute
         bool hasAggressiveBehavior;         //constant, inherited through its Alien-type
 };
 

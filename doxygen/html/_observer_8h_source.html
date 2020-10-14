@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Tactical RPG - Projet L3
-   &#160;<span id="projectnumber">0.1</span>
+   &#160;<span id="projectnumber">0.1.0.1</span>
    </div>
    <div id="projectbrief">Un jeu de tactical rpg/simulation créé dans le cadre d&#39;un projet de L3 informatique</div>
   </td>
@@ -75,7 +75,7 @@ $(function() {
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#ifndef OBSRV_SUBJ_H</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#define OBSRV_SUBJ_H</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160; </div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment">// #include &lt;vector&gt;</span></div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &lt;memory&gt;</span></div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &quot;Component.h&quot;</span></div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160; </div>
@@ -89,26 +89,33 @@ $(function() {
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="comment"></span>  <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_observer.html#a955b35d811139672822627a4c958e07d">on_Notify</a>(<span class="keyword">const</span> <a class="code" href="class_component.html">Component</a>&amp; <a class="code" href="classsubject.html">subject</a>, Event event) = 0;</div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;};</div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
-<div class="line"><a name="l00026"></a><span class="lineno"><a class="line" href="class_subject.html">   26</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_subject.html">Subject</a> {</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_subject.html#aa9848a867108ec2819767e87d0b5a230">notify</a>(<span class="keyword">const</span> <a class="code" href="class_component.html">Component</a>&amp; <a class="code" href="classsubject.html">subject</a>, Event event);</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="class_subject.html#a43a10fc9d535375a324310205855da22">add_Observer</a>(std::shared_ptr&lt;Observer&gt; obs);</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="class_subject.html#a4a327738992312141160470c8c6172e8">remove_Observer</a>(std::shared_ptr&lt;Observer&gt; obs);</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="keyword">protected</span>:</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;  std::vector&lt;std::shared_ptr&lt;Observer&gt;&gt; observers;</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;};</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; </div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno"><a class="line" href="struct_obs_node.html">   25</a></span>&#160;<span class="keyword">struct </span><a class="code" href="struct_obs_node.html">ObsNode</a> {</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;  std::shared_ptr&lt;Observer&gt; obs;</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;  std::shared_ptr&lt;ObsNode&gt; next;</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;};</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
+<div class="line"><a name="l00031"></a><span class="lineno"><a class="line" href="class_subject.html">   31</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_subject.html">Subject</a> {</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_subject.html#aa9848a867108ec2819767e87d0b5a230">notify</a>(<span class="keyword">const</span> <a class="code" href="class_component.html">Component</a>&amp; <a class="code" href="classsubject.html">subject</a>, Event event);</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="class_subject.html#a43a10fc9d535375a324310205855da22">add_Observer</a>(std::shared_ptr&lt;Observer&gt; obs);</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="class_subject.html#a4a327738992312141160470c8c6172e8">remove_Observer</a>(std::shared_ptr&lt;Observer&gt; obs);</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;  <span class="comment">// std::vector&lt;std::shared_ptr&lt;Observer&gt;&gt; observers;</span></div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;  std::shared_ptr&lt;ObsNode&gt; first = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;};</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160; </div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="preprocessor">#endif</span></div>
 </div><!-- fragment --></div><!-- contents -->
 <div class="ttc" id="aclass_observer_html"><div class="ttname"><a href="class_observer.html">Observer</a></div><div class="ttdef"><b>Definition:</b> Observer.h:14</div></div>
-<div class="ttc" id="aclass_subject_html_aa9848a867108ec2819767e87d0b5a230"><div class="ttname"><a href="class_subject.html#aa9848a867108ec2819767e87d0b5a230">Subject::notify</a></div><div class="ttdeci">virtual void notify(const Component &amp;subject, Event event)</div><div class="ttdoc">notifies all observers</div><div class="ttdef"><b>Definition:</b> Observer.cpp:6</div></div>
+<div class="ttc" id="aclass_subject_html_aa9848a867108ec2819767e87d0b5a230"><div class="ttname"><a href="class_subject.html#aa9848a867108ec2819767e87d0b5a230">Subject::notify</a></div><div class="ttdeci">virtual void notify(const Component &amp;subject, Event event)</div><div class="ttdoc">notifies all observers</div><div class="ttdef"><b>Definition:</b> Observer.cpp:26</div></div>
 <div class="ttc" id="aclasssubject_html"><div class="ttname"><a href="classsubject.html">subject</a></div></div>
 <div class="ttc" id="aclass_component_html"><div class="ttname"><a href="class_component.html">Component</a></div><div class="ttdoc">components of the GM class</div><div class="ttdef"><b>Definition:</b> Component.h:9</div></div>
-<div class="ttc" id="aclass_subject_html"><div class="ttname"><a href="class_subject.html">Subject</a></div><div class="ttdef"><b>Definition:</b> Observer.h:26</div></div>
-<div class="ttc" id="aclass_subject_html_a43a10fc9d535375a324310205855da22"><div class="ttname"><a href="class_subject.html#a43a10fc9d535375a324310205855da22">Subject::add_Observer</a></div><div class="ttdeci">void add_Observer(std::shared_ptr&lt; Observer &gt; obs)</div><div class="ttdoc">add an observer</div><div class="ttdef"><b>Definition:</b> Observer.cpp:14</div></div>
+<div class="ttc" id="aclass_subject_html"><div class="ttname"><a href="class_subject.html">Subject</a></div><div class="ttdef"><b>Definition:</b> Observer.h:31</div></div>
+<div class="ttc" id="aclass_subject_html_a43a10fc9d535375a324310205855da22"><div class="ttname"><a href="class_subject.html#a43a10fc9d535375a324310205855da22">Subject::add_Observer</a></div><div class="ttdeci">void add_Observer(std::shared_ptr&lt; Observer &gt; obs)</div><div class="ttdoc">add an observer</div><div class="ttdef"><b>Definition:</b> Observer.cpp:36</div></div>
+<div class="ttc" id="astruct_obs_node_html"><div class="ttname"><a href="struct_obs_node.html">ObsNode</a></div><div class="ttdef"><b>Definition:</b> Observer.h:25</div></div>
 <div class="ttc" id="aclass_observer_html_a955b35d811139672822627a4c958e07d"><div class="ttname"><a href="class_observer.html#a955b35d811139672822627a4c958e07d">Observer::on_Notify</a></div><div class="ttdeci">virtual void on_Notify(const Component &amp;subject, Event event)=0</div><div class="ttdoc">class destructor</div></div>
-<div class="ttc" id="aclass_subject_html_a4a327738992312141160470c8c6172e8"><div class="ttname"><a href="class_subject.html#a4a327738992312141160470c8c6172e8">Subject::remove_Observer</a></div><div class="ttdeci">void remove_Observer(std::shared_ptr&lt; Observer &gt; obs)</div><div class="ttdoc">removes an observer</div><div class="ttdef"><b>Definition:</b> Observer.cpp:18</div></div>
+<div class="ttc" id="aclass_subject_html_a4a327738992312141160470c8c6172e8"><div class="ttname"><a href="class_subject.html#a4a327738992312141160470c8c6172e8">Subject::remove_Observer</a></div><div class="ttdeci">void remove_Observer(std::shared_ptr&lt; Observer &gt; obs)</div><div class="ttdoc">removes an observer</div><div class="ttdef"><b>Definition:</b> Observer.cpp:48</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by &#160;<a href="http://www.doxygen.org/index.html">

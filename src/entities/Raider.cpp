@@ -5,7 +5,7 @@
 
 using namespace std;
 
-Raider::Raider() : Fighter(6, xPos, yPos, 4, 3, 4)
+Raider::Raider(int xPos, int yPos) : Fighter(6, xPos, yPos, 4, 3, 4)
 {
     //ctor
 }
@@ -17,6 +17,11 @@ Raider::~Raider()
 
 //inherited functions
 void Raider::action()
+{
+    //dtor
+}
+
+void Raider::moveOut()
 {
     //dtor
 }

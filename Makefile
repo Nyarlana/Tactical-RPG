@@ -18,9 +18,9 @@ testTilemap : TileMap.o
 	g++ $(INCLUDE) -c src/main/testTilemap.cpp -o obj/testTilemap.o obj/TileMap.o
 	g++ $(LIB) -o bin/testTilemap.exe -g obj/testTilemap.o obj/TileMap.o obj/FileReader.o obj/Tile.o obj/Component.o obj/Observer.o $(LINKER_FLAGS)
 
-testEntity : Miner.o
-	g++ $(INCLUDE) -c src/main/testEntities.cpp -o obj/testEntity.o obj/Miner.o
-	g++ $(LIB) -o bin/testEntity.exe -g obj/testEntity.o obj/Miner.o obj/Entity.o $(LINKER_FLAGS)
+testEntity : Miner.o Alien.o Healer.o Raider.o Tank.o
+	g++ $(INCLUDE) --std=c++11 -c src/main/testEntities.cpp -o obj/testEntity.o obj/Miner.o obj/Alien.o obj/Healer.o obj/Raider.o obj/Tank.o
+	g++ $(LIB) -o bin/testEntity.exe -g obj/testEntity.o obj/Miner.o obj/Alien.o obj/Healer.o obj/Raider.o obj/Tank.o obj/Fighter.o obj/Entity.o $(LINKER_FLAGS)
 
 
 GameManager.o : Component.o Observer.o
@@ -41,8 +41,23 @@ FileReader.o :
 Tile.o :
 	g++ $(INCLUDE) -c src/TileMap/Tile.cpp -o obj/Tile.o $(LINKER_FLAGS)
 
-Miner.o : Entity.o
-	g++ $(INCLUDE) -c src/entities/Miner.cpp -o obj/Miner.o -g obj/Entity.o
+Alien.o : Fighter.o
+	g++ $(INCLUDE) --std=c++11 -c src/entities/Alien.cpp -o obj/Alien.o -g obj/Fighter.o
 
-Entity.o :
-	g++ $(INCLUDE) -c src/entities/Entity.cpp -o obj/Entity.o
+Healer.o : Fighter.o
+	g++ $(INCLUDE) --std=c++11 -c src/entities/Healer.cpp -o obj/Healer.o -g obj/Fighter.o
+
+Tank.o : Fighter.o
+	g++ $(INCLUDE) --std=c++11 -c src/entities/Tank.cpp -o obj/Tank.o -g obj/Fighter.o
+
+Raider.o : Fighter.o
+	g++ $(INCLUDE) --std=c++11 -c src/entities/Raider.cpp -o obj/Raider.o -g obj/Fighter.o
+
+Fighter.o : Entity.o
+	g++ $(INCLUDE) --std=c++11 -c src/entities/Fighter.cpp -o obj/Fighter.o -g obj/Entity.o
+
+Miner.o : Entity.o
+	g++ $(INCLUDE) --std=c++11 -c src/entities/Miner.cpp -o obj/Miner.o -g obj/Entity.o
+
+Entity.o : Component.o
+	g++ $(INCLUDE) --std=c++11 -c src/entities/Entity.cpp -o obj/Entity.o -g obj/Component.o

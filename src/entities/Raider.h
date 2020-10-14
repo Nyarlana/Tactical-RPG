@@ -2,21 +2,22 @@
 #ifndef RAIDER_H
 #define RAIDER_H
 
-#include <Fighter.h>
+#include "Fighter.h"
 
 
 /**@class Raider class
 @brief Type of Entity meant to be able to fight against other entities*/
-class Raider : public Raider
+class Raider : public Fighter
 {
     public:
         /** @brief constructor */
         Raider(int xPos, int yPos);
-        /** @brief destructor */
-        virtual ~Raider();
+        /** @bref destructor */
+        ~Raider();
 
         //inherited functions
         void action();
+        void moveOut();
         void attack(std::shared_ptr<Entity> target);
 
         //Class skills
@@ -28,6 +29,8 @@ class Raider : public Raider
     protected:
 
     private:
+        //Base type definition
+        typedef Fighter super;
 };
 
 #endif // RAIDER_H
