@@ -15,7 +15,7 @@ GameManager::~GameManager() {
 }
 
 void GameManager::init() {
-  window.create(sf::VideoMode(800, 600), "My window");
+  window.create(sf::VideoMode(800, 800), "Tactical Sim");
   window.setVerticalSyncEnabled(true);
 
   tm = new TileMap();
