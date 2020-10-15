@@ -18,7 +18,7 @@ void GameManager::init() {
   window.create(sf::VideoMode(800, 800), "Tactical Sim");
   window.setVerticalSyncEnabled(true);
 
-  tm = new TileMap();
+  tm = std::make_shared<TileMap>();
   components.push_back(tm);
   tm->add_Observer(std::dynamic_pointer_cast<Observer>(shared_from_this()));
 
@@ -54,11 +54,6 @@ void GameManager::mainloop() {
     }
     window.display();
   }
-
-  for (size_t i = 0; i < components.size(); i++) {
-    delete components[i];
-  }
-  delete tm;
 }
 
 void GameManager::on_Notify(const Component& subject, Event event) {

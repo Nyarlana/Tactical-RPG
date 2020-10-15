@@ -26,8 +26,8 @@ public:
   virtual void on_Notify(const Component& subject, Event event);
 private:
   sf::RenderWindow window;
-  std::vector<Component*> components;
-  TileMap * tm;
+  std::vector<std::shared_ptr<Component>> components;
+  std::shared_ptr<TileMap> tm;
 };
 
 #endif
