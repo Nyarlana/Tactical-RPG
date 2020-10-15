@@ -13,6 +13,7 @@ all : main testTilemap testEntity
 main : GameManager.o
 	g++ $(INCLUDE) -c src/main.cpp -o obj/main.o obj/GameManager.o
 	g++ $(LIB) -o bin/main.exe -g obj/main.o obj/GameManager.o -g obj/TileMap.o obj/Component.o obj/Observer.o obj/Tile.o obj/FileReader.o $(LINKER_FLAGS)
+#	g++ $(LIB) -o bin/main.exe -g obj/main.o obj/GameManager.o -g obj/*.o $(LINKER_FLAGS)
 
 testTilemap : TileMap.o
 	g++ $(INCLUDE) -c src/main/testTilemap.cpp -o obj/testTilemap.o obj/TileMap.o
