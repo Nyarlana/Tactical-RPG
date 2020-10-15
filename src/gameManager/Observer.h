@@ -6,11 +6,14 @@
 #include <memory>
 #include "Component.h"
 
+/**@brief event enum*/
 enum Event {
   EVENT_TEST
 };
 
-/**@class observer class*/
+/**@class Observer
+@brief observer class
+observes a subject and react to events*/
 class Observer {
 public:
   /**@brief class destructor*/
@@ -22,12 +25,15 @@ public:
   virtual void on_Notify(const Component& subject, Event event) = 0;
 };
 
+/**@brief Node for observer list*/
 struct ObsNode {
   std::shared_ptr<Observer> obs;
   std::shared_ptr<ObsNode> next;
 };
 
-/**@class subject class*/
+/**@class Subject
+@brief subject class
+observed by observers, can notify them*/
 class Subject {
 public:
   /**@brief notifies all observers

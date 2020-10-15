@@ -71,29 +71,34 @@ $(function() {
 <div class="title">Tile.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef TILE_H</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define TILE_H</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160; </div>
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160; </div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#ifndef TILE_H</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#define TILE_H</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160; </div>
-<div class="line"><a name="l00005"></a><span class="lineno"><a class="line" href="class_tile.html">    5</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_tile.html">Tile</a></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;{</div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;    <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;        <a class="code" href="class_tile.html">Tile</a>();</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;        ~<a class="code" href="class_tile.html">Tile</a>();</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;        <span class="keywordtype">void</span> setTile(<span class="keywordtype">char</span> value);</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;        <span class="keywordtype">void</span> emptyTile();</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;        <span class="keywordtype">int</span> returnTileValue();</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    <span class="keyword">protected</span>:</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;        <span class="keywordtype">int</span> tile_type;</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;        <span class="keywordtype">bool</span> tile_is_empty;</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;};</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#endif // TILE_H</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno"><a class="line" href="class_tile.html">    7</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_tile.html">Tile</a></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;{</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;    <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;        <a class="code" href="class_tile.html#aeeb5593bb6b75aae2edfcccbc84ab378">Tile</a>();</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;        <a class="code" href="class_tile.html#a98634abbd93fa13d0578d7103202d03d">~Tile</a>();</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_tile.html#ac500f6f9c6d92ad36d6bce75977e5332">setTile</a>(<span class="keywordtype">char</span> value);</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_tile.html#a0892f36d86e640c1197e8784deb95515">emptyTile</a>();</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;        <span class="keywordtype">int</span> <a class="code" href="class_tile.html#a4d67ac83348110a47061855e921c62ee">returnTileValue</a>();</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;        <span class="keywordtype">int</span> tile_type;</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        <span class="keywordtype">bool</span> tile_is_empty;</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;};</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="preprocessor">#endif // TILE_H</span></div>
 </div><!-- fragment --></div><!-- contents -->
-<div class="ttc" id="aclass_tile_html"><div class="ttname"><a href="class_tile.html">Tile</a></div><div class="ttdef"><b>Definition:</b> Tile.h:5</div></div>
+<div class="ttc" id="aclass_tile_html_a0892f36d86e640c1197e8784deb95515"><div class="ttname"><a href="class_tile.html#a0892f36d86e640c1197e8784deb95515">Tile::emptyTile</a></div><div class="ttdeci">void emptyTile()</div><div class="ttdoc">Sets bool tile_is_empty to true.</div><div class="ttdef"><b>Definition:</b> Tile.cpp:19</div></div>
+<div class="ttc" id="aclass_tile_html_aeeb5593bb6b75aae2edfcccbc84ab378"><div class="ttname"><a href="class_tile.html#aeeb5593bb6b75aae2edfcccbc84ab378">Tile::Tile</a></div><div class="ttdeci">Tile()</div><div class="ttdoc">class constructor</div><div class="ttdef"><b>Definition:</b> Tile.cpp:3</div></div>
+<div class="ttc" id="aclass_tile_html"><div class="ttname"><a href="class_tile.html">Tile</a></div><div class="ttdoc">Component of the TileMap class.</div><div class="ttdef"><b>Definition:</b> Tile.h:7</div></div>
+<div class="ttc" id="aclass_tile_html_a4d67ac83348110a47061855e921c62ee"><div class="ttname"><a href="class_tile.html#a4d67ac83348110a47061855e921c62ee">Tile::returnTileValue</a></div><div class="ttdeci">int returnTileValue()</div><div class="ttdoc">Temporary function, for testing.</div><div class="ttdef"><b>Definition:</b> Tile.cpp:24</div></div>
+<div class="ttc" id="aclass_tile_html_a98634abbd93fa13d0578d7103202d03d"><div class="ttname"><a href="class_tile.html#a98634abbd93fa13d0578d7103202d03d">Tile::~Tile</a></div><div class="ttdeci">~Tile()</div><div class="ttdoc">class destructor</div><div class="ttdef"><b>Definition:</b> Tile.cpp:8</div></div>
+<div class="ttc" id="aclass_tile_html_ac500f6f9c6d92ad36d6bce75977e5332"><div class="ttname"><a href="class_tile.html#ac500f6f9c6d92ad36d6bce75977e5332">Tile::setTile</a></div><div class="ttdeci">void setTile(char value)</div><div class="ttdoc">Given a char from the read file, sets a Tile with specific parameters.</div><div class="ttdef"><b>Definition:</b> Tile.cpp:13</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by &#160;<a href="http://www.doxygen.org/index.html">

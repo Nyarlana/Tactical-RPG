@@ -79,8 +79,9 @@ Inheritance diagram for Raider:</div>
  <div class="center">
   <img src="class_raider.png" usemap="#Raider_map" alt=""/>
   <map id="Raider_map" name="Raider_map">
-<area href="class_fighter.html" title="Type of Entity meant to be able to fight against other entities." alt="Fighter" shape="rect" coords="0,56,52,80"/>
-<area href="class_entity.html" title="Base Class to emulate Rovers and Aliens." alt="Entity" shape="rect" coords="0,0,52,24"/>
+<area href="class_fighter.html" title="Type of Entity meant to be able to fight against other entities." alt="Fighter" shape="rect" coords="0,112,75,136"/>
+<area href="class_entity.html" title="Base Class to emulate Rovers and Aliens." alt="Entity" shape="rect" coords="0,56,75,80"/>
+<area href="class_component.html" title="components of the GM class" alt="Component" shape="rect" coords="0,0,75,24"/>
   </map>
 </div></div>
 <table class="memberdecls">
@@ -92,6 +93,17 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a9dffb2507c1db0920edc65d675ce8aeb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a06b75c1fbbd12d526423776bc751c867"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_raider.html#a06b75c1fbbd12d526423776bc751c867">~Raider</a> ()</td></tr>
 <tr class="separator:a06b75c1fbbd12d526423776bc751c867"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a442b30d966f695cdb79246a897207baa"><td class="memItemLeft" align="right" valign="top"><a id="a442b30d966f695cdb79246a897207baa"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_raider.html#a442b30d966f695cdb79246a897207baa">_init</a> ()</td></tr>
+<tr class="memdesc:a442b30d966f695cdb79246a897207baa"><td class="mdescLeft">&#160;</td><td class="mdescRight">init method overwritten by children classes, called at gm init <br /></td></tr>
+<tr class="separator:a442b30d966f695cdb79246a897207baa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab371a7b34549cd2a9f5e5357336ad635"><td class="memItemLeft" align="right" valign="top"><a id="ab371a7b34549cd2a9f5e5357336ad635"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_raider.html#ab371a7b34549cd2a9f5e5357336ad635">_update</a> ()</td></tr>
+<tr class="memdesc:ab371a7b34549cd2a9f5e5357336ad635"><td class="mdescLeft">&#160;</td><td class="mdescRight">update method called every frame, updates game logic <br /></td></tr>
+<tr class="separator:ab371a7b34549cd2a9f5e5357336ad635"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaae018fbacd1bf4cbc4c979e50704606"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_raider.html#aaae018fbacd1bf4cbc4c979e50704606">_draw</a> (sf::RenderWindow &amp;window)</td></tr>
+<tr class="memdesc:aaae018fbacd1bf4cbc4c979e50704606"><td class="mdescLeft">&#160;</td><td class="mdescRight">draw method called every frame, draws component on window  <a href="class_raider.html#aaae018fbacd1bf4cbc4c979e50704606">More...</a><br /></td></tr>
+<tr class="separator:aaae018fbacd1bf4cbc4c979e50704606"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab97ba4aa3e2701b7c6bda3d45bd15dd8"><td class="memItemLeft" align="right" valign="top"><a id="ab97ba4aa3e2701b7c6bda3d45bd15dd8"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_raider.html#ab97ba4aa3e2701b7c6bda3d45bd15dd8">action</a> ()</td></tr>
 <tr class="memdesc:ab97ba4aa3e2701b7c6bda3d45bd15dd8"><td class="mdescLeft">&#160;</td><td class="mdescRight">The <a class="el" href="class_entity.html" title="Base Class to emulate Rovers and Aliens.">Entity</a> general behavior. <br /></td></tr>
@@ -141,6 +153,10 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>getYPos</b> ()</td></t
 <tr class="memitem:afa12388b2e85e2cd6ffbf82ba80c0fcc inherit pub_methods_class_entity"><td class="memItemLeft" align="right" valign="top"><a id="afa12388b2e85e2cd6ffbf82ba80c0fcc"></a>
 int&#160;</td><td class="memItemRight" valign="bottom"><b>getDistanceTo</b> (std::shared_ptr&lt; <a class="el" href="class_entity.html">Entity</a> &gt; e)</td></tr>
 <tr class="separator:afa12388b2e85e2cd6ffbf82ba80c0fcc inherit pub_methods_class_entity"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4d78d5c5061893ed4464fc014adfd6b8 inherit pub_methods_class_entity"><td class="memItemLeft" align="right" valign="top"><a id="a4d78d5c5061893ed4464fc014adfd6b8"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity.html#a4d78d5c5061893ed4464fc014adfd6b8">isDead</a> ()</td></tr>
+<tr class="memdesc:a4d78d5c5061893ed4464fc014adfd6b8 inherit pub_methods_class_entity"><td class="mdescLeft">&#160;</td><td class="mdescRight">tells if the <a class="el" href="class_entity.html" title="Base Class to emulate Rovers and Aliens.">Entity</a> is dead <br /></td></tr>
+<tr class="separator:a4d78d5c5061893ed4464fc014adfd6b8 inherit pub_methods_class_entity"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9e19cd1578b990ba6176d83930124a65 inherit pub_methods_class_entity"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity.html#a9e19cd1578b990ba6176d83930124a65">takeDamage</a> (int value)</td></tr>
 <tr class="memdesc:a9e19cd1578b990ba6176d83930124a65 inherit pub_methods_class_entity"><td class="mdescLeft">&#160;</td><td class="mdescRight">Lowers this.lp by value, then if lp&lt;=0, the entity is considered dead and so calls <a class="el" href="class_entity.html#a87466c642875c59e774830e3168b485b" title="dying action (including the destruction of the object)">die()</a>  <a href="class_entity.html#a9e19cd1578b990ba6176d83930124a65">More...</a><br /></td></tr>
 <tr class="separator:a9e19cd1578b990ba6176d83930124a65 inherit pub_methods_class_entity"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -148,13 +164,39 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>getDistanceTo</b> (std
 void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity.html#a87466c642875c59e774830e3168b485b">die</a> ()</td></tr>
 <tr class="memdesc:a87466c642875c59e774830e3168b485b inherit pub_methods_class_entity"><td class="mdescLeft">&#160;</td><td class="mdescRight">dying action (including the destruction of the object) <br /></td></tr>
 <tr class="separator:a87466c642875c59e774830e3168b485b inherit pub_methods_class_entity"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_methods_class_component"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_component')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="class_component.html">Component</a></td></tr>
+<tr class="memitem:a8775db6d1a2c1afc2e77cd3c8f39da6f inherit pub_methods_class_component"><td class="memItemLeft" align="right" valign="top"><a id="a8775db6d1a2c1afc2e77cd3c8f39da6f"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_component.html#a8775db6d1a2c1afc2e77cd3c8f39da6f">Component</a> ()</td></tr>
+<tr class="memdesc:a8775db6d1a2c1afc2e77cd3c8f39da6f inherit pub_methods_class_component"><td class="mdescLeft">&#160;</td><td class="mdescRight">class constructor <br /></td></tr>
+<tr class="separator:a8775db6d1a2c1afc2e77cd3c8f39da6f inherit pub_methods_class_component"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab8378fa275af98e568a7e91d33d867af inherit pub_methods_class_component"><td class="memItemLeft" align="right" valign="top"><a id="ab8378fa275af98e568a7e91d33d867af"></a>
+virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_component.html#ab8378fa275af98e568a7e91d33d867af">~Component</a> ()</td></tr>
+<tr class="memdesc:ab8378fa275af98e568a7e91d33d867af inherit pub_methods_class_component"><td class="mdescLeft">&#160;</td><td class="mdescRight">class destructor <br /></td></tr>
+<tr class="separator:ab8378fa275af98e568a7e91d33d867af inherit pub_methods_class_component"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
+<tr class="inherit_header pro_methods_class_fighter"><td colspan="2" onclick="javascript:toggleInherit('pro_methods_class_fighter')"><img src="closed.png" alt="-"/>&#160;Protected Member Functions inherited from <a class="el" href="class_fighter.html">Fighter</a></td></tr>
+<tr class="memitem:a62b401a0f370904d060bf67239e6682a inherit pro_methods_class_fighter"><td class="memItemLeft" align="right" valign="top"><a id="a62b401a0f370904d060bf67239e6682a"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>checkTargets</b> ()</td></tr>
+<tr class="separator:a62b401a0f370904d060bf67239e6682a inherit pro_methods_class_fighter"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pro_attribs_class_fighter"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_class_fighter')"><img src="closed.png" alt="-"/>&#160;Protected Attributes inherited from <a class="el" href="class_fighter.html">Fighter</a></td></tr>
+<tr class="memitem:a30ee3ea649240607ec11aba106fd3ffb inherit pro_attribs_class_fighter"><td class="memItemLeft" align="right" valign="top"><a id="a30ee3ea649240607ec11aba106fd3ffb"></a>
+std::unordered_map&lt; std::shared_ptr&lt; <a class="el" href="class_entity.html">Entity</a> &gt;, int &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>targets</b></td></tr>
+<tr class="separator:a30ee3ea649240607ec11aba106fd3ffb inherit pro_attribs_class_fighter"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a95722ab60514bd19a130e0ae3b3eb9f3 inherit pro_attribs_class_fighter"><td class="memItemLeft" align="right" valign="top"><a id="a95722ab60514bd19a130e0ae3b3eb9f3"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>targetCheckArea</b></td></tr>
+<tr class="separator:a95722ab60514bd19a130e0ae3b3eb9f3 inherit pro_attribs_class_fighter"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4d0f9fa47c12e6d3086495009c2be7b0 inherit pro_attribs_class_fighter"><td class="memItemLeft" align="right" valign="top"><a id="a4d0f9fa47c12e6d3086495009c2be7b0"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>threatfulTargetCheckArea</b></td></tr>
+<tr class="separator:a4d0f9fa47c12e6d3086495009c2be7b0 inherit pro_attribs_class_fighter"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pro_attribs_class_entity"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_class_entity')"><img src="closed.png" alt="-"/>&#160;Protected Attributes inherited from <a class="el" href="class_entity.html">Entity</a></td></tr>
 <tr class="memitem:a12ea871d945d59cbf57b8f8f7d2179ed inherit pro_attribs_class_entity"><td class="memItemLeft" align="right" valign="top"><a id="a12ea871d945d59cbf57b8f8f7d2179ed"></a>
 int&#160;</td><td class="memItemRight" valign="bottom"><b>speed</b></td></tr>
 <tr class="separator:a12ea871d945d59cbf57b8f8f7d2179ed inherit pro_attribs_class_entity"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5f8cd782fae3da92b8c6de6f407d9a7e inherit pro_attribs_class_entity"><td class="memItemLeft" align="right" valign="top"><a id="a5f8cd782fae3da92b8c6de6f407d9a7e"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>lp</b></td></tr>
+<tr class="separator:a5f8cd782fae3da92b8c6de6f407d9a7e inherit pro_attribs_class_entity"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Type of <a class="el" href="class_entity.html" title="Base Class to emulate Rovers and Aliens.">Entity</a> meant to be able to fight against other entities. </p>
@@ -178,6 +220,42 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>speed</b></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a id="aaae018fbacd1bf4cbc4c979e50704606"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaae018fbacd1bf4cbc4c979e50704606">&#9670;&nbsp;</a></span>_draw()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Raider::_draw </td>
+          <td>(</td>
+          <td class="paramtype">sf::RenderWindow &amp;&#160;</td>
+          <td class="paramname"><em>window</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>draw method called every frame, draws component on window </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">window</td><td>window to draw in </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Implements <a class="el" href="class_fighter.html#ab05694384652111ba827a9a4f13ef5f9">Fighter</a>.</p>
+
+</div>
+</div>
 <a id="ac0273202faa69a14e92bf96db2cff68c"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ac0273202faa69a14e92bf96db2cff68c">&#9670;&nbsp;</a></span>attack()</h2>
 

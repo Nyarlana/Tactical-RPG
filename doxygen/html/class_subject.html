@@ -71,19 +71,24 @@ $(function() {
 <div class="title">Subject Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>subject class observed by observers, can notify them  
+ <a href="class_subject.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="_observer_8h_source.html">Observer.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for Subject:</div>
 <div class="dyncontent">
  <div class="center">
   <img src="class_subject.png" usemap="#Subject_map" alt=""/>
   <map id="Subject_map" name="Subject_map">
-<area href="class_tile_map.html" alt="TileMap" shape="rect" coords="0,56,57,80"/>
+<area href="class_tile_map.html" title="The map on which the game happens." alt="TileMap" shape="rect" coords="0,56,57,80"/>
   </map>
 </div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:aa9848a867108ec2819767e87d0b5a230"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_subject.html#aa9848a867108ec2819767e87d0b5a230">notify</a> (const <a class="el" href="class_component.html">Component</a> &amp;<a class="el" href="classsubject.html">subject</a>, Event event)</td></tr>
+<tr class="memitem:aa9848a867108ec2819767e87d0b5a230"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_subject.html#aa9848a867108ec2819767e87d0b5a230">notify</a> (const <a class="el" href="class_component.html">Component</a> &amp;subject, Event event)</td></tr>
 <tr class="memdesc:aa9848a867108ec2819767e87d0b5a230"><td class="mdescLeft">&#160;</td><td class="mdescRight">notifies all observers  <a href="class_subject.html#aa9848a867108ec2819767e87d0b5a230">More...</a><br /></td></tr>
 <tr class="separator:aa9848a867108ec2819767e87d0b5a230"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a43a10fc9d535375a324310205855da22"><td class="memItemLeft" align="right" valign="top"><a id="a43a10fc9d535375a324310205855da22"></a>
@@ -101,7 +106,9 @@ Protected Attributes</h2></td></tr>
 std::shared_ptr&lt; <a class="el" href="struct_obs_node.html">ObsNode</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>first</b> = nullptr</td></tr>
 <tr class="separator:a5ba0e63e2c6070a72f940013123ee843"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Member Function Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>subject class observed by observers, can notify them </p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="aa9848a867108ec2819767e87d0b5a230"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aa9848a867108ec2819767e87d0b5a230">&#9670;&nbsp;</a></span>notify()</h2>
 

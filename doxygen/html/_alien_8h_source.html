@@ -76,36 +76,45 @@ $(function() {
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#define ALIEN_H</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160; </div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;Fighter.h&quot;</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160; </div>
-<div class="line"><a name="l00009"></a><span class="lineno"><a class="line" href="class_alien.html">    9</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_alien.html">Alien</a> : <span class="keyword">public</span> <a class="code" href="class_fighter.html">Fighter</a></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;{</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;        <a class="code" href="class_alien.html#a92495ec2215a9ccccf2c8d46a0ffd3ef">Alien</a>(<span class="keywordtype">int</span> max_LP, <span class="keywordtype">int</span> xPos, <span class="keywordtype">int</span> yPos, <span class="keywordtype">int</span> speed, <span class="keywordtype">int</span> targetCheckArea, <span class="keywordtype">int</span> threatfulTargetCheckArea, <span class="keywordtype">bool</span> hasAggressiveBehavior);</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;        <span class="comment">//inherited functions</span></div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_alien.html#af2993fecd2b49de07a4f05f3abf26f18">action</a>();</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_alien.html#ae266d237b429f7f9b638ef6625d7fc3b">moveOut</a>();</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;        <span class="keywordtype">void</span> die();                                                 <span class="comment">//overrides Entity::die(), destructs itself after notifying its group of its death</span></div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_alien.html#a87af809137de6947c12994bd4235ceee">attack</a>(std::shared_ptr&lt;Entity&gt; target);</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <span class="keyword">protected</span>:</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        <span class="comment">//Base type definition</span></div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        <span class="keyword">typedef</span> <a class="code" href="class_fighter.html">Fighter</a> <a class="code" href="class_fighter.html">super</a>;</div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &quot;Rover.h&quot;</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &lt;SFML/Graphics.hpp&gt;</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &lt;SFML/Main.hpp&gt;</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160; </div>
+<div class="line"><a name="l00012"></a><span class="lineno"><a class="line" href="class_alien.html">   12</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_alien.html">Alien</a> : <span class="keyword">public</span> <a class="code" href="class_fighter.html">Fighter</a></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;{</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;        <a class="code" href="class_alien.html#a92495ec2215a9ccccf2c8d46a0ffd3ef">Alien</a>(<span class="keywordtype">int</span> max_LP, <span class="keywordtype">int</span> xPos, <span class="keywordtype">int</span> yPos, <span class="keywordtype">int</span> speed, <span class="keywordtype">int</span> targetCheckArea, <span class="keywordtype">int</span> threatfulTargetCheckArea, <span class="keywordtype">bool</span> hasAggressiveBehavior);</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;        <span class="comment">//inherited functions</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_alien.html#a07def163395b5f86149d921328dc3463">_init</a>();</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_alien.html#aea8b1dd6815923232c4479651ad8a28d">_update</a>();</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_alien.html#a9f8a4e64f9611566b378cca286b5a98a">_draw</a>(sf::RenderWindow &amp; window);</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_alien.html#af2993fecd2b49de07a4f05f3abf26f18">action</a>();</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_alien.html#ae266d237b429f7f9b638ef6625d7fc3b">moveOut</a>();</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        <span class="keywordtype">void</span> die();                                                 <span class="comment">//overrides Entity::die(), destructs itself after notifying its group of its death</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_alien.html#a87af809137de6947c12994bd4235ceee">attack</a>(std::shared_ptr&lt;Entity&gt; target);</div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        <span class="comment">//attribute</span></div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        <span class="keywordtype">bool</span> hasAggressiveBehavior;         <span class="comment">//constant, inherited through its Alien-type</span></div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;};</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="preprocessor">#endif // ALIEN_H</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        <span class="comment">//Base type definition</span></div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        <span class="keyword">typedef</span> <a class="code" href="class_fighter.html">Fighter</a> <a class="code" href="class_fighter.html">super</a>;</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        <span class="comment">//attribute</span></div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        <span class="keywordtype">bool</span> hasAggressiveBehavior;         <span class="comment">//constant, inherited through its Alien-type</span></div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;};</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="preprocessor">#endif // ALIEN_H</span></div>
 </div><!-- fragment --></div><!-- contents -->
-<div class="ttc" id="aclass_alien_html_ae266d237b429f7f9b638ef6625d7fc3b"><div class="ttname"><a href="class_alien.html#ae266d237b429f7f9b638ef6625d7fc3b">Alien::moveOut</a></div><div class="ttdeci">void moveOut()</div><div class="ttdoc">action to move for an Entity</div><div class="ttdef"><b>Definition:</b> Alien.cpp:20</div></div>
+<div class="ttc" id="aclass_alien_html_ae266d237b429f7f9b638ef6625d7fc3b"><div class="ttname"><a href="class_alien.html#ae266d237b429f7f9b638ef6625d7fc3b">Alien::moveOut</a></div><div class="ttdeci">void moveOut()</div><div class="ttdoc">action to move for an Entity</div><div class="ttdef"><b>Definition:</b> Alien.cpp:38</div></div>
+<div class="ttc" id="aclass_alien_html_a07def163395b5f86149d921328dc3463"><div class="ttname"><a href="class_alien.html#a07def163395b5f86149d921328dc3463">Alien::_init</a></div><div class="ttdeci">void _init()</div><div class="ttdoc">init method overwritten by children classes, called at gm init</div><div class="ttdef"><b>Definition:</b> Alien.cpp:15</div></div>
 <div class="ttc" id="aclass_fighter_html"><div class="ttname"><a href="class_fighter.html">Fighter</a></div><div class="ttdoc">Type of Entity meant to be able to fight against other entities.</div><div class="ttdef"><b>Definition:</b> Fighter.h:12</div></div>
-<div class="ttc" id="aclass_alien_html_a87af809137de6947c12994bd4235ceee"><div class="ttname"><a href="class_alien.html#a87af809137de6947c12994bd4235ceee">Alien::attack</a></div><div class="ttdeci">void attack(std::shared_ptr&lt; Entity &gt; target)</div><div class="ttdoc">simple attack against another Entity, depending on the subclass of this Fighter</div><div class="ttdef"><b>Definition:</b> Alien.cpp:30</div></div>
-<div class="ttc" id="aclass_alien_html_af2993fecd2b49de07a4f05f3abf26f18"><div class="ttname"><a href="class_alien.html#af2993fecd2b49de07a4f05f3abf26f18">Alien::action</a></div><div class="ttdeci">void action()</div><div class="ttdoc">The Entity general behavior.</div><div class="ttdef"><b>Definition:</b> Alien.cpp:15</div></div>
+<div class="ttc" id="aclass_alien_html_a87af809137de6947c12994bd4235ceee"><div class="ttname"><a href="class_alien.html#a87af809137de6947c12994bd4235ceee">Alien::attack</a></div><div class="ttdeci">void attack(std::shared_ptr&lt; Entity &gt; target)</div><div class="ttdoc">simple attack against another Entity, depending on the subclass of this Fighter</div><div class="ttdef"><b>Definition:</b> Alien.cpp:48</div></div>
+<div class="ttc" id="aclass_alien_html_af2993fecd2b49de07a4f05f3abf26f18"><div class="ttname"><a href="class_alien.html#af2993fecd2b49de07a4f05f3abf26f18">Alien::action</a></div><div class="ttdeci">void action()</div><div class="ttdoc">The Entity general behavior.</div><div class="ttdef"><b>Definition:</b> Alien.cpp:30</div></div>
+<div class="ttc" id="aclass_alien_html_a9f8a4e64f9611566b378cca286b5a98a"><div class="ttname"><a href="class_alien.html#a9f8a4e64f9611566b378cca286b5a98a">Alien::_draw</a></div><div class="ttdeci">void _draw(sf::RenderWindow &amp;window)</div><div class="ttdoc">draw method called every frame, draws component on window</div><div class="ttdef"><b>Definition:</b> Alien.cpp:25</div></div>
 <div class="ttc" id="aclass_alien_html_a92495ec2215a9ccccf2c8d46a0ffd3ef"><div class="ttname"><a href="class_alien.html#a92495ec2215a9ccccf2c8d46a0ffd3ef">Alien::Alien</a></div><div class="ttdeci">Alien(int max_LP, int xPos, int yPos, int speed, int targetCheckArea, int threatfulTargetCheckArea, bool hasAggressiveBehavior)</div><div class="ttdoc">constructor</div><div class="ttdef"><b>Definition:</b> Alien.cpp:9</div></div>
-<div class="ttc" id="aclass_alien_html"><div class="ttname"><a href="class_alien.html">Alien</a></div><div class="ttdoc">Type of Entity meant to annoy Rovers.</div><div class="ttdef"><b>Definition:</b> Alien.h:9</div></div>
+<div class="ttc" id="aclass_alien_html"><div class="ttname"><a href="class_alien.html">Alien</a></div><div class="ttdoc">Type of Entity meant to annoy Rovers.</div><div class="ttdef"><b>Definition:</b> Alien.h:12</div></div>
+<div class="ttc" id="aclass_alien_html_aea8b1dd6815923232c4479651ad8a28d"><div class="ttname"><a href="class_alien.html#aea8b1dd6815923232c4479651ad8a28d">Alien::_update</a></div><div class="ttdeci">void _update()</div><div class="ttdoc">update method called every frame, updates game logic</div><div class="ttdef"><b>Definition:</b> Alien.cpp:20</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by &#160;<a href="http://www.doxygen.org/index.html">

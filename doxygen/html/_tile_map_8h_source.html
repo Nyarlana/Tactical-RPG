@@ -71,44 +71,48 @@ $(function() {
 <div class="title">TileMap.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef TILEMAP_H</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define TILEMAP_H</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &quot;FileReader.h&quot;</span></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;../gameManager/Component.h&quot;</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;../gameManager/Observer.h&quot;</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &quot;Tile.h&quot;</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160; </div>
-<div class="line"><a name="l00008"></a><span class="lineno"><a class="line" href="class_tile_map.html">    8</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_tile_map.html">TileMap</a> : <span class="keyword">public</span> <a class="code" href="class_component.html">Component</a>, <span class="keyword">public</span> <a class="code" href="class_observer.html">Observer</a>, <span class="keyword">public</span> <a class="code" href="class_subject.html">Subject</a></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;{</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;        <a class="code" href="class_tile_map.html">TileMap</a>();</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;        ~<a class="code" href="class_tile_map.html">TileMap</a>();</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;        <span class="keywordtype">void</span> setTab();</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;        <span class="keywordtype">void</span> printTab();</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;        <span class="comment">// Surcharge</span></div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_tile_map.html#a574ab84f4613776bcbd553643a4874c2">on_Notify</a>(<span class="keyword">const</span> <a class="code" href="class_component.html">Component</a>&amp; <a class="code" href="classsubject.html">subject</a>, Event event);</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_tile_map.html#a178fda66a0b791e52e0417b9a59b854f">_init</a>();</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_tile_map.html#a1a12f8c5fb9a0465126d05ff6c52cbf1">_update</a>();</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_tile_map.html#a2db1841ac6df40b0c400eb51935f6aee">_draw</a>(sf::RenderWindow &amp; window);</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <span class="keyword">protected</span>:</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        <a class="code" href="class_tile.html">Tile</a> tilemap_tab[10][10];</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;};</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#endif // TILEMAP_H</span></div>
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160; </div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#ifndef TILEMAP_H</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#define TILEMAP_H</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;FileReader.h&quot;</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;../gameManager/Component.h&quot;</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &quot;../gameManager/Observer.h&quot;</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &quot;Tile.h&quot;</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160; </div>
+<div class="line"><a name="l00011"></a><span class="lineno"><a class="line" href="class_tile_map.html">   11</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_tile_map.html">TileMap</a> : <span class="keyword">public</span> <a class="code" href="class_component.html">Component</a>, <span class="keyword">public</span> <a class="code" href="class_observer.html">Observer</a>, <span class="keyword">public</span> <a class="code" href="class_subject.html">Subject</a></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;{</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;        <a class="code" href="class_tile_map.html#a89efb398413e7fed8cdf9f3a0b58c9d0">TileMap</a>();</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;        <a class="code" href="class_tile_map.html#a3448728e45d6a43fff3a02d4c6d72e9d">~TileMap</a>();</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_tile_map.html#af82b5d6e11329ccd1b987b2a0c5cadd5">setTab</a>();</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_tile_map.html#a9e35f89584f388288f7654466a556286">printTab</a>();</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;        <span class="comment">// Surcharge</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_tile_map.html#a574ab84f4613776bcbd553643a4874c2">on_Notify</a>(<span class="keyword">const</span> <a class="code" href="class_component.html">Component</a>&amp; subject, Event event);</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_tile_map.html#a178fda66a0b791e52e0417b9a59b854f">_init</a>();</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_tile_map.html#a1a12f8c5fb9a0465126d05ff6c52cbf1">_update</a>();</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_tile_map.html#a2db1841ac6df40b0c400eb51935f6aee">_draw</a>(sf::RenderWindow &amp; window);</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        <a class="code" href="class_tile.html">Tile</a> tilemap_tab[10][10];</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;};</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="preprocessor">#endif // TILEMAP_H</span></div>
 </div><!-- fragment --></div><!-- contents -->
-<div class="ttc" id="aclass_observer_html"><div class="ttname"><a href="class_observer.html">Observer</a></div><div class="ttdef"><b>Definition:</b> Observer.h:14</div></div>
-<div class="ttc" id="aclasssubject_html"><div class="ttname"><a href="classsubject.html">subject</a></div></div>
+<div class="ttc" id="aclass_tile_map_html_a9e35f89584f388288f7654466a556286"><div class="ttname"><a href="class_tile_map.html#a9e35f89584f388288f7654466a556286">TileMap::printTab</a></div><div class="ttdeci">void printTab()</div><div class="ttdoc">Temporary function, for testing.</div><div class="ttdef"><b>Definition:</b> TileMap.cpp:30</div></div>
+<div class="ttc" id="aclass_observer_html"><div class="ttname"><a href="class_observer.html">Observer</a></div><div class="ttdoc">observer class observes a subject and react to events</div><div class="ttdef"><b>Definition:</b> Observer.h:17</div></div>
+<div class="ttc" id="aclass_tile_map_html_a3448728e45d6a43fff3a02d4c6d72e9d"><div class="ttname"><a href="class_tile_map.html#a3448728e45d6a43fff3a02d4c6d72e9d">TileMap::~TileMap</a></div><div class="ttdeci">~TileMap()</div><div class="ttdoc">Class destructor.</div><div class="ttdef"><b>Definition:</b> TileMap.cpp:11</div></div>
 <div class="ttc" id="aclass_component_html"><div class="ttname"><a href="class_component.html">Component</a></div><div class="ttdoc">components of the GM class</div><div class="ttdef"><b>Definition:</b> Component.h:9</div></div>
-<div class="ttc" id="aclass_subject_html"><div class="ttname"><a href="class_subject.html">Subject</a></div><div class="ttdef"><b>Definition:</b> Observer.h:31</div></div>
+<div class="ttc" id="aclass_subject_html"><div class="ttname"><a href="class_subject.html">Subject</a></div><div class="ttdoc">subject class observed by observers, can notify them</div><div class="ttdef"><b>Definition:</b> Observer.h:37</div></div>
 <div class="ttc" id="aclass_tile_map_html_a178fda66a0b791e52e0417b9a59b854f"><div class="ttname"><a href="class_tile_map.html#a178fda66a0b791e52e0417b9a59b854f">TileMap::_init</a></div><div class="ttdeci">virtual void _init()</div><div class="ttdoc">init method overwritten by children classes, called at gm init</div><div class="ttdef"><b>Definition:</b> TileMap.cpp:48</div></div>
+<div class="ttc" id="aclass_tile_map_html_af82b5d6e11329ccd1b987b2a0c5cadd5"><div class="ttname"><a href="class_tile_map.html#af82b5d6e11329ccd1b987b2a0c5cadd5">TileMap::setTab</a></div><div class="ttdeci">void setTab()</div><div class="ttdoc">Calls FileReader and sets the tilemap_tab with read values.</div><div class="ttdef"><b>Definition:</b> TileMap.cpp:16</div></div>
 <div class="ttc" id="aclass_tile_map_html_a2db1841ac6df40b0c400eb51935f6aee"><div class="ttname"><a href="class_tile_map.html#a2db1841ac6df40b0c400eb51935f6aee">TileMap::_draw</a></div><div class="ttdeci">virtual void _draw(sf::RenderWindow &amp;window)</div><div class="ttdoc">draw method called every frame, draws component on window</div><div class="ttdef"><b>Definition:</b> TileMap.cpp:56</div></div>
 <div class="ttc" id="aclass_tile_map_html_a574ab84f4613776bcbd553643a4874c2"><div class="ttname"><a href="class_tile_map.html#a574ab84f4613776bcbd553643a4874c2">TileMap::on_Notify</a></div><div class="ttdeci">virtual void on_Notify(const Component &amp;subject, Event event)</div><div class="ttdoc">class destructor</div><div class="ttdef"><b>Definition:</b> TileMap.cpp:42</div></div>
 <div class="ttc" id="aclass_tile_map_html_a1a12f8c5fb9a0465126d05ff6c52cbf1"><div class="ttname"><a href="class_tile_map.html#a1a12f8c5fb9a0465126d05ff6c52cbf1">TileMap::_update</a></div><div class="ttdeci">virtual void _update()</div><div class="ttdoc">update method called every frame, updates game logic</div><div class="ttdef"><b>Definition:</b> TileMap.cpp:52</div></div>
-<div class="ttc" id="aclass_tile_html"><div class="ttname"><a href="class_tile.html">Tile</a></div><div class="ttdef"><b>Definition:</b> Tile.h:5</div></div>
-<div class="ttc" id="aclass_tile_map_html"><div class="ttname"><a href="class_tile_map.html">TileMap</a></div><div class="ttdef"><b>Definition:</b> TileMap.h:8</div></div>
+<div class="ttc" id="aclass_tile_html"><div class="ttname"><a href="class_tile.html">Tile</a></div><div class="ttdoc">Component of the TileMap class.</div><div class="ttdef"><b>Definition:</b> Tile.h:7</div></div>
+<div class="ttc" id="aclass_tile_map_html_a89efb398413e7fed8cdf9f3a0b58c9d0"><div class="ttname"><a href="class_tile_map.html#a89efb398413e7fed8cdf9f3a0b58c9d0">TileMap::TileMap</a></div><div class="ttdeci">TileMap()</div><div class="ttdoc">Class constructor.</div><div class="ttdef"><b>Definition:</b> TileMap.cpp:6</div></div>
+<div class="ttc" id="aclass_tile_map_html"><div class="ttname"><a href="class_tile_map.html">TileMap</a></div><div class="ttdoc">The map on which the game happens.</div><div class="ttdef"><b>Definition:</b> TileMap.h:11</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by &#160;<a href="http://www.doxygen.org/index.html">

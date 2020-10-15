@@ -2,7 +2,7 @@
 #ifndef TILE_H
 #define TILE_H
 
-/*@class Tile
+/**@class Tile
 @brief Component of the TileMap class*/
 class Tile
 {
