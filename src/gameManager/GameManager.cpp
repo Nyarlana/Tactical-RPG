@@ -6,6 +6,7 @@
 #include "GameManager.h"
 #include "Component.h"
 #include "Observer.h"
+#include "../TileMap/TileMap.h"
 
 GameManager::GameManager() {
 }
@@ -16,6 +17,9 @@ GameManager::~GameManager() {
 void GameManager::init() {
   window.create(sf::VideoMode(800, 600), "My window");
   window.setVerticalSyncEnabled(true);
+
+  tm = new TileMap();
+  components.push_back(tm);
 
   for (size_t i = 0; i < components.size(); i++) {
     components[i]->_init();
@@ -36,15 +40,24 @@ void GameManager::mainloop() {
     }
 
     for (size_t i = 0; i < components.size(); i++) {
-      components[i]->_update();
+      if (components[i]->active) {
+        components[i]->_update();
+      }
     }
 
     window.clear();
     for (size_t i = 0; i < components.size(); i++) {
-      components[i]->_draw(window);
+      if (components[i]->active) {
+        components[i]->_draw(window);
+      }
     }
     window.display();
   }
+
+  for (size_t i = 0; i < components.size(); i++) {
+    delete components[i];
+  }
+  delete tm;
 }
 
 void GameManager::on_Notify(const Component& subject, Event event) {

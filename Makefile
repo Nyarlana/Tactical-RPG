@@ -12,7 +12,7 @@ all : main testTilemap testEntity
 
 main : GameManager.o
 	g++ $(INCLUDE) -c src/main.cpp -o obj/main.o obj/GameManager.o
-	g++ $(LIB) -o bin/main.exe -g obj/main.o obj/GameManager.o $(LINKER_FLAGS)
+	g++ $(LIB) -o bin/main.exe -g obj/main.o obj/GameManager.o -g obj/TileMap.o obj/Component.o obj/Observer.o obj/Tile.o obj/FileReader.o $(LINKER_FLAGS)
 
 testTilemap : TileMap.o
 	g++ $(INCLUDE) -c src/main/testTilemap.cpp -o obj/testTilemap.o obj/TileMap.o
@@ -23,8 +23,8 @@ testEntity : Miner.o Alien.o Healer.o Raider.o Tank.o
 	g++ $(LIB) -o bin/testEntity.exe -g obj/testEntity.o obj/Miner.o obj/Alien.o obj/Healer.o obj/Raider.o obj/Tank.o obj/Fighter.o obj/Entity.o obj/Component.o $(LINKER_FLAGS)
 
 
-GameManager.o : Component.o Observer.o
-	g++ $(INCLUDE) -c src/gameManager/GameManager.cpp -o obj/GameManager.o -g obj/Component.o obj/Observer.o
+GameManager.o : Component.o Observer.o TileMap.o
+	g++ $(INCLUDE) -c src/gameManager/GameManager.cpp -o obj/GameManager.o -g obj/Component.o obj/Observer.o obj/TileMap.o
 
 Observer.o : Component.o
 	g++ $(INCLUDE) -c src/gameManager/Observer.cpp -o obj/Observer.o $(LINKER_FLAGS)

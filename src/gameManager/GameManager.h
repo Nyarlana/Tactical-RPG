@@ -8,6 +8,7 @@
 #include <vector>
 #include "Component.h"
 #include "Observer.h"
+#include "../TileMap/TileMap.h"
 
 /** @class GameManager
     @brief manages the game*/
@@ -25,7 +26,8 @@ public:
   virtual void on_Notify(const Component& subject, Event event);
 private:
   sf::RenderWindow window;
-  std::vector<std::shared_ptr<Component>> components;
+  std::vector<Component*> components;
+  TileMap * tm;
 };
 
 #endif
