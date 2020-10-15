@@ -20,6 +20,7 @@ void GameManager::init() {
 
   tm = new TileMap();
   components.push_back(tm);
+  tm->add_Observer(std::dynamic_pointer_cast<Observer>(shared_from_this()));
 
   for (size_t i = 0; i < components.size(); i++) {
     components[i]->_init();

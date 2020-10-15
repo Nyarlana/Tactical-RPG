@@ -39,7 +39,8 @@ public:
   /**@brief notifies all observers
      @param event chosen event*/
   virtual void notify(const Component& subject, Event event);
-  /**@brief add an observer*/
+  /**@brief add an observer
+  add an observer using "tm->add_Observer(std::dynamic_pointer_cast<Observer>(shared_from_this()));"*/
   void add_Observer(std::shared_ptr<Observer> obs);
   /**@brief removes an observer*/
   void remove_Observer(std::shared_ptr<Observer> obs);

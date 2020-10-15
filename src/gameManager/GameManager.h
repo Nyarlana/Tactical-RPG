@@ -12,7 +12,7 @@
 
 /** @class GameManager
     @brief manages the game*/
-class GameManager : public Observer {
+class GameManager : public Observer, public std::enable_shared_from_this<GameManager> {
 public:
   /**@brief class constructor*/
   GameManager();
