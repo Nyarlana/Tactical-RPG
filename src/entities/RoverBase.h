@@ -6,6 +6,8 @@
 #include <SFML/Graphics.hpp>
 #include <SFML/Main.hpp>
 
+#include <memory>
+
 /**@class RoverBase class
 @brief RoverBase type of Entity*/
 class RoverBase : public Entity
@@ -30,7 +32,7 @@ class RoverBase : public Entity
         //Rovers management
         void getOneOre();
         void putRover(int rover_number, int x, int y);
-        void getRover(Rover r);
+        void getRover(Entity r);
 
     protected:
 
@@ -39,6 +41,7 @@ class RoverBase : public Entity
         typedef Entity super;
         int objective;
         int ore_amount;
+        std::vector<std:shared_ptr<Entity>> rovers;
 };
 
 #endif // RoverBase_H

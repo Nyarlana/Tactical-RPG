@@ -2,18 +2,40 @@
 
 #include <vector>
 #include <string>
+#include <memory>
 
 using namespace std;
 /** @brief constructor */
-RoverBase::RoverBase()
+RoverBase::RoverBase(int _x_pos, int _y_pos, int _objective, string _rovers) : x_pos(_x_pos), y_pos(_y_pos), objective(_objective)
 {
+    while (!_rovers.empty())
+    {
+        switch (_rovers.back())
+        {
+            case 'h':
+                rovers.push_back(std::make_shared<Healer>(-1,-1));
+                break;
+            case 'm':
+                rovers.push_back(std::make_shared<Miner>(-1,-1));
+                break;
+            case 'r':
+                rovers.push_back(std::make_shared<Raider>(-1,-1));
+                break;
+            case 't':
+                rovers.push_back(std::make_shared<Tank>(-1,-1));
+        }
 
+        _rovers.pop_back();
+    }
 }
 
 //inherited functions
 void _init()
 {
+    for(int i=0; i<rovers.size(); i++)
+        // on lance les theads rover : rovers[i]->action();
 
+    //on lance ce thread
 }
 
 void _update()
@@ -55,7 +77,7 @@ static RoverBase launchMission(string mission)
     int separator;
 
     int x_pos, y_pos, objective;
-    vector<Entity> v;
+    string rovers = "";
 
     ifstream mission_file (mission);
 
@@ -81,30 +103,13 @@ static RoverBase launchMission(string mission)
             }
             else if(data_type.compare("rov"))
             {
-                switch (line.back()) {
-                    case 'm':
-                    {
-                        v.push_back(new Miner(-1,-1));
-                    }
-                    case 't':
-                    {
-                        v.push_back(new Tank(-1,-1));
-                    }
-                    case 'r':
-                    {
-                        v.push_back(new Raider(-1,-1));
-                    }
-                    case 'h':
-                    {
-                        v.push_back(new Healer(-1,-1));
-                    }
-                }
+                rovers.append(line.back());
             }
         }
 
         mission_file.close();
 
-        return new RoverBase(x_pos, y_pos, objective, v);
+        return new RoverBase(x_pos, y_pos, objective, rovers);
     }
 
     return NULL;
