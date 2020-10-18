@@ -2,6 +2,9 @@
 #include "Tile.h"
 #include "FileReader.h"
 #include <iostream>
+#include <set>
+#include <algorithm>
+#include <math.h>
 
 TileMap::TileMap()
 {
@@ -55,4 +58,58 @@ void TileMap::_update() {
 
 void TileMap::_draw(sf::RenderWindow & window) {
 
+}
+
+//A* implementation
+
+std::vector<sf::Vector2i> TileMap::request_path(const sf::Vector2i& start,const sf::Vector2i& end) {
+  //exceptions
+  std::vector<sf::Vector2i> empty;
+  if (tilemap_tab[end.x][end.y].returnTileObstacle()) {
+    return empty;
+  }
+  //used variables
+  std::vector<NodePath> queue;
+  std::vector<NodePath> explored;
+  NodePath current;
+  //add first node
+  current.node = start;
+  current.from = 0;
+  current.hcost = heuristics(start, start, end);
+  queue.push_back(current);
+  //loop
+  while (queue.back().node != end) {
+    for (int i = -1; i <= 1; i++) {
+      for (int j = -1; j <= 1; j++) {
+        if ((queue.back().node.x + i >= 0) && (queue.back().node.x + i < 10) &&
+          (queue.back().node.y + i >= 0) && (queue.back().node.y + i < 10)) {
+            // current update
+            current.node = sf::Vector2i(queue.back().node.x + i, queue.back().node.y + j);
+            current.from = &queue.back();
+            current.hcost = heuristics(current.node, start, end);
+            //update vectors
+            queue.insert(queue.end()-1,current);
+          }
+      }
+    }
+    // update vectors
+    explored.push_back(queue.back());
+    queue.pop_back();
+    sortPath(queue);
+  }
+  //return
+  return makePath(explored.back());
+}
+
+float TileMap::heuristics(sf::Vector2i tile, sf::Vector2i start, sf::Vector2i end) {
+  return sqrt((tile.x-end.x)*(tile.x-end.x) + (tile.y-end.y)*(tile.y-end.y)) +
+        sqrt((tile.x-start.x)*(tile.x-start.x) + (tile.y-start.y)*(tile.y-start.y));
+}
+
+void TileMap::sortPath(std::vector<NodePath> & queue) {
+  //code
+}
+
+std::vector<sf::Vector2i> TileMap::makePath(const NodePath & from) {
+  //code
 }

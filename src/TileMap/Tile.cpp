@@ -25,3 +25,8 @@ int Tile::returnTileValue()
 {
     return tile_type;
 }
+
+bool Tile::returnTileObstacle()
+{
+  return tile_is_obstacle;
+}

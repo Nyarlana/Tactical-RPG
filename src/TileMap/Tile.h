@@ -17,11 +17,14 @@ class Tile
         void emptyTile();
         /**@brief Temporary function, for testing*/
         int returnTileValue();
+        /**@brief A**/
+        bool returnTileObstacle();
     protected:
 
     private:
         int tile_type;
         bool tile_is_empty;
+        bool tile_is_obstacle;
 
 };
 
