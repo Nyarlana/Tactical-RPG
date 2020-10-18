@@ -14,7 +14,7 @@ enum Event {
 /**@class Observer
 @brief observer class
 observes a subject and react to events*/
-class Observer {
+class Observer : public std::enable_shared_from_this<Observer> {
 public:
   /**@brief class destructor*/
   //virtual ~Observer();
