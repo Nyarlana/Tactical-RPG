@@ -40,7 +40,7 @@ class TileMap : public Component, public Observer, public Subject
         /**@brief A* implementation*/
         void sortPath(std::vector<NodePath> & queue);
         /**@brief A* implementation*/
-        std::vector<sf::Vector2i> makePath(const NodePath & from);
+        std::vector<sf::Vector2i> makePath(const NodePath & from, const sf::Vector2i & start);
         /**@brief A* implementation*/
         bool isNotIn(const NodePath & current, const std::vector<NodePath> & explored);
 

@@ -100,7 +100,7 @@ std::vector<sf::Vector2i> TileMap::request_path(const sf::Vector2i& start,const 
     sortPath(queue);
   }
   //return
-  return makePath(explored.back());
+  return makePath(explored.back(), start);
 }
 
 float TileMap::heuristics(sf::Vector2i tile, sf::Vector2i start, sf::Vector2i end) {
@@ -109,11 +109,17 @@ float TileMap::heuristics(sf::Vector2i tile, sf::Vector2i start, sf::Vector2i en
 }
 
 void TileMap::sortPath(std::vector<NodePath> & queue) {
-  //code
+  sort(queue.rend(), queue.rbegin());
 }
 
-std::vector<sf::Vector2i> TileMap::makePath(const NodePath & from) {
-  //code
+std::vector<sf::Vector2i> TileMap::makePath(const NodePath & from, const sf::Vector2i & start) {
+  std::vector<sf::Vector2i> res;
+  NodePath current = from;
+  while (current.node != start) {
+    res.push_back(current.node);
+    current = current.from;
+  }
+  return res;
 }
 
 bool TileMap::isNotIn(const NodePath & current, const std::vector<NodePath> & explored) {
