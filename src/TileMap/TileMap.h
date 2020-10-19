@@ -41,6 +41,9 @@ class TileMap : public Component, public Observer, public Subject
         void sortPath(std::vector<NodePath> & queue);
         /**@brief A* implementation*/
         std::vector<sf::Vector2i> makePath(const NodePath & from);
+        /**@brief A* implementation*/
+        bool isNotIn(const NodePath & current, const std::vector<NodePath> & explored);
+
         // Surcharge
         virtual void on_Notify(const Component& subject, Event event);
         virtual void _init();

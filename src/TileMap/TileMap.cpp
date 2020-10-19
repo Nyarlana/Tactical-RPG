@@ -88,7 +88,9 @@ std::vector<sf::Vector2i> TileMap::request_path(const sf::Vector2i& start,const 
             current.from = &queue.back();
             current.hcost = heuristics(current.node, start, end);
             //update vectors
-            queue.insert(queue.end()-1,current);
+            if (current.node != queue.back().node && isNotIn(current, explored)) {
+              queue.insert(queue.end()-1,current);
+            }
           }
       }
     }
@@ -112,4 +114,21 @@ void TileMap::sortPath(std::vector<NodePath> & queue) {
 
 std::vector<sf::Vector2i> TileMap::makePath(const NodePath & from) {
   //code
+}
+
+bool TileMap::isNotIn(const NodePath & current, const std::vector<NodePath> & explored) {
+  for (size_t i = 0; i < explored.size(); i++) {
+    if (explored[i].node == current.node) {
+      return false;
+    }
+  }
+  return true;
+}
+
+bool operator > (const NodePath & a,const NodePath & b) {
+  return a.hcost > b.hcost;
+}
+
+bool operator < (const NodePath & a,const NodePath & b) {
+  return a.hcost < b.hcost;
 }
