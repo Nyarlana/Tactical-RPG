@@ -117,7 +117,7 @@ std::vector<sf::Vector2i> TileMap::makePath(const NodePath & from, const sf::Vec
   NodePath current = from;
   while (current.node != start) {
     res.push_back(current.node);
-    current = current.from;
+    current = (*current.from);
   }
   return res;
 }
