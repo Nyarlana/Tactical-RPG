@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.17"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Tactical RPG - Projet L3: Member List</title>
+<title>Tactical RPG - Projet L3: NodePath Struct Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -63,23 +63,37 @@ $(function() {
 
 </div><!-- top -->
 <div class="header">
+  <div class="summary">
+<a href="#pub-attribs">Public Attributes</a> &#124;
+<a href="struct_node_path-members.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">Component Member List</div>  </div>
+<div class="title">NodePath Struct Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>This is the complete list of members for <a class="el" href="class_component.html">Component</a>, including all inherited members.</p>
-<table class="directory">
-  <tr class="even"><td class="entry"><a class="el" href="class_component.html#a56712f5491879798ca4a052defc7dabc">_draw</a>(sf::RenderWindow &amp;window)=0</td><td class="entry"><a class="el" href="class_component.html">Component</a></td><td class="entry"><span class="mlabel">pure virtual</span></td></tr>
-  <tr><td class="entry"><a class="el" href="class_component.html#a53d12dbae56a7db96aede32837056684">_init</a>()=0</td><td class="entry"><a class="el" href="class_component.html">Component</a></td><td class="entry"><span class="mlabel">pure virtual</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_component.html#aa02959fdfeee1fd9dd6f33ad14f5b6e4">_update</a>()=0</td><td class="entry"><a class="el" href="class_component.html">Component</a></td><td class="entry"><span class="mlabel">pure virtual</span></td></tr>
-  <tr><td class="entry"><a class="el" href="class_component.html#aaab29ea159109b4d0f63e9c519be6139">activate</a>()</td><td class="entry"><a class="el" href="class_component.html">Component</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>active</b> (defined in <a class="el" href="class_component.html">Component</a>)</td><td class="entry"><a class="el" href="class_component.html">Component</a></td><td class="entry"></td></tr>
-  <tr><td class="entry"><a class="el" href="class_component.html#a8775db6d1a2c1afc2e77cd3c8f39da6f">Component</a>()</td><td class="entry"><a class="el" href="class_component.html">Component</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_component.html#aa4d1e5e0656ed03f7ff469db25f65053">deactivate</a>()</td><td class="entry"><a class="el" href="class_component.html">Component</a></td><td class="entry"></td></tr>
-  <tr><td class="entry"><a class="el" href="class_component.html#a6c35fa67b2f0f691b58fa2809a1a4bdd">is_Active</a>()</td><td class="entry"><a class="el" href="class_component.html">Component</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_component.html#ab8378fa275af98e568a7e91d33d867af">~Component</a>()</td><td class="entry"><a class="el" href="class_component.html">Component</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
-</table></div><!-- contents -->
+<p>A* implementation Explored node, stocks where it came from.  
+ <a href="struct_node_path.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="_tile_map_8h_source.html">TileMap.h</a>&gt;</code></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
+Public Attributes</h2></td></tr>
+<tr class="memitem:aff71d3e7048c97555ce693f978caabad"><td class="memItemLeft" align="right" valign="top"><a id="aff71d3e7048c97555ce693f978caabad"></a>
+sf::Vector2i&#160;</td><td class="memItemRight" valign="bottom"><b>node</b></td></tr>
+<tr class="separator:aff71d3e7048c97555ce693f978caabad"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae3d090218ccfaa71af704df4a1c3d7e6"><td class="memItemLeft" align="right" valign="top"><a id="ae3d090218ccfaa71af704df4a1c3d7e6"></a>
+<a class="el" href="struct_node_path.html">NodePath</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>from</b></td></tr>
+<tr class="separator:ae3d090218ccfaa71af704df4a1c3d7e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a78ac0c9e47542f2404a8ed23b89ae83e"><td class="memItemLeft" align="right" valign="top"><a id="a78ac0c9e47542f2404a8ed23b89ae83e"></a>
+float&#160;</td><td class="memItemRight" valign="bottom"><b>hcost</b></td></tr>
+<tr class="separator:a78ac0c9e47542f2404a8ed23b89ae83e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>A* implementation Explored node, stocks where it came from. </p>
+</div><hr/>The documentation for this struct was generated from the following file:<ul>
+<li>src/TileMap/<a class="el" href="_tile_map_8h_source.html">TileMap.h</a></li>
+</ul>
+</div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by &#160;<a href="http://www.doxygen.org/index.html">

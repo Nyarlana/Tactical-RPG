@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['protector_75',['Protector',['../class_protector.html',1,'']]]
+  ['observer_84',['Observer',['../class_observer.html',1,'']]],
+  ['obsnode_85',['ObsNode',['../struct_obs_node.html',1,'']]]
 ];

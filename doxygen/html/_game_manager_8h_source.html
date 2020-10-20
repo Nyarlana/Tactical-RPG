@@ -81,29 +81,31 @@ $(function() {
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &quot;Component.h&quot;</span></div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &quot;Observer.h&quot;</span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160; </div>
-<div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="class_game_manager.html">   14</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_game_manager.html">GameManager</a> : <span class="keyword">public</span> <a class="code" href="class_observer.html">Observer</a> {</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;  <a class="code" href="class_game_manager.html#aa0e2424dc1a39d380e5b6605b179bf05">GameManager</a>();</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;  <a class="code" href="class_game_manager.html#aaae63e38e358379c1fe507c5197a8435">~GameManager</a>();</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="class_game_manager.html#a849df8c09486d7c84f368d52716b56d2">init</a>();</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="class_game_manager.html#a519ccd05d154ae2a6ff0624c094a8dac">mainloop</a>();</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_game_manager.html#a37204b1d9ed57007fa814c39395223b9">on_Notify</a>(<span class="keyword">const</span> <a class="code" href="class_component.html">Component</a>&amp; subject, Event event);</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;  sf::RenderWindow window;</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;  std::vector&lt;std::shared_ptr&lt;Component&gt;&gt; components;</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;};</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &quot;../TileMap/TileMap.h&quot;</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
+<div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="class_game_manager.html">   15</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_game_manager.html">GameManager</a> : <span class="keyword">public</span> <a class="code" href="class_observer.html">Observer</a> {</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;  <a class="code" href="class_game_manager.html#aa0e2424dc1a39d380e5b6605b179bf05">GameManager</a>();</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;  <a class="code" href="class_game_manager.html#aaae63e38e358379c1fe507c5197a8435">~GameManager</a>();</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="class_game_manager.html#a849df8c09486d7c84f368d52716b56d2">init</a>();</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="class_game_manager.html#a519ccd05d154ae2a6ff0624c094a8dac">mainloop</a>();</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_game_manager.html#a37204b1d9ed57007fa814c39395223b9">on_Notify</a>(<span class="keyword">const</span> <a class="code" href="class_component.html">Component</a>&amp; subject, Event event);</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;  sf::RenderWindow window;</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;  std::vector&lt;std::shared_ptr&lt;Component&gt;&gt; components;</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;  std::shared_ptr&lt;TileMap&gt; tm;</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;};</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="preprocessor">#endif</span></div>
 </div><!-- fragment --></div><!-- contents -->
-<div class="ttc" id="aclass_game_manager_html"><div class="ttname"><a href="class_game_manager.html">GameManager</a></div><div class="ttdoc">manages the game</div><div class="ttdef"><b>Definition:</b> GameManager.h:14</div></div>
+<div class="ttc" id="aclass_game_manager_html"><div class="ttname"><a href="class_game_manager.html">GameManager</a></div><div class="ttdoc">manages the game</div><div class="ttdef"><b>Definition:</b> GameManager.h:15</div></div>
 <div class="ttc" id="aclass_observer_html"><div class="ttname"><a href="class_observer.html">Observer</a></div><div class="ttdoc">observer class observes a subject and react to events</div><div class="ttdef"><b>Definition:</b> Observer.h:17</div></div>
-<div class="ttc" id="aclass_game_manager_html_a37204b1d9ed57007fa814c39395223b9"><div class="ttname"><a href="class_game_manager.html#a37204b1d9ed57007fa814c39395223b9">GameManager::on_Notify</a></div><div class="ttdeci">virtual void on_Notify(const Component &amp;subject, Event event)</div><div class="ttdoc">observer implementation</div><div class="ttdef"><b>Definition:</b> GameManager.cpp:50</div></div>
+<div class="ttc" id="aclass_game_manager_html_a37204b1d9ed57007fa814c39395223b9"><div class="ttname"><a href="class_game_manager.html#a37204b1d9ed57007fa814c39395223b9">GameManager::on_Notify</a></div><div class="ttdeci">virtual void on_Notify(const Component &amp;subject, Event event)</div><div class="ttdoc">observer implementation</div><div class="ttdef"><b>Definition:</b> GameManager.cpp:59</div></div>
 <div class="ttc" id="aclass_component_html"><div class="ttname"><a href="class_component.html">Component</a></div><div class="ttdoc">components of the GM class</div><div class="ttdef"><b>Definition:</b> Component.h:9</div></div>
-<div class="ttc" id="aclass_game_manager_html_aa0e2424dc1a39d380e5b6605b179bf05"><div class="ttname"><a href="class_game_manager.html#aa0e2424dc1a39d380e5b6605b179bf05">GameManager::GameManager</a></div><div class="ttdeci">GameManager()</div><div class="ttdoc">class constructor</div><div class="ttdef"><b>Definition:</b> GameManager.cpp:10</div></div>
-<div class="ttc" id="aclass_game_manager_html_a519ccd05d154ae2a6ff0624c094a8dac"><div class="ttname"><a href="class_game_manager.html#a519ccd05d154ae2a6ff0624c094a8dac">GameManager::mainloop</a></div><div class="ttdeci">void mainloop()</div><div class="ttdoc">main loop of the game</div><div class="ttdef"><b>Definition:</b> GameManager.cpp:27</div></div>
-<div class="ttc" id="aclass_game_manager_html_aaae63e38e358379c1fe507c5197a8435"><div class="ttname"><a href="class_game_manager.html#aaae63e38e358379c1fe507c5197a8435">GameManager::~GameManager</a></div><div class="ttdeci">~GameManager()</div><div class="ttdoc">class destructor</div><div class="ttdef"><b>Definition:</b> GameManager.cpp:13</div></div>
-<div class="ttc" id="aclass_game_manager_html_a849df8c09486d7c84f368d52716b56d2"><div class="ttname"><a href="class_game_manager.html#a849df8c09486d7c84f368d52716b56d2">GameManager::init</a></div><div class="ttdeci">void init()</div><div class="ttdoc">initializes the game</div><div class="ttdef"><b>Definition:</b> GameManager.cpp:16</div></div>
+<div class="ttc" id="aclass_game_manager_html_aa0e2424dc1a39d380e5b6605b179bf05"><div class="ttname"><a href="class_game_manager.html#aa0e2424dc1a39d380e5b6605b179bf05">GameManager::GameManager</a></div><div class="ttdeci">GameManager()</div><div class="ttdoc">class constructor</div><div class="ttdef"><b>Definition:</b> GameManager.cpp:11</div></div>
+<div class="ttc" id="aclass_game_manager_html_a519ccd05d154ae2a6ff0624c094a8dac"><div class="ttname"><a href="class_game_manager.html#a519ccd05d154ae2a6ff0624c094a8dac">GameManager::mainloop</a></div><div class="ttdeci">void mainloop()</div><div class="ttdoc">main loop of the game</div><div class="ttdef"><b>Definition:</b> GameManager.cpp:32</div></div>
+<div class="ttc" id="aclass_game_manager_html_aaae63e38e358379c1fe507c5197a8435"><div class="ttname"><a href="class_game_manager.html#aaae63e38e358379c1fe507c5197a8435">GameManager::~GameManager</a></div><div class="ttdeci">~GameManager()</div><div class="ttdoc">class destructor</div><div class="ttdef"><b>Definition:</b> GameManager.cpp:14</div></div>
+<div class="ttc" id="aclass_game_manager_html_a849df8c09486d7c84f368d52716b56d2"><div class="ttname"><a href="class_game_manager.html#a849df8c09486d7c84f368d52716b56d2">GameManager::init</a></div><div class="ttdeci">void init()</div><div class="ttdoc">initializes the game</div><div class="ttdef"><b>Definition:</b> GameManager.cpp:17</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by &#160;<a href="http://www.doxygen.org/index.html">

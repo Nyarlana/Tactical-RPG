@@ -32,16 +32,28 @@ class TileMap : public Component, public Observer, public Subject
         /**@brief A* implementation
         returns a path from start to end avoiding obstacles
         @param start starting position
-        @param end ending position*/
+        @param end ending position
+        @return sorted path*/
         std::vector<sf::Vector2i> request_path(const sf::Vector2i & start,const sf::Vector2i & end);
-        /**@brief A* implementation
-        heuristics*/
+        /**@brief heuristics
+        calculate heuristics depending on distance to start and end
+        @param tile position to calculate distance from
+        @param start starting position
+        @param end ending position*/
         float heuristics(sf::Vector2i tile, sf::Vector2i start, sf::Vector2i end);
-        /**@brief A* implementation*/
+        /**@brief sorts NodePath
+        A* implementation, sorts queue depending on NodePath hcost
+        @param queue array to sort*/
         void sortPath(std::vector<NodePath> & queue);
-        /**@brief A* implementation*/
+        /**@brief create path
+        A* implementation, return a path of 2d points from the endpoint node
+        @param from last NodePath explored
+        @param start position of the first point*/
         std::vector<sf::Vector2i> makePath(const NodePath & from, const sf::Vector2i & start);
-        /**@brief A* implementation*/
+        /**@brief checks array for NodePath
+          A* implementation
+          @param current Node to search
+          @param explored array to search in*/
         bool isNotIn(const NodePath & current, const std::vector<NodePath> & explored);
 
         // Surcharge

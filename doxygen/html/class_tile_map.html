@@ -81,9 +81,9 @@ Inheritance diagram for TileMap:</div>
  <div class="center">
   <img src="class_tile_map.png" usemap="#TileMap_map" alt=""/>
   <map id="TileMap_map" name="TileMap_map">
-<area href="class_component.html" title="components of the GM class" alt="Component" shape="rect" coords="0,0,75,24"/>
-<area href="class_observer.html" title="observer class observes a subject and react to events" alt="Observer" shape="rect" coords="85,0,160,24"/>
-<area href="class_subject.html" title="subject class observed by observers, can notify them" alt="Subject" shape="rect" coords="170,0,245,24"/>
+<area href="class_component.html" title="components of the GM class" alt="Component" shape="rect" coords="0,56,254,80"/>
+<area href="class_observer.html" title="observer class observes a subject and react to events" alt="Observer" shape="rect" coords="264,56,518,80"/>
+<area href="class_subject.html" title="subject class observed by observers, can notify them" alt="Subject" shape="rect" coords="528,56,782,80"/>
   </map>
 </div></div>
 <table class="memberdecls">
@@ -105,6 +105,21 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_tile_map.html#a9e35f89584f388288f7654466a556286">printTab</a> ()</td></tr>
 <tr class="memdesc:a9e35f89584f388288f7654466a556286"><td class="mdescLeft">&#160;</td><td class="mdescRight">Temporary function, for testing. <br /></td></tr>
 <tr class="separator:a9e35f89584f388288f7654466a556286"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0815d125cb38f10cd463ff3c35b3d312"><td class="memItemLeft" align="right" valign="top">std::vector&lt; sf::Vector2i &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_tile_map.html#a0815d125cb38f10cd463ff3c35b3d312">request_path</a> (const sf::Vector2i &amp;start, const sf::Vector2i &amp;end)</td></tr>
+<tr class="memdesc:a0815d125cb38f10cd463ff3c35b3d312"><td class="mdescLeft">&#160;</td><td class="mdescRight">A* implementation returns a path from start to end avoiding obstacles.  <a href="class_tile_map.html#a0815d125cb38f10cd463ff3c35b3d312">More...</a><br /></td></tr>
+<tr class="separator:a0815d125cb38f10cd463ff3c35b3d312"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abf6907fda618ef12f21777554a75624c"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_tile_map.html#abf6907fda618ef12f21777554a75624c">heuristics</a> (sf::Vector2i tile, sf::Vector2i start, sf::Vector2i end)</td></tr>
+<tr class="memdesc:abf6907fda618ef12f21777554a75624c"><td class="mdescLeft">&#160;</td><td class="mdescRight">heuristics calculate heuristics depending on distance to start and end  <a href="class_tile_map.html#abf6907fda618ef12f21777554a75624c">More...</a><br /></td></tr>
+<tr class="separator:abf6907fda618ef12f21777554a75624c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a241615dac86976a01d3d2b7293e32305"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_tile_map.html#a241615dac86976a01d3d2b7293e32305">sortPath</a> (std::vector&lt; <a class="el" href="struct_node_path.html">NodePath</a> &gt; &amp;queue)</td></tr>
+<tr class="memdesc:a241615dac86976a01d3d2b7293e32305"><td class="mdescLeft">&#160;</td><td class="mdescRight">sorts <a class="el" href="struct_node_path.html" title="A* implementation Explored node, stocks where it came from.">NodePath</a> A* implementation, sorts queue depending on <a class="el" href="struct_node_path.html" title="A* implementation Explored node, stocks where it came from.">NodePath</a> hcost  <a href="class_tile_map.html#a241615dac86976a01d3d2b7293e32305">More...</a><br /></td></tr>
+<tr class="separator:a241615dac86976a01d3d2b7293e32305"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8c42efb3cc620577fb17d14344335154"><td class="memItemLeft" align="right" valign="top">std::vector&lt; sf::Vector2i &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_tile_map.html#a8c42efb3cc620577fb17d14344335154">makePath</a> (const <a class="el" href="struct_node_path.html">NodePath</a> &amp;from, const sf::Vector2i &amp;start)</td></tr>
+<tr class="memdesc:a8c42efb3cc620577fb17d14344335154"><td class="mdescLeft">&#160;</td><td class="mdescRight">create path A* implementation, return a path of 2d points from the endpoint node  <a href="class_tile_map.html#a8c42efb3cc620577fb17d14344335154">More...</a><br /></td></tr>
+<tr class="separator:a8c42efb3cc620577fb17d14344335154"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3c52a6c2839b10ba9a7833dfdaa40bab"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_tile_map.html#a3c52a6c2839b10ba9a7833dfdaa40bab">isNotIn</a> (const <a class="el" href="struct_node_path.html">NodePath</a> &amp;current, const std::vector&lt; <a class="el" href="struct_node_path.html">NodePath</a> &gt; &amp;explored)</td></tr>
+<tr class="memdesc:a3c52a6c2839b10ba9a7833dfdaa40bab"><td class="mdescLeft">&#160;</td><td class="mdescRight">checks array for <a class="el" href="struct_node_path.html" title="A* implementation Explored node, stocks where it came from.">NodePath</a> A* implementation  <a href="class_tile_map.html#a3c52a6c2839b10ba9a7833dfdaa40bab">More...</a><br /></td></tr>
+<tr class="separator:a3c52a6c2839b10ba9a7833dfdaa40bab"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a574ab84f4613776bcbd553643a4874c2"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_tile_map.html#a574ab84f4613776bcbd553643a4874c2">on_Notify</a> (const <a class="el" href="class_component.html">Component</a> &amp;subject, Event event)</td></tr>
 <tr class="memdesc:a574ab84f4613776bcbd553643a4874c2"><td class="mdescLeft">&#160;</td><td class="mdescRight">class destructor  <a href="class_tile_map.html#a574ab84f4613776bcbd553643a4874c2">More...</a><br /></td></tr>
 <tr class="separator:a574ab84f4613776bcbd553643a4874c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -128,13 +143,25 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" hr
 virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_component.html#ab8378fa275af98e568a7e91d33d867af">~Component</a> ()</td></tr>
 <tr class="memdesc:ab8378fa275af98e568a7e91d33d867af inherit pub_methods_class_component"><td class="mdescLeft">&#160;</td><td class="mdescRight">class destructor <br /></td></tr>
 <tr class="separator:ab8378fa275af98e568a7e91d33d867af inherit pub_methods_class_component"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa4d1e5e0656ed03f7ff469db25f65053 inherit pub_methods_class_component"><td class="memItemLeft" align="right" valign="top"><a id="aa4d1e5e0656ed03f7ff469db25f65053"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_component.html#aa4d1e5e0656ed03f7ff469db25f65053">deactivate</a> ()</td></tr>
+<tr class="memdesc:aa4d1e5e0656ed03f7ff469db25f65053 inherit pub_methods_class_component"><td class="mdescLeft">&#160;</td><td class="mdescRight">deactivate item <br /></td></tr>
+<tr class="separator:aa4d1e5e0656ed03f7ff469db25f65053 inherit pub_methods_class_component"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaab29ea159109b4d0f63e9c519be6139 inherit pub_methods_class_component"><td class="memItemLeft" align="right" valign="top"><a id="aaab29ea159109b4d0f63e9c519be6139"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_component.html#aaab29ea159109b4d0f63e9c519be6139">activate</a> ()</td></tr>
+<tr class="memdesc:aaab29ea159109b4d0f63e9c519be6139 inherit pub_methods_class_component"><td class="mdescLeft">&#160;</td><td class="mdescRight">reactivate item <br /></td></tr>
+<tr class="separator:aaab29ea159109b4d0f63e9c519be6139 inherit pub_methods_class_component"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6c35fa67b2f0f691b58fa2809a1a4bdd inherit pub_methods_class_component"><td class="memItemLeft" align="right" valign="top"><a id="a6c35fa67b2f0f691b58fa2809a1a4bdd"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_component.html#a6c35fa67b2f0f691b58fa2809a1a4bdd">is_Active</a> ()</td></tr>
+<tr class="memdesc:a6c35fa67b2f0f691b58fa2809a1a4bdd inherit pub_methods_class_component"><td class="mdescLeft">&#160;</td><td class="mdescRight">get active <br /></td></tr>
+<tr class="separator:a6c35fa67b2f0f691b58fa2809a1a4bdd inherit pub_methods_class_component"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_class_subject"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_subject')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="class_subject.html">Subject</a></td></tr>
 <tr class="memitem:aa9848a867108ec2819767e87d0b5a230 inherit pub_methods_class_subject"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_subject.html#aa9848a867108ec2819767e87d0b5a230">notify</a> (const <a class="el" href="class_component.html">Component</a> &amp;subject, Event event)</td></tr>
 <tr class="memdesc:aa9848a867108ec2819767e87d0b5a230 inherit pub_methods_class_subject"><td class="mdescLeft">&#160;</td><td class="mdescRight">notifies all observers  <a href="class_subject.html#aa9848a867108ec2819767e87d0b5a230">More...</a><br /></td></tr>
 <tr class="separator:aa9848a867108ec2819767e87d0b5a230 inherit pub_methods_class_subject"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a43a10fc9d535375a324310205855da22 inherit pub_methods_class_subject"><td class="memItemLeft" align="right" valign="top"><a id="a43a10fc9d535375a324310205855da22"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_subject.html#a43a10fc9d535375a324310205855da22">add_Observer</a> (std::shared_ptr&lt; <a class="el" href="class_observer.html">Observer</a> &gt; obs)</td></tr>
-<tr class="memdesc:a43a10fc9d535375a324310205855da22 inherit pub_methods_class_subject"><td class="mdescLeft">&#160;</td><td class="mdescRight">add an observer <br /></td></tr>
+<tr class="memdesc:a43a10fc9d535375a324310205855da22 inherit pub_methods_class_subject"><td class="mdescLeft">&#160;</td><td class="mdescRight">add an observer add an observer using "subject-&gt;add_Observer(std::dynamic_pointer_cast&lt;Observer&gt;(shared_from_this()));" <br /></td></tr>
 <tr class="separator:a43a10fc9d535375a324310205855da22 inherit pub_methods_class_subject"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4a327738992312141160470c8c6172e8 inherit pub_methods_class_subject"><td class="memItemLeft" align="right" valign="top"><a id="a4a327738992312141160470c8c6172e8"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_subject.html#a4a327738992312141160470c8c6172e8">remove_Observer</a> (std::shared_ptr&lt; <a class="el" href="class_observer.html">Observer</a> &gt; obs)</td></tr>
@@ -143,6 +170,10 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
+<tr class="inherit_header pub_attribs_class_component"><td colspan="2" onclick="javascript:toggleInherit('pub_attribs_class_component')"><img src="closed.png" alt="-"/>&#160;Public Attributes inherited from <a class="el" href="class_component.html">Component</a></td></tr>
+<tr class="memitem:a2ebc869395d66425690dfeae99d1b791 inherit pub_attribs_class_component"><td class="memItemLeft" align="right" valign="top"><a id="a2ebc869395d66425690dfeae99d1b791"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>active</b> = true</td></tr>
+<tr class="separator:a2ebc869395d66425690dfeae99d1b791 inherit pub_attribs_class_component"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pro_attribs_class_subject"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_class_subject')"><img src="closed.png" alt="-"/>&#160;Protected Attributes inherited from <a class="el" href="class_subject.html">Subject</a></td></tr>
 <tr class="memitem:a5ba0e63e2c6070a72f940013123ee843 inherit pro_attribs_class_subject"><td class="memItemLeft" align="right" valign="top"><a id="a5ba0e63e2c6070a72f940013123ee843"></a>
 std::shared_ptr&lt; <a class="el" href="struct_obs_node.html">ObsNode</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>first</b> = nullptr</td></tr>
@@ -184,6 +215,124 @@ std::shared_ptr&lt; <a class="el" href="struct_obs_node.html">ObsNode</a> &gt;&#
 </dl>
 
 <p>Implements <a class="el" href="class_component.html#a56712f5491879798ca4a052defc7dabc">Component</a>.</p>
+
+</div>
+</div>
+<a id="abf6907fda618ef12f21777554a75624c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abf6907fda618ef12f21777554a75624c">&#9670;&nbsp;</a></span>heuristics()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">float TileMap::heuristics </td>
+          <td>(</td>
+          <td class="paramtype">sf::Vector2i&#160;</td>
+          <td class="paramname"><em>tile</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">sf::Vector2i&#160;</td>
+          <td class="paramname"><em>start</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">sf::Vector2i&#160;</td>
+          <td class="paramname"><em>end</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>heuristics calculate heuristics depending on distance to start and end </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">tile</td><td>position to calculate distance from </td></tr>
+    <tr><td class="paramname">start</td><td>starting position </td></tr>
+    <tr><td class="paramname">end</td><td>ending position </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a3c52a6c2839b10ba9a7833dfdaa40bab"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3c52a6c2839b10ba9a7833dfdaa40bab">&#9670;&nbsp;</a></span>isNotIn()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool TileMap::isNotIn </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="struct_node_path.html">NodePath</a> &amp;&#160;</td>
+          <td class="paramname"><em>current</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::vector&lt; <a class="el" href="struct_node_path.html">NodePath</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>explored</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>checks array for <a class="el" href="struct_node_path.html" title="A* implementation Explored node, stocks where it came from.">NodePath</a> A* implementation </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">current</td><td>Node to search </td></tr>
+    <tr><td class="paramname">explored</td><td>array to search in </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a8c42efb3cc620577fb17d14344335154"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8c42efb3cc620577fb17d14344335154">&#9670;&nbsp;</a></span>makePath()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; sf::Vector2i &gt; TileMap::makePath </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="struct_node_path.html">NodePath</a> &amp;&#160;</td>
+          <td class="paramname"><em>from</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sf::Vector2i &amp;&#160;</td>
+          <td class="paramname"><em>start</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>create path A* implementation, return a path of 2d points from the endpoint node </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">from</td><td>last <a class="el" href="struct_node_path.html" title="A* implementation Explored node, stocks where it came from.">NodePath</a> explored </td></tr>
+    <tr><td class="paramname">start</td><td>position of the first point </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -231,6 +380,70 @@ std::shared_ptr&lt; <a class="el" href="struct_obs_node.html">ObsNode</a> &gt;&#
 </dl>
 
 <p>Implements <a class="el" href="class_observer.html#a955b35d811139672822627a4c958e07d">Observer</a>.</p>
+
+</div>
+</div>
+<a id="a0815d125cb38f10cd463ff3c35b3d312"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0815d125cb38f10cd463ff3c35b3d312">&#9670;&nbsp;</a></span>request_path()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; sf::Vector2i &gt; TileMap::request_path </td>
+          <td>(</td>
+          <td class="paramtype">const sf::Vector2i &amp;&#160;</td>
+          <td class="paramname"><em>start</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sf::Vector2i &amp;&#160;</td>
+          <td class="paramname"><em>end</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>A* implementation returns a path from start to end avoiding obstacles. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">start</td><td>starting position </td></tr>
+    <tr><td class="paramname">end</td><td>ending position </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>sorted path </dd></dl>
+
+</div>
+</div>
+<a id="a241615dac86976a01d3d2b7293e32305"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a241615dac86976a01d3d2b7293e32305">&#9670;&nbsp;</a></span>sortPath()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void TileMap::sortPath </td>
+          <td>(</td>
+          <td class="paramtype">std::vector&lt; <a class="el" href="struct_node_path.html">NodePath</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>queue</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>sorts <a class="el" href="struct_node_path.html" title="A* implementation Explored node, stocks where it came from.">NodePath</a> A* implementation, sorts queue depending on <a class="el" href="struct_node_path.html" title="A* implementation Explored node, stocks where it came from.">NodePath</a> hcost </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">queue</td><td>array to sort </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
