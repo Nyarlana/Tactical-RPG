@@ -79,7 +79,7 @@ static RoverBase launchMission(string mission)
     int x_pos, y_pos, objective;
     string rovers = "";
 
-    ifstream mission_file (mission);
+    ifstream mission_file ("../../data/" + mission + ".msn");
 
     if (mission_file.is_open())
     {

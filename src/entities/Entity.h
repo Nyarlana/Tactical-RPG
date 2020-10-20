@@ -57,7 +57,7 @@ class Entity : public Component
 
         //attributes
         int max_LP;                 //max life points of the Entity,
-        int xPos, yPos;             //position of the Entity
+        sf::Vector2i pos;           //position of the Entity
 };
 
 #endif // ENTITY_H
