@@ -49,7 +49,16 @@ void TileMap::on_Notify(const Component& subject, Event event) {
 }
 
 void TileMap::_init() {
-
+  sf::Texture tile_texture;
+  if(!tile_texture.loadFromFile("data/tile/tile_test.png"))
+  {
+    if(!tile_texture.loadFromFile("../data/tile/tile_test.png"))
+    {
+      //error
+    }
+  }
+  sf::Sprite tile_sprite;
+  tile_sprite.setTexture(tile_texture);
 }
 
 void TileMap::_update() {
@@ -57,7 +66,14 @@ void TileMap::_update() {
 }
 
 void TileMap::_draw(sf::RenderWindow & window) {
-
+  for(int j=0; j<=24; ++j)
+  {
+    for(int i=0; i<=24; ++i)
+    {
+      tile_sprite.setPosition(i*32,j*32);
+      window.draw(tile_sprite);
+    }
+  }
 }
 
 //A* implementation
