@@ -21,7 +21,7 @@ class Healer : public Fighter
         void _init();
         void _update();
         void _draw(sf::RenderWindow & window);
-        void action();
+        double operator() ();
         void moveOut();
         void attack(std::shared_ptr<Entity> target);
 

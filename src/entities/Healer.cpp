@@ -31,9 +31,14 @@ void Healer::_draw(sf::RenderWindow & window)
 
 }
 
-void Healer::action()
+double Healer::operator()()
 {
-    //dtor
+    while (lp>0)
+    {
+        //super::checkTargets();
+    }
+
+    return 0.0;
 }
 
 void Healer::moveOut()

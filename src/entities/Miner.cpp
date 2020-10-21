@@ -28,9 +28,14 @@ void Miner::_draw(sf::RenderWindow & window)
 
 }
 
-void Miner::action()
+double Miner::operator()()
 {
-    //dtor
+    while (lp>0)
+    {
+        //super::checkTargets();
+    }
+
+    return 0.0;
 }
 
 void Miner::moveOut()

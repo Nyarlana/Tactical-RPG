@@ -43,7 +43,7 @@ class Entity : public Component
 
         //actions
         /** @brief The Entity general behavior*/
-        virtual void action() = 0;
+        virtual double operator() () = 0;
         /** @brief action to move for an Entity*/
         virtual void moveOut() = 0;
 

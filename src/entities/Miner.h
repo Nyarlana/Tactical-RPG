@@ -27,7 +27,7 @@ class Miner : public Entity
         void _init();
         void _update();
         void _draw(sf::RenderWindow & window);
-        void action();
+        double operator() ();
         void moveOut();
 
         //Class skills
