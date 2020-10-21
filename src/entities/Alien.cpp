@@ -27,12 +27,14 @@ void Alien::_draw(sf::RenderWindow & window)
 
 }
 
-void Alien::action()
+double Alien::operator()()
 {
     while (lp>0)
     {
         super::checkTargets();
     }
+
+    return 0.0;
 }
 
 void Alien::moveOut()

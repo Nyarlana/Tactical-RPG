@@ -31,9 +31,14 @@ void Raider::_draw(sf::RenderWindow & window)
 
 }
 
-void Raider::action()
+double Raider::operator()()
 {
-    //dtor
+    while (lp>0)
+    {
+        //super::checkTargets();
+    }
+
+    return 0.0;
 }
 
 void Raider::moveOut()

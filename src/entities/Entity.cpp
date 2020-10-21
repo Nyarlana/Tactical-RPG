@@ -1,6 +1,7 @@
 #include "Entity.h"
 
 #include "../gameManager/Component.h"
+#include <SFML/Graphics.hpp>
 
 #include <memory>
 #include <vector>
@@ -8,26 +9,26 @@
 
 using namespace std;
 
-Entity::Entity(int _max_LP, int _xPos, int _yPos, int _speed) : max_LP(_max_LP), lp(_max_LP), xPos(_xPos), yPos(_yPos), speed(_speed)
+Entity::Entity(int _max_LP, int _xPos, int _yPos, int _speed) : max_LP(_max_LP), lp(_max_LP), pos(sf::Vector2i(_xPos, _yPos)), speed(_speed)
 {
 }
 
 int Entity::getXPos()
 {
-    return xPos;
+    return pos.x;
 }
 
 int Entity::getYPos()
 {
-    return yPos;
+    return pos.y;
 }
 
 int Entity::getDistanceTo(shared_ptr<Entity> e)
 {
     int x,y;
 
-    x = e.get()->getXPos()-xPos;
-    y = e.get()->getYPos()-yPos;
+    x = e.get()->getXPos()-pos.x;
+    y = e.get()->getYPos()-pos.y;
 
     return (int) sqrt(x*x+y*y);
 }
@@ -56,7 +57,7 @@ void Entity::takeDamage(int value) //critical section
 
 void Entity::die()
 {
-    std::cout<<"Deleted at "<<xPos<<", "<<yPos<<std::endl;
+    std::cout<<"Deleted at "<<pos.x<<", "<<pos.y<<std::endl;
 }
 
 Entity::~Entity()

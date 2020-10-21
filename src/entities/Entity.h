@@ -43,7 +43,7 @@ class Entity : public Component
 
         //actions
         /** @brief The Entity general behavior*/
-        virtual void action() = 0;
+        virtual double operator() () = 0;
         /** @brief action to move for an Entity*/
         virtual void moveOut() = 0;
 
@@ -57,7 +57,7 @@ class Entity : public Component
 
         //attributes
         int max_LP;                 //max life points of the Entity,
-        int xPos, yPos;             //position of the Entity
+        sf::Vector2i pos;           //position of the Entity
 };
 
 #endif // ENTITY_H

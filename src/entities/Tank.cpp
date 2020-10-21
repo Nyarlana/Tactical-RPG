@@ -31,9 +31,14 @@ void Tank::_draw(sf::RenderWindow & window)
 
 }
 
-void Tank::action()
+double Tank::operator()()
 {
-    //dtor
+    while (lp>0)
+    {
+        //super::checkTargets();
+    }
+
+    return 0.0;
 }
 
 void Tank::moveOut()

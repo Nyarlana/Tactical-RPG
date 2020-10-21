@@ -13,7 +13,7 @@ class Protector : public Rover
         Protector(int max_LP, int xPos, int yPos, int speed);
 
         //inherited functions
-        void action() = 0;
+        virtual double operator() () = 0;
         void moveOut();
         void die();
 
