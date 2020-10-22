@@ -23,7 +23,9 @@ public:
   /**@brief main loop of the game*/
   void mainloop();
   /**@brief observer implementation*/
-  virtual void on_Notify(const Component& subject, Event event);
+  virtual void on_Notify(const Component* subject, Event event);
+  /**@brief test function*/
+  void testFunc();
 private:
   sf::RenderWindow window;
   std::vector<std::shared_ptr<Component>> components;

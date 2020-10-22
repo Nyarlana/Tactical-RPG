@@ -8,13 +8,16 @@
 #include "Observer.h"
 #include "../TileMap/TileMap.h"
 
-GameManager::GameManager() {
+GameManager::GameManager()
+{
 }
 
-GameManager::~GameManager() {
+GameManager::~GameManager()
+{
 }
 
-void GameManager::init() {
+void GameManager::init()
+{
   window.create(sf::VideoMode(800, 800), "Tactical Sim");
   window.setVerticalSyncEnabled(true);
 
@@ -22,14 +25,18 @@ void GameManager::init() {
   components.push_back(tm);
   tm->add_Observer(shared_from_this());
 
-  for (size_t i = 0; i < components.size(); i++) {
+  for (size_t i = 0; i < components.size(); i++)
+  {
     components[i]->_init();
   }
+
+  // testFunc();
 
   mainloop();
 }
 
-void GameManager::mainloop() {
+void GameManager::mainloop()
+{
   while (window.isOpen()) // game loop
   {
     // Event block : polls all SFML events, stock relevant ones in an array
@@ -40,15 +47,19 @@ void GameManager::mainloop() {
       window.close();
     }
 
-    for (size_t i = 0; i < components.size(); i++) {
-      if (components[i]->active) {
+    for (size_t i = 0; i < components.size(); i++)
+    {
+      if (components[i]->active)
+      {
         components[i]->_update();
       }
     }
 
     window.clear();
-    for (size_t i = 0; i < components.size(); i++) {
-      if (components[i]->active) {
+    for (size_t i = 0; i < components.size(); i++)
+    {
+      if (components[i]->active)
+      {
         components[i]->_draw(window);
       }
     }
@@ -56,9 +67,16 @@ void GameManager::mainloop() {
   }
 }
 
-void GameManager::on_Notify(const Component& subject, Event event) {
-  switch (event) {
+void GameManager::on_Notify(const Component* subject, Event event)
+{
+  switch (event)
+  {
     case EVENT_TEST:
       std::cout<<"Test event"<<std::endl;
   }
+}
+
+void GameManager::testFunc()
+{
+  tm->testFunc();
 }

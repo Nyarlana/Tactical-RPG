@@ -22,7 +22,7 @@ public:
      overriten by every child, forks to a function
      @param subject the subject that sent the signal
      @param event chosen event*/
-  virtual void on_Notify(const Component& subject, Event event) = 0;
+  virtual void on_Notify(const Component* subject, Event event) = 0;
 };
 
 /**@brief Node for observer list*/
@@ -38,7 +38,7 @@ class Subject {
 public:
   /**@brief notifies all observers
      @param event chosen event*/
-  virtual void notify(const Component& subject, Event event);
+  virtual void notify(const Component* subject, Event event);
   /**@brief add an observer
   add an observer using "subject->add_Observer(std::dynamic_pointer_cast<Observer>(shared_from_this()));"*/
   void add_Observer(std::shared_ptr<Observer> obs);

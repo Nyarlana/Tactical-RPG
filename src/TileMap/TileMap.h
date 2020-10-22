@@ -29,6 +29,8 @@ class TileMap : public Component, public Observer, public Subject
         void setTab();
         /**@brief Temporary function, for testing*/
         void printTab();
+        /**@brief testing func*/
+        void testFunc();
         /**@brief A* implementation
         returns a path from start to end avoiding obstacles
         @param start starting position
@@ -57,7 +59,7 @@ class TileMap : public Component, public Observer, public Subject
         bool isNotIn(const NodePath & current, const std::vector<NodePath> & explored);
 
         // Surcharge
-        virtual void on_Notify(const Component& subject, Event event);
+        virtual void on_Notify(const Component* subject, Event event);
         virtual void _init();
         virtual void _update();
         virtual void _draw(sf::RenderWindow & window);
@@ -66,6 +68,8 @@ class TileMap : public Component, public Observer, public Subject
 
     private:
         Tile tilemap_tab[10][10];
+        sf::Texture tile_texture;
+        sf::Sprite tile_sprite;
 };
 
 #endif // TILEMAP_H

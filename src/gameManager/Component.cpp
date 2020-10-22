@@ -4,14 +4,17 @@ Component::Component() {}
 
 Component::~Component() {}
 
-void Component::deactivate() {
+void Component::deactivate()
+{
   active = false;
 }
 
-void Component::activate() {
+void Component::activate()
+{
   active = true;
 }
 
-bool Component::is_Active() {
+bool Component::is_Active()
+{
   return active;
 }
