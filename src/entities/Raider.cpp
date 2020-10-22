@@ -41,11 +41,6 @@ double Raider::operator()()
     return 0.0;
 }
 
-void Raider::moveOut()
-{
-    //dtor
-}
-
 void Raider::attack(shared_ptr<Entity> target)
 {
     target->takeDamage(5);

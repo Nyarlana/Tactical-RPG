@@ -41,11 +41,6 @@ double Tank::operator()()
     return 0.0;
 }
 
-void Tank::moveOut()
-{
-    //dtor
-}
-
 void Tank::attack(shared_ptr<Entity> target)
 {
     target->takeDamage(3);

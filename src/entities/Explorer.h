@@ -2,6 +2,9 @@
 #ifndef Explorer_H
 #define Explorer_H
 
+#define MAX_SIZE_X 25
+#define MAX_SIZE_Y 25
+
 #include "Rover.h"
 
 /**@class Explorer class
@@ -14,11 +17,15 @@ class Explorer : public Rover
 
         //inherited functions
         virtual void action() = 0;
-        void moveOut();
         void die();
 
+        //Class skills
+        /* @brief
+        */
+        void explore();
+        void completeMap();
     protected:
-
+        int[MAX_SIZE_X][MAX_SIZE_Y] map;
 
     private:
         //Base type definition

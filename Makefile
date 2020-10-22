@@ -20,7 +20,7 @@ testTilemap : TileMap.o
 
 testEntity : Miner.o Alien.o Healer.o Raider.o Tank.o RoverBase.o
 	g++ $(INCLUDE) --std=c++11 -c src/main/testEntities.cpp -o obj/testEntity.o obj/Miner.o obj/Alien.o obj/Healer.o obj/Raider.o obj/Tank.o obj/RoverBase.o
-	g++ $(LIB) -o bin/testEntity.exe -g obj/testEntity.o obj/Miner.o obj/Alien.o obj/Healer.o obj/Raider.o obj/Tank.o obj/RoverBase.o obj/Fighter.o obj/Entity.o obj/Component.o $(LINKER_FLAGS)
+	g++ $(LIB) -o bin/testEntity.exe -g obj/testEntity.o obj/Miner.o obj/Alien.o obj/Healer.o obj/Raider.o obj/Tank.o obj/RoverBase.o obj/Fighter.o obj/Entity.o obj/Component.o obj/GameManager.o obj/Observer.o obj/TileMap.o obj/Tile.o obj/FileReader.o $(LINKER_FLAGS)
 
 
 GameManager.o : Component.o Observer.o TileMap.o
@@ -60,7 +60,7 @@ Miner.o : Entity.o
 	g++ $(INCLUDE) --std=c++11 -c src/entities/Miner.cpp -o obj/Miner.o -g obj/Entity.o $(LINKER_FLAGS)
 
 RoverBase.o : Entity.o
-	g++ $(INCLUDE) --std=c++11 -c src/entities/RoverBase.cpp -o obj/RoverBase.o -g obj/Entity.o $(LINKER_FLAGS)
+	g++ $(INCLUDE) --std=c++11 -c src/entities/RoverBase.cpp -o obj/RoverBase.o -g obj/Entity.o obj/GameManager.o $(LINKER_FLAGS)
 
 Entity.o : Component.o
-	g++ $(INCLUDE) --std=c++11 -c src/entities/Entity.cpp -o obj/Entity.o -g obj/Component.o $(LINKER_FLAGS)
+	g++ $(INCLUDE) --std=c++11 -c src/entities/Entity.cpp -o obj/Entity.o -g obj/Component.o obj/Observer.o $(LINKER_FLAGS)

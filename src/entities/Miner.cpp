@@ -38,11 +38,6 @@ double Miner::operator()()
     return 0.0;
 }
 
-void Miner::moveOut()
-{
-  //lol
-}
-
 //Class skills
 /** @brief looks for ore on the map and saves their positions in
 objectives_positions */

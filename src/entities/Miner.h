@@ -28,7 +28,6 @@ class Miner : public Entity
         void _update();
         void _draw(sf::RenderWindow & window);
         double operator() ();
-        void moveOut();
 
         //Class skills
         /** @brief looks for ore on the map and saves their positions in

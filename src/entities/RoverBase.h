@@ -3,6 +3,9 @@
 #define RoverBase_H
 
 #include "Entity.h"
+
+#include "../gameManager/GameManager.h"
+
 #include <SFML/Graphics.hpp>
 #include <SFML/Main.hpp>
 
@@ -24,7 +27,7 @@ class RoverBase : public Entity
         void _update();
         void _draw(sf::RenderWindow & window);
         double operator() ();
-        void moveOut(); //doesn't move at all
+        void moveTo(sf::Vector2i newPos); //doesn't move at all
         void missionComplete();//call to all Rovers to come back with timeOut
                                //until notifying the GameManager that the game is over
         void die(); //kills all Rovers and notifies the GameManager that the game
@@ -32,6 +35,7 @@ class RoverBase : public Entity
 
         static RoverBase launchMission(std::string mission);
         //Rovers management
+        void setGameManager(std::shared_ptr<GameManager> gm);
         void getOneOre();
         void putRover(int rover_number, int x, int y);
         //void getRover(Entity r);

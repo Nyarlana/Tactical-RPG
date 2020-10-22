@@ -20,7 +20,6 @@ class Alien : public Fighter
         void _update();
         void _draw(sf::RenderWindow & window);
         double operator() ();
-        void moveOut();
         void die();                                                 //overrides Entity::die(), destructs itself after notifying its group of its death
         void attack(std::shared_ptr<Entity> target);
 

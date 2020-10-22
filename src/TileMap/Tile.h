@@ -14,7 +14,7 @@ class Tile
         /**@brief Given a char from the read file, sets a Tile with specific parameters*/
         void setTile(char value);
         /**@brief Sets bool tile_is_obstacle to true*/
-        void setObstacle();
+        void setObstacle(bool b);
         /**@brief Temporary function, for testing*/
         int returnTileValue();
         /**@brief A**/

@@ -14,7 +14,6 @@ class Protector : public Rover
 
         //inherited functions
         virtual double operator() () = 0;
-        void moveOut();
         void die();
 
     protected:

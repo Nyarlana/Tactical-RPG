@@ -13,22 +13,15 @@ Entity::Entity(int _max_LP, int _xPos, int _yPos, int _speed) : max_LP(_max_LP),
 {
 }
 
-int Entity::getXPos()
+sf::Vector2i Entity::getPos()
 {
-    return pos.x;
-}
-
-int Entity::getYPos()
-{
-    return pos.y;
+    return pos;
 }
 
 int Entity::getDistanceTo(shared_ptr<Entity> e)
 {
-    int x,y;
-
-    x = e.get()->getXPos()-pos.x;
-    y = e.get()->getYPos()-pos.y;
+    int x = e.get()->getPos().x-pos.x;
+    int y = e.get()->getPos().y-pos.y;
 
     return (int) sqrt(x*x+y*y);
 }
@@ -58,6 +51,19 @@ void Entity::takeDamage(int value) //critical section
 void Entity::die()
 {
     std::cout<<"Deleted at "<<pos.x<<", "<<pos.y<<std::endl;
+}
+
+void Entity::moveTo(sf::Vector2i newPos)
+{
+    int x = newPos.x-pos.x;
+    int y = newPos.y-pos.y;
+
+    bool distanceOk = ((int) sqrt(x*x+y*y))==1;
+
+    if(distanceOk)
+    {
+        pos = newPos;
+    }
 }
 
 Entity::~Entity()

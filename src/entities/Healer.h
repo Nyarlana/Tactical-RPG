@@ -22,7 +22,6 @@ class Healer : public Fighter
         void _update();
         void _draw(sf::RenderWindow & window);
         double operator() ();
-        void moveOut();
         void attack(std::shared_ptr<Entity> target);
 
         //Class skills

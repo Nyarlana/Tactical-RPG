@@ -35,7 +35,7 @@ void TileMap::printTab()
 {
     for(int i=0;i<TM_X_TAB;++i)
     {
-        for(int j=0;jTM_Y_TAB;++j)
+        for(int j=0;TM_Y_TAB;++j)
         {
             std::cout<<tilemap_tab[i][j].returnTileValue();
         }

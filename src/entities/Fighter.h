@@ -20,7 +20,6 @@ class Fighter : public Entity
         virtual void _update() = 0;
         virtual void _draw(sf::RenderWindow & window) = 0;
         virtual double operator() () = 0;
-        virtual void moveOut() = 0;
 
         //accessor
         /** @brief gives access to the target list

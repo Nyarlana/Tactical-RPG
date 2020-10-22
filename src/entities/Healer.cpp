@@ -2,6 +2,7 @@
 
 #include <memory>
 #include <vector>
+#include <list>
 
 using namespace std;
 
@@ -33,17 +34,34 @@ void Healer::_draw(sf::RenderWindow & window)
 
 double Healer::operator()()
 {
-    while (lp>0)
+    // 0 = mode recherche
+    // 1 = mode healer
+    // 2 = mode aggressif
+    int state = 0;
+
+    while (!Entity::isDead())
     {
-        //super::checkTargets();
+        checkHealTargets();
+        super::checkTargets();
+
+        //state = choixTarget();
+
+        switch(state)
+        {
+            case 0:
+            {
+                break;
+            }
+            case 1:
+            {
+                break;
+            }
+            default:
+            {}
+        }
     }
 
     return 0.0;
-}
-
-void Healer::moveOut()
-{
-    //dtor
 }
 
 void Healer::attack(shared_ptr<Entity> target)
@@ -64,6 +82,9 @@ void Healer::changeNeed(shared_ptr<Entity> heal_target, int value)
         heal_targets.emplace (heal_target, value);
     else
         heal_targets[got->first]+=value;
+
+    //if(heal_targets[got->first]<1)
+    //    heal_targets.erase[got->first];
 }
 
 /** @brief heals the target's life points by ?? points
@@ -71,4 +92,21 @@ void Healer::changeNeed(shared_ptr<Entity> heal_target, int value)
 void Healer::heal(std::shared_ptr<Entity> heal_target)
 {
     heal_target->takeDamage(heal_power*-1);
+}
+
+void Healer::checkHealTargets()
+{
+    list<shared_ptr<Entity>> to_remove;
+
+    for ( auto it = heal_targets.cbegin(); it != heal_targets.cend(); ++it )
+    {
+        if(Entity::getDistanceTo(it->first)>Fighter::targetCheckArea)
+            to_remove.push_back(it->first);
+    }
+
+    while(!to_remove.empty())
+    {
+        heal_targets.erase(to_remove.front());
+        to_remove.pop_front();
+    }
 }

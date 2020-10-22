@@ -29,17 +29,27 @@ void Alien::_draw(sf::RenderWindow & window)
 
 double Alien::operator()()
 {
-    while (lp>0)
+    // 0 = mode recherche
+    // 1 = mode aggressif
+    int state = 0;
+
+    while (!Entity::isDead())
     {
         super::checkTargets();
+
+        state = !targets.empty();
+
+        if(state)
+        {
+
+        }
+        else
+        {
+
+        }
     }
 
     return 0.0;
-}
-
-void Alien::moveOut()
-{
-    //dtor
 }
 
 void Alien::die()

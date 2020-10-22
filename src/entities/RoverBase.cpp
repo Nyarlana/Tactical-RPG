@@ -75,8 +75,6 @@ void RoverBase::_draw(sf::RenderWindow & window)
 
 double RoverBase::operator()()
 {
-    _init();
-
     while (lp>0)
     {
         //super::checkTargets();
@@ -85,7 +83,7 @@ double RoverBase::operator()()
     return 0.0;
 }
 
-void RoverBase::moveOut() //doesn't move at all
+void RoverBase::moveTo(sf::Vector2i newPos) //doesn't move at all
 {
 
 }
@@ -176,6 +174,14 @@ RoverBase RoverBase::launchMission(string mission)
 }
 
 //Rovers management
+void RoverBase::setGameManager(shared_ptr<GameManager> gm)
+{
+    add_Observer(gm);
+
+    for(int i; i<rovers.size(); i++)
+        rovers[i]->add_Observer(gm);
+}
+
 void RoverBase::getOneOre()
 {
 

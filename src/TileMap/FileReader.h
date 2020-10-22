@@ -13,7 +13,7 @@ class FileReader
         /**@brief Class destructor*/
         ~FileReader();
         /**@brief Reads the file and puts it in a char tab*/
-        void readFile(char tab[10][10]);
+        void readFile(char tab[25][25]);
         /**@brief Temporary function, for testing*/
         void readFileTest();
 

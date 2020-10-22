@@ -3,6 +3,8 @@
 #define ENTITY_H
 
 #include "../gameManager/Component.h"
+#include "../gameManager/Observer.h"
+
 #include <SFML/Graphics.hpp>
 #include <SFML/Main.hpp>
 
@@ -11,7 +13,7 @@
 
 /**@class Entity class
 @brief Base Class to emulate Rovers and Aliens */
-class Entity : public Component
+class Entity : public Component, public Subject
 {
     public:
         //constructor
@@ -28,8 +30,7 @@ class Entity : public Component
 
         //Getter
         /** @brief gets the distance to another Entity */
-        int getXPos();
-        int getYPos();
+        sf::Vector2i getPos();
         int getDistanceTo(std::shared_ptr<Entity> e);
         /** @brief tells if the Entity is dead */
         bool isDead();
@@ -45,7 +46,7 @@ class Entity : public Component
         /** @brief The Entity general behavior*/
         virtual double operator() () = 0;
         /** @brief action to move for an Entity*/
-        virtual void moveOut() = 0;
+        void moveTo(sf::Vector2i newPos);
 
     protected:
         int speed;                  //number of Tiles the Entity can go through in one move()
