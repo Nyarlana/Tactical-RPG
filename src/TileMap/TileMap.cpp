@@ -19,11 +19,12 @@ TileMap::~TileMap()
 void TileMap::setTab()
 {
     FileReader f;
-    char intermediate_tab[10][10];
+    char intermediate_tab[TM_X_TAB][TM_Y_TAB];
     f.readFile(intermediate_tab);
-    for(int i=0;i<=9;++i)
+
+    for(int j=0;j<TM_Y_TAB;++j)
     {
-        for(int j=0;j<=9;++j)
+        for(int i=0;i<TM_X_TAB;++i)
         {
             tilemap_tab[i][j].setTile(intermediate_tab[i][j]);
         }
@@ -32,9 +33,9 @@ void TileMap::setTab()
 
 void TileMap::printTab()
 {
-    for(int i=0;i<=9;++i)
+    for(int i=0;i<TM_X_TAB;++i)
     {
-        for(int j=0;j<=9;++j)
+        for(int j=0;jTM_Y_TAB;++j)
         {
             std::cout<<tilemap_tab[i][j].returnTileValue();
         }
@@ -73,9 +74,9 @@ void TileMap::_update() {
 
 void TileMap::_draw(sf::RenderWindow & window)
 {
-  for(int j=0; j<=24; ++j)
+  for(int j=0; j<TM_X_TAB; ++j)
   {
-    for(int i=0; i<=24; ++i)
+    for(int i=0; i<TM_Y_TAB; ++i)
     {
       tile_sprite.setPosition(i*32,j*32);
       window.draw(tile_sprite);
