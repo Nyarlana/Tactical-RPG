@@ -1,6 +1,7 @@
 #include "Observer.h"
 #include "Component.h"
 #include <memory>
+#include <iostream>
 
 void Subject::notify(const Component * subject, Event event)
 {
@@ -20,6 +21,7 @@ void Subject::add_Observer(std::shared_ptr<Observer> obs)
   if (first == nullptr)
   {
     first = std::make_shared<ObsNode>();
+    first->obs = obs;
     first->next = nullptr;
   }
   std::shared_ptr<ObsNode> actual = first;

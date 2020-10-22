@@ -30,7 +30,7 @@ void GameManager::init()
     components[i]->_init();
   }
 
-  // testFunc();
+  testFunc();
 
   mainloop();
 }
