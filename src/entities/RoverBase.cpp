@@ -57,8 +57,8 @@ RoverBase::RoverBase(int _x_pos, int _y_pos, int _objective, string _rovers) : E
 //inherited functions
 void RoverBase::_init()
 {
-    //for(int i=0; i<threads.size(); i++)
-    //    threads[i].join();
+    for(int i=0; i<threads.size(); i++)
+        threads[i].join();
 
     //on lance ce thread
 }
