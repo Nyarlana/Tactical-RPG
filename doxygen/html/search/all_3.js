@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['deactivate_12',['deactivate',['../class_component.html#aa4d1e5e0656ed03f7ff469db25f65053',1,'Component']]],
-  ['depositore_13',['depositOre',['../class_miner.html#a846cc5340559ca9008aa208d74a60282',1,'Miner']]],
-  ['die_14',['die',['../class_entity.html#a87466c642875c59e774830e3168b485b',1,'Entity']]]
+  ['deactivate_11',['deactivate',['../class_component.html#aa4d1e5e0656ed03f7ff469db25f65053',1,'Component']]],
+  ['depositore_12',['depositOre',['../class_miner.html#a846cc5340559ca9008aa208d74a60282',1,'Miner']]],
+  ['die_13',['die',['../class_entity.html#a87466c642875c59e774830e3168b485b',1,'Entity']]]
 ];

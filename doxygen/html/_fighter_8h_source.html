@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Tactical RPG - Projet L3
-   &#160;<span id="projectnumber">0.1.0.1</span>
+   &#160;<span id="projectnumber">0.1.0.2</span>
    </div>
    <div id="projectbrief">Un jeu de tactical rpg/simulation créé dans le cadre d&#39;un projet de L3 informatique</div>
   </td>
@@ -89,7 +89,7 @@ $(function() {
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_fighter.html#a86bc3c4a1a1cfc114ca4bf51f54db375">_init</a>()   = 0;</div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_fighter.html#acb7b60ec45764ee75e5cbea541cc66c5">_update</a>() = 0;</div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_fighter.html#ab05694384652111ba827a9a4f13ef5f9">_draw</a>(sf::RenderWindow &amp; window) = 0;</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_fighter.html#abcfcb1bcecfc61302043619899b4a231">action</a>()  = 0;</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">double</span> <a class="code" href="class_fighter.html#a6916aaa98b92f47dace3d65cdc1d9fa5">operator() </a>() = 0;</div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_fighter.html#a6c2124b0c1b197e3056d1cd90b4923ee">moveOut</a>() = 0;</div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        <span class="comment">//accessor</span></div>
@@ -120,13 +120,13 @@ $(function() {
 <div class="ttc" id="aclass_component_html"><div class="ttname"><a href="class_component.html">Component</a></div><div class="ttdoc">components of the GM class</div><div class="ttdef"><b>Definition:</b> Component.h:9</div></div>
 <div class="ttc" id="aclass_fighter_html_a6c2124b0c1b197e3056d1cd90b4923ee"><div class="ttname"><a href="class_fighter.html#a6c2124b0c1b197e3056d1cd90b4923ee">Fighter::moveOut</a></div><div class="ttdeci">virtual void moveOut()=0</div><div class="ttdoc">action to move for an Entity</div></div>
 <div class="ttc" id="aclass_fighter_html_a13b30514a8a114d8ccae176c2c445809"><div class="ttname"><a href="class_fighter.html#a13b30514a8a114d8ccae176c2c445809">Fighter::increaseThreat</a></div><div class="ttdeci">void increaseThreat(std::shared_ptr&lt; Entity &gt; target, int threatIncrease)</div><div class="ttdoc">increases threat of a specific target, if the target isn't already is the target list,...</div><div class="ttdef"><b>Definition:</b> Fighter.cpp:22</div></div>
-<div class="ttc" id="aclass_fighter_html_abcfcb1bcecfc61302043619899b4a231"><div class="ttname"><a href="class_fighter.html#abcfcb1bcecfc61302043619899b4a231">Fighter::action</a></div><div class="ttdeci">virtual void action()=0</div><div class="ttdoc">The Entity general behavior.</div></div>
 <div class="ttc" id="aclass_fighter_html_aeab77cf3172e1ea3baffd8b92c5fed7c"><div class="ttname"><a href="class_fighter.html#aeab77cf3172e1ea3baffd8b92c5fed7c">Fighter::attack</a></div><div class="ttdeci">virtual void attack(std::shared_ptr&lt; Entity &gt; target)=0</div><div class="ttdoc">simple attack against another Entity, depending on the subclass of this Fighter</div></div>
 <div class="ttc" id="aclass_fighter_html_a2289c984195695dd459bb77b6062ed26"><div class="ttname"><a href="class_fighter.html#a2289c984195695dd459bb77b6062ed26">Fighter::getTargets</a></div><div class="ttdeci">std::unordered_map&lt; std::shared_ptr&lt; Entity &gt;, int &gt; getTargets()</div><div class="ttdoc">gives access to the target list</div><div class="ttdef"><b>Definition:</b> Fighter.cpp:14</div></div>
 <div class="ttc" id="aclass_fighter_html_acb7b60ec45764ee75e5cbea541cc66c5"><div class="ttname"><a href="class_fighter.html#acb7b60ec45764ee75e5cbea541cc66c5">Fighter::_update</a></div><div class="ttdeci">virtual void _update()=0</div><div class="ttdoc">update method called every frame, updates game logic</div></div>
 <div class="ttc" id="aclass_fighter_html_a5f5872dd45fe5bb29e6d162bfb1183bd"><div class="ttname"><a href="class_fighter.html#a5f5872dd45fe5bb29e6d162bfb1183bd">Fighter::Fighter</a></div><div class="ttdeci">Fighter(int max_LP, int xPos, int yPos, int speed, int targetCheckArea, int threatfulTargetCheckArea)</div><div class="ttdoc">constructor</div><div class="ttdef"><b>Definition:</b> Fighter.cpp:9</div></div>
 <div class="ttc" id="aclass_entity_html"><div class="ttname"><a href="class_entity.html">Entity</a></div><div class="ttdoc">Base Class to emulate Rovers and Aliens.</div><div class="ttdef"><b>Definition:</b> Entity.h:14</div></div>
 <div class="ttc" id="aclass_fighter_html_ab05694384652111ba827a9a4f13ef5f9"><div class="ttname"><a href="class_fighter.html#ab05694384652111ba827a9a4f13ef5f9">Fighter::_draw</a></div><div class="ttdeci">virtual void _draw(sf::RenderWindow &amp;window)=0</div><div class="ttdoc">draw method called every frame, draws component on window</div></div>
+<div class="ttc" id="aclass_fighter_html_a6916aaa98b92f47dace3d65cdc1d9fa5"><div class="ttname"><a href="class_fighter.html#a6916aaa98b92f47dace3d65cdc1d9fa5">Fighter::operator()</a></div><div class="ttdeci">virtual double operator()()=0</div><div class="ttdoc">The Entity general behavior.</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by &#160;<a href="http://www.doxygen.org/index.html">

@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Tactical RPG - Projet L3
-   &#160;<span id="projectnumber">0.1.0.1</span>
+   &#160;<span id="projectnumber">0.1.0.2</span>
    </div>
    <div id="projectbrief">Un jeu de tactical rpg/simulation créé dans le cadre d&#39;un projet de L3 informatique</div>
   </td>
@@ -89,7 +89,7 @@ $(function() {
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_alien.html#a07def163395b5f86149d921328dc3463">_init</a>();</div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_alien.html#aea8b1dd6815923232c4479651ad8a28d">_update</a>();</div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_alien.html#a9f8a4e64f9611566b378cca286b5a98a">_draw</a>(sf::RenderWindow &amp; window);</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_alien.html#af2993fecd2b49de07a4f05f3abf26f18">action</a>();</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;        <span class="keywordtype">double</span> <a class="code" href="class_alien.html#a4d8ad94b24f6a0c6687308031a5cff33">operator() </a>();</div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_alien.html#ae266d237b429f7f9b638ef6625d7fc3b">moveOut</a>();</div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        <span class="keywordtype">void</span> die();                                                 <span class="comment">//overrides Entity::die(), destructs itself after notifying its group of its death</span></div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_alien.html#a87af809137de6947c12994bd4235ceee">attack</a>(std::shared_ptr&lt;Entity&gt; target);</div>
@@ -106,11 +106,11 @@ $(function() {
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="preprocessor">#endif // ALIEN_H</span></div>
 </div><!-- fragment --></div><!-- contents -->
-<div class="ttc" id="aclass_alien_html_ae266d237b429f7f9b638ef6625d7fc3b"><div class="ttname"><a href="class_alien.html#ae266d237b429f7f9b638ef6625d7fc3b">Alien::moveOut</a></div><div class="ttdeci">void moveOut()</div><div class="ttdoc">action to move for an Entity</div><div class="ttdef"><b>Definition:</b> Alien.cpp:38</div></div>
+<div class="ttc" id="aclass_alien_html_ae266d237b429f7f9b638ef6625d7fc3b"><div class="ttname"><a href="class_alien.html#ae266d237b429f7f9b638ef6625d7fc3b">Alien::moveOut</a></div><div class="ttdeci">void moveOut()</div><div class="ttdoc">action to move for an Entity</div><div class="ttdef"><b>Definition:</b> Alien.cpp:40</div></div>
 <div class="ttc" id="aclass_alien_html_a07def163395b5f86149d921328dc3463"><div class="ttname"><a href="class_alien.html#a07def163395b5f86149d921328dc3463">Alien::_init</a></div><div class="ttdeci">void _init()</div><div class="ttdoc">init method overwritten by children classes, called at gm init</div><div class="ttdef"><b>Definition:</b> Alien.cpp:15</div></div>
 <div class="ttc" id="aclass_fighter_html"><div class="ttname"><a href="class_fighter.html">Fighter</a></div><div class="ttdoc">Type of Entity meant to be able to fight against other entities.</div><div class="ttdef"><b>Definition:</b> Fighter.h:12</div></div>
-<div class="ttc" id="aclass_alien_html_a87af809137de6947c12994bd4235ceee"><div class="ttname"><a href="class_alien.html#a87af809137de6947c12994bd4235ceee">Alien::attack</a></div><div class="ttdeci">void attack(std::shared_ptr&lt; Entity &gt; target)</div><div class="ttdoc">simple attack against another Entity, depending on the subclass of this Fighter</div><div class="ttdef"><b>Definition:</b> Alien.cpp:48</div></div>
-<div class="ttc" id="aclass_alien_html_af2993fecd2b49de07a4f05f3abf26f18"><div class="ttname"><a href="class_alien.html#af2993fecd2b49de07a4f05f3abf26f18">Alien::action</a></div><div class="ttdeci">void action()</div><div class="ttdoc">The Entity general behavior.</div><div class="ttdef"><b>Definition:</b> Alien.cpp:30</div></div>
+<div class="ttc" id="aclass_alien_html_a87af809137de6947c12994bd4235ceee"><div class="ttname"><a href="class_alien.html#a87af809137de6947c12994bd4235ceee">Alien::attack</a></div><div class="ttdeci">void attack(std::shared_ptr&lt; Entity &gt; target)</div><div class="ttdoc">simple attack against another Entity, depending on the subclass of this Fighter</div><div class="ttdef"><b>Definition:</b> Alien.cpp:50</div></div>
+<div class="ttc" id="aclass_alien_html_a4d8ad94b24f6a0c6687308031a5cff33"><div class="ttname"><a href="class_alien.html#a4d8ad94b24f6a0c6687308031a5cff33">Alien::operator()</a></div><div class="ttdeci">double operator()()</div><div class="ttdoc">The Entity general behavior.</div><div class="ttdef"><b>Definition:</b> Alien.cpp:30</div></div>
 <div class="ttc" id="aclass_alien_html_a9f8a4e64f9611566b378cca286b5a98a"><div class="ttname"><a href="class_alien.html#a9f8a4e64f9611566b378cca286b5a98a">Alien::_draw</a></div><div class="ttdeci">void _draw(sf::RenderWindow &amp;window)</div><div class="ttdoc">draw method called every frame, draws component on window</div><div class="ttdef"><b>Definition:</b> Alien.cpp:25</div></div>
 <div class="ttc" id="aclass_alien_html_a92495ec2215a9ccccf2c8d46a0ffd3ef"><div class="ttname"><a href="class_alien.html#a92495ec2215a9ccccf2c8d46a0ffd3ef">Alien::Alien</a></div><div class="ttdeci">Alien(int max_LP, int xPos, int yPos, int speed, int targetCheckArea, int threatfulTargetCheckArea, bool hasAggressiveBehavior)</div><div class="ttdoc">constructor</div><div class="ttdef"><b>Definition:</b> Alien.cpp:9</div></div>
 <div class="ttc" id="aclass_alien_html"><div class="ttname"><a href="class_alien.html">Alien</a></div><div class="ttdoc">Type of Entity meant to annoy Rovers.</div><div class="ttdef"><b>Definition:</b> Alien.h:12</div></div>

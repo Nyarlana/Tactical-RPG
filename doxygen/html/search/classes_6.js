@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['miner_82',['Miner',['../class_miner.html',1,'']]]
+  ['miner_83',['Miner',['../class_miner.html',1,'']]]
 ];

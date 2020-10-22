@@ -4,6 +4,7 @@ var searchData=
   ['tank_59',['Tank',['../class_tank.html',1,'Tank'],['../class_tank.html#ab813fc37696f159ec74dd05a8c111f34',1,'Tank::Tank()']]],
   ['taunt_60',['taunt',['../class_tank.html#a673986bbc185c18cb21e5bc5aed45f0a',1,'Tank']]],
   ['tease_61',['tease',['../class_tank.html#a70eebf421a8aaf0135ba22c93d9bcbb2',1,'Tank']]],
-  ['tile_62',['Tile',['../class_tile.html',1,'Tile'],['../class_tile.html#aeeb5593bb6b75aae2edfcccbc84ab378',1,'Tile::Tile()']]],
-  ['tilemap_63',['TileMap',['../class_tile_map.html',1,'TileMap'],['../class_tile_map.html#a89efb398413e7fed8cdf9f3a0b58c9d0',1,'TileMap::TileMap()']]]
+  ['testfunc_62',['testFunc',['../class_game_manager.html#ac08ea8308aed98bd1a5e54b27e34358a',1,'GameManager::testFunc()'],['../class_tile_map.html#a1096f728583fb64267fc1a790fe641fe',1,'TileMap::testFunc()']]],
+  ['tile_63',['Tile',['../class_tile.html',1,'Tile'],['../class_tile.html#aeeb5593bb6b75aae2edfcccbc84ab378',1,'Tile::Tile()']]],
+  ['tilemap_64',['TileMap',['../class_tile_map.html',1,'TileMap'],['../class_tile_map.html#a89efb398413e7fed8cdf9f3a0b58c9d0',1,'TileMap::TileMap()']]]
 ];

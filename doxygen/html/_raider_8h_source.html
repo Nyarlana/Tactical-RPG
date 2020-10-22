@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Tactical RPG - Projet L3
-   &#160;<span id="projectnumber">0.1.0.1</span>
+   &#160;<span id="projectnumber">0.1.0.2</span>
    </div>
    <div id="projectbrief">Un jeu de tactical rpg/simulation créé dans le cadre d&#39;un projet de L3 informatique</div>
   </td>
@@ -89,7 +89,7 @@ $(function() {
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_raider.html#a442b30d966f695cdb79246a897207baa">_init</a>();</div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_raider.html#ab371a7b34549cd2a9f5e5357336ad635">_update</a>();</div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_raider.html#aaae018fbacd1bf4cbc4c979e50704606">_draw</a>(sf::RenderWindow &amp; window);</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_raider.html#ab97ba4aa3e2701b7c6bda3d45bd15dd8">action</a>();</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;        <span class="keywordtype">double</span> <a class="code" href="class_raider.html#ae54d0d6e53d98a3e68f6859424060ec7">operator() </a>();</div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_raider.html#a6de33c2d4de526e19e04dd01a84f1810">moveOut</a>();</div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_raider.html#ac0273202faa69a14e92bf96db2cff68c">attack</a>(std::shared_ptr&lt;Entity&gt; target);</div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
@@ -106,9 +106,10 @@ $(function() {
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; </div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="preprocessor">#endif // RAIDER_H</span></div>
 </div><!-- fragment --></div><!-- contents -->
-<div class="ttc" id="aclass_raider_html_a6de33c2d4de526e19e04dd01a84f1810"><div class="ttname"><a href="class_raider.html#a6de33c2d4de526e19e04dd01a84f1810">Raider::moveOut</a></div><div class="ttdeci">void moveOut()</div><div class="ttdoc">action to move for an Entity</div><div class="ttdef"><b>Definition:</b> Raider.cpp:39</div></div>
+<div class="ttc" id="aclass_raider_html_ae54d0d6e53d98a3e68f6859424060ec7"><div class="ttname"><a href="class_raider.html#ae54d0d6e53d98a3e68f6859424060ec7">Raider::operator()</a></div><div class="ttdeci">double operator()()</div><div class="ttdoc">The Entity general behavior.</div><div class="ttdef"><b>Definition:</b> Raider.cpp:34</div></div>
+<div class="ttc" id="aclass_raider_html_a6de33c2d4de526e19e04dd01a84f1810"><div class="ttname"><a href="class_raider.html#a6de33c2d4de526e19e04dd01a84f1810">Raider::moveOut</a></div><div class="ttdeci">void moveOut()</div><div class="ttdoc">action to move for an Entity</div><div class="ttdef"><b>Definition:</b> Raider.cpp:44</div></div>
 <div class="ttc" id="aclass_fighter_html"><div class="ttname"><a href="class_fighter.html">Fighter</a></div><div class="ttdoc">Type of Entity meant to be able to fight against other entities.</div><div class="ttdef"><b>Definition:</b> Fighter.h:12</div></div>
-<div class="ttc" id="aclass_raider_html_ac0273202faa69a14e92bf96db2cff68c"><div class="ttname"><a href="class_raider.html#ac0273202faa69a14e92bf96db2cff68c">Raider::attack</a></div><div class="ttdeci">void attack(std::shared_ptr&lt; Entity &gt; target)</div><div class="ttdoc">simple attack against another Entity, depending on the subclass of this Fighter</div><div class="ttdef"><b>Definition:</b> Raider.cpp:44</div></div>
+<div class="ttc" id="aclass_raider_html_ac0273202faa69a14e92bf96db2cff68c"><div class="ttname"><a href="class_raider.html#ac0273202faa69a14e92bf96db2cff68c">Raider::attack</a></div><div class="ttdeci">void attack(std::shared_ptr&lt; Entity &gt; target)</div><div class="ttdoc">simple attack against another Entity, depending on the subclass of this Fighter</div><div class="ttdef"><b>Definition:</b> Raider.cpp:49</div></div>
 <div class="ttc" id="aclass_component_html"><div class="ttname"><a href="class_component.html">Component</a></div><div class="ttdoc">components of the GM class</div><div class="ttdef"><b>Definition:</b> Component.h:9</div></div>
 <div class="ttc" id="aclass_raider_html_a442b30d966f695cdb79246a897207baa"><div class="ttname"><a href="class_raider.html#a442b30d966f695cdb79246a897207baa">Raider::_init</a></div><div class="ttdeci">void _init()</div><div class="ttdoc">init method overwritten by children classes, called at gm init</div><div class="ttdef"><b>Definition:</b> Raider.cpp:19</div></div>
 <div class="ttc" id="aclass_raider_html_ab371a7b34549cd2a9f5e5357336ad635"><div class="ttname"><a href="class_raider.html#ab371a7b34549cd2a9f5e5357336ad635">Raider::_update</a></div><div class="ttdeci">void _update()</div><div class="ttdoc">update method called every frame, updates game logic</div><div class="ttdef"><b>Definition:</b> Raider.cpp:24</div></div>
@@ -116,9 +117,8 @@ $(function() {
 <div class="ttc" id="aclass_raider_html"><div class="ttname"><a href="class_raider.html">Raider</a></div><div class="ttdoc">Type of Entity meant to be able to fight against other entities.</div><div class="ttdef"><b>Definition:</b> Raider.h:11</div></div>
 <div class="ttc" id="aclass_raider_html_a06b75c1fbbd12d526423776bc751c867"><div class="ttname"><a href="class_raider.html#a06b75c1fbbd12d526423776bc751c867">Raider::~Raider</a></div><div class="ttdeci">~Raider()</div><div class="ttdef"><b>Definition:</b> Raider.cpp:13</div></div>
 <div class="ttc" id="aclass_raider_html_a9dffb2507c1db0920edc65d675ce8aeb"><div class="ttname"><a href="class_raider.html#a9dffb2507c1db0920edc65d675ce8aeb">Raider::Raider</a></div><div class="ttdeci">Raider(int xPos, int yPos)</div><div class="ttdoc">constructor</div><div class="ttdef"><b>Definition:</b> Raider.cpp:8</div></div>
-<div class="ttc" id="aclass_raider_html_ab97ba4aa3e2701b7c6bda3d45bd15dd8"><div class="ttname"><a href="class_raider.html#ab97ba4aa3e2701b7c6bda3d45bd15dd8">Raider::action</a></div><div class="ttdeci">void action()</div><div class="ttdoc">The Entity general behavior.</div><div class="ttdef"><b>Definition:</b> Raider.cpp:34</div></div>
-<div class="ttc" id="aclass_raider_html_ae73ccbf26c564853054befdcee521254"><div class="ttname"><a href="class_raider.html#ae73ccbf26c564853054befdcee521254">Raider::lowProfile</a></div><div class="ttdeci">void lowProfile()</div><div class="ttdoc">decreases the Raider's threat value by ?? points the Aliens see in this Raider</div><div class="ttdef"><b>Definition:</b> Raider.cpp:57</div></div>
-<div class="ttc" id="aclass_raider_html_a2c29882a2fe873250e116dce69d40868"><div class="ttname"><a href="class_raider.html#a2c29882a2fe873250e116dce69d40868">Raider::speedup</a></div><div class="ttdeci">void speedup()</div><div class="ttdoc">raises the Raider's speed</div><div class="ttdef"><b>Definition:</b> Raider.cpp:51</div></div>
+<div class="ttc" id="aclass_raider_html_ae73ccbf26c564853054befdcee521254"><div class="ttname"><a href="class_raider.html#ae73ccbf26c564853054befdcee521254">Raider::lowProfile</a></div><div class="ttdeci">void lowProfile()</div><div class="ttdoc">decreases the Raider's threat value by ?? points the Aliens see in this Raider</div><div class="ttdef"><b>Definition:</b> Raider.cpp:62</div></div>
+<div class="ttc" id="aclass_raider_html_a2c29882a2fe873250e116dce69d40868"><div class="ttname"><a href="class_raider.html#a2c29882a2fe873250e116dce69d40868">Raider::speedup</a></div><div class="ttdeci">void speedup()</div><div class="ttdoc">raises the Raider's speed</div><div class="ttdef"><b>Definition:</b> Raider.cpp:56</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by &#160;<a href="http://www.doxygen.org/index.html">
