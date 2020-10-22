@@ -13,8 +13,8 @@ class Tile
         ~Tile();
         /**@brief Given a char from the read file, sets a Tile with specific parameters*/
         void setTile(char value);
-        /**@brief Sets bool tile_is_empty to true*/
-        void emptyTile();
+        /**@brief Sets bool tile_is_obstacle to true*/
+        void setObstacle();
         /**@brief Temporary function, for testing*/
         int returnTileValue();
         /**@brief A**/
@@ -23,7 +23,6 @@ class Tile
 
     private:
         int tile_type;
-        bool tile_is_empty;
         bool tile_is_obstacle;
 
 };

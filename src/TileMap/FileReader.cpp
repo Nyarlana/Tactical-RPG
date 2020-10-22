@@ -15,7 +15,7 @@ FileReader::~FileReader()
 
 }
 
-void FileReader::readFile(char tab[10][10])
+void FileReader::readFile(char tab[TM_X_TAB][TM_Y_TAB])
 {
     string line;
     int line_index=0;
@@ -24,7 +24,7 @@ void FileReader::readFile(char tab[10][10])
     {
         while (getline (tilemap_file,line))
         {
-            for(int i=0;i<=9;++i)
+            for(int i=0;i<TM_X_TAB;++i)
             {
                 tab[line_index][i]=line[i];
             }

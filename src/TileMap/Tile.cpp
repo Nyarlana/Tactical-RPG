@@ -13,12 +13,12 @@ Tile::~Tile()
 void Tile::setTile(char value)
 {
     tile_type = static_cast<int>(value)-48;
-    tile_is_empty = (tile_type == 0);
+    tile_is_obstacle = (tile_type != 0);
 }
 
-void Tile::emptyTile()
+void Tile::setObstacle(bool b)
 {
-    tile_is_empty = true;
+    tile_is_obstacle = b;
 }
 
 int Tile::returnTileValue()

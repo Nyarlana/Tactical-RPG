@@ -1,4 +1,6 @@
 /**@file Tile Map header*/
+#define TM_X_TAB 25
+#define TM_Y_TAB 25
 #ifndef TILEMAP_H
 #define TILEMAP_H
 #include <SFML/Graphics.hpp>
@@ -67,7 +69,7 @@ class TileMap : public Component, public Observer, public Subject
     protected:
 
     private:
-        Tile tilemap_tab[10][10];
+        Tile tilemap_tab[TM_X_TAB][TM_Y_TAB];
         sf::Texture tile_texture;
         sf::Sprite tile_sprite;
 };

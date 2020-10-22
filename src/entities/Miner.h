@@ -47,7 +47,7 @@ class Miner : public Entity
 
         //attributes
         bool bagFull;                                         //has an ore
-        std::vector<std::pair<int,int>> objectives_positions; //positions of the ora objectives to collect
+        std::vector<sf::Vector2i> objectives_positions; //positions of the ora objectives to collect
 };
 
 #endif // MINER_H
