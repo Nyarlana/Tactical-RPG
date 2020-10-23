@@ -33,33 +33,36 @@ void Tank::_draw(sf::RenderWindow & window)
 
 double Tank::operator()()
 {
-    switch(state)
+    while (!Entity::isDead())
     {
-        super::checkTargets();
+        switch(state)
+        {
+            super::checkTargets();
 
-        case OUTER:
-        {
-            break;
-        }
-        case SEARCH:
-        {
-            break;
-        }
-        case PROTECTION:
-        {
-            break;
-        }
-        case OFFENSIVE:
-        {
-            break;
-        }
-        case END_GAME:
-        {
-            break;
-        }
-        default:
-        {
-            Entity::state = SEARCH;
+            case OUTER:
+            {
+                break;
+            }
+            case SEARCH:
+            {
+                break;
+            }
+            case PROTECTION:
+            {
+                break;
+            }
+            case OFFENSIVE:
+            {
+                break;
+            }
+            case END_GAME:
+            {
+                break;
+            }
+            default:
+            {
+                Entity::state = SEARCH;
+            }
         }
     }
 

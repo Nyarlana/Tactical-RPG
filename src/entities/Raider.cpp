@@ -33,29 +33,32 @@ void Raider::_draw(sf::RenderWindow & window)
 
 double Raider::operator()()
 {
-    switch(state)
+    while (!Entity::isDead())
     {
-        super::checkTargets();
+        switch(state)
+        {
+            super::checkTargets();
 
-        case OUTER:
-        {
-            break;
-        }
-        case EXPLORATION:
-        {
-            break;
-        }
-        case OFFENSIVE:
-        {
-            break;
-        }
-        case END_GAME:
-        {
-            break;
-        }
-        default:
-        {
-            Entity::state = EXPLORATION;
+            case OUTER:
+            {
+                break;
+            }
+            case EXPLORATION:
+            {
+                break;
+            }
+            case OFFENSIVE:
+            {
+                break;
+            }
+            case END_GAME:
+            {
+                break;
+            }
+            default:
+            {
+                Entity::state = EXPLORATION;
+            }
         }
     }
 

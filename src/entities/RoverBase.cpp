@@ -77,19 +77,22 @@ void RoverBase::_draw(sf::RenderWindow & window)
 
 double RoverBase::operator()()
 {
-    switch(state)
+    while (!Entity::isDead())
     {
-        case PICKER:
+        switch(state)
         {
-            break;
-        }
-        case END_GAME:
-        {
-            break;
-        }
-        default:
-        {
-            Entity::state = PICKER;
+            case PICKER:
+            {
+                break;
+            }
+            case END_GAME:
+            {
+                break;
+            }
+            default:
+            {
+                Entity::state = PICKER;
+            }
         }
     }
 
