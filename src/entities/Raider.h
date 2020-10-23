@@ -3,6 +3,8 @@
 #define RAIDER_H
 
 #include "Fighter.h"
+#include "../gameManager/Observer.h"
+
 #include <SFML/Graphics.hpp>
 #include <SFML/Main.hpp>
 
@@ -17,6 +19,7 @@ class Raider : public Fighter
         ~Raider();
 
         //inherited functions
+        void on_Notify(const Component* subject, Event event);
         void _init();
         void _update();
         void _draw(sf::RenderWindow & window);

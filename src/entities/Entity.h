@@ -26,7 +26,7 @@ enum State {
 
 /**@class Entity class
 @brief Base Class to emulate Rovers and Aliens */
-class Entity : public Component, public Subject
+class Entity : public Component, public Observer, public Subject
 {
     public:
         //constructor

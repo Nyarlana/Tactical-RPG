@@ -55,6 +55,11 @@ RoverBase::RoverBase(int _x_pos, int _y_pos, int _objective, string _rovers) : E
 }
 
 //inherited functions
+void RoverBase::on_Notify(const Component* subject, Event event)
+{
+
+}
+
 void RoverBase::_init()
 {
     for(int i=0; i<threads.size(); i++)

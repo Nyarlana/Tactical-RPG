@@ -17,6 +17,11 @@ Healer::~Healer()
 }
 
 //inherited functions
+void Healer::on_Notify(const Component* subject, Event event)
+{
+
+}
+
 void Healer::_init()
 {
     Entity::state = OUTER;
@@ -24,7 +29,8 @@ void Healer::_init()
 
 void Healer::_update()
 {
-
+    checkHealTargets();
+    super::checkTargets();
 }
 
 void Healer::_draw(sf::RenderWindow & window)
@@ -36,9 +42,6 @@ double Healer::operator()()
 {
     while (!Entity::isDead())
     {
-        checkHealTargets();
-        super::checkTargets();
-
         //state = choixTarget();
 
         switch(state)

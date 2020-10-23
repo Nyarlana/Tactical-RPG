@@ -3,6 +3,8 @@
 #define MINER_H
 
 #include "Entity.h"
+#include "../gameManager/Observer.h"
+
 #include <SFML/Graphics.hpp>
 #include <SFML/Main.hpp>
 
@@ -24,6 +26,7 @@ class Miner : public Entity
         ~Miner();
 
         //inherited function
+        void on_Notify(const Component* subject, Event event);
         void _init();
         void _update();
         void _draw(sf::RenderWindow & window);

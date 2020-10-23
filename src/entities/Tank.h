@@ -3,9 +3,12 @@
 #define TANK_H
 
 #include "Fighter.h"
+
+#include "../gameManager/Observer.h"
+#include "Alien.h"
+
 #include <SFML/Graphics.hpp>
 #include <SFML/Main.hpp>
-#include "Alien.h"
 
 #include <memory>
 #include <vector>
@@ -21,6 +24,7 @@ class Tank : public Fighter
         ~Tank();
 
         //inherited functions
+        void on_Notify(const Component* subject, Event event);
         void _init();
         void _update();
         void _draw(sf::RenderWindow & window);

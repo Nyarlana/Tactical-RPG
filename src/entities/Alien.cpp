@@ -12,6 +12,11 @@ Alien::Alien(int max_LP, int xPos, int yPos, int speed, int targetCheckArea, int
 }
 
 //inherited functions
+void Alien::on_Notify(const Component* subject, Event event)
+{
+
+}
+
 void Alien::_init()
 {
     Entity::state = SEARCH;
@@ -19,7 +24,7 @@ void Alien::_init()
 
 void Alien::_update()
 {
-
+    super::checkTargets();
 }
 
 void Alien::_draw(sf::RenderWindow & window)
@@ -31,8 +36,6 @@ double Alien::operator()()
 {
     while (!Entity::isDead())
     {
-        super::checkTargets();
-
         switch(state)
         {
             case SEARCH:

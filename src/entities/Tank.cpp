@@ -16,6 +16,11 @@ Tank::~Tank()
 }
 
 //inherited functions
+void Tank::on_Notify(const Component* subject, Event event)
+{
+
+}
+
 void Tank::_init()
 {
     Entity::state = OUTER;
@@ -23,7 +28,7 @@ void Tank::_init()
 
 void Tank::_update()
 {
-
+    super::checkTargets();
 }
 
 void Tank::_draw(sf::RenderWindow & window)
@@ -37,8 +42,6 @@ double Tank::operator()()
     {
         switch(state)
         {
-            super::checkTargets();
-
             case OUTER:
             {
                 break;

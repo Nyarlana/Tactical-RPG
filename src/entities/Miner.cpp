@@ -13,6 +13,11 @@ Miner::~Miner()
 }
 
 //inherited function
+void Miner::on_Notify(const Component* subject, Event event)
+{
+
+}
+
 void Miner::_init()
 {
     Entity::state = OUTER;
@@ -20,7 +25,7 @@ void Miner::_init()
 
 void Miner::_update()
 {
-
+    checkForOre();
 }
 
 void Miner::_draw(sf::RenderWindow & window)
@@ -40,7 +45,6 @@ double Miner::operator()()
             }
             case EXPLORATION:
             {
-                checkForOre();
                 break;
             }
             case MINER:

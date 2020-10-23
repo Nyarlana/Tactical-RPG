@@ -4,6 +4,8 @@
 
 #include "Fighter.h"
 #include "Rover.h"
+#include "../gameManager/Observer.h"
+
 #include <SFML/Graphics.hpp>
 #include <SFML/Main.hpp>
 
@@ -16,6 +18,7 @@ class Alien : public Fighter
         Alien(int max_LP, int xPos, int yPos, int speed, int targetCheckArea, int threatfulTargetCheckArea, bool hasAggressiveBehavior);
 
         //inherited functions
+        void on_Notify(const Component* subject, Event event);
         void _init();
         void _update();
         void _draw(sf::RenderWindow & window);

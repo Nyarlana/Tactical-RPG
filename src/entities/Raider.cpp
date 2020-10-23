@@ -16,6 +16,11 @@ Raider::~Raider()
 }
 
 //inherited functions
+void Raider::on_Notify(const Component* subject, Event event)
+{
+
+}
+
 void Raider::_init()
 {
     Entity::state = OUTER;
@@ -23,7 +28,7 @@ void Raider::_init()
 
 void Raider::_update()
 {
-
+    super::checkTargets();
 }
 
 void Raider::_draw(sf::RenderWindow & window)
@@ -37,8 +42,6 @@ double Raider::operator()()
     {
         switch(state)
         {
-            super::checkTargets();
-
             case OUTER:
             {
                 break;

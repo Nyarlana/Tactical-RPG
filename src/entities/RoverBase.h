@@ -5,6 +5,7 @@
 #include "Entity.h"
 
 #include "../gameManager/GameManager.h"
+#include "../gameManager/Observer.h"
 
 #include <SFML/Graphics.hpp>
 #include <SFML/Main.hpp>
@@ -23,6 +24,7 @@ class RoverBase : public Entity
         RoverBase(int _x_pos, int _y_pos, int _objective, std::string _rovers);
 
         //inherited functions
+        void on_Notify(const Component* subject, Event event);
         void _init();
         void _update();
         void _draw(sf::RenderWindow & window);
