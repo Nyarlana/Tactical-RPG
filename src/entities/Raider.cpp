@@ -18,7 +18,7 @@ Raider::~Raider()
 //inherited functions
 void Raider::_init()
 {
-
+    Entity::state = OUTER;
 }
 
 void Raider::_update()
@@ -33,9 +33,30 @@ void Raider::_draw(sf::RenderWindow & window)
 
 double Raider::operator()()
 {
-    while (lp>0)
+    switch(state)
     {
-        //super::checkTargets();
+        super::checkTargets();
+
+        case OUTER:
+        {
+            break;
+        }
+        case EXPLORATION:
+        {
+            break;
+        }
+        case OFFENSIVE:
+        {
+            break;
+        }
+        case END_GAME:
+        {
+            break;
+        }
+        default:
+        {
+            Entity::state = EXPLORATION;
+        }
     }
 
     return 0.0;

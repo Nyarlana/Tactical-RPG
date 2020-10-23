@@ -19,7 +19,7 @@ Healer::~Healer()
 //inherited functions
 void Healer::_init()
 {
-
+    Entity::state = OUTER;
 }
 
 void Healer::_update()
@@ -34,11 +34,6 @@ void Healer::_draw(sf::RenderWindow & window)
 
 double Healer::operator()()
 {
-    // 0 = mode recherche
-    // 1 = mode healer
-    // 2 = mode aggressif
-    int state = 0;
-
     while (!Entity::isDead())
     {
         checkHealTargets();
@@ -48,16 +43,34 @@ double Healer::operator()()
 
         switch(state)
         {
-            case 0:
+            case OUTER:
             {
                 break;
             }
-            case 1:
+            case SEARCH:
+            {
+                break;
+            }
+            case PROTECTION:
+            {
+                break;
+            }
+            case HEAL:
+            {
+                break;
+            }
+            case OFFENSIVE:
+            {
+                break;
+            }
+            case END_GAME:
             {
                 break;
             }
             default:
-            {}
+            {
+                Entity::state = SEARCH;
+            }
         }
     }
 
@@ -78,7 +91,7 @@ void Healer::changeNeed(shared_ptr<Entity> heal_target, int value)
 {
     unordered_map<shared_ptr<Entity>, int>::const_iterator got = heal_targets.find (heal_target);
 
-    if ( got == heal_targets.end() )
+    if ( got == heal_targets.end() && value > 0)
         heal_targets.emplace (heal_target, value);
     else
         heal_targets[got->first]+=value;

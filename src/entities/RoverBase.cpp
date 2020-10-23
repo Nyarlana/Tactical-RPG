@@ -61,6 +61,8 @@ void RoverBase::_init()
         threads[i].join();
 
     //on lance ce thread
+
+    Entity::state = PICKER;
 }
 
 void RoverBase::_update()
@@ -75,9 +77,20 @@ void RoverBase::_draw(sf::RenderWindow & window)
 
 double RoverBase::operator()()
 {
-    while (lp>0)
+    switch(state)
     {
-        //super::checkTargets();
+        case PICKER:
+        {
+            break;
+        }
+        case END_GAME:
+        {
+            break;
+        }
+        default:
+        {
+            Entity::state = PICKER;
+        }
     }
 
     return 0.0;

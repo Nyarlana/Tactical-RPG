@@ -14,7 +14,7 @@ Alien::Alien(int max_LP, int xPos, int yPos, int speed, int targetCheckArea, int
 //inherited functions
 void Alien::_init()
 {
-
+    Entity::state = SEARCH;
 }
 
 void Alien::_update()
@@ -29,23 +29,24 @@ void Alien::_draw(sf::RenderWindow & window)
 
 double Alien::operator()()
 {
-    // 0 = mode recherche
-    // 1 = mode aggressif
-    int state = 0;
-
     while (!Entity::isDead())
     {
         super::checkTargets();
 
-        state = !targets.empty();
-
-        if(state)
+        switch(state)
         {
-
-        }
-        else
-        {
-
+            case SEARCH:
+            {
+                break;
+            }
+            case OFFENSIVE:
+            {
+                break;
+            }
+            default:
+            {
+                Entity::state = SEARCH;
+            }
         }
     }
 

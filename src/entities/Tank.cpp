@@ -18,7 +18,7 @@ Tank::~Tank()
 //inherited functions
 void Tank::_init()
 {
-
+    Entity::state = OUTER;
 }
 
 void Tank::_update()
@@ -33,9 +33,34 @@ void Tank::_draw(sf::RenderWindow & window)
 
 double Tank::operator()()
 {
-    while (lp>0)
+    switch(state)
     {
-        //super::checkTargets();
+        super::checkTargets();
+
+        case OUTER:
+        {
+            break;
+        }
+        case SEARCH:
+        {
+            break;
+        }
+        case PROTECTION:
+        {
+            break;
+        }
+        case OFFENSIVE:
+        {
+            break;
+        }
+        case END_GAME:
+        {
+            break;
+        }
+        default:
+        {
+            Entity::state = SEARCH;
+        }
     }
 
     return 0.0;

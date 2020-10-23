@@ -15,7 +15,7 @@ Miner::~Miner()
 //inherited function
 void Miner::_init()
 {
-
+    Entity::state = OUTER;
 }
 
 void Miner::_update()
@@ -30,9 +30,32 @@ void Miner::_draw(sf::RenderWindow & window)
 
 double Miner::operator()()
 {
-    while (lp>0)
+    while (!Entity::isDead())
     {
-        //super::checkTargets();
+        switch(state)
+        {
+            case OUTER:
+            {
+                break;
+            }
+            case EXPLORATION:
+            {
+                checkForOre();
+                break;
+            }
+            case MINER:
+            {
+                break;
+            }
+            case END_GAME:
+            {
+                break;
+            }
+            default:
+            {
+                Entity::state = EXPLORATION;
+            }
+        }
     }
 
     return 0.0;

@@ -11,6 +11,19 @@
 #include <math.h>
 #include <memory>
 
+/* @brief State enum */
+enum State {
+    SEARCH,
+    OUTER,
+    PROTECTION,
+    HEAL,
+    OFFENSIVE,
+    EXPLORATION,
+    MINER,
+    PICKER,
+    END_GAME
+};
+
 /**@class Entity class
 @brief Base Class to emulate Rovers and Aliens */
 class Entity : public Component, public Subject
@@ -51,6 +64,7 @@ class Entity : public Component, public Subject
     protected:
         int speed;                  //number of Tiles the Entity can go through in one move()
         int lp;                     //life points of the Entity,
+        State state;
 
     private:
         //Base type definition
