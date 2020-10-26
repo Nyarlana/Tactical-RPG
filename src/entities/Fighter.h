@@ -25,6 +25,11 @@ class Fighter : public Entity
         /** @brief gives access to the target list
             @return targets*/
         std::unordered_map<std::shared_ptr<Entity>, int> getTargets();
+
+        /** @brief returns a pointer to the most threatful target in targets
+            @return most threatful known target */
+        std::shared_ptr<Entity> getTopTarget();
+
         //modifier
         /** @brief increases threat of a specific target, if the target isn't
             already is the target list, adds it to the list

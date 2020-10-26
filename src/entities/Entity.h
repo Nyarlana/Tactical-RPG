@@ -37,6 +37,7 @@ class Entity : public Component, public Observer, public Subject
         ~Entity();
 
         //inherited functions
+        virtual void on_Notify(const Component* subject, Event event) = 0;
         virtual void _init() = 0;
         virtual void _update() = 0;
         virtual void _draw(sf::RenderWindow & window) = 0;
@@ -52,6 +53,7 @@ class Entity : public Component, public Observer, public Subject
         /** @brief Lowers this.lp by value, then if lp<=0, the entity is considered dead and so calls die()
         @param value amount of points lp is lowered*/
         void takeDamage(int value);
+        void setPos(sf::Vector2i newPos);
         /** @brief dying action (including the destruction of the object) */
         void die();
 
@@ -65,6 +67,7 @@ class Entity : public Component, public Observer, public Subject
         int speed;                  //number of Tiles the Entity can go through in one move()
         int lp;                     //life points of the Entity,
         State state;
+        sf::Vector2i pos;           //position of the Entity
 
     private:
         //Base type definition
@@ -72,7 +75,6 @@ class Entity : public Component, public Observer, public Subject
 
         //attributes
         int max_LP;                 //max life points of the Entity,
-        sf::Vector2i pos;           //position of the Entity
 };
 
 #endif // ENTITY_H

@@ -1,5 +1,7 @@
 #include "Alien.h"
 
+#include <SFML/Graphics.hpp>
+
 #include <memory>
 #include <vector>
 #include <iostream>
@@ -25,6 +27,11 @@ void Alien::_init()
 void Alien::_update()
 {
     super::checkTargets();
+
+    if(super::targets.empty())
+        state = SEARCH;
+    else //if(hasAggressiveBehavior || )
+        state = OFFENSIVE;
 }
 
 void Alien::_draw(sf::RenderWindow & window)
@@ -44,6 +51,24 @@ double Alien::operator()()
             }
             case OFFENSIVE:
             {
+                shared_ptr<Entity> t = getTopTarget();
+
+                if(getDistanceTo(t)==1)
+                {
+                    attack(t);
+                    //pause();
+                }
+                else
+                {
+                    //vector<sf::Vector2i> path = TileMap::request_path(Entity::pos,t->getPos());
+                    //for(int i=0; i<Entity::speed; i++)
+                    //{
+                    //    moveTo(path[i]); -> implémenter le système de collision
+                    //                        dans moveTo
+                    //    pause();
+                    //}
+                }
+
                 break;
             }
             default:
@@ -58,7 +83,7 @@ double Alien::operator()()
 
 void Alien::die()
 {
-    //dtor
+    std::cout << "An alien just died at (" << Entity::pos.x << "," << Entity::pos.y << ")" << '\n';
 }
 
 void Alien::attack(shared_ptr<Entity> target)

@@ -8,7 +8,8 @@
 
 /**@brief event enum*/
 enum Event {
-  EVENT_TEST
+  EVENT_TEST,
+  E_OUT_REQ
 };
 
 /**@class Observer

@@ -57,7 +57,16 @@ RoverBase::RoverBase(int _x_pos, int _y_pos, int _objective, string _rovers) : E
 //inherited functions
 void RoverBase::on_Notify(const Component* subject, Event event)
 {
+    switch (event) {
+        case E_OUT_REQ:
+        {
+            //shared_ptr<Entity> e = make_shared<Entity>((Entity*) subject);
 
+            //sf::Vector2i s_pos = tm.getFreePosAround(Entity::pos);
+
+            //e->setPos(s_pos);
+        }
+    }
 }
 
 void RoverBase::_init()

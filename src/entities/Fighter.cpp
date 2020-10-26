@@ -19,6 +19,33 @@ unordered_map<shared_ptr<Entity>, int> Fighter::getTargets()
     return targets;
 }
 
+std::shared_ptr<Entity> Fighter::getTopTarget()
+{
+    if(!targets.empty())
+    {
+        shared_ptr<Entity> t = nullptr;
+        int  maxSeenThreat   = 0;
+
+        for ( auto it = targets.cbegin(); it != targets.cend(); ++it )
+        {
+            if(t == nullptr || targets[it->first]>maxSeenThreat)
+            {
+                t = it->first;
+                maxSeenThreat = targets[it->first];
+            }
+            else if(targets[it->first]==maxSeenThreat &&
+                    getDistanceTo(it->first)<getDistanceTo(t))
+            {
+                t = it->first;
+            }
+        }
+
+        return t;
+    }
+
+    return nullptr;
+}
+
 void Fighter::increaseThreat(shared_ptr<Entity> target, int threatIncrease)
 {
     unordered_map<shared_ptr<Entity>, int>::const_iterator got = targets.find (target);

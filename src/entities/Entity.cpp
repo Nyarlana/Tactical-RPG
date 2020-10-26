@@ -26,6 +26,11 @@ int Entity::getDistanceTo(shared_ptr<Entity> e)
     return (int) sqrt(x*x+y*y);
 }
 
+void Entity::setPos(sf::Vector2i newPos)
+{
+    pos = newPos;
+}
+
 bool Entity::isDead()
 {
     return lp<1;
