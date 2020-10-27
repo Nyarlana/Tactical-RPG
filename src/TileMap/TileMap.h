@@ -74,6 +74,7 @@ class TileMap : public Component, public Observer, public Subject
         sf::Sprite empty_tile_sprite;
         sf::Sprite full_tile_sprite;
         sf::Sprite resource_tile_sprite;
+        sf::Sprite resource2_tile_sprite;
 };
 
 #endif // TILEMAP_H
