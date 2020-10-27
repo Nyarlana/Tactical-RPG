@@ -57,18 +57,25 @@ void TileMap::on_Notify(const Component* subject, Event event)
 
 void TileMap::_init()
 {
-
-  if(!tile_texture.loadFromFile("data/tile/tile_test.png"))
+  if(!tile_texture.loadFromFile("data/tile/tiles_test.png"))
   {
-    if(!tile_texture.loadFromFile("../data/tile/tile_test.png"))
+    if(!tile_texture.loadFromFile("../data/tile/tiles_test.png"))
     {
       //error
     }
   }
-  tile_sprite.setTexture(tile_texture);
+  empty_tile_sprite.setTexture(tile_texture);
+  empty_tile_sprite.setTextureRect(sf::intRect(0,0,32,32));
+  full_tile_sprite.setTexture(tile_texture);
+  full_tile_sprite.setTextureRect(sf::intRect(32,0,32,32));
+  resource_tile_sprite.setTexture(tile_texture);
+  resource_tile_sprite.setTextureRect(sf::intRect(64,0,32,32));
+  resource2_tile_sprite.setTexture(tile_texture);
+  resource2_tile_sprite.setTextureRect(sf::intRect(96,0,32,32));
 }
 
-void TileMap::_update() {
+void TileMap::_update() 
+{
 
 }
 
@@ -78,6 +85,33 @@ void TileMap::_draw(sf::RenderWindow & window)
   {
     for(int i=0; i<TM_Y_TAB; ++i)
     {
+      switch(tilemap_tab[i][j].retrurnTileValue());
+      {
+        case 0:
+        {
+          empty_tile_sprite.setPosition(i*32,j*32);
+          window.draw(empty_tile_sprite);
+        }
+        case 1:
+        {
+          full_tile_sprite.setPosition(i*32,j*32);
+          window.draw(full_tile_sprite);
+        }
+        case 2:
+        {
+          if(tilemap_tab[i][j].returnTileObstacle())
+          {
+            resource_tile_sprite.setPosition(i*32,j*32);
+            window.draw(resource_tile_sprite);
+          }
+          else
+          {
+            resource2_tile_sprite.setPosition(i*32,j*32);
+            window.draw(resource2_tile_sprite);
+          }
+        }
+      }
+      
       tile_sprite.setPosition(i*32,j*32);
       window.draw(tile_sprite);
     }

@@ -71,7 +71,9 @@ class TileMap : public Component, public Observer, public Subject
     private:
         Tile tilemap_tab[TM_X_TAB][TM_Y_TAB];
         sf::Texture tile_texture;
-        sf::Sprite tile_sprite;
+        sf::Sprite empty_tile_sprite;
+        sf::Sprite full_tile_sprite;
+        sf::Sprite resource_tile_sprite;
 };
 
 #endif // TILEMAP_H
