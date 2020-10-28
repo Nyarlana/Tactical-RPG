@@ -54,6 +54,9 @@ void Fighter::increaseThreat(shared_ptr<Entity> target, int threatIncrease)
         targets.emplace (target, threatIncrease);
     else
         targets[got->first]+=threatIncrease;
+
+    if(targets[got->first]==0)
+        targets.erase(got->first);
 }
 
 void Fighter::checkTargets()

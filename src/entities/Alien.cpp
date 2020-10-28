@@ -22,16 +22,32 @@ void Alien::on_Notify(const Component* subject, Event event)
 void Alien::_init()
 {
     Entity::state = SEARCH;
+    /*
+    if(!texture.loadFromFile("data/entities/alien.png"))
+    {
+      if(!texture.loadFromFile("../data/entities/alien.png"))
+      {
+        std::cout << "erreur" << '\n';
+      }
+    }
+
+    sprite.setTexture(texture);
+    sprite.setTextureRect(sf::IntRect(0,0,32,32));
+    */
 }
 
 void Alien::_update()
 {
     super::checkTargets();
 
-    if(super::targets.empty())
-        state = SEARCH;
-    else //if(hasAggressiveBehavior || )
-        state = OFFENSIVE;
+    /*
+    frame = (frame+1)%120;
+
+    if(frame==0)
+        estDebout=!estDebout;
+
+    sprite.setTextureRect(sf::IntRect(estDebout*32,0,32,32));
+    */
 }
 
 void Alien::_draw(sf::RenderWindow & window)
@@ -43,6 +59,11 @@ double Alien::operator()()
 {
     while (!Entity::isDead())
     {
+        if(super::targets.empty())
+            state = SEARCH;
+        else //if(hasAggressiveBehavior || )
+            state = OFFENSIVE;
+
         switch(state)
         {
             case SEARCH:
@@ -84,6 +105,16 @@ double Alien::operator()()
 void Alien::die()
 {
     std::cout << "An alien just died at (" << Entity::pos.x << "," << Entity::pos.y << ")" << '\n';
+}
+
+void Alien::increaseThreat(shared_ptr<Entity> target, int threatIncrease)
+{
+    Fighter::increaseThreat(target, threatIncrease);
+
+    if(targets.empty())
+        Entity::state = SEARCH;
+    else
+        Entity::state = OFFENSIVE;
 }
 
 void Alien::attack(shared_ptr<Entity> target)
