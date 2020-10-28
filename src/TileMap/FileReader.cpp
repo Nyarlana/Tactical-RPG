@@ -24,12 +24,16 @@ void FileReader::readFile(char tab[TM_X_TAB][TM_Y_TAB])
     {
         while (getline (tilemap_file,line))
         {
+            // cout<<(line_index+1)<<" - ";
             for(int i=0;i<TM_X_TAB;++i)
             {
-                tab[line_index][i]=line[i];
+                tab[i][line_index]=line[i];
+                // cout<<tab[line_index][i];
             }
+            // cout<<endl;
             line_index++;
         }
+
         tilemap_file.close();
     }
     else

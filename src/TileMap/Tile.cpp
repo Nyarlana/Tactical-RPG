@@ -1,5 +1,8 @@
 #include "Tile.h"
 
+#include <string>
+#include <iostream>
+
 Tile::Tile()
 {
     //ctor
@@ -12,7 +15,8 @@ Tile::~Tile()
 
 void Tile::setTile(char value)
 {
-    tile_type = static_cast<int>(value)-48;
+    tile_type = (int)value-'0';
+
     tile_is_obstacle = (tile_type != 0);
 }
 

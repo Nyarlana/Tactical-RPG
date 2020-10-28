@@ -22,6 +22,7 @@ void TileMap::setTab()
     char intermediate_tab[TM_X_TAB][TM_Y_TAB];
     f.readFile(intermediate_tab);
 
+    // std::cout << intermediate_tab[TM_X_TAB][TM_Y_TAB] << '\n';
     for(int j=0;j<TM_Y_TAB;++j)
     {
         for(int i=0;i<TM_X_TAB;++i)
@@ -58,13 +59,15 @@ void TileMap::on_Notify(const Component* subject, Event event)
 void TileMap::_init()
 {
   setTab();
+
   if(!tile_texture.loadFromFile("data/tile/tiles_test.png"))
   {
     if(!tile_texture.loadFromFile("../data/tile/tiles_test.png"))
     {
-      //error
+      std::cout << "erreur" << '\n';
     }
   }
+
   empty_tile_sprite.setTexture(tile_texture);
   empty_tile_sprite.setTextureRect(sf::IntRect(0,0,32,32));
   full_tile_sprite.setTexture(tile_texture);
@@ -91,9 +94,11 @@ void TileMap::_draw(sf::RenderWindow & window)
         case 0:
           empty_tile_sprite.setPosition(i*32,j*32);
           window.draw(empty_tile_sprite);
+          break;
         case 1:
           full_tile_sprite.setPosition(i*32,j*32);
           window.draw(full_tile_sprite);
+          break;
         case 2:
           if(tilemap_tab[i][j].returnTileObstacle())
           {
