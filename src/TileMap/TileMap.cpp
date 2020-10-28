@@ -57,6 +57,7 @@ void TileMap::on_Notify(const Component* subject, Event event)
 
 void TileMap::_init()
 {
+  setTab();
   if(!tile_texture.loadFromFile("data/tile/tiles_test.png"))
   {
     if(!tile_texture.loadFromFile("../data/tile/tiles_test.png"))
@@ -90,26 +91,19 @@ void TileMap::_draw(sf::RenderWindow & window)
         case 0:
           empty_tile_sprite.setPosition(i*32,j*32);
           window.draw(empty_tile_sprite);
-          std::cout<<tilemap_tab[i][j].returnTileValue();
         case 1:
           full_tile_sprite.setPosition(i*32,j*32);
           window.draw(full_tile_sprite);
-          std::cout<<tilemap_tab[i][j].returnTileValue();
-
         case 2:
           if(tilemap_tab[i][j].returnTileObstacle())
           {
             resource_tile_sprite.setPosition(i*32,j*32);
             window.draw(resource_tile_sprite);
-            std::cout<<tilemap_tab[i][j].returnTileValue();
-
           }
           else
           {
             resource2_tile_sprite.setPosition(i*32,j*32);
             window.draw(resource2_tile_sprite);
-            std::cout<<tilemap_tab[i][j].returnTileValue();
-
           }
       }
       /*if(j>10)
