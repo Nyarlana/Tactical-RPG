@@ -68,10 +68,10 @@ void TileMap::_init()
   empty_tile_sprite.setTextureRect(sf::IntRect(0,0,32,32));
   full_tile_sprite.setTexture(tile_texture);
   full_tile_sprite.setTextureRect(sf::IntRect(32,0,32,32));
-  /*resource_tile_sprite.setTexture(tile_texture);
+  resource_tile_sprite.setTexture(tile_texture);
   resource_tile_sprite.setTextureRect(sf::IntRect(64,0,32,32));
   resource2_tile_sprite.setTexture(tile_texture);
-  resource2_tile_sprite.setTextureRect(sf::IntRect(96,0,32,32));*/
+  resource2_tile_sprite.setTextureRect(sf::IntRect(96,0,32,32));
 }
 
 void TileMap::_update()
@@ -85,20 +85,15 @@ void TileMap::_draw(sf::RenderWindow & window)
   {
     for(int i=0; i<TM_Y_TAB; ++i)
     {
-      /*switch(tilemap_tab[i][j].returnTileValue())
+      switch(tilemap_tab[i][j].returnTileValue())
       {
         case 0:
-        {
           empty_tile_sprite.setPosition(i*32,j*32);
           window.draw(empty_tile_sprite);
-        }
         case 1:
-        {
           full_tile_sprite.setPosition(i*32,j*32);
           window.draw(full_tile_sprite);
-        }
         case 2:
-        {
           if(tilemap_tab[i][j].returnTileObstacle())
           {
             resource_tile_sprite.setPosition(i*32,j*32);
@@ -109,9 +104,8 @@ void TileMap::_draw(sf::RenderWindow & window)
             resource2_tile_sprite.setPosition(i*32,j*32);
             window.draw(resource2_tile_sprite);
           }
-        }
-      }*/
-      if(j>10)
+      }
+      /*if(j>10)
       {
         empty_tile_sprite.setPosition(i*32,j*32);
         window.draw(empty_tile_sprite);
@@ -120,8 +114,7 @@ void TileMap::_draw(sf::RenderWindow & window)
       {
         full_tile_sprite.setPosition(i*32,j*32);
         window.draw(full_tile_sprite);
-      }
-
+      }*/
     }
   }
 }
