@@ -25,6 +25,8 @@ void GameManager::init()
   components.push_back(tm);
   tm->add_Observer(shared_from_this());
 
+  //clock.restart();
+
   for (size_t i = 0; i < components.size(); i++)
   {
     components[i]->_init();

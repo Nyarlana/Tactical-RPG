@@ -26,8 +26,7 @@ class Tank : public Fighter
         //inherited functions
         void on_Notify(const Component* subject, Event event);
         void _init();
-        void _update();
-        void _draw(sf::RenderWindow & window);
+        int stateValue();
         double operator() ();
         void attack(std::shared_ptr<Entity> target);
 

@@ -28,8 +28,7 @@ class Miner : public Entity
         //inherited function
         void on_Notify(const Component* subject, Event event);
         void _init();
-        void _update();
-        void _draw(sf::RenderWindow & window);
+        int stateValue();
         double operator() ();
 
         //Class skills

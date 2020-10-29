@@ -26,6 +26,7 @@ class RoverBase : public Entity
         //inherited functions
         void on_Notify(const Component* subject, Event event);
         void _init();
+        int stateValue();
         void _update();
         void _draw(sf::RenderWindow & window);
         double operator() ();

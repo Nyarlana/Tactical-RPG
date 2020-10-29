@@ -26,14 +26,32 @@ void Tank::_init()
     Entity::state = OUTER;
 }
 
-void Tank::_update()
+int Tank::stateValue()
 {
-    super::checkTargets();
-}
+    int value;
 
-void Tank::_draw(sf::RenderWindow & window)
-{
+    switch (Entity::state)
+    {
+        case OUTER:
+            value = 0;
+            break;
+        case SEARCH:
+            value = 1;
+            break;
+        case PROTECTION:
+            value = 2;
+            break;
+        case OFFENSIVE:
+            value = 3;
+            break;
+        case END_GAME:
+            value = 4;
+            break;
+        default:
+            value = -1;
+    }
 
+    return value;
 }
 
 double Tank::operator()()

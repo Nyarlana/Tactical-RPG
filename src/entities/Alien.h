@@ -20,10 +20,10 @@ class Alien : public Fighter
         //inherited functions
         void on_Notify(const Component* subject, Event event);
         void _init();
-        void _update();
-        void _draw(sf::RenderWindow & window);
+        int stateValue();
         double operator() ();
         void die();                                                 //overrides Entity::die(), destructs itself after notifying its group of its death
+        void increaseThreat(std::shared_ptr<Entity> target, int threatIncrease);
         void attack(std::shared_ptr<Entity> target);
 
     protected:

@@ -60,11 +60,11 @@ void RoverBase::on_Notify(const Component* subject, Event event)
     switch (event) {
         case E_OUT_REQ:
         {
-            //shared_ptr<Entity> e = make_shared<Entity>((Entity*) subject);
-
-            //sf::Vector2i s_pos = tm.getFreePosAround(Entity::pos);
-
-            //e->setPos(s_pos);
+            // shared_ptr<Entity> e = make_shared<Entity>((Entity*) subject);
+            //
+            // sf::Vector2i s_pos = tm.getFreePosAround(Entity::pos);
+            //
+            // e->setPos(s_pos);
         }
     }
 }
@@ -77,16 +77,38 @@ void RoverBase::_init()
     //on lance ce thread
 
     Entity::state = PICKER;
+
+    // if(!texture.loadFromFile("data/entities/rover_base.png"))
+    // {
+    //   if(!texture.loadFromFile("../data/entities/rover_base.png"))
+    //   {
+    //     std::cout << "erreur" << '\n';
+    //   }
+    // }
+    //
+    // sprite.setTexture(texture);
+    // sprite.setTextureRect(sf::IntRect(0,0,32,32));
+}
+
+int RoverBase::stateValue()
+{
+    return (Entity::state==PICKER || Entity::state==END_GAME)?1:-1;
 }
 
 void RoverBase::_update()
 {
-
+    // Entity::_update();
+    //
+    // for(int i=0; i<rovers.size(); i++)
+    //     rovers[i]->_update();
 }
 
 void RoverBase::_draw(sf::RenderWindow & window)
 {
-
+    // Entity::_draw(ref(window));
+    //
+    // for(int i=0; i<rovers.size(); i++)
+    //     rovers[i]->_draw(ref(window));
 }
 
 double RoverBase::operator()()

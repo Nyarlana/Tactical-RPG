@@ -27,15 +27,41 @@ void Healer::_init()
     Entity::state = OUTER;
 }
 
+int Healer::stateValue()
+{
+    int value;
+
+    switch (Entity::state)
+    {
+        case OUTER:
+            value = 0;
+            break;
+        case SEARCH:
+            value = 1;
+            break;
+        case PROTECTION:
+            value = 2;
+            break;
+        case HEAL:
+            value = 3;
+            break;
+        case OFFENSIVE:
+            value = 4;
+            break;
+        case END_GAME:
+            value = 5;
+            break;
+        default:
+            value = -1;
+    }
+
+    return value;
+}
+
 void Healer::_update()
 {
     checkHealTargets();
     super::checkTargets();
-}
-
-void Healer::_draw(sf::RenderWindow & window)
-{
-
 }
 
 double Healer::operator()()

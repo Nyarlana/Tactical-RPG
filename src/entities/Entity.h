@@ -2,6 +2,9 @@
 #ifndef ENTITY_H
 #define ENTITY_H
 
+#define ANIM_TIME 1000
+#define FRAME_TIME 17
+
 #include "../gameManager/Component.h"
 #include "../gameManager/Observer.h"
 
@@ -39,13 +42,14 @@ class Entity : public Component, public Observer, public Subject
         //inherited functions
         virtual void on_Notify(const Component* subject, Event event) = 0;
         virtual void _init() = 0;
-        virtual void _update() = 0;
-        virtual void _draw(sf::RenderWindow & window) = 0;
+        void _update();
+        void _draw(sf::RenderWindow & window);
 
         //Getter
         /** @brief gets the distance to another Entity */
         sf::Vector2i getPos();
         int getDistanceTo(std::shared_ptr<Entity> e);
+        virtual int stateValue() = 0;
         /** @brief tells if the Entity is dead */
         bool isDead();
 
@@ -68,6 +72,8 @@ class Entity : public Component, public Observer, public Subject
         int lp;                     //life points of the Entity,
         State state;
         sf::Vector2i pos;           //position of the Entity
+        sf::Texture texture;
+        sf::Sprite  sprite;
 
     private:
         //Base type definition

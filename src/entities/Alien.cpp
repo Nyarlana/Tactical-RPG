@@ -36,23 +36,23 @@ void Alien::_init()
     */
 }
 
-void Alien::_update()
+int Alien::stateValue()
 {
-    super::checkTargets();
+    int value;
 
-    /*
-    frame = (frame+1)%120;
+    switch (Entity::state)
+    {
+        case SEARCH:
+            value = 0;
+            break;
+        case OFFENSIVE:
+            value = 1;
+            break;
+        default:
+            value = -1;
+    }
 
-    if(frame==0)
-        estDebout=!estDebout;
-
-    sprite.setTextureRect(sf::IntRect(estDebout*32,0,32,32));
-    */
-}
-
-void Alien::_draw(sf::RenderWindow & window)
-{
-
+    return value;
 }
 
 double Alien::operator()()
@@ -109,7 +109,7 @@ void Alien::die()
 
 void Alien::increaseThreat(shared_ptr<Entity> target, int threatIncrease)
 {
-    Fighter::increaseThreat(target, threatIncrease);
+    super::increaseThreat(target, threatIncrease);
 
     if(targets.empty())
         Entity::state = SEARCH;

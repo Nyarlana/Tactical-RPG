@@ -20,23 +20,39 @@ void Miner::on_Notify(const Component* subject, Event event)
 
 void Miner::_init()
 {
-    Entity::state = OUTER;
+    super::state = OUTER;
 }
 
-void Miner::_update()
+int Miner::stateValue()
 {
-    checkForOre();
-}
+    int value;
 
-void Miner::_draw(sf::RenderWindow & window)
-{
+    switch(state)
+    {
+        case OUTER:
+            value = 0;
+            break;
+        case EXPLORATION:
+            value = 1;
+            break;
+        case MINER:
+            value = 2;
+            break;
+        case END_GAME:
+            value = 3;
+            break;
+        default:
+            value = -1;
+    }
 
+    return value;
 }
 
 double Miner::operator()()
 {
-    while (!Entity::isDead())
+    while (!super::isDead())
     {
+        checkForOre();
         switch(state)
         {
             case OUTER:
@@ -57,7 +73,7 @@ double Miner::operator()()
             }
             default:
             {
-                Entity::state = EXPLORATION;
+                state = EXPLORATION;
             }
         }
     }
