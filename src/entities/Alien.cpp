@@ -22,7 +22,7 @@ void Alien::on_Notify(const Component* subject, Event event)
 void Alien::_init()
 {
     Entity::state = SEARCH;
-    /*
+    
     if(!texture.loadFromFile("data/entities/alien.png"))
     {
       if(!texture.loadFromFile("../data/entities/alien.png"))
@@ -33,7 +33,7 @@ void Alien::_init()
 
     sprite.setTexture(texture);
     sprite.setTextureRect(sf::IntRect(0,0,32,32));
-    */
+
 }
 
 int Alien::stateValue()

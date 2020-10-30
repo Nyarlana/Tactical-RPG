@@ -27,7 +27,7 @@ public:
   /**@brief test function*/
   void testFunc();
   /**@brief Game Clock*/
-  static sf::Clock clock();
+  inline static sf::Clock * clock;
 private:
   sf::RenderWindow window;
   std::vector<std::shared_ptr<Component>> components;

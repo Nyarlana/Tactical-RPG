@@ -8,6 +8,8 @@
 #include "Observer.h"
 #include "../TileMap/TileMap.h"
 
+// sf::Clock GameManager::clock = new sf::Clock;
+
 GameManager::GameManager()
 {
 }
@@ -24,8 +26,6 @@ void GameManager::init()
   tm = std::make_shared<TileMap>();
   components.push_back(tm);
   tm->add_Observer(shared_from_this());
-
-  //clock.restart();
 
   for (size_t i = 0; i < components.size(); i++)
   {

@@ -1,6 +1,7 @@
 #include "Entity.h"
 
 #include "../gameManager/Component.h"
+#include "../gameManager/GameManager.h"
 #include <SFML/Graphics.hpp>
 
 #include <memory>
@@ -15,15 +16,15 @@ Entity::Entity(int _max_LP, int _xPos, int _yPos, int _speed) : max_LP(_max_LP),
 
 void Entity::_update()
 {
-    // bool estDebout = GameManager::clock.elapsedTime().asMilliSeconds() % ANIM_TIME < FRAME_TIME
-    // int state_value = stateValue(); à ajouter à la place du 0 quand il y aura suffisamment d'images
-    // sprite.setTextureRect(sf::IntRect(estDebout*32,0*32,32,32));
+    bool estDebout = GameManager::clock->getElapsedTime().asMilliseconds() % ANIM_TIME < FRAME_TIME;
+    int state_value = stateValue(); //à ajouter à la place du 0 quand il y aura suffisamment d'images
+    sprite.setTextureRect(sf::IntRect(estDebout*32,0*32,32,32));
 }
 
 void Entity::_draw(sf::RenderWindow & window)
 {
-    // sprite.setPosition(pos.x*32,pos.y*32);
-    // window.draw(sprite);
+    sprite.setPosition(pos.x*32,pos.y*32);
+    window.draw(sprite);
 }
 
 sf::Vector2i Entity::getPos()

@@ -62,5 +62,5 @@ Miner.o : Entity.o
 RoverBase.o : Entity.o
 	g++ $(INCLUDE) --std=c++11 -c src/entities/RoverBase.cpp -o obj/RoverBase.o -g obj/Entity.o obj/GameManager.o $(LINKER_FLAGS)
 
-Entity.o : Component.o Observer.o
-	g++ $(INCLUDE) --std=c++11 -c src/entities/Entity.cpp -o obj/Entity.o -g obj/Component.o obj/Observer.o $(LINKER_FLAGS)
+Entity.o : Component.o Observer.o GameManager.o
+	g++ $(INCLUDE) --std=c++11 -c src/entities/Entity.cpp -o obj/Entity.o -g obj/Component.o obj/Observer.o obj/GameManager.o $(LINKER_FLAGS)
