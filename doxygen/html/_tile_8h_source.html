@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Tactical RPG - Projet L3
-   &#160;<span id="projectnumber">0.1.0.2</span>
+   &#160;<span id="projectnumber">0.1.0.1</span>
    </div>
    <div id="projectbrief">Un jeu de tactical rpg/simulation créé dans le cadre d&#39;un projet de L3 informatique</div>
   </td>
@@ -81,7 +81,7 @@ $(function() {
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;        <a class="code" href="class_tile.html#aeeb5593bb6b75aae2edfcccbc84ab378">Tile</a>();</div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;        <a class="code" href="class_tile.html#a98634abbd93fa13d0578d7103202d03d">~Tile</a>();</div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_tile.html#ac500f6f9c6d92ad36d6bce75977e5332">setTile</a>(<span class="keywordtype">char</span> value);</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_tile.html#a51917db78fa6f2906ffc5d56f39aa765">setObstacle</a>();</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_tile.html#accdbf14e2182951a3529a5718a34e7a2">setObstacle</a>(<span class="keywordtype">bool</span> b);</div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;        <span class="keywordtype">int</span> <a class="code" href="class_tile.html#a4d67ac83348110a47061855e921c62ee">returnTileValue</a>();</div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;        <span class="keywordtype">bool</span> <a class="code" href="class_tile.html#aec0f48e1f8562bf258238b70e360d6c7">returnTileObstacle</a>();</div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <span class="keyword">protected</span>:</div>
@@ -94,13 +94,13 @@ $(function() {
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="preprocessor">#endif // TILE_H</span></div>
 </div><!-- fragment --></div><!-- contents -->
-<div class="ttc" id="aclass_tile_html_aec0f48e1f8562bf258238b70e360d6c7"><div class="ttname"><a href="class_tile.html#aec0f48e1f8562bf258238b70e360d6c7">Tile::returnTileObstacle</a></div><div class="ttdeci">bool returnTileObstacle()</div><div class="ttdoc">A.</div><div class="ttdef"><b>Definition:</b> Tile.cpp:29</div></div>
-<div class="ttc" id="aclass_tile_html_a51917db78fa6f2906ffc5d56f39aa765"><div class="ttname"><a href="class_tile.html#a51917db78fa6f2906ffc5d56f39aa765">Tile::setObstacle</a></div><div class="ttdeci">void setObstacle()</div><div class="ttdoc">Sets bool tile_is_obstacle to true.</div><div class="ttdef"><b>Definition:</b> Tile.cpp:19</div></div>
-<div class="ttc" id="aclass_tile_html_aeeb5593bb6b75aae2edfcccbc84ab378"><div class="ttname"><a href="class_tile.html#aeeb5593bb6b75aae2edfcccbc84ab378">Tile::Tile</a></div><div class="ttdeci">Tile()</div><div class="ttdoc">class constructor</div><div class="ttdef"><b>Definition:</b> Tile.cpp:3</div></div>
+<div class="ttc" id="aclass_tile_html_aec0f48e1f8562bf258238b70e360d6c7"><div class="ttname"><a href="class_tile.html#aec0f48e1f8562bf258238b70e360d6c7">Tile::returnTileObstacle</a></div><div class="ttdeci">bool returnTileObstacle()</div><div class="ttdoc">A.</div><div class="ttdef"><b>Definition:</b> Tile.cpp:33</div></div>
+<div class="ttc" id="aclass_tile_html_accdbf14e2182951a3529a5718a34e7a2"><div class="ttname"><a href="class_tile.html#accdbf14e2182951a3529a5718a34e7a2">Tile::setObstacle</a></div><div class="ttdeci">void setObstacle(bool b)</div><div class="ttdoc">Sets bool tile_is_obstacle to true.</div><div class="ttdef"><b>Definition:</b> Tile.cpp:23</div></div>
+<div class="ttc" id="aclass_tile_html_aeeb5593bb6b75aae2edfcccbc84ab378"><div class="ttname"><a href="class_tile.html#aeeb5593bb6b75aae2edfcccbc84ab378">Tile::Tile</a></div><div class="ttdeci">Tile()</div><div class="ttdoc">class constructor</div><div class="ttdef"><b>Definition:</b> Tile.cpp:6</div></div>
 <div class="ttc" id="aclass_tile_html"><div class="ttname"><a href="class_tile.html">Tile</a></div><div class="ttdoc">Component of the TileMap class.</div><div class="ttdef"><b>Definition:</b> Tile.h:7</div></div>
-<div class="ttc" id="aclass_tile_html_a4d67ac83348110a47061855e921c62ee"><div class="ttname"><a href="class_tile.html#a4d67ac83348110a47061855e921c62ee">Tile::returnTileValue</a></div><div class="ttdeci">int returnTileValue()</div><div class="ttdoc">Temporary function, for testing.</div><div class="ttdef"><b>Definition:</b> Tile.cpp:24</div></div>
-<div class="ttc" id="aclass_tile_html_a98634abbd93fa13d0578d7103202d03d"><div class="ttname"><a href="class_tile.html#a98634abbd93fa13d0578d7103202d03d">Tile::~Tile</a></div><div class="ttdeci">~Tile()</div><div class="ttdoc">class destructor</div><div class="ttdef"><b>Definition:</b> Tile.cpp:8</div></div>
-<div class="ttc" id="aclass_tile_html_ac500f6f9c6d92ad36d6bce75977e5332"><div class="ttname"><a href="class_tile.html#ac500f6f9c6d92ad36d6bce75977e5332">Tile::setTile</a></div><div class="ttdeci">void setTile(char value)</div><div class="ttdoc">Given a char from the read file, sets a Tile with specific parameters.</div><div class="ttdef"><b>Definition:</b> Tile.cpp:13</div></div>
+<div class="ttc" id="aclass_tile_html_a4d67ac83348110a47061855e921c62ee"><div class="ttname"><a href="class_tile.html#a4d67ac83348110a47061855e921c62ee">Tile::returnTileValue</a></div><div class="ttdeci">int returnTileValue()</div><div class="ttdoc">Temporary function, for testing.</div><div class="ttdef"><b>Definition:</b> Tile.cpp:28</div></div>
+<div class="ttc" id="aclass_tile_html_a98634abbd93fa13d0578d7103202d03d"><div class="ttname"><a href="class_tile.html#a98634abbd93fa13d0578d7103202d03d">Tile::~Tile</a></div><div class="ttdeci">~Tile()</div><div class="ttdoc">class destructor</div><div class="ttdef"><b>Definition:</b> Tile.cpp:11</div></div>
+<div class="ttc" id="aclass_tile_html_ac500f6f9c6d92ad36d6bce75977e5332"><div class="ttname"><a href="class_tile.html#ac500f6f9c6d92ad36d6bce75977e5332">Tile::setTile</a></div><div class="ttdeci">void setTile(char value)</div><div class="ttdoc">Given a char from the read file, sets a Tile with specific parameters.</div><div class="ttdef"><b>Definition:</b> Tile.cpp:16</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by &#160;<a href="http://www.doxygen.org/index.html">

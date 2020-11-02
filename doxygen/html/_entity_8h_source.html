@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Tactical RPG - Projet L3
-   &#160;<span id="projectnumber">0.1.0.2</span>
+   &#160;<span id="projectnumber">0.1.0.1</span>
    </div>
    <div id="projectbrief">Un jeu de tactical rpg/simulation créé dans le cadre d&#39;un projet de L3 informatique</div>
   </td>
@@ -75,67 +75,93 @@ $(function() {
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#ifndef ENTITY_H</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#define ENTITY_H</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160; </div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;../gameManager/Component.h&quot;</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &lt;SFML/Graphics.hpp&gt;</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &lt;SFML/Main.hpp&gt;</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160; </div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &lt;math.h&gt;</span></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &lt;memory&gt;</span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160; </div>
-<div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="class_entity.html">   14</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_entity.html">Entity</a> : <span class="keyword">public</span> <a class="code" href="class_component.html">Component</a></div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;{</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;        <span class="comment">//constructor</span></div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="comment"></span>        <a class="code" href="class_entity.html#ad9a8aea2bf997668edbbd1274560ef94">Entity</a>(<span class="keywordtype">int</span> max_LP, <span class="keywordtype">int</span> xPos, <span class="keywordtype">int</span> yPos, <span class="keywordtype">int</span> speed);</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;        <span class="comment">//destructor</span></div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="comment"></span>        <a class="code" href="class_entity.html#adf6d3f7cb1b2ba029b6b048a395cc8ae">~Entity</a>();</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        <span class="comment">//inherited functions</span></div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_entity.html#a2a6e90bff5a12ff864bbfd6085f5e7ce">_init</a>() = 0;</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_entity.html#aa40b366a0d587fa905d6be25c412e1ad">_update</a>() = 0;</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_entity.html#adf56fde92cd7c8105f9aa0ca12633f7e">_draw</a>(sf::RenderWindow &amp; window) = 0;</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        <span class="comment">//Getter</span></div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="comment"></span>        <span class="keywordtype">int</span> <a class="code" href="class_entity.html#a0be9d16acca47749b5450954b7cd8865">getXPos</a>();</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        <span class="keywordtype">int</span> getYPos();</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        <span class="keywordtype">int</span> getDistanceTo(std::shared_ptr&lt;Entity&gt; e);</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        <span class="keywordtype">bool</span> <a class="code" href="class_entity.html#a4d78d5c5061893ed4464fc014adfd6b8">isDead</a>();</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        <span class="comment">//modifiers</span></div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="comment"></span>        <span class="keywordtype">void</span> <a class="code" href="class_entity.html#a9e19cd1578b990ba6176d83930124a65">takeDamage</a>(<span class="keywordtype">int</span> value);</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_entity.html#a87466c642875c59e774830e3168b485b">die</a>();</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; </div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        <span class="comment">//actions</span></div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="comment"></span>        <span class="keyword">virtual</span> <span class="keywordtype">double</span> <a class="code" href="class_entity.html#a8ffb0520e0552c73e46e45ddb10a2583">operator() </a>() = 0;</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_entity.html#acdd2a8996e7f00640ecfa84e947a6238">moveOut</a>() = 0;</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160; </div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="keyword">protected</span>:</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        <span class="keywordtype">int</span> speed;                  <span class="comment">//number of Tiles the Entity can go through in one move()</span></div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        <span class="keywordtype">int</span> lp;                     <span class="comment">//life points of the Entity,</span></div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160; </div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        <span class="comment">//Base type definition</span></div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        <span class="keyword">typedef</span> <a class="code" href="class_component.html">Component</a> <a class="code" href="class_component.html">super</a>;</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160; </div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        <span class="comment">//attributes</span></div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        <span class="keywordtype">int</span> max_LP;                 <span class="comment">//max life points of the Entity,</span></div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        sf::Vector2i pos;           <span class="comment">//position of the Entity</span></div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;};</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160; </div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;<span class="preprocessor">#endif // ENTITY_H</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#define ANIM_TIME 1000</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#define FRAME_TIME 17</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160; </div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &quot;../gameManager/Component.h&quot;</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &quot;../gameManager/Observer.h&quot;</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160; </div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &lt;SFML/Graphics.hpp&gt;</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &lt;SFML/Main.hpp&gt;</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &lt;math.h&gt;</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &lt;memory&gt;</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="comment">/* @brief State enum */</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="keyword">enum</span> State {</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    SEARCH,</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    OUTER,</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    PROTECTION,</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    HEAL,</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    OFFENSIVE,</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    EXPLORATION,</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    MINER,</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    PICKER,</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    END_GAME</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;};</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
+<div class="line"><a name="l00032"></a><span class="lineno"><a class="line" href="class_entity.html">   32</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_entity.html">Entity</a> : <span class="keyword">public</span> <a class="code" href="class_component.html">Component</a>, <span class="keyword">public</span> <a class="code" href="class_observer.html">Observer</a>, <span class="keyword">public</span> <a class="code" href="class_subject.html">Subject</a></div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;{</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        <span class="comment">//constructor</span></div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="comment"></span>        <a class="code" href="class_entity.html#ad9a8aea2bf997668edbbd1274560ef94">Entity</a>(<span class="keywordtype">int</span> max_LP, <span class="keywordtype">int</span> xPos, <span class="keywordtype">int</span> yPos, <span class="keywordtype">int</span> speed);</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        <span class="comment">//destructor</span></div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="comment"></span>        <a class="code" href="class_entity.html#adf6d3f7cb1b2ba029b6b048a395cc8ae">~Entity</a>();</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; </div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        <span class="comment">//inherited functions</span></div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_entity.html#a2da7e8eb04c6e55ce0468874d88a072b">on_Notify</a>(<span class="keyword">const</span> <a class="code" href="class_component.html">Component</a>* subject, Event event) = 0;</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_entity.html#a2a6e90bff5a12ff864bbfd6085f5e7ce">_init</a>() = 0;</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_entity.html#a37ff9c455d4eb174276659c2d9a3daa7">_update</a>();</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_entity.html#a9a75900a4d3fa2a75090684e1c190667">_draw</a>(sf::RenderWindow &amp; window);</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160; </div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        <span class="comment">//Getter</span></div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="comment"></span>        sf::Vector2i <a class="code" href="class_entity.html#a292c51036aef0d5ecbcdfedbf82d41fa">getPos</a>();</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        <span class="keywordtype">int</span> getDistanceTo(std::shared_ptr&lt;Entity&gt; e);</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">int</span> stateValue() = 0;</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        <span class="keywordtype">bool</span> <a class="code" href="class_entity.html#a4d78d5c5061893ed4464fc014adfd6b8">isDead</a>();</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160; </div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        <span class="comment">//modifiers</span></div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;<span class="comment"></span>        <span class="keywordtype">void</span> <a class="code" href="class_entity.html#a9e19cd1578b990ba6176d83930124a65">takeDamage</a>(<span class="keywordtype">int</span> value);</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        <span class="keywordtype">void</span> setPos(sf::Vector2i newPos);</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_entity.html#a87466c642875c59e774830e3168b485b">die</a>();</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160; </div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        <span class="comment">//actions</span></div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;<span class="comment"></span>        <span class="keyword">virtual</span> <span class="keywordtype">double</span> <a class="code" href="class_entity.html#a8ffb0520e0552c73e46e45ddb10a2583">operator() </a>() = 0;</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_entity.html#ab597c5d228c89d31ed65ad73cb910c66">moveTo</a>(sf::Vector2i newPos);</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160; </div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    <span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;        <span class="keywordtype">int</span> speed;                  <span class="comment">//number of Tiles the Entity can go through in one move()</span></div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        <span class="keywordtype">int</span> lp;                     <span class="comment">//life points of the Entity,</span></div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;        State state;</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        sf::Vector2i pos;           <span class="comment">//position of the Entity</span></div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;        sf::Texture texture;</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;        sf::Sprite  sprite;</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160; </div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;        <span class="comment">//Base type definition</span></div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;        <span class="keyword">typedef</span> <a class="code" href="class_component.html">Component</a> <a class="code" href="class_component.html">super</a>;</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160; </div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;        <span class="comment">//attributes</span></div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;        <span class="keywordtype">int</span> max_LP;                 <span class="comment">//max life points of the Entity,</span></div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;};</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160; </div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;<span class="preprocessor">#endif // ENTITY_H</span></div>
 </div><!-- fragment --></div><!-- contents -->
-<div class="ttc" id="aclass_entity_html_adf56fde92cd7c8105f9aa0ca12633f7e"><div class="ttname"><a href="class_entity.html#adf56fde92cd7c8105f9aa0ca12633f7e">Entity::_draw</a></div><div class="ttdeci">virtual void _draw(sf::RenderWindow &amp;window)=0</div><div class="ttdoc">draw method called every frame, draws component on window</div></div>
-<div class="ttc" id="aclass_entity_html_aa40b366a0d587fa905d6be25c412e1ad"><div class="ttname"><a href="class_entity.html#aa40b366a0d587fa905d6be25c412e1ad">Entity::_update</a></div><div class="ttdeci">virtual void _update()=0</div><div class="ttdoc">update method called every frame, updates game logic</div></div>
-<div class="ttc" id="aclass_entity_html_a9e19cd1578b990ba6176d83930124a65"><div class="ttname"><a href="class_entity.html#a9e19cd1578b990ba6176d83930124a65">Entity::takeDamage</a></div><div class="ttdeci">void takeDamage(int value)</div><div class="ttdoc">Lowers this.lp by value, then if lp&lt;=0, the entity is considered dead and so calls die()</div><div class="ttdef"><b>Definition:</b> Entity.cpp:41</div></div>
+<div class="ttc" id="aclass_observer_html"><div class="ttname"><a href="class_observer.html">Observer</a></div><div class="ttdoc">observer class observes a subject and react to events</div><div class="ttdef"><b>Definition:</b> Observer.h:18</div></div>
+<div class="ttc" id="aclass_entity_html_a9e19cd1578b990ba6176d83930124a65"><div class="ttname"><a href="class_entity.html#a9e19cd1578b990ba6176d83930124a65">Entity::takeDamage</a></div><div class="ttdeci">void takeDamage(int value)</div><div class="ttdoc">Lowers this.lp by value, then if lp&lt;=0, the entity is considered dead and so calls die()</div><div class="ttdef"><b>Definition:</b> Entity.cpp:53</div></div>
 <div class="ttc" id="aclass_component_html"><div class="ttname"><a href="class_component.html">Component</a></div><div class="ttdoc">components of the GM class</div><div class="ttdef"><b>Definition:</b> Component.h:9</div></div>
-<div class="ttc" id="aclass_entity_html_acdd2a8996e7f00640ecfa84e947a6238"><div class="ttname"><a href="class_entity.html#acdd2a8996e7f00640ecfa84e947a6238">Entity::moveOut</a></div><div class="ttdeci">virtual void moveOut()=0</div><div class="ttdoc">action to move for an Entity</div></div>
+<div class="ttc" id="aclass_subject_html"><div class="ttname"><a href="class_subject.html">Subject</a></div><div class="ttdoc">subject class observed by observers, can notify them</div><div class="ttdef"><b>Definition:</b> Observer.h:38</div></div>
+<div class="ttc" id="aclass_entity_html_a2da7e8eb04c6e55ce0468874d88a072b"><div class="ttname"><a href="class_entity.html#a2da7e8eb04c6e55ce0468874d88a072b">Entity::on_Notify</a></div><div class="ttdeci">virtual void on_Notify(const Component *subject, Event event)=0</div><div class="ttdoc">class destructor</div></div>
+<div class="ttc" id="aclass_entity_html_a292c51036aef0d5ecbcdfedbf82d41fa"><div class="ttname"><a href="class_entity.html#a292c51036aef0d5ecbcdfedbf82d41fa">Entity::getPos</a></div><div class="ttdeci">sf::Vector2i getPos()</div><div class="ttdoc">gets the distance to another Entity</div><div class="ttdef"><b>Definition:</b> Entity.cpp:30</div></div>
 <div class="ttc" id="aclass_entity_html_a8ffb0520e0552c73e46e45ddb10a2583"><div class="ttname"><a href="class_entity.html#a8ffb0520e0552c73e46e45ddb10a2583">Entity::operator()</a></div><div class="ttdeci">virtual double operator()()=0</div><div class="ttdoc">The Entity general behavior.</div></div>
-<div class="ttc" id="aclass_entity_html_a4d78d5c5061893ed4464fc014adfd6b8"><div class="ttname"><a href="class_entity.html#a4d78d5c5061893ed4464fc014adfd6b8">Entity::isDead</a></div><div class="ttdeci">bool isDead()</div><div class="ttdoc">tells if the Entity is dead</div><div class="ttdef"><b>Definition:</b> Entity.cpp:36</div></div>
-<div class="ttc" id="aclass_entity_html"><div class="ttname"><a href="class_entity.html">Entity</a></div><div class="ttdoc">Base Class to emulate Rovers and Aliens.</div><div class="ttdef"><b>Definition:</b> Entity.h:14</div></div>
-<div class="ttc" id="aclass_entity_html_adf6d3f7cb1b2ba029b6b048a395cc8ae"><div class="ttname"><a href="class_entity.html#adf6d3f7cb1b2ba029b6b048a395cc8ae">Entity::~Entity</a></div><div class="ttdeci">~Entity()</div><div class="ttdoc">destructor</div><div class="ttdef"><b>Definition:</b> Entity.cpp:64</div></div>
-<div class="ttc" id="aclass_entity_html_a87466c642875c59e774830e3168b485b"><div class="ttname"><a href="class_entity.html#a87466c642875c59e774830e3168b485b">Entity::die</a></div><div class="ttdeci">void die()</div><div class="ttdoc">dying action (including the destruction of the object)</div><div class="ttdef"><b>Definition:</b> Entity.cpp:59</div></div>
-<div class="ttc" id="aclass_entity_html_ad9a8aea2bf997668edbbd1274560ef94"><div class="ttname"><a href="class_entity.html#ad9a8aea2bf997668edbbd1274560ef94">Entity::Entity</a></div><div class="ttdeci">Entity(int max_LP, int xPos, int yPos, int speed)</div><div class="ttdoc">constructor</div><div class="ttdef"><b>Definition:</b> Entity.cpp:12</div></div>
-<div class="ttc" id="aclass_entity_html_a0be9d16acca47749b5450954b7cd8865"><div class="ttname"><a href="class_entity.html#a0be9d16acca47749b5450954b7cd8865">Entity::getXPos</a></div><div class="ttdeci">int getXPos()</div><div class="ttdoc">gets the distance to another Entity</div><div class="ttdef"><b>Definition:</b> Entity.cpp:16</div></div>
+<div class="ttc" id="aclass_entity_html_ab597c5d228c89d31ed65ad73cb910c66"><div class="ttname"><a href="class_entity.html#ab597c5d228c89d31ed65ad73cb910c66">Entity::moveTo</a></div><div class="ttdeci">void moveTo(sf::Vector2i newPos)</div><div class="ttdoc">action to move for an Entity</div><div class="ttdef"><b>Definition:</b> Entity.cpp:76</div></div>
+<div class="ttc" id="aclass_entity_html_a37ff9c455d4eb174276659c2d9a3daa7"><div class="ttname"><a href="class_entity.html#a37ff9c455d4eb174276659c2d9a3daa7">Entity::_update</a></div><div class="ttdeci">void _update()</div><div class="ttdoc">update method called every frame, updates game logic</div><div class="ttdef"><b>Definition:</b> Entity.cpp:17</div></div>
+<div class="ttc" id="aclass_entity_html_a9a75900a4d3fa2a75090684e1c190667"><div class="ttname"><a href="class_entity.html#a9a75900a4d3fa2a75090684e1c190667">Entity::_draw</a></div><div class="ttdeci">void _draw(sf::RenderWindow &amp;window)</div><div class="ttdoc">draw method called every frame, draws component on window</div><div class="ttdef"><b>Definition:</b> Entity.cpp:24</div></div>
+<div class="ttc" id="aclass_entity_html_a4d78d5c5061893ed4464fc014adfd6b8"><div class="ttname"><a href="class_entity.html#a4d78d5c5061893ed4464fc014adfd6b8">Entity::isDead</a></div><div class="ttdeci">bool isDead()</div><div class="ttdoc">tells if the Entity is dead</div><div class="ttdef"><b>Definition:</b> Entity.cpp:48</div></div>
+<div class="ttc" id="aclass_entity_html"><div class="ttname"><a href="class_entity.html">Entity</a></div><div class="ttdoc">Base Class to emulate Rovers and Aliens.</div><div class="ttdef"><b>Definition:</b> Entity.h:32</div></div>
+<div class="ttc" id="aclass_entity_html_adf6d3f7cb1b2ba029b6b048a395cc8ae"><div class="ttname"><a href="class_entity.html#adf6d3f7cb1b2ba029b6b048a395cc8ae">Entity::~Entity</a></div><div class="ttdeci">~Entity()</div><div class="ttdoc">destructor</div><div class="ttdef"><b>Definition:</b> Entity.cpp:89</div></div>
+<div class="ttc" id="aclass_entity_html_a87466c642875c59e774830e3168b485b"><div class="ttname"><a href="class_entity.html#a87466c642875c59e774830e3168b485b">Entity::die</a></div><div class="ttdeci">void die()</div><div class="ttdoc">dying action (including the destruction of the object)</div><div class="ttdef"><b>Definition:</b> Entity.cpp:71</div></div>
+<div class="ttc" id="aclass_entity_html_ad9a8aea2bf997668edbbd1274560ef94"><div class="ttname"><a href="class_entity.html#ad9a8aea2bf997668edbbd1274560ef94">Entity::Entity</a></div><div class="ttdeci">Entity(int max_LP, int xPos, int yPos, int speed)</div><div class="ttdoc">constructor</div><div class="ttdef"><b>Definition:</b> Entity.cpp:13</div></div>
 <div class="ttc" id="aclass_entity_html_a2a6e90bff5a12ff864bbfd6085f5e7ce"><div class="ttname"><a href="class_entity.html#a2a6e90bff5a12ff864bbfd6085f5e7ce">Entity::_init</a></div><div class="ttdeci">virtual void _init()=0</div><div class="ttdoc">init method overwritten by children classes, called at gm init</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

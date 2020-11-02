@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Tactical RPG - Projet L3
-   &#160;<span id="projectnumber">0.1.0.2</span>
+   &#160;<span id="projectnumber">0.1.0.1</span>
    </div>
    <div id="projectbrief">Un jeu de tactical rpg/simulation créé dans le cadre d&#39;un projet de L3 informatique</div>
   </td>
@@ -67,15 +67,9 @@ $(function() {
 
 <h3><a id="index__5F"></a>- _ -</h3><ul>
 <li>_draw()
-: <a class="el" href="class_alien.html#a9f8a4e64f9611566b378cca286b5a98a">Alien</a>
-, <a class="el" href="class_component.html#a56712f5491879798ca4a052defc7dabc">Component</a>
-, <a class="el" href="class_entity.html#adf56fde92cd7c8105f9aa0ca12633f7e">Entity</a>
-, <a class="el" href="class_fighter.html#ab05694384652111ba827a9a4f13ef5f9">Fighter</a>
-, <a class="el" href="class_healer.html#aa69658937c06c6e7c6650432bc18562d">Healer</a>
-, <a class="el" href="class_miner.html#a7bf56f49e9dd7383a6faba0b6dafca19">Miner</a>
-, <a class="el" href="class_raider.html#aaae018fbacd1bf4cbc4c979e50704606">Raider</a>
+: <a class="el" href="class_component.html#a56712f5491879798ca4a052defc7dabc">Component</a>
+, <a class="el" href="class_entity.html#a9a75900a4d3fa2a75090684e1c190667">Entity</a>
 , <a class="el" href="class_rover_base.html#a539fd1deea37ec0070085f64ae48c85e">RoverBase</a>
-, <a class="el" href="class_tank.html#ad254f92f6e9825157fa37b6da907d515">Tank</a>
 , <a class="el" href="class_tile_map.html#a2db1841ac6df40b0c400eb51935f6aee">TileMap</a>
 </li>
 <li>_init()
@@ -91,15 +85,10 @@ $(function() {
 , <a class="el" href="class_tile_map.html#a178fda66a0b791e52e0417b9a59b854f">TileMap</a>
 </li>
 <li>_update()
-: <a class="el" href="class_alien.html#aea8b1dd6815923232c4479651ad8a28d">Alien</a>
-, <a class="el" href="class_component.html#aa02959fdfeee1fd9dd6f33ad14f5b6e4">Component</a>
-, <a class="el" href="class_entity.html#aa40b366a0d587fa905d6be25c412e1ad">Entity</a>
-, <a class="el" href="class_fighter.html#acb7b60ec45764ee75e5cbea541cc66c5">Fighter</a>
+: <a class="el" href="class_component.html#aa02959fdfeee1fd9dd6f33ad14f5b6e4">Component</a>
+, <a class="el" href="class_entity.html#a37ff9c455d4eb174276659c2d9a3daa7">Entity</a>
 , <a class="el" href="class_healer.html#a8921f87360f59c078fbbf5f0d2fec386">Healer</a>
-, <a class="el" href="class_miner.html#adc60a80a92509d54980a29e97832f02f">Miner</a>
-, <a class="el" href="class_raider.html#ab371a7b34549cd2a9f5e5357336ad635">Raider</a>
 , <a class="el" href="class_rover_base.html#ac94ac1d4f2d163f483d9218edbf67ad8">RoverBase</a>
-, <a class="el" href="class_tank.html#ab7968f70ebd019c8f5fbfa694d7b9cb4">Tank</a>
 , <a class="el" href="class_tile_map.html#a1a12f8c5fb9a0465126d05ff6c52cbf1">TileMap</a>
 </li>
 </ul>
@@ -134,6 +123,9 @@ $(function() {
 </li>
 <li>checkHealTargets()
 : <a class="el" href="class_healer.html#a4b9d1e5516301a8fd52dc56a79fc77ec">Healer</a>
+</li>
+<li>clock
+: <a class="el" href="class_game_manager.html#a2b6caef6f400534921257b8c0f22d36e">GameManager</a>
 </li>
 <li>Component()
 : <a class="el" href="class_component.html#a8775db6d1a2c1afc2e77cd3c8f39da6f">Component</a>
@@ -178,11 +170,14 @@ $(function() {
 <li>GameManager()
 : <a class="el" href="class_game_manager.html#aa0e2424dc1a39d380e5b6605b179bf05">GameManager</a>
 </li>
+<li>getPos()
+: <a class="el" href="class_entity.html#a292c51036aef0d5ecbcdfedbf82d41fa">Entity</a>
+</li>
 <li>getTargets()
 : <a class="el" href="class_fighter.html#a2289c984195695dd459bb77b6062ed26">Fighter</a>
 </li>
-<li>getXPos()
-: <a class="el" href="class_entity.html#a0be9d16acca47749b5450954b7cd8865">Entity</a>
+<li>getTopTarget()
+: <a class="el" href="class_fighter.html#a9c08af95253c9a2b257b35b259bb6afa">Fighter</a>
 </li>
 </ul>
 
@@ -239,18 +234,8 @@ $(function() {
 <li>Miner()
 : <a class="el" href="class_miner.html#ac6c487fd584bd4f656574283e7ffa80a">Miner</a>
 </li>
-<li>moveOut()
-: <a class="el" href="class_alien.html#ae266d237b429f7f9b638ef6625d7fc3b">Alien</a>
-, <a class="el" href="class_entity.html#acdd2a8996e7f00640ecfa84e947a6238">Entity</a>
-, <a class="el" href="class_explorer.html#a47568e6d7011378c0c12d12815ac473a">Explorer</a>
-, <a class="el" href="class_fighter.html#a6c2124b0c1b197e3056d1cd90b4923ee">Fighter</a>
-, <a class="el" href="class_healer.html#a98a3543245ed0e35ddd07236c95d2c73">Healer</a>
-, <a class="el" href="class_miner.html#a7094bde6011bf3b6a0ede65cd871c304">Miner</a>
-, <a class="el" href="class_protector.html#a03de022a31a1b3f2d7cac4c60fa2d640">Protector</a>
-, <a class="el" href="class_raider.html#a6de33c2d4de526e19e04dd01a84f1810">Raider</a>
-, <a class="el" href="class_rover.html#a78db9eccc83ed353a22c69694d9ff16b">Rover</a>
-, <a class="el" href="class_rover_base.html#a6dde41a7f0045df094aacedd18cfa349">RoverBase</a>
-, <a class="el" href="class_tank.html#af9c07a79d2fe66c638f295ebaa47ba44">Tank</a>
+<li>moveTo()
+: <a class="el" href="class_entity.html#ab597c5d228c89d31ed65ad73cb910c66">Entity</a>
 </li>
 </ul>
 
@@ -264,8 +249,15 @@ $(function() {
 
 <h3><a id="index_o"></a>- o -</h3><ul>
 <li>on_Notify()
-: <a class="el" href="class_game_manager.html#a525e5d8c02d0c3f8c709fc94d1a5495a">GameManager</a>
+: <a class="el" href="class_alien.html#ad192a9930f94d4e34a75d7a726cd7a78">Alien</a>
+, <a class="el" href="class_entity.html#a2da7e8eb04c6e55ce0468874d88a072b">Entity</a>
+, <a class="el" href="class_game_manager.html#a525e5d8c02d0c3f8c709fc94d1a5495a">GameManager</a>
+, <a class="el" href="class_healer.html#a040aeed8795e614d6db4abb22864fa72">Healer</a>
+, <a class="el" href="class_miner.html#a64350bf97d87eb8da86d9b2a289d4d04">Miner</a>
 , <a class="el" href="class_observer.html#ad4b9095bbad027952054ac36652c06bb">Observer</a>
+, <a class="el" href="class_raider.html#a37be8d1b69dfbdb6054a86d79cf5d8cc">Raider</a>
+, <a class="el" href="class_rover_base.html#a8d6851f5fb36d7f73e97eab98306601a">RoverBase</a>
+, <a class="el" href="class_tank.html#a6ec9d35cffba0f585eb5f59da8d7cd23">Tank</a>
 , <a class="el" href="class_tile_map.html#a11774b6f7f0cb236985900511ec1db00">TileMap</a>
 </li>
 <li>operator()()
@@ -298,7 +290,7 @@ $(function() {
 : <a class="el" href="class_raider.html#a9dffb2507c1db0920edc65d675ce8aeb">Raider</a>
 </li>
 <li>readFile()
-: <a class="el" href="class_file_reader.html#ab04fdd9ecffdc0e3262b941f8f47887a">FileReader</a>
+: <a class="el" href="class_file_reader.html#a243ace0773d0506ed757c14e1d589722">FileReader</a>
 </li>
 <li>readFileTest()
 : <a class="el" href="class_file_reader.html#a9abf8e1d8de6ee6da67f8c9b2eccd640">FileReader</a>
@@ -326,7 +318,7 @@ $(function() {
 
 <h3><a id="index_s"></a>- s -</h3><ul>
 <li>setObstacle()
-: <a class="el" href="class_tile.html#a51917db78fa6f2906ffc5d56f39aa765">Tile</a>
+: <a class="el" href="class_tile.html#accdbf14e2182951a3529a5718a34e7a2">Tile</a>
 </li>
 <li>setTab()
 : <a class="el" href="class_tile_map.html#af82b5d6e11329ccd1b987b2a0c5cadd5">TileMap</a>
