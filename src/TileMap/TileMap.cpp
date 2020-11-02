@@ -170,6 +170,9 @@ std::vector<sf::Vector2i> TileMap::request_path(const sf::Vector2i& start,const 
     explored.push_back(queue.back());
     queue.pop_back();
     sortPath(queue);
+    if (queue.empty()) {
+      return empty;
+    }
   }
   //return
   return makePath(explored.back(), start);
