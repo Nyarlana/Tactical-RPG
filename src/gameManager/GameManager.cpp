@@ -32,7 +32,7 @@ void GameManager::init()
     components[i]->_init();
   }
 
-  testFunc();
+  // testFunc();
 
   mainloop();
 }
@@ -45,8 +45,21 @@ void GameManager::mainloop()
     sf::Event event;
     while (window.pollEvent(event))
     {
-      if (event.type == sf::Event::Closed)
-      window.close();
+      switch (event.type) {
+        case sf::Event::Closed:
+          window.close();
+          break;
+        case sf::Event::KeyPressed :
+          switch (event.key.code) {
+            case sf::Keyboard::E:
+              testFunc();
+              break;
+            case sf::Keyboard::P:
+              tm->printTab();
+              break;
+          }
+          break;
+      }
     }
 
     for (size_t i = 0; i < components.size(); i++)
