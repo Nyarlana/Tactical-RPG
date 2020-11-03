@@ -6,3 +6,9 @@ Rover::Rover(int max_LP, int xPos, int yPos, int speed) : Entity(max_LP, xPos, y
 {
 
 }
+
+void Rover::die()
+{
+    super::notify(ref(this), EVENT_TEST);
+    super::die();
+}

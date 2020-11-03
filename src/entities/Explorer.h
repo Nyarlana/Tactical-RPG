@@ -13,23 +13,26 @@ class Explorer : public Rover
 {
     public:
         /** @brief constructor */
-        Explorer(int max_LP, int xPos, int yPos, int speed);
+        Explorer(int max_LP, int xPos, int yPos, int speed, int acuity);
 
         //inherited functions
+        void on_Notify(const Component* subject, Event event);
         virtual void action() = 0;
-        void die();
 
         //Class skills
         /* @brief
         */
-        void explore();
+        void computePositionToExplore();
         void completeMap();
+        void setExplorerObjective(std::vector<sf::Vector2i> obj);
     protected:
         int[MAX_SIZE_X][MAX_SIZE_Y] map;
 
     private:
         //Base type definition
         typedef Rover super;
+        int visual_acuity;
+        std::vector<sf::Vector2i> explorer_objective;
 };
 
 #endif // Explorer_H
