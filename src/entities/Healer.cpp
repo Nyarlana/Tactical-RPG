@@ -1,5 +1,7 @@
 #include "Healer.h"
 
+#include "Alien.h"
+
 #include <memory>
 #include <vector>
 #include <list>
@@ -64,47 +66,46 @@ void Healer::_update()
     super::checkTargets();
 }
 
-double Healer::operator()()
+void Healer::action()
 {
-    while (!Entity::isDead())
+    switch(state)
     {
-        //state = choixTarget();
-
-        switch(state)
+        case OUTER:
         {
-            case OUTER:
-            {
-                break;
-            }
-            case SEARCH:
-            {
-                break;
-            }
-            case PROTECTION:
-            {
-                break;
-            }
-            case HEAL:
-            {
-                break;
-            }
-            case OFFENSIVE:
-            {
-                break;
-            }
-            case END_GAME:
-            {
-                break;
-            }
-            default:
-            {
-                Entity::state = SEARCH;
-            }
+            break;
+        }
+        case SEARCH:
+        {
+            break;
+        }
+        case PROTECTION:
+        {
+            break;
+        }
+        case HEAL:
+        {
+            break;
+        }
+        case OFFENSIVE:
+        {
+            break;
+        }
+        case END_GAME:
+        {
+            break;
+        }
+        default:
+        {
+            Entity::state = SEARCH;
         }
     }
-
-    return 0.0;
 }
+
+// void Healer::increaseThreat(shared_ptr<Entity> target, int threatIncrease)
+// {
+//     if(typeid(target.get())==typeid(Alien()))
+//         super::increaseThreat(make_shared<Entity>(target), threatIncrease);
+// }
 
 void Healer::attack(shared_ptr<Entity> target)
 {

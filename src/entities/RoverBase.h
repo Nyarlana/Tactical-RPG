@@ -29,7 +29,7 @@ class RoverBase : public Entity
         int stateValue();
         void _update();
         void _draw(sf::RenderWindow & window);
-        double operator() ();
+        void action();
         void moveTo(sf::Vector2i newPos); //doesn't move at all
         void missionComplete();//call to all Rovers to come back with timeOut
                                //until notifying the GameManager that the game is over

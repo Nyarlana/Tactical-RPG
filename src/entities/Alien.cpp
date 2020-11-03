@@ -2,6 +2,11 @@
 
 #include <SFML/Graphics.hpp>
 
+#include "Healer.h"
+#include "Raider.h"
+#include "Tank.h"
+//#include "Rover.h"
+
 #include <memory>
 #include <vector>
 #include <iostream>
@@ -22,7 +27,7 @@ void Alien::on_Notify(const Component* subject, Event event)
 void Alien::_init()
 {
     Entity::state = SEARCH;
-    
+
     if(!texture.loadFromFile("data/entities/alien.png"))
     {
       if(!texture.loadFromFile("../data/entities/alien.png"))
@@ -55,51 +60,42 @@ int Alien::stateValue()
     return value;
 }
 
-double Alien::operator()()
+void Alien::action()
 {
-    while (!Entity::isDead())
+    pause();
+
+    if(targets.empty())
+        state = SEARCH;
+    else //if(hasAggressiveBehavior || )
+        state = OFFENSIVE;
+
+    switch(state)
     {
-        if(super::targets.empty())
-            state = SEARCH;
-        else //if(hasAggressiveBehavior || )
-            state = OFFENSIVE;
-
-        switch(state)
+        case SEARCH:
         {
-            case SEARCH:
-            {
-                break;
-            }
-            case OFFENSIVE:
-            {
-                shared_ptr<Entity> t = getTopTarget();
 
-                if(getDistanceTo(t)==1)
-                {
-                    attack(t);
-                    //pause();
-                }
-                else
-                {
-                    //vector<sf::Vector2i> path = TileMap::request_path(Entity::pos,t->getPos());
-                    //for(int i=0; i<Entity::speed; i++)
-                    //{
-                    //    moveTo(path[i]); -> implémenter le système de collision
-                    //                        dans moveTo
-                    //    pause();
-                    //}
-                }
+            break;
+        }
+        case OFFENSIVE:
+        {
+            shared_ptr<Entity> t = getTopTarget();
 
-                break;
-            }
-            default:
+            if(getDistanceTo(t)==1)
             {
-                Entity::state = SEARCH;
+                attack(t);
             }
+            else
+            {
+                
+            }
+
+            break;
+        }
+        default:
+        {
+            Entity::state = SEARCH;
         }
     }
-
-    return 0.0;
 }
 
 void Alien::die()
@@ -109,20 +105,26 @@ void Alien::die()
 
 void Alien::increaseThreat(shared_ptr<Entity> target, int threatIncrease)
 {
-    super::increaseThreat(target, threatIncrease);
+    if(typeid(target.get())!=typeid(Alien()))
+    {
+        super::increaseThreat(target, threatIncrease);
 
-    if(targets.empty())
-        Entity::state = SEARCH;
-    else
-        Entity::state = OFFENSIVE;
+        if(targets.empty())
+            Entity::state = SEARCH;
+        else
+            Entity::state = OFFENSIVE;
+    }
 }
 
 void Alien::attack(shared_ptr<Entity> target)
 {
-    target->takeDamage(2);
-
-    if (target->isDead())
+    if(typeid(target.get())!=typeid(Alien()))
     {
-        targets.erase(target);
+        target->takeDamage(2);
+
+        if (target->isDead())
+        {
+            targets.erase(target);
+        }
     }
 }

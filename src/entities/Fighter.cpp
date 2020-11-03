@@ -13,9 +13,6 @@ Fighter::Fighter(int max_LP, int xPos, int yPos, int speed, int targetCheckArea,
 
 unordered_map<shared_ptr<Entity>, int> Fighter::getTargets()
 {
-    //unordered_map<shared_ptr<Entity>, int> *ptr;
-    //ptr = targets;
-
     return targets;
 }
 

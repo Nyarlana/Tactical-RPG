@@ -3,7 +3,6 @@
 #define ALIEN_H
 
 #include "Fighter.h"
-#include "Rover.h"
 #include "../gameManager/Observer.h"
 
 #include <SFML/Graphics.hpp>
@@ -21,7 +20,7 @@ class Alien : public Fighter
         void on_Notify(const Component* subject, Event event);
         void _init();
         int stateValue();
-        double operator() ();
+        void action();
         void die();                                                 //overrides Entity::die(), destructs itself after notifying its group of its death
         void increaseThreat(std::shared_ptr<Entity> target, int threatIncrease);
         void attack(std::shared_ptr<Entity> target);

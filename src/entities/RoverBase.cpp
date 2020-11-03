@@ -15,7 +15,7 @@
 
 using namespace std;
 /** @brief constructor */
-RoverBase::RoverBase(int _x_pos, int _y_pos, int _objective, string _rovers) : Entity(20, _x_pos, _y_pos, 0), objective(_objective)
+RoverBase::RoverBase(int _x_pos, int _y_pos, int _objective, string _rovers) : Entity(20, _x_pos, _y_pos, 4), objective(_objective)
 {
     while (!_rovers.empty())
     {
@@ -71,10 +71,11 @@ void RoverBase::on_Notify(const Component* subject, Event event)
 
 void RoverBase::_init()
 {
+    for(int i=0; i<rovers.size(); i++)
+        rovers[i]->_init();
+
     for(int i=0; i<threads.size(); i++)
         threads[i].join();
-
-    //on lance ce thread
 
     Entity::state = PICKER;
 
@@ -111,28 +112,23 @@ void RoverBase::_draw(sf::RenderWindow & window)
     //     rovers[i]->_draw(ref(window));
 }
 
-double RoverBase::operator()()
+void RoverBase::action()
 {
-    while (!Entity::isDead())
+    switch(state)
     {
-        switch(state)
+        case PICKER:
         {
-            case PICKER:
-            {
-                break;
-            }
-            case END_GAME:
-            {
-                break;
-            }
-            default:
-            {
-                Entity::state = PICKER;
-            }
+            break;
+        }
+        case END_GAME:
+        {
+            break;
+        }
+        default:
+        {
+            Entity::state = PICKER;
         }
     }
-
-    return 0.0;
 }
 
 void RoverBase::moveTo(sf::Vector2i newPos) //doesn't move at all

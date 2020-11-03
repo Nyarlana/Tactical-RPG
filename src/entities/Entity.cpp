@@ -7,6 +7,7 @@
 #include <memory>
 #include <vector>
 #include <iostream>
+#include <thread>
 
 using namespace std;
 
@@ -72,6 +73,17 @@ void Entity::die()
     std::cout<<"Deleted at "<<pos.x<<", "<<pos.y<<std::endl;
 }
 
+double Entity::operator() ()
+{
+    while (!Entity::isDead())
+    {
+        pause();
+        action();
+    }
+
+    return 0.0;
+}
+
 void Entity::moveTo(sf::Vector2i newPos)
 {
     int x = newPos.x-pos.x;
@@ -83,6 +95,11 @@ void Entity::moveTo(sf::Vector2i newPos)
     {
         pos = newPos;
     }
+}
+
+void Entity::pause()
+{
+    //sleep(1000/speed);
 }
 
 Entity::~Entity()
