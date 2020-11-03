@@ -60,9 +60,9 @@ void TileMap::_init()
 {
   setTab();
 
-  if(!tile_texture.loadFromFile("data/tile/tiles_test.png"))
+  if(!tile_texture.loadFromFile("data/tile/tile_final.png"))
   {
-    if(!tile_texture.loadFromFile("../data/tile/tiles_test.png"))
+    if(!tile_texture.loadFromFile("../data/tile/tile_final.png"))
     {
       std::cout << "erreur" << '\n';
     }
