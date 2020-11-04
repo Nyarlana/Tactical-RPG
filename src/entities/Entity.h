@@ -51,6 +51,8 @@ class Entity : public Component, public Observer, public Subject
         sf::Vector2i getPos();
         int getDistanceTo(std::shared_ptr<Entity> e);
         virtual int stateValue() = 0;
+        void setTopTargetPos(sf::Vector2i pos);
+        void setPath(std::vector<sf::Vector2i> new_path);
         /** @brief tells if the Entity is dead */
         bool isDead();
 
@@ -78,6 +80,11 @@ class Entity : public Component, public Observer, public Subject
         sf::Vector2i pos;           //position of the Entity
         sf::Texture texture;
         sf::Sprite  sprite;
+        int target_distance;
+        std::vector<sf::Vector2i> path;
+        sf::Vector2i top_target;
+        int last_pause;
+        int delta_pause;
 
     private:
         //Base type definition

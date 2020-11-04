@@ -73,22 +73,27 @@ void Alien::action()
     {
         case SEARCH:
         {
-
+            notify(this, E_GET_RANDOM_PATH);
             break;
         }
         case OFFENSIVE:
         {
             shared_ptr<Entity> t = getTopTarget();
 
-            if(getDistanceTo(t)==1)
+            if(target_distance<2)
             {
                 attack(t);
             }
             else
             {
-                
-            }
+                if(target_distance < getDistanceTo(t))
+                    notify(this, E_GET_PATH_TARGET);
 
+                moveTo(path.back());
+                path.pop_back();
+
+                target_distance = getDistanceTo(t);
+            }
             break;
         }
         default:
