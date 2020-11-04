@@ -14,6 +14,21 @@ public:
   @param bg_col color of back of bar
   @param col color of front of bar*/
   UI_ProgressBar(sf::Vector2i pos, sf::Vector2i shape, int max_value_ = 100, int value_ = 100, sf::Color bg_col = sf::Color::Red, sf::Color col = sf::Color::Green);
+  /**@brief add to inner value
+  @param plus value to add*/
+  void add_Value(const int plus);
+  /**@brief substract from inner value
+  @param minus value to substract*/
+  void substract_Value(const int minus);
+  /**@brief set value, ignoring caps
+  @param value value to set*/
+  void set_Value(const int val);
+  /**@brief background color setter
+  @param col color*/
+  void set_Background_Color(const sf::Color & col);
+  /**@brief foreground color setter
+  @param col color*/
+  void set_Foreground_Color(const sf::Color & col);
   //surcharge
   virtual void _init();
   virtual void _update();

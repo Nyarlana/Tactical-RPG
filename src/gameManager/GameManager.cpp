@@ -61,6 +61,11 @@ void GameManager::mainloop()
             case sf::Keyboard::P:
               tm->printTab();
               break;
+            case sf::Keyboard::Left:
+              pb->substract_Value(5);
+              break;
+            case sf::Keyboard::Right:
+              pb->add_Value(5);
           }
           break;
       }

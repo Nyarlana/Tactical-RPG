@@ -6,3 +6,5 @@ Key | Effect
 ----|----
 E | Test event
 P | Print Tilemap content
+Left | Reduce test bar
+Right | Augment test bar
