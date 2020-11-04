@@ -27,6 +27,10 @@ void GameManager::init()
   components.push_back(tm);
   tm->add_Observer(shared_from_this());
 
+  pb = std::make_shared<UI_ProgressBar>(sf::Vector2i(48,48), sf::Vector2i(128, 16), 100, 30);
+  components.push_back(pb);
+  pb->add_Observer(shared_from_this());
+
   for (size_t i = 0; i < components.size(); i++)
   {
     components[i]->_init();

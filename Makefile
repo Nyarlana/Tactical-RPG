@@ -12,7 +12,7 @@ all : main testTilemap testEntity
 
 main : GameManager.o
 	g++ $(INCLUDE) -c src/main.cpp -o obj/main.o obj/GameManager.o
-	g++ $(LIB) -o bin/main.exe -g obj/main.o obj/GameManager.o -g obj/TileMap.o obj/Component.o obj/Observer.o obj/Tile.o obj/FileReader.o $(LINKER_FLAGS)
+	g++ $(LIB) -o bin/main.exe -g obj/main.o obj/GameManager.o -g obj/TileMap.o obj/Component.o obj/Observer.o obj/Tile.o obj/FileReader.o obj/UI_ProgressBar.o obj/UI_Component.o $(LINKER_FLAGS)
 
 testTilemap : TileMap.o
 	g++ $(INCLUDE) -c src/main/testTilemap.cpp -o obj/testTilemap.o obj/TileMap.o
@@ -23,8 +23,8 @@ testEntity : Miner.o Alien.o Healer.o Raider.o Tank.o RoverBase.o
 	g++ $(LIB) -o bin/testEntity.exe -g obj/testEntity.o obj/Miner.o obj/Alien.o obj/Healer.o obj/Raider.o obj/Tank.o obj/RoverBase.o obj/Fighter.o obj/Entity.o obj/Component.o obj/GameManager.o obj/Observer.o obj/TileMap.o obj/Tile.o obj/FileReader.o $(LINKER_FLAGS)
 
 
-GameManager.o : Component.o Observer.o TileMap.o
-	g++ $(INCLUDE) -c src/gameManager/GameManager.cpp -o obj/GameManager.o -g obj/Component.o obj/Observer.o obj/TileMap.o
+GameManager.o : Component.o Observer.o TileMap.o UI_ProgressBar.o
+	g++ $(INCLUDE) -c src/gameManager/GameManager.cpp -o obj/GameManager.o -g obj/Component.o obj/Observer.o obj/TileMap.o obj/UI_ProgressBar.o
 
 Observer.o : Component.o
 	g++ $(INCLUDE) -c src/gameManager/Observer.cpp -o obj/Observer.o $(LINKER_FLAGS)
@@ -64,3 +64,9 @@ RoverBase.o : Entity.o
 
 Entity.o : Component.o Observer.o GameManager.o
 	g++ $(INCLUDE) --std=c++11 -c src/entities/Entity.cpp -o obj/Entity.o -g obj/Component.o obj/Observer.o obj/GameManager.o $(LINKER_FLAGS)
+
+UI_Component.o : Observer.o Component.o
+	g++ $(INCLUDE) --std=c++11 -c src/UI/UI_Component.cpp -o obj/UI_Component.o -g obj/Observer.o obj/Component.o $(LINKER_FLAGS)
+
+UI_ProgressBar.o : UI_Component.o
+	g++ $(INCLUDE) --std=c++11 -c src/UI/UI_ProgressBar.cpp -o obj/UI_ProgressBar.o -g obj/UI_Component.o $(LINKER_FLAGS)

@@ -9,6 +9,7 @@
 #include "Component.h"
 #include "Observer.h"
 #include "../TileMap/TileMap.h"
+#include "../UI/UI_ProgressBar.h"
 
 /** @class GameManager
     @brief manages the game*/
@@ -32,6 +33,7 @@ private:
   sf::RenderWindow window;
   std::vector<std::shared_ptr<Component>> components;
   std::shared_ptr<TileMap> tm;
+  std::shared_ptr<UI_ProgressBar> pb;
 };
 
 #endif
