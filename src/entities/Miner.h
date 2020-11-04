@@ -29,7 +29,7 @@ class Miner : public Entity
         void on_Notify(const Component* subject, Event event);
         void _init();
         int stateValue();
-        double operator() ();
+        void action();
 
         //Class skills
         /** @brief looks for ore on the map and saves their positions in

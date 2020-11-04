@@ -48,37 +48,33 @@ int Miner::stateValue()
     return value;
 }
 
-double Miner::operator()()
+void Miner::action()
 {
-    while (!super::isDead())
+    checkForOre();
+
+    switch(state)
     {
-        checkForOre();
-        switch(state)
+        case OUTER:
         {
-            case OUTER:
-            {
-                break;
-            }
-            case EXPLORATION:
-            {
-                break;
-            }
-            case MINER:
-            {
-                break;
-            }
-            case END_GAME:
-            {
-                break;
-            }
-            default:
-            {
-                state = EXPLORATION;
-            }
+            break;
+        }
+        case EXPLORATION:
+        {
+            break;
+        }
+        case MINER:
+        {
+            break;
+        }
+        case END_GAME:
+        {
+            break;
+        }
+        default:
+        {
+            state = EXPLORATION;
         }
     }
-
-    return 0.0;
 }
 
 //Class skills

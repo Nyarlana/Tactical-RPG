@@ -1,5 +1,7 @@
 #include "Raider.h"
 
+#include "Alien.h"
+
 #include <memory>
 #include <vector>
 
@@ -51,37 +53,38 @@ int Raider::stateValue()
     return value;
 }
 
-double Raider::operator()()
+void Raider::action()
 {
-    while (!Entity::isDead())
+    switch(state)
     {
-        switch(state)
+        case OUTER:
         {
-            case OUTER:
-            {
-                break;
-            }
-            case EXPLORATION:
-            {
-                break;
-            }
-            case OFFENSIVE:
-            {
-                break;
-            }
-            case END_GAME:
-            {
-                break;
-            }
-            default:
-            {
-                Entity::state = EXPLORATION;
-            }
+            break;
+        }
+        case EXPLORATION:
+        {
+            break;
+        }
+        case OFFENSIVE:
+        {
+            break;
+        }
+        case END_GAME:
+        {
+            break;
+        }
+        default:
+        {
+            Entity::state = EXPLORATION;
         }
     }
-
-    return 0.0;
 }
+
+// void Raider::increaseThreat(shared_ptr<Entity> target, int threatIncrease)
+// {
+//     if(typeid(target.get())==typeid(Alien()))
+//         super::increaseThreat(make_shared<Entity>(target), threatIncrease);
+// }
 
 void Raider::attack(shared_ptr<Entity> target)
 {

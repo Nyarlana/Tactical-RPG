@@ -13,8 +13,10 @@ class Rover : public Entity
         Rover(int max_LP, int xPos, int yPos, int speed);
 
         //inherited functions
-        virtual double operator() () = 0;
+        virtual void on_Notify(const Component* subject, Event event) = 0;
+        virtual void _init() = 0;
         void die();
+        virtual double operator() () = 0;
 
     protected:
 

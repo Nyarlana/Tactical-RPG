@@ -13,6 +13,7 @@
 
 #include <math.h>
 #include <memory>
+#include <thread>
 
 /* @brief State enum */
 enum State {
@@ -63,13 +64,16 @@ class Entity : public Component, public Observer, public Subject
 
         //actions
         /** @brief The Entity general behavior*/
-        virtual double operator() () = 0;
+        double operator() ();
+        /** @brief The Entity specific behavior*/
+        virtual void action() = 0;
         /** @brief action to move for an Entity*/
         void moveTo(sf::Vector2i newPos);
+        void pause();
 
     protected:
         int speed;                  //number of Tiles the Entity can go through in one move()
-        int lp;                     //life points of the Entity,
+        int lp;                     //life points of the Entity
         State state;
         sf::Vector2i pos;           //position of the Entity
         sf::Texture texture;

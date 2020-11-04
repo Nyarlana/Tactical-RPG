@@ -1,5 +1,7 @@
 #include "Tank.h"
 
+#include "Alien.h"
+
 #include <memory>
 #include <vector>
 
@@ -54,41 +56,42 @@ int Tank::stateValue()
     return value;
 }
 
-double Tank::operator()()
+void Tank::action()
 {
-    while (!Entity::isDead())
+    switch(state)
     {
-        switch(state)
+        case OUTER:
         {
-            case OUTER:
-            {
-                break;
-            }
-            case SEARCH:
-            {
-                break;
-            }
-            case PROTECTION:
-            {
-                break;
-            }
-            case OFFENSIVE:
-            {
-                break;
-            }
-            case END_GAME:
-            {
-                break;
-            }
-            default:
-            {
-                Entity::state = SEARCH;
-            }
+            break;
+        }
+        case SEARCH:
+        {
+            break;
+        }
+        case PROTECTION:
+        {
+            break;
+        }
+        case OFFENSIVE:
+        {
+            break;
+        }
+        case END_GAME:
+        {
+            break;
+        }
+        default:
+        {
+            Entity::state = SEARCH;
         }
     }
-
-    return 0.0;
 }
+
+// void Tank::increaseThreat(shared_ptr<Entity> target, int threatIncrease)
+// {
+//     if(typeid(target.get())==typeid(Alien()))
+//         super::increaseThreat(make_shared<Entity>(target), threatIncrease);
+// }
 
 void Tank::attack(shared_ptr<Entity> target)
 {

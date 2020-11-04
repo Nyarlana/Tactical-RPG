@@ -27,7 +27,8 @@ class Tank : public Fighter
         void on_Notify(const Component* subject, Event event);
         void _init();
         int stateValue();
-        double operator() ();
+        void action();
+        // void increaseThreat(std::shared_ptr<Entity> target, int threatIncrease);
         void attack(std::shared_ptr<Entity> target);
 
         //Class skills

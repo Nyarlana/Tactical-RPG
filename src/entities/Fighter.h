@@ -16,9 +16,7 @@ class Fighter : public Entity
         Fighter(int max_LP, int xPos, int yPos, int speed, int targetCheckArea, int threatfulTargetCheckArea);
 
         //inherited functions
-        virtual void _init()   = 0;
         virtual int stateValue() = 0;
-        virtual double operator() () = 0;
 
         //accessor
         /** @brief gives access to the target list
