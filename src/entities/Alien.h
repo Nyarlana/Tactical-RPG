@@ -14,7 +14,7 @@ class Alien : public Fighter
 {
     public:
         /** @brief constructor */
-        Alien(int max_LP, int xPos, int yPos, int speed, int targetCheckArea, int threatfulTargetCheckArea, bool hasAggressiveBehavior);
+        Alien(int max_LP = 5, int xPos = 3, int yPos = 3, int speed = 3, int targetCheckArea = 3, int threatfulTargetCheckArea = 5, bool hasAggressiveBehavior = true);
 
         //inherited functions
         void on_Notify(const Component* subject, Event event);

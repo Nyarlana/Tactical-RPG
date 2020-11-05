@@ -1,4 +1,4 @@
-LINK_SFML=-lsfml-graphics -lsfml-window -lsfml-system -pthread
+LINK_SFML=-lsfml-graphics -lsfml-window -lsfml-system
 
 ifeq ($(OS),Windows_NT)
 	INCLUDE= -ISFML/include
@@ -11,9 +11,9 @@ endif
 all : main #testTilemap testEntity
 
 main : GameManager.o
-	g++ $(INCLUDE) -c src/main.cpp -o obj/main.o obj/GameManager.o
+	g++ -std=c++11 -pthread $(INCLUDE) -c src/main.cpp -o obj/main.o obj/GameManager.o
 	#g++ $(LIB) -o bin/main.exe -g obj/main.o obj/GameManager.o -g obj/TileMap.o obj/Component.o obj/Observer.o obj/Tile.o obj/FileReader.o obj/UI_ProgressBar.o obj/UI_Component.o $(LINKER_FLAGS)
-	g++ $(LIB) -o bin/main.exe -g obj/*.o $(LINKER_FLAGS)
+	g++ -std=c++11 -pthread $(LIB) -o bin/main.exe -g obj/*.o $(LINKER_FLAGS)
 
 # testTilemap : TileMap.o
 # 	g++ $(INCLUDE) -c src/main/testTilemap.cpp -o obj/testTilemap.o obj/TileMap.o
@@ -25,7 +25,7 @@ main : GameManager.o
 
 
 GameManager.o : Component.o Observer.o TileMap.o UI_ProgressBar.o Entity.o Alien.o
-	g++ $(INCLUDE) -c src/gameManager/GameManager.cpp -o obj/GameManager.o -g obj/Component.o obj/Observer.o obj/TileMap.o obj/UI_ProgressBar.o obj/Entity.o obj/Alien.o
+	g++ -std=c++11 -pthread $(INCLUDE) -c src/gameManager/GameManager.cpp -o obj/GameManager.o -g obj/Component.o obj/Observer.o obj/TileMap.o obj/UI_ProgressBar.o obj/Entity.o obj/Alien.o
 
 Observer.o : Component.o
 	g++ $(INCLUDE) -c src/gameManager/Observer.cpp -o obj/Observer.o $(LINKER_FLAGS)
@@ -43,31 +43,31 @@ Tile.o :
 	g++ $(INCLUDE) -c src/TileMap/Tile.cpp -o obj/Tile.o $(LINKER_FLAGS)
 
 Alien.o : Fighter.o
-	g++ $(INCLUDE) --std=c++11 -c src/entities/Alien.cpp -o obj/Alien.o -g obj/Fighter.o $(LINKER_FLAGS)
+	g++ $(INCLUDE) -c src/entities/Alien.cpp -o obj/Alien.o -g obj/Fighter.o $(LINKER_FLAGS)
 
 Healer.o : Fighter.o
-	g++ $(INCLUDE) --std=c++11 -c src/entities/Healer.cpp -o obj/Healer.o -g obj/Fighter.o $(LINKER_FLAGS)
+	g++ $(INCLUDE) -c src/entities/Healer.cpp -o obj/Healer.o -g obj/Fighter.o $(LINKER_FLAGS)
 
 Tank.o : Fighter.o
-	g++ $(INCLUDE) --std=c++11 -c src/entities/Tank.cpp -o obj/Tank.o -g obj/Fighter.o $(LINKER_FLAGS)
+	g++ $(INCLUDE) -c src/entities/Tank.cpp -o obj/Tank.o -g obj/Fighter.o $(LINKER_FLAGS)
 
 Raider.o : Fighter.o
-	g++ $(INCLUDE) --std=c++11 -c src/entities/Raider.cpp -o obj/Raider.o -g obj/Fighter.o $(LINKER_FLAGS)
+	g++ $(INCLUDE) -c src/entities/Raider.cpp -o obj/Raider.o -g obj/Fighter.o $(LINKER_FLAGS)
 
 Fighter.o : Entity.o
-	g++ $(INCLUDE) --std=c++11 -c src/entities/Fighter.cpp -o obj/Fighter.o -g obj/Entity.o $(LINKER_FLAGS)
+	g++ $(INCLUDE) -c src/entities/Fighter.cpp -o obj/Fighter.o -g obj/Entity.o $(LINKER_FLAGS)
 
 Miner.o : Entity.o
-	g++ $(INCLUDE) --std=c++11 -c src/entities/Miner.cpp -o obj/Miner.o -g obj/Entity.o $(LINKER_FLAGS)
+	g++ $(INCLUDE) -c src/entities/Miner.cpp -o obj/Miner.o -g obj/Entity.o $(LINKER_FLAGS)
 
 RoverBase.o : Entity.o
-	g++ $(INCLUDE) --std=c++11 -c src/entities/RoverBase.cpp -o obj/RoverBase.o -g obj/Entity.o obj/GameManager.o $(LINKER_FLAGS)
+	g++ $(INCLUDE) -c src/entities/RoverBase.cpp -o obj/RoverBase.o -g obj/Entity.o $(LINKER_FLAGS)
 
 Entity.o : Component.o Observer.o GameManager.o
-	g++ $(INCLUDE) --std=c++11 -c src/entities/Entity.cpp -o obj/Entity.o -g obj/Component.o obj/Observer.o obj/GameManager.o $(LINKER_FLAGS)
+	g++ -std=c++11 -pthread $(INCLUDE) -c src/entities/Entity.cpp -o obj/Entity.o -g obj/Component.o obj/Observer.o $(LINKER_FLAGS)
 
 UI_Component.o : Observer.o Component.o GameManager.o
-	g++ $(INCLUDE) --std=c++11 -c src/UI/UI_Component.cpp -o obj/UI_Component.o -g obj/Observer.o obj/Component.o obj/GameManager.o $(LINKER_FLAGS)
+	g++ $(INCLUDE) -c src/UI/UI_Component.cpp -o obj/UI_Component.o -g obj/Observer.o obj/Component.o $(LINKER_FLAGS)
 
 UI_ProgressBar.o : UI_Component.o
-	g++ $(INCLUDE) --std=c++11 -c src/UI/UI_ProgressBar.cpp -o obj/UI_ProgressBar.o -g obj/UI_Component.o $(LINKER_FLAGS)
+	g++ $(INCLUDE) -c src/UI/UI_ProgressBar.cpp -o obj/UI_ProgressBar.o -g obj/UI_Component.o $(LINKER_FLAGS)

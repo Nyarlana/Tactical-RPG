@@ -1,17 +1,13 @@
 #include "Entity.h"
 
-#include "../gameManager/Component.h"
-#include "../gameManager/GameManager.h"
-#include <SFML/Graphics.hpp>
-
-#include <memory>
 #include <vector>
 #include <iostream>
-#include <thread>
 
 using namespace std;
 
-Entity::Entity(int _max_LP, int _xPos, int _yPos, int _speed) : max_LP(_max_LP), lp(_max_LP), pos(sf::Vector2i(_xPos, _yPos)), speed(_speed), target_distance(0), path(std::vector<sf::Vector2i>())
+Entity::Entity(int _max_LP, int _xPos, int _yPos, int _speed) : max_LP(_max_LP),
+    lp(_max_LP), pos(sf::Vector2i(_xPos, _yPos)), speed(_speed), target_distance(0),
+    path(std::vector<sf::Vector2i>())
 {
 }
 
@@ -88,17 +84,16 @@ void Entity::takeDamage(int value) //critical section
 void Entity::die()
 {
     std::cout<<"Deleted at "<<pos.x<<", "<<pos.y<<std::endl;
+    deactivate();
 }
 
-double Entity::operator() ()
+void Entity::operator() ()
 {
-    while (!Entity::isDead())
+    while (!isDead())
     {
         pause();
         action();
     }
-
-    return 0.0;
 }
 
 void Entity::moveTo(sf::Vector2i newPos)
