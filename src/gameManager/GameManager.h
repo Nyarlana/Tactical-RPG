@@ -25,13 +25,16 @@ public:
   void mainloop();
   /**@brief observer implementation*/
   virtual void on_Notify(const Component* subject, Event event);
+  /**@brief add a component
+  @param comp pointer to component to add*/
+  static void add_Component(const std::shared_ptr<Component> comp);
   /**@brief test function*/
   void testFunc();
   /**@brief Game Clock*/
   inline static sf::Clock * clock;
 private:
   sf::RenderWindow window;
-  std::vector<std::shared_ptr<Component>> components;
+  inline static std::vector<std::shared_ptr<Component>> components;
   std::shared_ptr<TileMap> tm;
   std::shared_ptr<UI_ProgressBar> pb;
 };

@@ -3,10 +3,11 @@
 #define COMPONENT_H
 
 #include <SFML/Graphics.hpp>
+#include <memory>
 
 /**@class Component class
   @brief components of the GM class*/
-class Component {
+class Component : public std::enable_shared_from_this<Component> {
 public:
   /**@brief class constructor*/
   Component();

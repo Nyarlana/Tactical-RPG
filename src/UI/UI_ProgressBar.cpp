@@ -1,7 +1,6 @@
 #include "UI_ProgressBar.h"
 
-UI_ProgressBar::UI_ProgressBar(sf::Vector2i pos, sf::Vector2i shape, int max_value_, int value_, sf::Color bg_col, sf::Color col) {
-  position = pos;
+UI_ProgressBar::UI_ProgressBar(sf::Vector2i pos, sf::Vector2i shape, int max_value_, int value_, sf::Color bg_col, sf::Color col) : UI_Component(pos) {
   bar = shape;
   max_value = max_value_;
   value = value_;

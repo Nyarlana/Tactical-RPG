@@ -25,7 +25,7 @@ void GameManager::init()
 
   tm = std::make_shared<TileMap>();
   components.push_back(tm);
-  tm->add_Observer(shared_from_this());
+  tm->add_Observer(Observer::shared_from_this());
 
   pb = std::make_shared<UI_ProgressBar>(sf::Vector2i(48,48), sf::Vector2i(128, 16), 100, 30);
   components.push_back(pb);
@@ -98,6 +98,11 @@ void GameManager::on_Notify(const Component* subject, Event event)
     case EVENT_TEST:
       std::cout<<"Test event"<<std::endl;
   }
+}
+
+void GameManager::add_Component(const std::shared_ptr<Component> comp) {
+  components.push_back(comp);
+  comp->_init();
 }
 
 void GameManager::testFunc()
