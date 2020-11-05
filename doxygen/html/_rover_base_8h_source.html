@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Tactical RPG - Projet L3
-   &#160;<span id="projectnumber">0.1.0.1</span>
+   &#160;<span id="projectnumber">0.2</span>
    </div>
    <div id="projectbrief">Un jeu de tactical rpg/simulation créé dans le cadre d&#39;un projet de L3 informatique</div>
   </td>
@@ -99,7 +99,7 @@ $(function() {
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        <span class="keywordtype">int</span> stateValue();</div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_rover_base.html#ac94ac1d4f2d163f483d9218edbf67ad8">_update</a>();</div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_rover_base.html#a539fd1deea37ec0070085f64ae48c85e">_draw</a>(sf::RenderWindow &amp; window);</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        <span class="keywordtype">double</span> <a class="code" href="class_rover_base.html#a335f735cf3a57fa9315f303e6535513a">operator() </a>();</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_rover_base.html#a38c9b21a10309933484fc0e148089aaf">action</a>();</div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        <span class="keywordtype">void</span> moveTo(sf::Vector2i newPos); <span class="comment">//doesn&#39;t move at all</span></div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        <span class="keywordtype">void</span> missionComplete();<span class="comment">//call to all Rovers to come back with timeOut</span></div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;                               <span class="comment">//until notifying the GameManager that the game is over</span></div>
@@ -127,15 +127,15 @@ $(function() {
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160; </div>
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="preprocessor">#endif // RoverBase_H</span></div>
 </div><!-- fragment --></div><!-- contents -->
+<div class="ttc" id="aclass_rover_base_html_a38c9b21a10309933484fc0e148089aaf"><div class="ttname"><a href="class_rover_base.html#a38c9b21a10309933484fc0e148089aaf">RoverBase::action</a></div><div class="ttdeci">void action()</div><div class="ttdoc">The Entity specific behavior.</div><div class="ttdef"><b>Definition:</b> RoverBase.cpp:115</div></div>
 <div class="ttc" id="aclass_rover_base_html_a7e9507f8667c4dd98e9e7a0763d4b8a3"><div class="ttname"><a href="class_rover_base.html#a7e9507f8667c4dd98e9e7a0763d4b8a3">RoverBase::_init</a></div><div class="ttdeci">void _init()</div><div class="ttdoc">init method overwritten by children classes, called at gm init</div><div class="ttdef"><b>Definition:</b> RoverBase.cpp:72</div></div>
-<div class="ttc" id="aclass_rover_base_html_a539fd1deea37ec0070085f64ae48c85e"><div class="ttname"><a href="class_rover_base.html#a539fd1deea37ec0070085f64ae48c85e">RoverBase::_draw</a></div><div class="ttdeci">void _draw(sf::RenderWindow &amp;window)</div><div class="ttdoc">draw method called every frame, draws component on window</div><div class="ttdef"><b>Definition:</b> RoverBase.cpp:106</div></div>
-<div class="ttc" id="aclass_component_html"><div class="ttname"><a href="class_component.html">Component</a></div><div class="ttdoc">components of the GM class</div><div class="ttdef"><b>Definition:</b> Component.h:9</div></div>
-<div class="ttc" id="aclass_rover_base_html_ac94ac1d4f2d163f483d9218edbf67ad8"><div class="ttname"><a href="class_rover_base.html#ac94ac1d4f2d163f483d9218edbf67ad8">RoverBase::_update</a></div><div class="ttdeci">void _update()</div><div class="ttdoc">update method called every frame, updates game logic</div><div class="ttdef"><b>Definition:</b> RoverBase.cpp:98</div></div>
+<div class="ttc" id="aclass_rover_base_html_a539fd1deea37ec0070085f64ae48c85e"><div class="ttname"><a href="class_rover_base.html#a539fd1deea37ec0070085f64ae48c85e">RoverBase::_draw</a></div><div class="ttdeci">void _draw(sf::RenderWindow &amp;window)</div><div class="ttdoc">draw method called every frame, draws component on window</div><div class="ttdef"><b>Definition:</b> RoverBase.cpp:107</div></div>
+<div class="ttc" id="aclass_component_html"><div class="ttname"><a href="class_component.html">Component</a></div><div class="ttdoc">components of the GM class</div><div class="ttdef"><b>Definition:</b> Component.h:10</div></div>
+<div class="ttc" id="aclass_rover_base_html_ac94ac1d4f2d163f483d9218edbf67ad8"><div class="ttname"><a href="class_rover_base.html#ac94ac1d4f2d163f483d9218edbf67ad8">RoverBase::_update</a></div><div class="ttdeci">void _update()</div><div class="ttdoc">update method called every frame, updates game logic</div><div class="ttdef"><b>Definition:</b> RoverBase.cpp:99</div></div>
 <div class="ttc" id="aclass_rover_base_html_a8d6851f5fb36d7f73e97eab98306601a"><div class="ttname"><a href="class_rover_base.html#a8d6851f5fb36d7f73e97eab98306601a">RoverBase::on_Notify</a></div><div class="ttdeci">void on_Notify(const Component *subject, Event event)</div><div class="ttdoc">class destructor</div><div class="ttdef"><b>Definition:</b> RoverBase.cpp:58</div></div>
 <div class="ttc" id="aclass_rover_base_html_a4b0d4892edef3dd30e2b50ec02224994"><div class="ttname"><a href="class_rover_base.html#a4b0d4892edef3dd30e2b50ec02224994">RoverBase::RoverBase</a></div><div class="ttdeci">RoverBase(int _x_pos, int _y_pos, int _objective, std::string _rovers)</div><div class="ttdoc">constructor</div><div class="ttdef"><b>Definition:</b> RoverBase.cpp:18</div></div>
 <div class="ttc" id="aclass_rover_base_html"><div class="ttname"><a href="class_rover_base.html">RoverBase</a></div><div class="ttdoc">RoverBase type of Entity.</div><div class="ttdef"><b>Definition:</b> RoverBase.h:20</div></div>
-<div class="ttc" id="aclass_rover_base_html_a335f735cf3a57fa9315f303e6535513a"><div class="ttname"><a href="class_rover_base.html#a335f735cf3a57fa9315f303e6535513a">RoverBase::operator()</a></div><div class="ttdeci">double operator()()</div><div class="ttdoc">The Entity general behavior.</div><div class="ttdef"><b>Definition:</b> RoverBase.cpp:114</div></div>
-<div class="ttc" id="aclass_entity_html"><div class="ttname"><a href="class_entity.html">Entity</a></div><div class="ttdoc">Base Class to emulate Rovers and Aliens.</div><div class="ttdef"><b>Definition:</b> Entity.h:32</div></div>
+<div class="ttc" id="aclass_entity_html"><div class="ttname"><a href="class_entity.html">Entity</a></div><div class="ttdoc">Base Class to emulate Rovers and Aliens.</div><div class="ttdef"><b>Definition:</b> Entity.h:33</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by &#160;<a href="http://www.doxygen.org/index.html">

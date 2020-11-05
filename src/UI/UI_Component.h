@@ -6,9 +6,13 @@
 #ifndef UI_COMPONENT
 #define UI_COMPONENT
 
+/**@class UI_Component
+  @brief generic class for all UI Components*/
 class UI_Component : public Observer, public Subject, public Component
 {
 public:
+  /**@brief empty constructor
+  inheritance purposes*/
   UI_Component();
   /**@brief constructor
   @param pos position*/

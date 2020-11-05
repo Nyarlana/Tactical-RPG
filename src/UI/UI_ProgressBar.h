@@ -3,6 +3,8 @@
 #ifndef UI_PROGRESSBAR
 #define UI_PROGRESSBAR
 
+/**@class UI_ProgressBar
+  @brief Overlapping bars representing a progressing value*/
 class UI_ProgressBar : public UI_Component
 {
 public:
