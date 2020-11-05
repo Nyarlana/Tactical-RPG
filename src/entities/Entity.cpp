@@ -11,7 +11,7 @@
 
 using namespace std;
 
-Entity::Entity(int _max_LP, int _xPos, int _yPos, int _speed) : max_LP(_max_LP), lp(_max_LP), pos(sf::Vector2i(_xPos, _yPos)), speed(_speed)
+Entity::Entity(int _max_LP, int _xPos, int _yPos, int _speed) : max_LP(_max_LP), lp(_max_LP), pos(sf::Vector2i(_xPos, _yPos)), speed(_speed), target_distance(0)
 {
 }
 
@@ -33,6 +33,11 @@ sf::Vector2i Entity::getPos()
     return pos;
 }
 
+sf::Vector2i Entity::getTopTargetPos()
+{
+    return top_target;
+}
+
 int Entity::getDistanceTo(shared_ptr<Entity> e)
 {
     int x = e.get()->getPos().x-pos.x;
@@ -44,6 +49,16 @@ int Entity::getDistanceTo(shared_ptr<Entity> e)
 void Entity::setPos(sf::Vector2i newPos)
 {
     pos = newPos;
+}
+
+void Entity::setTopTarget(sf::Vector2i pos)
+{
+    top_target = pos;
+}
+
+void setPath(std::vector<sf::Vector2i> new_path)
+{
+    path = new_path;
 }
 
 bool Entity::isDead()
@@ -99,7 +114,11 @@ void Entity::moveTo(sf::Vector2i newPos)
 
 void Entity::pause()
 {
-    //sleep(1000/speed);
+    /*int new_pause = GameManager::clock->getElapsedTime().asMilliseconds();
+    delta_pause = new_pause - last_pause;
+    //sleep((1000/speed)-delta_pause);
+    notify(this,E_PAUSE);
+    last_pause = new_pause;*/
 }
 
 Entity::~Entity()
