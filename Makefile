@@ -66,8 +66,8 @@ RoverBase.o : Entity.o
 Entity.o : Component.o Observer.o GameManager.o
 	g++ $(INCLUDE) --std=c++11 -c src/entities/Entity.cpp -o obj/Entity.o -g obj/Component.o obj/Observer.o obj/GameManager.o $(LINKER_FLAGS)
 
-UI_Component.o : Observer.o Component.o
-	g++ $(INCLUDE) --std=c++11 -c src/UI/UI_Component.cpp -o obj/UI_Component.o -g obj/Observer.o obj/Component.o $(LINKER_FLAGS)
+UI_Component.o : Observer.o Component.o GameManager.o
+	g++ $(INCLUDE) --std=c++11 -c src/UI/UI_Component.cpp -o obj/UI_Component.o -g obj/Observer.o obj/Component.o obj/GameManager.o $(LINKER_FLAGS)
 
 UI_ProgressBar.o : UI_Component.o
 	g++ $(INCLUDE) --std=c++11 -c src/UI/UI_ProgressBar.cpp -o obj/UI_ProgressBar.o -g obj/UI_Component.o $(LINKER_FLAGS)

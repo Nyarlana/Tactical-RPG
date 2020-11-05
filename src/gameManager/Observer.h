@@ -9,7 +9,10 @@
 /**@brief event enum*/
 enum Event {
   EVENT_TEST,
-  E_OUT_REQ
+  E_OUT_REQ,
+  E_GET_RANDOM_PATH,
+  E_GET_PATH_TARGET,
+  E_PAUSE
 };
 
 /**@class Observer
