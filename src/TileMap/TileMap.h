@@ -59,6 +59,10 @@ class TileMap : public Component, public Observer, public Subject
           @param current Node to search
           @param explored array to search in*/
         bool isNotIn(const NodePath & current, const std::vector<NodePath> & explored);
+        /**@brief Gives a random correct move
+        @param pos base position from where to move
+        @return the given move*/
+        std::vector<sf::Vector2i> getRandomMove(sf::Vector2i pos);
 
         // Surcharge
         virtual void on_Notify(const Component* subject, Event event);

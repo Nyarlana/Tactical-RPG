@@ -7,6 +7,7 @@
 #include "Component.h"
 #include "Observer.h"
 #include "../TileMap/TileMap.h"
+#include "../entities/entities.h"
 
 // sf::Clock GameManager::clock = new sf::Clock;
 
@@ -66,6 +67,7 @@ void GameManager::mainloop()
               break;
             case sf::Keyboard::Right:
               pb->add_Value(5);
+              break;
           }
           break;
       }
@@ -97,6 +99,10 @@ void GameManager::on_Notify(const Component* subject, Event event)
   {
     case EVENT_TEST:
       std::cout<<"Test event"<<std::endl;
+      break;
+    case E_GET_RANDOM_PATH:
+      Entity* e = (Entity*) subject;
+      e->setPath(tm->getRandomMove(e->getPos()));
   }
 }
 

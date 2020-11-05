@@ -222,3 +222,17 @@ bool operator < (const NodePath & a,const NodePath & b)
 {
   return a.hcost < b.hcost;
 }
+
+std::vector<sf::Vector2i> TileMap::getRandomMove(sf::Vector2i pos)
+{
+    sf::Vector2i arrivee;
+
+    do {
+        arrivee = sf::Vector2i(rand()%3-1, rand()%3-1);
+    } while((arrivee.x==0 && arrivee.y==0) || tilemap_tab[arrivee.x][arrivee.y].returnTileObstacle());
+
+    std::vector<sf::Vector2i> path;
+    path.push_back(sf::Vector2i(pos.x+arrivee.x, pos.y + arrivee.y));
+
+    return path;
+}

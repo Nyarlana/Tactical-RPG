@@ -73,7 +73,10 @@ void Alien::action()
     {
         case SEARCH:
         {
-            notify(this, E_GET_RANDOM_PATH);
+            if(path.empty())
+                notify(this, E_GET_RANDOM_PATH);
+            moveTo(path.back());
+            path.pop_back();
             break;
         }
         case OFFENSIVE:
