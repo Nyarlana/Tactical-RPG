@@ -38,7 +38,6 @@ class RoverBase : public Entity
 
         static RoverBase launchMission(std::string mission);
         //Rovers management
-        void setGameManager(std::shared_ptr<GameManager> gm);
         void getOneOre();
         void putRover(int rover_number, int x, int y);
         //void getRover(Entity r);

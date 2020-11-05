@@ -51,6 +51,7 @@ class Entity : public Component, public Observer, public Subject
         sf::Vector2i getPos();
         int getDistanceTo(std::shared_ptr<Entity> e);
         virtual int stateValue() = 0;
+        sf::Vector2i getTopTargetPos();
         void setTopTargetPos(sf::Vector2i pos);
         void setPath(std::vector<sf::Vector2i> new_path);
         /** @brief tells if the Entity is dead */
@@ -61,6 +62,7 @@ class Entity : public Component, public Observer, public Subject
         @param value amount of points lp is lowered*/
         void takeDamage(int value);
         void setPos(sf::Vector2i newPos);
+        void setTopTarget(sf::Vector2i pos);
         /** @brief dying action (including the destruction of the object) */
         void die();
 

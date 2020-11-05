@@ -11,14 +11,16 @@
 
 using namespace std;
 
-Entity::Entity(int _max_LP, int _xPos, int _yPos, int _speed) : max_LP(_max_LP), lp(_max_LP), pos(sf::Vector2i(_xPos, _yPos)), speed(_speed), target_distance(0)
+Entity::Entity(int _max_LP, int _xPos, int _yPos, int _speed) : max_LP(_max_LP), lp(_max_LP), pos(sf::Vector2i(_xPos, _yPos)), speed(_speed), target_distance(0), path(std::vector<sf::Vector2i>())
 {
 }
 
 void Entity::_update()
 {
-    bool estDebout = GameManager::clock->getElapsedTime().asMilliseconds() % ANIM_TIME < FRAME_TIME;
+    bool estDebout = true;//(GameManager::clock->getElapsedTime().asMilliseconds() % ANIM_TIME) < FRAME_TIME;
+
     int state_value = stateValue(); //à ajouter à la place du 0 quand il y aura suffisamment d'images
+
     sprite.setTextureRect(sf::IntRect(estDebout*32,0*32,32,32));
 }
 
@@ -56,7 +58,7 @@ void Entity::setTopTarget(sf::Vector2i pos)
     top_target = pos;
 }
 
-void setPath(std::vector<sf::Vector2i> new_path)
+void Entity::setPath(std::vector<sf::Vector2i> new_path)
 {
     path = new_path;
 }

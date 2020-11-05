@@ -26,7 +26,9 @@ void Alien::on_Notify(const Component* subject, Event event)
 
 void Alien::_init()
 {
+    std::cout << "alien _init start" << std::endl;
     Entity::state = SEARCH;
+    std::cout << "alien state set" << std::endl;
 
     if(!texture.loadFromFile("data/entities/alien.png"))
     {
@@ -35,10 +37,13 @@ void Alien::_init()
         std::cout << "erreur" << '\n';
       }
     }
+    std::cout << "alien texture searched" << std::endl;
 
     sprite.setTexture(texture);
+    std::cout << "alien texture set" << std::endl;
     sprite.setTextureRect(sf::IntRect(0,0,32,32));
 
+    std::cout << "alien _init end" << std::endl;
 }
 
 int Alien::stateValue()

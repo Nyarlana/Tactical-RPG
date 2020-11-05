@@ -24,28 +24,28 @@ RoverBase::RoverBase(int _x_pos, int _y_pos, int _objective, string _rovers) : E
             case 'h':
             {
                 Healer h(-1,-1);
-                rovers.push_back(std::make_shared<Healer>(h));
+                rovers.push_back(make_shared<Healer>(h));
                 threads.push_back(thread(h));
                 break;
             }
             case 'm':
             {
                 Miner m(-1,-1);
-                rovers.push_back(std::make_shared<Miner>(m));
+                rovers.push_back(make_shared<Miner>(m));
                 threads.push_back(thread(m));
                 break;
             }
             case 'r':
             {
                 Raider r(-1,-1);
-                rovers.push_back(std::make_shared<Raider>(r));
+                rovers.push_back(make_shared<Raider>(r));
                 threads.push_back(thread(r));
                 break;
             }
             case 't':
             {
                 Tank t(-1,-1);
-                rovers.push_back(std::make_shared<Tank>(t));
+                rovers.push_back(make_shared<Tank>(t));
                 threads.push_back(thread(t));
             }
         }
@@ -222,13 +222,6 @@ RoverBase RoverBase::launchMission(string mission)
 }
 
 //Rovers management
-void RoverBase::setGameManager(shared_ptr<GameManager> gm)
-{
-    add_Observer(gm);
-
-    for(int i; i<rovers.size(); i++)
-        rovers[i]->add_Observer(gm);
-}
 
 void RoverBase::getOneOre()
 {

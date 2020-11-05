@@ -10,6 +10,7 @@
 #include "Observer.h"
 #include "../TileMap/TileMap.h"
 #include "../UI/UI_ProgressBar.h"
+#include "../entities/entities.h"
 
 /** @class GameManager
     @brief manages the game*/
@@ -37,6 +38,8 @@ private:
   inline static std::vector<std::shared_ptr<Component>> components;
   std::shared_ptr<TileMap> tm;
   std::shared_ptr<UI_ProgressBar> pb;
+  std::vector<std::thread> entities;
+  std::shared_ptr<Alien> a;
 };
 
 #endif

@@ -1,13 +1,13 @@
 /**@file game manager code*/
 #include <SFML/Graphics.hpp>
 #include <SFML/Main.hpp>
+#include <thread>
 #include <memory>
 #include <iostream>
 #include "GameManager.h"
 #include "Component.h"
 #include "Observer.h"
 #include "../TileMap/TileMap.h"
-#include "../entities/entities.h"
 
 // sf::Clock GameManager::clock = new sf::Clock;
 
@@ -30,16 +30,29 @@ void GameManager::init()
 
   pb = std::make_shared<UI_ProgressBar>(sf::Vector2i(48,48), sf::Vector2i(128, 16), 100, 30);
   components.push_back(pb);
-  pb->add_Observer(shared_from_this());
+  pb->add_Observer(Observer::shared_from_this());
+
+  a = std::make_shared<Alien>(5, 3, 3, 3, 4, 5, true);
+  a->add_Observer(Observer::shared_from_this());
+  components.push_back(a);
+  entities.push_back(std::thread(*a));
+
+  // for (size_t i = 0; i < entities.size(); i++)
+  // {
+  //   entities[i].join();
+  // }
 
   for (size_t i = 0; i < components.size(); i++)
   {
     components[i]->_init();
   }
 
-  // testFunc();
-
   mainloop();
+
+  // for (size_t i = 0; i < entities.size(); i++)
+  // {
+  //   entities[i].detach();
+  // }
 }
 
 void GameManager::mainloop()
@@ -77,7 +90,7 @@ void GameManager::mainloop()
     {
       if (components[i]->active)
       {
-        components[i]->_update();
+         components[i]->_update();
       }
     }
 
