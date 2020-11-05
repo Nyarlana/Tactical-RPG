@@ -2,7 +2,7 @@
 #ifndef ENTITY_H
 #define ENTITY_H
 
-#define ANIM_TIME 1000
+#define ANIM_TIME 500
 #define FRAME_TIME 17
 
 #include "../gameManager/Component.h"
@@ -87,6 +87,7 @@ class Entity : public Component, public Observer, public Subject
         sf::Vector2i top_target;
         int last_pause;
         int delta_pause;
+        sf::Clock * clock;
 
     private:
         //Base type definition

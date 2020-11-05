@@ -17,7 +17,7 @@ Entity::Entity(int _max_LP, int _xPos, int _yPos, int _speed) : max_LP(_max_LP),
 
 void Entity::_update()
 {
-    bool estDebout = true;//(GameManager::clock->getElapsedTime().asMilliseconds() % ANIM_TIME) < FRAME_TIME;
+    bool estDebout = (clock->getElapsedTime().asMilliseconds() % 1000) >= ANIM_TIME;
 
     int state_value = stateValue(); //à ajouter à la place du 0 quand il y aura suffisamment d'images
 
