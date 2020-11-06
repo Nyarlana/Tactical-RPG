@@ -8,21 +8,11 @@ else
 	LINKER_FLAGS = $(LINK_SFML)
 endif
 
-all : main #testTilemap testEntity
+all : main
 
 main : GameManager.o
 	g++ -std=c++11 -pthread $(INCLUDE) -c src/main.cpp -o obj/main.o obj/GameManager.o
-	#g++ $(LIB) -o bin/main.exe -g obj/main.o obj/GameManager.o -g obj/TileMap.o obj/Component.o obj/Observer.o obj/Tile.o obj/FileReader.o obj/UI_ProgressBar.o obj/UI_Component.o $(LINKER_FLAGS)
 	g++ -std=c++11 -pthread $(LIB) -o bin/main.exe -g obj/*.o $(LINKER_FLAGS)
-
-# testTilemap : TileMap.o
-# 	g++ $(INCLUDE) -c src/main/testTilemap.cpp -o obj/testTilemap.o obj/TileMap.o
-# 	g++ $(LIB) -o bin/testTilemap.exe -g obj/testTilemap.o obj/TileMap.o obj/FileReader.o obj/Tile.o obj/Component.o obj/Observer.o $(LINKER_FLAGS)
-#
-# testEntity : Miner.o Alien.o Healer.o Raider.o Tank.o RoverBase.o
-# 	g++ $(INCLUDE) --std=c++11 -c src/main/testEntities.cpp -o obj/testEntity.o obj/Miner.o obj/Alien.o obj/Healer.o obj/Raider.o obj/Tank.o obj/RoverBase.o
-# 	g++ $(LIB) -o bin/testEntity.exe -g obj/testEntity.o obj/Miner.o obj/Alien.o obj/Healer.o obj/Raider.o obj/Tank.o obj/RoverBase.o obj/Fighter.o obj/Entity.o obj/Component.o obj/GameManager.o obj/Observer.o obj/TileMap.o obj/Tile.o obj/FileReader.o $(LINKER_FLAGS)
-
 
 GameManager.o : Component.o Observer.o TileMap.o UI_ProgressBar.o Entity.o Alien.o
 	g++ -std=c++11 -pthread $(INCLUDE) -c src/gameManager/GameManager.cpp -o obj/GameManager.o -g obj/Component.o obj/Observer.o obj/TileMap.o obj/UI_ProgressBar.o obj/Entity.o obj/Alien.o
