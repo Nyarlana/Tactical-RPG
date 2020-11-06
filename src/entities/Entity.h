@@ -68,7 +68,7 @@ class Entity : public Component, public Observer, public Subject
 
         //actions
         /** @brief The Entity general behavior*/
-        double operator() ();
+        void operator()();
         /** @brief The Entity specific behavior*/
         virtual void action() = 0;
         /** @brief action to move for an Entity*/
