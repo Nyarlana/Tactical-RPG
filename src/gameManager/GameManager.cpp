@@ -32,15 +32,17 @@ void GameManager::init()
   components.push_back(pb);
   pb->add_Observer(Observer::shared_from_this());
 
-  a = std::make_shared<Alien>(5, 3, 3, 3, 4, 5, true);
-  a->add_Observer(Observer::shared_from_this());
-  components.push_back(a);
-  entities.push_back(std::thread(*a));
+  v_a.push_back(Alien());
+  v_a.push_back(Alien(5, 5, 5, 4, 3, 5, true));
 
-  // for (size_t i = 0; i < entities.size(); i++)
-  // {
-  //   entities[i].join();
-  // }
+  for(int i=0; i<v_a.size(); i++)
+  {
+      v_a[i].add_Observer(Observer::shared_from_this());
+      components.push_back(std::make_shared<Alien>(v_a[i]));
+      entities.push_back(std::thread(v_a[i]));
+  }
+
+
 
   for (size_t i = 0; i < components.size(); i++)
   {

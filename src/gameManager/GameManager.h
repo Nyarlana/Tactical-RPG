@@ -39,7 +39,7 @@ private:
   std::shared_ptr<TileMap> tm;
   std::shared_ptr<UI_ProgressBar> pb;
   std::vector<std::thread> entities;
-  std::shared_ptr<Alien> a;
+  std::vector<Alien> v_a;
 };
 
 #endif
