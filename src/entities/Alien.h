@@ -17,7 +17,7 @@ class Alien : public Fighter
         Alien(int max_LP = 5, int xPos = 3, int yPos = 3, int speed = 3, int targetCheckArea = 3, int threatfulTargetCheckArea = 5, bool hasAggressiveBehavior = true);
 
         //inherited functions
-        void on_Notify(const Component* subject, Event event);
+        void on_Notify(Component* subject, Event event);
         void _init();
         int stateValue();
         void action();

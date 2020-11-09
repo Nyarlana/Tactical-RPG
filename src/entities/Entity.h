@@ -41,7 +41,7 @@ class Entity : public Component, public Observer, public Subject
         ~Entity();
 
         //inherited functions
-        virtual void on_Notify(const Component* subject, Event event) = 0;
+        virtual void on_Notify(Component* subject, Event event) = 0;
         virtual void _init() = 0;
         void _update();
         void _draw(sf::RenderWindow & window);

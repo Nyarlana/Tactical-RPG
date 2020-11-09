@@ -19,7 +19,7 @@ class Raider : public Fighter
         ~Raider();
 
         //inherited functions
-        void on_Notify(const Component* subject, Event event);
+        void on_Notify(Component* subject, Event event);
         void _init();
         int stateValue();
         void action();

@@ -8,7 +8,7 @@ Protector::Protector(int max_LP, int xPos, int yPos, int speed, int instinct) : 
 }
 
 //inherited functions
-void Protector::on_Notify(const Component* subject, Event event)
+void Protector::on_Notify(Component* subject, Event event)
 {
     if(event==E_DISCALL)
         distress_call(((Entity*) subject)->getPos());

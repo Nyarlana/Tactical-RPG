@@ -35,7 +35,7 @@ public:
   virtual void _init();
   virtual void _update();
   virtual void _draw(sf::RenderWindow & window);
-  virtual void on_Notify(const Component* subject, Event event);
+  virtual void on_Notify(Component* subject, Event event);
 private:
   sf::Vector2i bar;
   float max_value;

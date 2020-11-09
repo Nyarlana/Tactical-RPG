@@ -27,7 +27,7 @@ void UI_ProgressBar::_draw(sf::RenderWindow & window) {
   window.draw(foreground);
 }
 
-void UI_ProgressBar::on_Notify(const Component* subject, Event event) {
+void UI_ProgressBar::on_Notify(Component* subject, Event event) {
   //hello !!
 }
 

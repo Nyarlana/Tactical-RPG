@@ -23,8 +23,8 @@ Observer.o : Component.o
 Component.o :
 	g++ $(INCLUDE) -c src/gameManager/Component.cpp -o obj/Component.o $(LINKER_FLAGS)
 
-TileMap.o : FileReader.o Tile.o Component.o Observer.o
-	g++ $(INCLUDE) -c src/TileMap/TileMap.cpp -o obj/TileMap.o -g obj/FileReader.o obj/Tile.o obj/Component.o obj/Observer.o
+TileMap.o : FileReader.o Tile.o Component.o Observer.o UI_Component.o UI_ProgressBar.o
+	g++ $(INCLUDE) -c src/TileMap/TileMap.cpp -o obj/TileMap.o -g obj/FileReader.o obj/Tile.o obj/Component.o obj/Observer.o obj/UI_Component.o obj/UI_ProgressBar.o
 
 FileReader.o :
 	g++ $(INCLUDE) -c src/TileMap/FileReader.cpp -o obj/FileReader.o $(LINKER_FLAGS)
@@ -56,7 +56,7 @@ RoverBase.o : Entity.o
 Entity.o : Component.o Observer.o GameManager.o
 	g++ -std=c++11 -pthread $(INCLUDE) -c src/entities/Entity.cpp -o obj/Entity.o -g obj/Component.o obj/Observer.o $(LINKER_FLAGS)
 
-UI_Component.o : Observer.o Component.o GameManager.o
+UI_Component.o : Observer.o Component.o
 	g++ $(INCLUDE) -c src/UI/UI_Component.cpp -o obj/UI_Component.o -g obj/Observer.o obj/Component.o $(LINKER_FLAGS)
 
 UI_ProgressBar.o : UI_Component.o

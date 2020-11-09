@@ -9,6 +9,7 @@
 #include "../gameManager/Component.h"
 #include "../gameManager/Observer.h"
 #include "Tile.h"
+#include "../UI/UI.h"
 
 /**@brief A* implementation
   Explored node, stocks where it came from*/
@@ -69,7 +70,7 @@ class TileMap : public Component, public Observer, public Subject
         std::vector<sf::Vector2i> getRandomMove(sf::Vector2i pos);
 
         // Surcharge
-        virtual void on_Notify(const Component* subject, Event event);
+        virtual void on_Notify(Component* subject, Event event);
         virtual void _init();
         virtual void _update();
         virtual void _draw(sf::RenderWindow & window);
@@ -83,6 +84,9 @@ class TileMap : public Component, public Observer, public Subject
         sf::Sprite full_tile_sprite;
         sf::Sprite resource_tile_sprite;
         sf::Sprite resource2_tile_sprite;
+
+        //debug
+        std::shared_ptr<UI_ProgressBar> pb;
 };
 
 #endif // TILEMAP_H

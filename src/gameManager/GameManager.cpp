@@ -83,6 +83,12 @@ void GameManager::mainloop()
             case sf::Keyboard::Right:
               pb->add_Value(5);
               break;
+            case sf::Keyboard::A:
+              v_a.push_back(std::make_shared<Alien>(12,12));
+              v_a.back()->add_Observer(Observer::shared_from_this());
+              components.push_back(v_a.back());
+              entities.push_back(std::thread(*v_a.back()));
+              components.back()->_init();
           }
           break;
       }
@@ -108,16 +114,28 @@ void GameManager::mainloop()
   }
 }
 
-void GameManager::on_Notify(const Component* subject, Event event)
+void GameManager::on_Notify(Component* subject, Event event)
 {
   switch (event)
   {
     case EVENT_TEST:
+    {
       std::cout<<"Test event"<<std::endl;
       break;
+    }
     case E_GET_RANDOM_PATH:
+    {
       Entity* e = (Entity*) subject;
       e->setPath(tm->getRandomMove(e->getPos()));
+      break;
+    }
+    case GM_ADD_COMPONENT:
+    {
+      std::shared_ptr<Component> temp;
+      temp.reset(subject);
+      add_Component(temp);
+      break;
+    }
   }
 }
 
