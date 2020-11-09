@@ -9,10 +9,12 @@ Entity::Entity(int _max_LP, int _xPos, int _yPos, int _speed) : max_LP(_max_LP),
     lp(_max_LP), pos(sf::Vector2i(_xPos, _yPos)), speed(_speed), target_distance(0),
     path(std::vector<sf::Vector2i>())
 {
+  clock = make_shared<sf::Clock>();
 }
 
 void Entity::_update()
 {
+
     bool estDebout = (clock->getElapsedTime().asMilliseconds() % 1000) >= ANIM_TIME;
 
     int state_value = stateValue(); //à ajouter à la place du 0 quand il y aura suffisamment d'images

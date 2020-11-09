@@ -87,7 +87,7 @@ class Entity : public Component, public Observer, public Subject
         sf::Vector2i top_target;
         int last_pause;
         int delta_pause;
-        sf::Clock * clock;
+        std::shared_ptr<sf::Clock> clock;
 
     private:
         //Base type definition
