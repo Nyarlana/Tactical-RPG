@@ -59,6 +59,10 @@ class TileMap : public Component, public Observer, public Subject
           @param current Node to search
           @param explored array to search in*/
         bool isNotIn(const NodePath & current, const std::vector<NodePath> & explored);
+        /**@brief checks if the given position is in the TileMap
+          @param x x value of the position to test
+          @param y y value of the position to test*/
+        bool isInMap(int x, int y);
         /**@brief Gives a random correct move
         @param pos base position from where to move
         @return the given move*/

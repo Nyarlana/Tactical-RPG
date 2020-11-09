@@ -223,16 +223,24 @@ bool operator < (const NodePath & a,const NodePath & b)
   return a.hcost < b.hcost;
 }
 
+bool TileMap::isInMap(int x, int y)
+{
+    return x>=0 && y>=0 && x<TM_X_TAB && y<TM_Y_TAB;
+}
+
 std::vector<sf::Vector2i> TileMap::getRandomMove(sf::Vector2i pos)
 {
     sf::Vector2i arrivee;
 
     do {
-        arrivee = sf::Vector2i(rand()%3-1, rand()%3-1);
-    } while((arrivee.x==0 && arrivee.y==0) || tilemap_tab[arrivee.x][arrivee.y].returnTileObstacle());
+        arrivee = sf::Vector2i(pos.x + rand()%3-1,pos.y + rand()%3-1);
+    }
+    while(!isInMap(arrivee.x, arrivee.y) ||
+            (arrivee==pos) ||
+            tilemap_tab[arrivee.x][arrivee.y].returnTileObstacle());
 
     std::vector<sf::Vector2i> path;
-    path.push_back(sf::Vector2i(pos.x+arrivee.x, pos.y + arrivee.y));
+    path.push_back(arrivee);
 
     return path;
 }
