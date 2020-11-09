@@ -14,8 +14,8 @@ main : GameManager.o
 	g++ -std=c++11 -pthread $(INCLUDE) -c src/main.cpp -o obj/main.o obj/GameManager.o
 	g++ -std=c++11 -pthread $(LIB) -o bin/main.exe -g obj/*.o $(LINKER_FLAGS)
 
-GameManager.o : Component.o Observer.o TileMap.o UI_ProgressBar.o Entity.o Alien.o
-	g++ -std=c++11 -pthread $(INCLUDE) -c src/gameManager/GameManager.cpp -o obj/GameManager.o -g obj/Component.o obj/Observer.o obj/TileMap.o obj/UI_ProgressBar.o obj/Entity.o obj/Alien.o
+GameManager.o : Component.o Observer.o TileMap.o UI_ProgressBar.o UI_TextBox.o Entity.o Alien.o
+	g++ -std=c++11 -pthread $(INCLUDE) -c src/gameManager/GameManager.cpp -o obj/GameManager.o -g obj/Component.o obj/Observer.o obj/TileMap.o obj/UI_ProgressBar.o obj/UI_TextBox.o obj/Entity.o obj/Alien.o
 
 Observer.o : Component.o
 	g++ $(INCLUDE) -c src/gameManager/Observer.cpp -o obj/Observer.o $(LINKER_FLAGS)
@@ -23,8 +23,8 @@ Observer.o : Component.o
 Component.o :
 	g++ $(INCLUDE) -c src/gameManager/Component.cpp -o obj/Component.o $(LINKER_FLAGS)
 
-TileMap.o : FileReader.o Tile.o Component.o Observer.o UI_Component.o UI_ProgressBar.o
-	g++ $(INCLUDE) -c src/TileMap/TileMap.cpp -o obj/TileMap.o -g obj/FileReader.o obj/Tile.o obj/Component.o obj/Observer.o obj/UI_Component.o obj/UI_ProgressBar.o
+TileMap.o : FileReader.o Tile.o Component.o Observer.o
+	g++ $(INCLUDE) -c src/TileMap/TileMap.cpp -o obj/TileMap.o -g obj/FileReader.o obj/Tile.o obj/Component.o obj/Observer.o
 
 FileReader.o :
 	g++ $(INCLUDE) -c src/TileMap/FileReader.cpp -o obj/FileReader.o $(LINKER_FLAGS)
@@ -61,3 +61,6 @@ UI_Component.o : Observer.o Component.o
 
 UI_ProgressBar.o : UI_Component.o
 	g++ $(INCLUDE) -c src/UI/UI_ProgressBar.cpp -o obj/UI_ProgressBar.o -g obj/UI_Component.o $(LINKER_FLAGS)
+
+UI_TextBox.o : UI_Component.o
+	g++ $(INCLUDE) -c src/UI/UI_TextBox.cpp -o obj/UI_TextBox.o -g obj/UI_Component.o $(LINKER_FLAGS)

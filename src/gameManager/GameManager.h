@@ -9,7 +9,7 @@
 #include "Component.h"
 #include "Observer.h"
 #include "../TileMap/TileMap.h"
-#include "../UI/UI_ProgressBar.h"
+#include "../UI/UI.h"
 #include "../entities/entities.h"
 
 /** @class GameManager
@@ -38,6 +38,7 @@ private:
   std::vector<std::shared_ptr<Component>> components;
   std::shared_ptr<TileMap> tm;
   std::shared_ptr<UI_ProgressBar> pb;
+  std::shared_ptr<UI_TextBox> tb;
   std::vector<std::thread> entities;
   //std::vector<Alien> v_a;
   std::vector<std::shared_ptr<Alien>> v_a;

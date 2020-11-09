@@ -4,6 +4,7 @@ UI_ProgressBar::UI_ProgressBar(sf::Vector2i pos, sf::Vector2i shape, float borde
   bar = shape;
   max_value = max_value_;
   value = value_;
+  if (value > max_value) value = max_value;
   background_color = bg_col;
   color = col;
   border_size = border_sz;

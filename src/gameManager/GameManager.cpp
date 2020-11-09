@@ -32,6 +32,10 @@ void GameManager::init()
   components.push_back(pb);
   pb->add_Observer(Observer::shared_from_this());
 
+  tb = std::make_shared<UI_TextBox>(sf::Vector2i(64,64), "Hello World");
+  components.push_back(tb);
+  tb->add_Observer(Observer::shared_from_this());
+
   v_a.push_back(std::make_shared<Alien>());
   v_a.push_back(std::make_shared<Alien>(5, 5, 5, 4, 3, 5, true));
 
