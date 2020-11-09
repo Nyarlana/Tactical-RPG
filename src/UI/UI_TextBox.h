@@ -29,6 +29,7 @@ private:
   sf::RectangleShape background;
   sf::Text text;
   std::string font_file;
+  std::string inner_text;
 };
 
 #endif
