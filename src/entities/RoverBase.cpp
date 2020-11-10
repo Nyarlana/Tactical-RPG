@@ -74,9 +74,6 @@ void RoverBase::_init()
     for(int i=0; i<rovers.size(); i++)
         rovers[i]->_init();
 
-    for(int i=0; i<threads.size(); i++)
-        threads[i].join();
-
     Entity::state = PICKER;
 
     // if(!texture.loadFromFile("data/entities/rover_base.png"))
@@ -141,7 +138,6 @@ void RoverBase::missionComplete()
     //call to all Rovers to come back with timeOut
     //until notifying the GameManager that the game is over
 }
-
 
 void RoverBase::die()
 {

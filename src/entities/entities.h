@@ -1,5 +1,6 @@
 #include "Entity.h"
 #include "Alien.h"
+#include "AlienGroup.h"
 //#include "Explorer.h"
 #include "Fighter.h"
 #include "Healer.h"

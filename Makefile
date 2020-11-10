@@ -14,8 +14,8 @@ main : GameManager.o
 	g++ -std=c++11 -pthread $(INCLUDE) -c src/main.cpp -o obj/main.o obj/GameManager.o
 	g++ -std=c++11 -pthread $(LIB) -o bin/main.exe -g obj/*.o $(LINKER_FLAGS)
 
-GameManager.o : Component.o Observer.o TileMap.o UI_ProgressBar.o Entity.o Alien.o
-	g++ -std=c++11 -pthread $(INCLUDE) -c src/gameManager/GameManager.cpp -o obj/GameManager.o -g obj/Component.o obj/Observer.o obj/TileMap.o obj/UI_ProgressBar.o obj/Entity.o obj/Alien.o
+GameManager.o : Component.o Observer.o TileMap.o UI_ProgressBar.o Entity.o AlienGroup.o
+	g++ -std=c++11 -pthread $(INCLUDE) -c src/gameManager/GameManager.cpp -o obj/GameManager.o -g obj/Component.o obj/Observer.o obj/TileMap.o obj/UI_ProgressBar.o obj/Entity.o obj/AlienGroup.o
 
 Observer.o : Component.o
 	g++ $(INCLUDE) -c src/gameManager/Observer.cpp -o obj/Observer.o $(LINKER_FLAGS)
@@ -31,6 +31,9 @@ FileReader.o :
 
 Tile.o :
 	g++ $(INCLUDE) -c src/TileMap/Tile.cpp -o obj/Tile.o $(LINKER_FLAGS)
+
+AlienGroup.o : Alien.o
+	g++ $(INCLUDE) -c src/entities/AlienGroup.cpp -o obj/AlienGroup.o -g obj/Alien.o $(LINKER_FLAGS)
 
 Alien.o : Fighter.o
 	g++ $(INCLUDE) -c src/entities/Alien.cpp -o obj/Alien.o -g obj/Fighter.o $(LINKER_FLAGS)

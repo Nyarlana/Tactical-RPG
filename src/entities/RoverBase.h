@@ -1,6 +1,6 @@
 /**@file RoverBase header*/
-#ifndef RoverBase_H
-#define RoverBase_H
+#ifndef ROVER_BASE_H
+#define ROVER_BASE_H
 
 #include "Entity.h"
 
@@ -54,4 +54,4 @@ class RoverBase : public Entity
 };
 
 
-#endif // RoverBase_H
+#endif // ROVER_BASE_H
