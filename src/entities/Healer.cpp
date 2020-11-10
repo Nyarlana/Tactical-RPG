@@ -19,7 +19,7 @@ Healer::~Healer()
 }
 
 //inherited functions
-void Healer::on_Notify(const Component* subject, Event event)
+void Healer::on_Notify(Component* subject, Event event)
 {
 
 }

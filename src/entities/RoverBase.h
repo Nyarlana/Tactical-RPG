@@ -24,7 +24,7 @@ class RoverBase : public Entity
         RoverBase(int _x_pos, int _y_pos, int _objective, std::string _rovers);
 
         //inherited functions
-        void on_Notify(const Component* subject, Event event);
+        void on_Notify(Component* subject, Event event);
         void _init();
         int stateValue();
         void _update();

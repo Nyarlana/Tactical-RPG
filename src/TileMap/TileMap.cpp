@@ -49,7 +49,7 @@ void TileMap::testFunc()
   notify((Component*) this,EVENT_TEST);
 }
 
-void TileMap::on_Notify(const Component* subject, Event event)
+void TileMap::on_Notify(Component* subject, Event event)
 {
   switch (event) {
     case EVENT_TEST: printf("hello\n");

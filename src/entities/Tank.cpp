@@ -18,7 +18,7 @@ Tank::~Tank()
 }
 
 //inherited functions
-void Tank::on_Notify(const Component* subject, Event event)
+void Tank::on_Notify(Component* subject, Event event)
 {
 
 }

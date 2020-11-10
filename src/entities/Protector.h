@@ -13,7 +13,7 @@ class Protector : public Rover
         Protector(int max_LP, int xPos, int yPos, int speed, int instinct);
 
         //inherited functions
-        void on_Notify(const Component* subject, Event event);
+        void on_Notify(Component* subject, Event event);
         virtual double operator() () = 0;
         void die(); //notifies it's dead and launches a distress_call its position
 

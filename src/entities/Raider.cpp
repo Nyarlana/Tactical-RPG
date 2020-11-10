@@ -18,7 +18,7 @@ Raider::~Raider()
 }
 
 //inherited functions
-void Raider::on_Notify(const Component* subject, Event event)
+void Raider::on_Notify(Component* subject, Event event)
 {
 
 }

@@ -3,7 +3,7 @@
 #include <memory>
 #include <iostream>
 
-void Subject::notify(const Component * subject, Event event)
+void Subject::notify(Component * subject, Event event)
 {
   if (first!=nullptr)
   {

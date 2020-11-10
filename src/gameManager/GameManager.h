@@ -9,7 +9,7 @@
 #include "Component.h"
 #include "Observer.h"
 #include "../TileMap/TileMap.h"
-#include "../UI/UI_ProgressBar.h"
+#include "../UI/UI.h"
 #include "../entities/entities.h"
 
 /** @class GameManager
@@ -25,19 +25,20 @@ public:
   /**@brief main loop of the game*/
   void mainloop();
   /**@brief observer implementation*/
-  virtual void on_Notify(const Component* subject, Event event);
+  virtual void on_Notify(Component* subject, Event event);
   /**@brief add a component
   @param comp pointer to component to add*/
-  static void add_Component(const std::shared_ptr<Component> comp);
+  void add_Component(const std::shared_ptr<Component> comp);
   /**@brief test function*/
   void testFunc();
   /**@brief Game Clock*/
   inline static sf::Clock * clock;
 private:
   sf::RenderWindow window;
-  inline static std::vector<std::shared_ptr<Component>> components;
+  std::vector<std::shared_ptr<Component>> components;
   std::shared_ptr<TileMap> tm;
   std::shared_ptr<UI_ProgressBar> pb;
+  std::shared_ptr<UI_TextBox> tb;
   std::vector<std::thread> entities;
   std::shared_ptr<AlienGroup> ag;
 };

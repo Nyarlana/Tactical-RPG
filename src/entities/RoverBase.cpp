@@ -55,7 +55,7 @@ RoverBase::RoverBase(int _x_pos, int _y_pos, int _objective, string _rovers) : E
 }
 
 //inherited functions
-void RoverBase::on_Notify(const Component* subject, Event event)
+void RoverBase::on_Notify(Component* subject, Event event)
 {
     switch (event) {
         case E_OUT_REQ:

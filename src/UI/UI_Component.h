@@ -1,6 +1,5 @@
 #include "../gameManager/Observer.h"
 #include "../gameManager/Component.h"
-#include "../gameManager/GameManager.h"
 #include <SFML/Graphics.hpp>
 
 #ifndef UI_COMPONENT

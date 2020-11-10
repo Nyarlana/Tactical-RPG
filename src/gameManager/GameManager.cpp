@@ -28,7 +28,7 @@ void GameManager::init()
   components.push_back(tm);
   tm->add_Observer(Observer::shared_from_this());
 
-  pb = std::make_shared<UI_ProgressBar>(sf::Vector2i(48,48), sf::Vector2i(128, 16), 100, 30);
+  pb = std::make_shared<UI_ProgressBar>(sf::Vector2i(48,48), sf::Vector2i(128, 16), 3, 100, 30);
   components.push_back(pb);
   pb->add_Observer(Observer::shared_from_this());
 
@@ -76,6 +76,8 @@ void GameManager::mainloop()
             case sf::Keyboard::Right:
               pb->add_Value(5);
               break;
+            case sf::Keyboard::A:
+              std::cout<<"apparition d'un alien ! (ou pas)"<<std::endl;
           }
           break;
       }
@@ -101,16 +103,28 @@ void GameManager::mainloop()
   }
 }
 
-void GameManager::on_Notify(const Component* subject, Event event)
+void GameManager::on_Notify(Component* subject, Event event)
 {
   switch (event)
   {
     case EVENT_TEST:
+    {
       std::cout<<"Test event"<<std::endl;
       break;
+    }
     case E_GET_RANDOM_PATH:
+    {
       Entity* e = (Entity*) subject;
       e->setPath(tm->getRandomMove(e->getPos()));
+      break;
+    }
+    case GM_ADD_COMPONENT:
+    {
+      std::shared_ptr<Component> temp;
+      temp.reset(subject);
+      add_Component(temp);
+      break;
+    }
   }
 }
 

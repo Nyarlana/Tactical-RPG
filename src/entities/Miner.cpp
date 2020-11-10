@@ -13,7 +13,7 @@ Miner::~Miner()
 }
 
 //inherited function
-void Miner::on_Notify(const Component* subject, Event event)
+void Miner::on_Notify(Component* subject, Event event)
 {
 
 }

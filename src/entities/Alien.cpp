@@ -19,7 +19,7 @@ Alien::Alien(int max_LP, int xPos, int yPos, int speed, int targetCheckArea, int
 }
 
 //inherited functions
-void Alien::on_Notify(const Component* subject, Event event)
+void Alien::on_Notify(Component* subject, Event event)
 {
 
 }

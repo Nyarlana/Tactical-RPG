@@ -69,7 +69,7 @@ class TileMap : public Component, public Observer, public Subject
         std::vector<sf::Vector2i> getRandomMove(sf::Vector2i pos);
 
         // Surcharge
-        virtual void on_Notify(const Component* subject, Event event);
+        virtual void on_Notify(Component* subject, Event event);
         virtual void _init();
         virtual void _update();
         virtual void _draw(sf::RenderWindow & window);

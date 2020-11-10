@@ -16,7 +16,7 @@ class Explorer : public Rover
         Explorer(int max_LP, int xPos, int yPos, int speed, int acuity);
 
         //inherited functions
-        void on_Notify(const Component* subject, Event event);
+        void on_Notify(Component* subject, Event event);
         virtual void action() = 0;
 
         //Class skills
