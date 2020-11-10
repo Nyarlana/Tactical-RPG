@@ -1,12 +1,19 @@
 #include "UI_TextBox.h"
 
-UI_TextBox::UI_TextBox(sf::Vector2i pos, std::string txt, sf::Color text_col, sf::Color bg_col, std::string filename) : UI_Component(pos) {
+UI_TextBox::UI_TextBox(sf::Vector2i pos, std::string txt, int font_size, sf::Color text_col, sf::Color bg_col, std::string filename) : UI_Component(pos) {
   text.setString(txt);
   inner_text = txt;
   background.setFillColor(bg_col);
   text.setFillColor(text_col);
-  font_file = filename;
-  text.setCharacterSize(12);
+  if(!font.loadFromFile(filename))
+  {
+    if(!font.loadFromFile("../"+filename))
+    {
+      std::cout << "erreur" << '\n';
+    }
+  } else std::cout<<"font loaded"<<std::endl;
+  text.setCharacterSize(font_size);
+  text.setFont(font);
 }
 
 void UI_TextBox::setText(std::string str) {
@@ -14,16 +21,6 @@ void UI_TextBox::setText(std::string str) {
 }
 
 void UI_TextBox::_init() {
-  sf::Font font;
-  if(!font.loadFromFile(font_file))
-  {
-    if(!font.loadFromFile("../"+font_file))
-    {
-      std::cout << "erreur" << '\n';
-    }
-  } else std::cout<<"font loaded"<<std::endl;
-
-
   text.setString(inner_text);
   text.setPosition(sf::Vector2f(position));
   sf::FloatRect rect = text.getGlobalBounds();
