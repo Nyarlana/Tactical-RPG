@@ -8,6 +8,7 @@
 #include <vector>
 #include "Component.h"
 #include "Observer.h"
+#include "ThreadContainer.h"
 #include "../TileMap/TileMap.h"
 #include "../UI/UI.h"
 #include "../entities/entities.h"

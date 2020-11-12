@@ -36,25 +36,39 @@ int Healer::stateValue()
     switch (Entity::state)
     {
         case OUTER:
+        {
             value = 0;
             break;
+        }
         case SEARCH:
+        {
             value = 1;
             break;
+        }
         case PROTECTION:
+        {
             value = 2;
             break;
+        }
         case HEAL:
+        {
             value = 3;
             break;
+        }
         case OFFENSIVE:
+        {
             value = 4;
             break;
+        }
         case END_GAME:
+        {
             value = 5;
             break;
+        }
         default:
+        {
             value = -1;
+        }
     }
 
     return value;

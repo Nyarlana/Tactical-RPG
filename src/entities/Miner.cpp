@@ -1,4 +1,5 @@
-#include "Miner.h"
+    {
+#inc    lude "Miner.h"
 
 using namespace std;
 
@@ -30,19 +31,29 @@ int Miner::stateValue()
     switch(state)
     {
         case OUTER:
+        {
             value = 0;
             break;
+        }
         case EXPLORATION:
+        {
             value = 1;
             break;
+        }
         case MINER:
+        {
             value = 2;
             break;
+        }
         case END_GAME:
+        {
             value = 3;
             break;
+        }
         default:
+        {
             value = -1;
+        }
     }
 
     return value;

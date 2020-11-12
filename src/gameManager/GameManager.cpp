@@ -1,13 +1,8 @@
 /**@file game manager code*/
-#include <SFML/Graphics.hpp>
-#include <SFML/Main.hpp>
-#include <thread>
-#include <memory>
-#include <iostream>
 #include "GameManager.h"
-#include "Component.h"
-#include "Observer.h"
-#include "../TileMap/TileMap.h"
+
+#include <thread>
+#include <iostream>
 
 // sf::Clock GameManager::clock = new sf::Clock;
 
@@ -32,7 +27,7 @@ void GameManager::init()
   components.push_back(pb);
   pb->add_Observer(Observer::shared_from_this());
 
-  ag = std::shared_ptr<AlienGroup> ag(1,4);
+  ag = std::make_shared<AlienGroup>(1,5);
   ag->add_Observer(Observer::shared_from_this());
   components.push_back(ag);
   entities.push_back(std::thread(&AlienGroup::action, ag.get()));
@@ -123,6 +118,13 @@ void GameManager::on_Notify(Component* subject, Event event)
       std::shared_ptr<Component> temp;
       temp.reset(subject);
       add_Component(temp);
+      break;
+    }
+    case GM_ADD_THREAD:
+    {
+      // ThreadContainer tc((Entity*) subject);
+      //tc();
+      entities.push_back(std::thread(ThreadContainer((Entity*) subject)));
       break;
     }
   }

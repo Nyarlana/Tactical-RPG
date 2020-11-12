@@ -61,8 +61,6 @@ int Alien::stateValue()
 
 void Alien::action()
 {
-    pause();
-
     if(targets.empty())
         state = SEARCH;
     else //if(hasAggressiveBehavior || )

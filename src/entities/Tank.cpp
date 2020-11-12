@@ -35,22 +35,34 @@ int Tank::stateValue()
     switch (Entity::state)
     {
         case OUTER:
+        {
             value = 0;
             break;
+        }
         case SEARCH:
+        {
             value = 1;
             break;
+        }
         case PROTECTION:
+        {
             value = 2;
             break;
+        }
         case OFFENSIVE:
+        {
             value = 3;
             break;
+        }
         case END_GAME:
+        {
             value = 4;
             break;
+        }
         default:
+        {
             value = -1;
+        }
     }
 
     return value;

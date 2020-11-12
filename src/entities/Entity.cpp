@@ -89,15 +89,6 @@ void Entity::die()
     deactivate();
 }
 
-void Entity::operator() ()
-{
-    while (!isDead())
-    {
-        pause();
-        action();
-    }
-}
-
 void Entity::moveTo(sf::Vector2i newPos)
 {
     int x = newPos.x-pos.x;
