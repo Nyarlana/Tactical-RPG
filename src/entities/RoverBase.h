@@ -2,7 +2,7 @@
 #ifndef ROVER_BASE_H
 #define ROVER_BASE_H
 
-#include "Entity.h"
+#include "entities.h"
 
 #include "../gameManager/GameManager.h"
 #include "../gameManager/Observer.h"
@@ -13,7 +13,6 @@
 #include <memory>
 #include <vector>
 #include <string>
-#include <thread>
 
 /**@class RoverBase class
 @brief RoverBase type of Entity*/
@@ -25,16 +24,17 @@ class RoverBase : public Entity
 
         //inherited functions
         void on_Notify(Component* subject, Event event);
+        void add_Observer(std::shared_ptr<Observer> obs);
         void _init();
-        int stateValue();
         void _update();
         void _draw(sf::RenderWindow & window);
+        int stateValue();
         void action();
         void moveTo(sf::Vector2i newPos); //doesn't move at all
+        void die(); //kills all Rovers and notifies the GameManager that the
+                    //game is over
         void missionComplete();//call to all Rovers to come back with timeOut
                                //until notifying the GameManager that the game is over
-        void die(); //kills all Rovers and notifies the GameManager that the game
-                    //is over
 
         static RoverBase launchMission(std::string mission);
         //Rovers management
@@ -49,7 +49,6 @@ class RoverBase : public Entity
         typedef Entity super;
         int objective;
         int ore_amount;
-        std::vector<std::thread> threads;
         std::vector<std::shared_ptr<Entity>> rovers;
 };
 

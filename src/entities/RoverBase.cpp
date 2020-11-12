@@ -1,13 +1,6 @@
 #include "RoverBase.h"
 
-#include "Healer.h"
-#include "Miner.h"
-#include "Raider.h"
-#include "Tank.h"
-
-#include <vector>
 #include <string>
-#include <memory>
 #include <thread>
 #include <fstream>
 #include <iostream>
@@ -23,30 +16,22 @@ RoverBase::RoverBase(int _x_pos, int _y_pos, int _objective, string _rovers) : E
         {
             case 'h':
             {
-                Healer h(-1,-1);
-                rovers.push_back(make_shared<Healer>(h));
-                threads.push_back(thread(h));
+                rovers.push_back(make_shared<Healer>());
                 break;
             }
             case 'm':
             {
-                Miner m(-1,-1);
-                rovers.push_back(make_shared<Miner>(m));
-                threads.push_back(thread(m));
+                rovers.push_back(make_shared<Miner>());
                 break;
             }
             case 'r':
             {
-                Raider r(-1,-1);
-                rovers.push_back(make_shared<Raider>(r));
-                threads.push_back(thread(r));
+                rovers.push_back(make_shared<Raider>());
                 break;
             }
             case 't':
             {
-                Tank t(-1,-1);
-                rovers.push_back(make_shared<Tank>(t));
-                threads.push_back(thread(t));
+                rovers.push_back(make_shared<Tank>());
             }
         }
 
@@ -60,19 +45,31 @@ void RoverBase::on_Notify(Component* subject, Event event)
     switch (event) {
         case E_OUT_REQ:
         {
-            // shared_ptr<Entity> e = make_shared<Entity>((Entity*) subject);
-            //
-            // sf::Vector2i s_pos = tm.getFreePosAround(Entity::pos);
-            //
-            // e->setPos(s_pos);
+            notify(this, E_GET_RANDOM_PATH);
+            Entity* e = (Entity*) subject;
+            e->setPos(path.back());
+            path.pop_back();
         }
+    }
+}
+
+void RoverBase::add_Observer(std::shared_ptr<Observer> obs)
+{
+    Subject::add_Observer(obs);
+
+    for(int i=0; i<rovers.size(); i++)
+    {
+        rovers[i]->add_Observer(obs);
     }
 }
 
 void RoverBase::_init()
 {
     for(int i=0; i<rovers.size(); i++)
+    {
+        notify(rovers[i].get(), GM_ADD_THREAD);
         rovers[i]->_init();
+    }
 
     Entity::state = PICKER;
 
@@ -95,18 +92,18 @@ int RoverBase::stateValue()
 
 void RoverBase::_update()
 {
-    // Entity::_update();
-    //
-    // for(int i=0; i<rovers.size(); i++)
-    //     rovers[i]->_update();
+    Entity::_update();
+
+    for(int i=0; i<rovers.size(); i++)
+        rovers[i]->_update();
 }
 
 void RoverBase::_draw(sf::RenderWindow & window)
 {
-    // Entity::_draw(ref(window));
-    //
-    // for(int i=0; i<rovers.size(); i++)
-    //     rovers[i]->_draw(ref(window));
+    Entity::_draw(window);
+
+    for(int i=0; i<rovers.size(); i++)
+        rovers[i]->_draw(window);
 }
 
 void RoverBase::action()
@@ -141,8 +138,8 @@ void RoverBase::missionComplete()
 
 void RoverBase::die()
 {
-    for(int i=0; i<threads.size(); i++)
-        threads[i].detach();
+    for(int i=0; i<rovers.size(); i++)
+        rovers[i]->die();
     std::cout << "This RoverBase just died" << '\n';
 }
 

@@ -10,8 +10,7 @@ AlienGroup::AlienGroup(int alien_number, int average_alien_stats) : alien_number
 {
     for(int i=0; i<alien_number; i++)
     {
-        std::shared_ptr<Alien> a = make_shared<Alien>(5, i+1, i+1, i+2, 3, 5, true);
-        aliens.push_back(a);
+        aliens.push_back(make_shared<Alien>(5, i+3, i+3, i*2+2, 3, 5, true));
     }
 }
 
