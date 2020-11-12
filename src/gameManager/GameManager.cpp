@@ -66,23 +66,39 @@ void GameManager::mainloop()
           window.close();
           break;
         case sf::Event::KeyPressed :
-          switch (event.key.code) {
+        {
+          switch (event.key.code)
+          {
             case sf::Keyboard::E:
+            {
               testFunc();
               break;
+            }
             case sf::Keyboard::P:
+            {
               tm->printTab();
               break;
+            }
             case sf::Keyboard::Left:
+            {
               pb->substract_Value(5);
               break;
+            }
             case sf::Keyboard::Right:
+            {
               pb->add_Value(5);
               break;
-            case sf::Keyboard::A:
-              std::cout<<"apparition d'un alien ! (ou pas)"<<std::endl;
+            }
           }
           break;
+        }
+        case sf::Event::MouseButtonPressed :
+        {
+          if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
+          {
+            tb->set_Position(sf::Mouse::getPosition(window));
+          }
+        }
       }
     }
 
