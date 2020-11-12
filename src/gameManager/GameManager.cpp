@@ -27,10 +27,15 @@ void GameManager::init()
   components.push_back(pb);
   pb->add_Observer(Observer::shared_from_this());
 
-  ag = std::make_shared<AlienGroup>(2,5);
-  ag->add_Observer(Observer::shared_from_this());
-  components.push_back(ag);
-  entities.push_back(std::thread(&AlienGroup::action, ag.get()));
+  // ag = std::make_shared<AlienGroup>(2,5);
+  // ag->add_Observer(Observer::shared_from_this());
+  // components.push_back(ag);
+  // entities.push_back(std::thread(&AlienGroup::action, ag.get()));
+
+  rb = std::make_shared<RoverBase>(RoverBase::launchMission("test"));
+  rb->add_Observer(Observer::shared_from_this());
+  components.push_back(rb);
+  rb->notify(rb.get(), GM_ADD_THREAD);
 
   for (size_t i = 0; i < components.size(); i++)
   {
@@ -122,8 +127,6 @@ void GameManager::on_Notify(Component* subject, Event event)
     }
     case GM_ADD_THREAD:
     {
-      // ThreadContainer tc((Entity*) subject);
-      //tc();
       entities.push_back(std::thread(ThreadContainer((Entity*) subject)));
       break;
     }

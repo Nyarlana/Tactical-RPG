@@ -42,6 +42,7 @@ private:
   std::shared_ptr<UI_TextBox> tb;
   std::vector<std::thread> entities;
   std::shared_ptr<AlienGroup> ag;
+  std::shared_ptr<RoverBase> rb;
 };
 
 #endif
