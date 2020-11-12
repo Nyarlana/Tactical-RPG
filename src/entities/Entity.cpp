@@ -1,6 +1,7 @@
 #include "Entity.h"
 
 #include <vector>
+#include <chrono>
 #include <iostream>
 
 using namespace std;
@@ -104,11 +105,11 @@ void Entity::moveTo(sf::Vector2i newPos)
 
 void Entity::pause()
 {
-    /*int new_pause = GameManager::clock->getElapsedTime().asMilliseconds();
+    int new_pause = clock->getElapsedTime().asMilliseconds();
     delta_pause = new_pause - last_pause;
-    //sleep((1000/speed)-delta_pause);
-    notify(this,E_PAUSE);
-    last_pause = new_pause;*/
+    cout<<((1000/speed)/*-delta_pause*/)<<endl;
+    std::this_thread::sleep_for (std::chrono::milliseconds((1000/speed)));
+    last_pause = new_pause;
 }
 
 Entity::~Entity()
