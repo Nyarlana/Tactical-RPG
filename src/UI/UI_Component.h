@@ -18,7 +18,9 @@ public:
   UI_Component(sf::Vector2i pos);
   /**@brief position setter
   @param pos position*/
-  void set_Position(sf::Vector2i pos);
+  virtual void set_Position(sf::Vector2i pos);
+  /**@brief position getter*/
+  sf::Vector2i get_Position();
 protected:
   sf::Vector2i position;
 };
