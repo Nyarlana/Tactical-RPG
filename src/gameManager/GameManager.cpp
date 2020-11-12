@@ -27,10 +27,10 @@ void GameManager::init()
   components.push_back(pb);
   pb->add_Observer(Observer::shared_from_this());
 
-  // ag = std::make_shared<AlienGroup>(2,5);
-  // ag->add_Observer(Observer::shared_from_this());
-  // components.push_back(ag);
-  // entities.push_back(std::thread(&AlienGroup::action, ag.get()));
+  ag = std::make_shared<AlienGroup>(2,5);
+  ag->add_Observer(Observer::shared_from_this());
+  components.push_back(ag);
+  entities.push_back(std::thread(&AlienGroup::action, ag.get()));
 
   rb = std::make_shared<RoverBase>(RoverBase::launchMission("test"));
   rb->add_Observer(Observer::shared_from_this());

@@ -21,6 +21,17 @@ void Miner::on_Notify(Component* subject, Event event)
 void Miner::_init()
 {
     super::state = OUTER;
+
+    if(!texture.loadFromFile("data/entities/miner.png"))
+    {
+      if(!texture.loadFromFile("../data/entities/miner.png"))
+      {
+        std::cout << "erreur" << '\n';
+      }
+    }
+
+    sprite.setTexture(texture);
+    sprite.setTextureRect(sf::IntRect(0,0,32,32));
 }
 
 int Miner::stateValue()
@@ -69,6 +80,7 @@ void Miner::action()
             notify(this, E_OUT_REQ);
             while (pos.x==-1) {
                 pause();
+                std::cout << "miner is waiting..." << '\n';
             }
             state=SEARCH;
             break;

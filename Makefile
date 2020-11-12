@@ -14,8 +14,8 @@ main : GameManager.o
 	g++ -std=c++11 -pthread $(INCLUDE) -c src/main.cpp -o obj/main.o obj/GameManager.o
 	g++ -std=c++11 -pthread $(LIB) -o bin/main.exe -g obj/*.o $(LINKER_FLAGS)
 
-GameManager.o : Component.o Observer.o ThreadContainer.o TileMap.o UI_ProgressBar.o UI_TextBox.o Entity.o AlienGroup.o
-	g++ -std=c++11 -pthread $(INCLUDE) -c src/gameManager/GameManager.cpp -o obj/GameManager.o -g obj/Component.o obj/Observer.o obj/ThreadContainer.o obj/TileMap.o obj/UI_ProgressBar.o obj/UI_TextBox.o obj/Entity.o obj/AlienGroup.o
+GameManager.o : Component.o Observer.o ThreadContainer.o TileMap.o UI_ProgressBar.o UI_TextBox.o Entity.o AlienGroup.o RoverBase.o
+	g++ -std=c++11 -pthread $(INCLUDE) -c src/gameManager/GameManager.cpp -o obj/GameManager.o -g obj/Component.o obj/Observer.o obj/ThreadContainer.o obj/TileMap.o obj/UI_ProgressBar.o obj/UI_TextBox.o obj/Entity.o obj/AlienGroup.o obj/RoverBase.o
 
 Observer.o : Component.o
 	g++ $(INCLUDE) -c src/gameManager/Observer.cpp -o obj/Observer.o $(LINKER_FLAGS)
@@ -56,8 +56,8 @@ Fighter.o : Entity.o
 Miner.o : Entity.o
 	g++ $(INCLUDE) -c src/entities/Miner.cpp -o obj/Miner.o -g obj/Entity.o $(LINKER_FLAGS)
 
-RoverBase.o : Entity.o
-	g++ $(INCLUDE) -c src/entities/RoverBase.cpp -o obj/RoverBase.o -g obj/Entity.o $(LINKER_FLAGS)
+RoverBase.o : Entity.o Healer.o Tank.o Raider.o Miner.o
+	g++ $(INCLUDE) -c src/entities/RoverBase.cpp -o obj/RoverBase.o -g obj/Entity.o obj/Healer.o obj/Tank.o obj/Raider.o obj/Miner.o $(LINKER_FLAGS)
 
 Entity.o : Component.o Observer.o
 	g++ -std=c++11 -pthread $(INCLUDE) -c src/entities/Entity.cpp -o obj/Entity.o -g obj/Component.o obj/Observer.o $(LINKER_FLAGS)

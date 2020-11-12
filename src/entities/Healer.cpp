@@ -27,6 +27,17 @@ void Healer::on_Notify(Component* subject, Event event)
 void Healer::_init()
 {
     Entity::state = OUTER;
+
+    if(!texture.loadFromFile("data/entities/healer.png"))
+    {
+      if(!texture.loadFromFile("../data/entities/healer.png"))
+      {
+        std::cout << "erreur" << '\n';
+      }
+    }
+
+    sprite.setTexture(texture);
+    sprite.setTextureRect(sf::IntRect(0,0,32,32));
 }
 
 int Healer::stateValue()
@@ -89,6 +100,7 @@ void Healer::action()
             notify(this, E_OUT_REQ);
             while (pos.x==-1) {
                 pause();
+                std::cout << "healer is waiting..." << '\n';
             }
             state=SEARCH;
             break;

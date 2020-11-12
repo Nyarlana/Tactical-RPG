@@ -4,7 +4,6 @@
 
 #include "entities.h"
 
-#include "../gameManager/GameManager.h"
 #include "../gameManager/Observer.h"
 
 #include <SFML/Graphics.hpp>
@@ -47,6 +46,7 @@ class RoverBase : public Entity
     private:
         //Base type definition
         typedef Entity super;
+        std::vector<sf::Vector2i> path;
         int objective;
         int ore_amount;
         std::vector<std::shared_ptr<Entity>> rovers;

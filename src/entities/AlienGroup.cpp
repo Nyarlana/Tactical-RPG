@@ -33,6 +33,7 @@ void AlienGroup::_init()
 {
     for(int i=0; i<aliens.size(); i++)
     {
+        // aliens[i]->add_Observer(Observer::shared_from_this());
         notify(aliens[i].get(), GM_ADD_THREAD);
         aliens[i]->_init();
     }

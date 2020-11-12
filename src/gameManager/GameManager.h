@@ -6,6 +6,7 @@
 #include <SFML/Main.hpp>
 #include <memory>
 #include <vector>
+#include <mutex>
 #include "Component.h"
 #include "Observer.h"
 #include "ThreadContainer.h"
@@ -43,6 +44,8 @@ private:
   std::vector<std::thread> entities;
   std::shared_ptr<AlienGroup> ag;
   std::shared_ptr<RoverBase> rb;
+  std::mutex m;
+
 };
 
 #endif

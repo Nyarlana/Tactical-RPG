@@ -10,31 +10,39 @@ using namespace std;
 /** @brief constructor */
 RoverBase::RoverBase(int _x_pos, int _y_pos, int _objective, string _rovers) : Entity(20, _x_pos, _y_pos, 4), objective(_objective)
 {
+    string type;
+
     while (!_rovers.empty())
     {
         switch (_rovers.back())
         {
             case 'h':
             {
-                rovers.push_back(make_shared<Healer>());
+                type = "Healer";
+                rovers.push_back(make_shared<Healer>(pos.x+1, pos.y));
                 break;
             }
             case 'm':
             {
-                rovers.push_back(make_shared<Miner>());
+                type = "Miner";
+                rovers.push_back(make_shared<Miner>(pos.x, pos.y+1));
                 break;
             }
             case 'r':
             {
-                rovers.push_back(make_shared<Raider>());
+                type = "Raider";
+                rovers.push_back(make_shared<Raider>(pos.x-1, pos.y));
                 break;
             }
             case 't':
             {
-                rovers.push_back(make_shared<Tank>());
+                type = "Tank";
+                rovers.push_back(make_shared<Tank>(pos.x, pos.y-1));
+                break;
             }
         }
 
+        std::cout << "A "<<type<<" was created"<< '\n';
         _rovers.pop_back();
     }
 }
@@ -42,15 +50,6 @@ RoverBase::RoverBase(int _x_pos, int _y_pos, int _objective, string _rovers) : E
 //inherited functions
 void RoverBase::on_Notify(Component* subject, Event event)
 {
-    switch (event) {
-        case E_OUT_REQ:
-        {
-            notify(this, E_GET_RANDOM_PATH);
-            Entity* e = (Entity*) subject;
-            e->setPos(path.back());
-            path.pop_back();
-        }
-    }
 }
 
 void RoverBase::add_Observer(std::shared_ptr<Observer> obs)
@@ -68,6 +67,7 @@ void RoverBase::_init()
     for(int i=0; i<rovers.size(); i++)
     {
         notify(rovers[i].get(), GM_ADD_THREAD);
+        // rovers[i]->add_Observer(Observer::shared_from_this());
         rovers[i]->_init();
     }
 
@@ -152,7 +152,8 @@ RoverBase RoverBase::launchMission(string mission)
     int obj = -100;
     string rovers = "";
 
-    ifstream mission_file ("data/" + mission + ".msn");
+    mission = "data/" + mission + ".msn";
+    ifstream mission_file (mission);
     if (mission_file.is_open())
     {
         while (getline (mission_file,line))
@@ -206,9 +207,9 @@ RoverBase RoverBase::launchMission(string mission)
         cout<<"obj : " << obj <<endl;
         cout<<"rov : " << rovers <<endl;
 
-        mission_file.close();
-
         cout<<"test open : "<< (mission_file.is_open()?"yes":"no") <<endl;
+
+        mission_file.close();
     }
 
     return RoverBase(x_pos, y_pos, obj, rovers);

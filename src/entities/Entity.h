@@ -12,6 +12,7 @@
 #include <SFML/Main.hpp>
 
 #include <math.h>
+#include <iostream>
 #include <memory>
 #include <thread>
 
