@@ -1,5 +1,4 @@
-    {
-#inc    lude "Miner.h"
+#include "Miner.h"
 
 using namespace std;
 
@@ -67,10 +66,19 @@ void Miner::action()
     {
         case OUTER:
         {
+            notify(this, E_OUT_REQ);
+            while (pos.x==-1) {
+                pause();
+            }
+            state=SEARCH;
             break;
         }
         case EXPLORATION:
         {
+            if(path.empty())
+                notify(this, E_GET_RANDOM_PATH);
+            moveTo(path.back());
+            path.pop_back();
             break;
         }
         case MINER:

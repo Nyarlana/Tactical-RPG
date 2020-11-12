@@ -20,7 +20,7 @@ class Miner : public Entity
     public:
         //constructor
         /** @brief constructor */
-        Miner(int xPos, int yPos);
+        Miner(int xPos=-1, int yPos=-1);
         // destructor
         /** @brief destructor */
         ~Miner();

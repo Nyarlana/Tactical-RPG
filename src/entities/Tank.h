@@ -19,7 +19,7 @@ class Tank : public Fighter
 {
     public:
         /** @brief constructor */
-        Tank(int xPos, int yPos);
+        Tank(int xPos=-1, int yPos=-1);
         /** @brief destructor */
         ~Tank();
 

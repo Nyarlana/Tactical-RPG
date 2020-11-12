@@ -15,7 +15,7 @@ class Healer : public Fighter
 {
     public:
         /** @brief constructor */
-        Healer(int xPos, int yPos); //threatfullTargetCheckArea=0
+        Healer(int xPos=-1, int yPos=-1); //threatfullTargetCheckArea=0
         /** @brief destructor */
         ~Healer();
 

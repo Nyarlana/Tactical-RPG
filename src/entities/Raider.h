@@ -14,7 +14,7 @@ class Raider : public Fighter
 {
     public:
         /** @brief constructor */
-        Raider(int xPos, int yPos);
+        Raider(int xPos=-1, int yPos=-1);
         /** @bref destructor */
         ~Raider();
 
