@@ -25,8 +25,11 @@ void Entity::_update()
 
 void Entity::_draw(sf::RenderWindow & window)
 {
-    sprite.setPosition(pos.x*32,pos.y*32);
-    window.draw(sprite);
+    if(pos.x!=-1)
+    {
+        sprite.setPosition(pos.x*32,pos.y*32);
+        window.draw(sprite);
+    }
 }
 
 sf::Vector2i Entity::getPos()
@@ -39,10 +42,15 @@ sf::Vector2i Entity::getTopTargetPos()
     return top_target;
 }
 
-int Entity::getDistanceTo(shared_ptr<Entity> e)
+int Entity::getDistanceTo(std::shared_ptr<Entity> e)
 {
-    int x = e.get()->getPos().x-pos.x;
-    int y = e.get()->getPos().y-pos.y;
+    return getDistanceTo(e->getPos());
+}
+
+int Entity::getDistanceTo(sf::Vector2i other_pos)
+{
+    int x = other_pos.x-pos.x;
+    int y = other_pos.y-pos.y;
 
     return (int) sqrt(x*x+y*y);
 }
@@ -107,8 +115,7 @@ void Entity::pause()
 {
     int new_pause = clock->getElapsedTime().asMilliseconds();
     delta_pause = new_pause - last_pause;
-    // cout<<((1000/speed)/*-delta_pause*/)<<endl;
-    std::this_thread::sleep_for (std::chrono::milliseconds((1000/speed)));
+    std::this_thread::sleep_for (std::chrono::milliseconds((2000/speed)));
     last_pause = new_pause;
 }
 

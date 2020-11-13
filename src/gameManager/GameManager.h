@@ -6,6 +6,7 @@
 #include <SFML/Main.hpp>
 #include <memory>
 #include <vector>
+#include <mutex>
 #include "Component.h"
 #include "Observer.h"
 #include "ThreadContainer.h"
@@ -32,6 +33,10 @@ public:
   void add_Component(const std::shared_ptr<Component> comp);
   /**@brief test function*/
   void testFunc();
+  /**@brief computes and sets an entity's path to a target position
+  @param e pointer to the entity which path needs to be compute and set
+  @param e_target position of the target*/
+  void compute_and_set_path(Entity* e, sf::Vector2i e_target);
   /**@brief Game Clock*/
   inline static sf::Clock * clock;
 private:
@@ -43,6 +48,9 @@ private:
   std::shared_ptr<UI_VisualPath> vp;
   std::vector<std::thread> entities;
   std::shared_ptr<AlienGroup> ag;
+  std::shared_ptr<RoverBase> rb;
+  std::mutex m;
+
 };
 
 #endif

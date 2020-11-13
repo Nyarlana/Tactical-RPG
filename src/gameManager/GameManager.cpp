@@ -32,9 +32,10 @@ void GameManager::init()
   components.push_back(ag);
   entities.push_back(std::thread(&AlienGroup::action, ag.get()));
 
-  pb = std::make_shared<UI_ProgressBar>(sf::Vector2i(48,48), sf::Vector2i(128, 16), 3, 100, 30);
-  components.push_back(pb);
-  pb->add_Observer(Observer::shared_from_this());
+  rb = std::make_shared<RoverBase>(RoverBase::launchMission("test"));
+  rb->add_Observer(Observer::shared_from_this());
+  components.push_back(rb);
+  rb->notify(rb.get(), GM_ADD_THREAD);
 
   tb = std::make_shared<UI_TextBox>(sf::Vector2i(64,64), "Hello World");
   components.push_back(tb);
@@ -153,10 +154,66 @@ void GameManager::on_Notify(Component* subject, Event event)
     }
     case GM_ADD_THREAD:
     {
-      // ThreadContainer tc((Entity*) subject);
-      //tc();
       entities.push_back(std::thread(ThreadContainer((Entity*) subject)));
       break;
+    }
+    case E_OUT_REQ:
+    {
+        sf::Vector2i pos = tm->getRandomMove(rb->getPos()).back();
+
+        Entity* e = (Entity*) subject;
+        e->setPos(pos);
+        break;
+    }
+    case E_EXP_ORE_CHECK:
+    {
+        Miner* e = (Miner*) subject;
+        std::vector<sf::Vector2i> pos = tm->loofForOre(e->getPos(), 2);
+
+        for(int i=0; i<pos.size(); i++)
+            e->addOreObjective(pos[i]);
+
+        break;
+    }
+    case E_GET_PATH_ORE:
+    {
+        Miner* e = (Miner*) subject;
+
+        std::cout << "acquiring miner position..." << '\n';
+        sf::Vector2i m_start_pos = e->getPos();
+
+        std::cout << m_start_pos.x<<","<<m_start_pos.y<<"\n\nacquiring miner's top target position..." << '\n';
+        sf::Vector2i o_pos = e->getTopOre();
+
+        compute_and_set_path(e, o_pos);
+
+        break;
+    }
+    case E_MINE_OCCURS:
+    {
+        Miner* e = (Miner*) subject;
+        std::cout << "mining ore..." << '\n';
+        tm->mine(e->getTopOre());
+        break;
+    }
+    case E_REQ_PATH_BASE:
+    {
+        Entity* e = (Entity*) subject;
+
+        std::cout << "acquiring entity position..." << e->getPos().x<<","<<e->getPos().y<< '\n';
+
+        std::cout <<"\n\nacquiring base position..." << '\n';
+        sf::Vector2i b_pos = rb->getPos();
+
+        compute_and_set_path(e, b_pos);
+
+        break;
+    }
+    case E_DEP_ORE:
+    {
+        rb->getOneOre();
+        std::cout << "ore deposited" << '\n';
+        break;
     }
   }
 }
@@ -169,4 +226,23 @@ void GameManager::add_Component(const std::shared_ptr<Component> comp) {
 void GameManager::testFunc()
 {
   tm->testFunc();
+}
+
+void GameManager::compute_and_set_path(Entity* e, sf::Vector2i e_target)
+{
+    sf::Vector2i e_start = e->getPos();
+
+    if(false)//if distance with ore >=2 then compute path with request_path
+    {
+        std::cout << e_target.x<<","<<e_target.y<<"\n\nacquiring a position around entity's target..." << '\n';
+        sf::Vector2i m_end_pos = tm->getRandomMove(e_target).back();
+
+        std::cout << m_end_pos.x<<","<<m_end_pos.y<<"\n\ncomputing path to the acquired position..." << '\n';
+        std::vector<sf::Vector2i> path = tm->request_path(e_start,m_end_pos);
+
+        std::cout << "path length : "<<path.size()<<"\n\nsending path to the entity" << '\n';
+        e->setPath(path);
+    }
+    else
+        e->setPos(tm->getRandomMove(e_target).back());
 }
