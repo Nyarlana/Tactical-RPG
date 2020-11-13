@@ -103,7 +103,11 @@ void GameManager::mainloop()
           else if (sf::Mouse::isButtonPressed(sf::Mouse::Right) && once)
           {
             vp = std::make_shared<UI_VisualPath>(tm->request_path(sf::Vector2i(3,3), sf::Vector2i(7,4)));
+            start = std::make_shared<UI_Point>(sf::Vector2i(3,3));
+            finish = std::make_shared<UI_Point>(sf::Vector2i(7,4), sf::Color::Blue);
             components.push_back(vp);
+            components.push_back(start);
+            components.push_back(finish);
             once = false;
           }
         }
