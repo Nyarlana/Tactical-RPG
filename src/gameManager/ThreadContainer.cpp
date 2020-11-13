@@ -13,6 +13,6 @@ void ThreadContainer::operator()()
     {
         e->pause();
         e->action();
-        std::cout<<"boucle infinie"<<std::endl;
+        // std::cout<<"boucle infinie"<<std::endl;
     }
 }

@@ -107,7 +107,7 @@ void Entity::pause()
 {
     int new_pause = clock->getElapsedTime().asMilliseconds();
     delta_pause = new_pause - last_pause;
-    cout<<((1000/speed)/*-delta_pause*/)<<endl;
+    // cout<<((1000/speed)/*-delta_pause*/)<<endl;
     std::this_thread::sleep_for (std::chrono::milliseconds((1000/speed)));
     last_pause = new_pause;
 }

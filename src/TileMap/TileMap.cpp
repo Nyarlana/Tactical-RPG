@@ -131,7 +131,7 @@ std::vector<sf::Vector2i> TileMap::request_path(const sf::Vector2i& start,const 
 {
   //exceptions
   std::vector<sf::Vector2i> empty;
-  if (tilemap_tab[end.x][end.y].returnTileObstacle())
+  if (tilemap_tab[end.x][end.y].returnTileObstacle() || tilemap_tab[start.x][start.y].returnTileObstacle())
   {
     return empty;
   }
@@ -151,8 +151,8 @@ std::vector<sf::Vector2i> TileMap::request_path(const sf::Vector2i& start,const 
     {
       for (int j = -1; j <= 1; j++)
       {
-        if ((queue.back().node.x + i >= 0) && (queue.back().node.x + i < 10) &&
-          (queue.back().node.y + i >= 0) && (queue.back().node.y + i < 10))
+        if ((queue.back().node.x + i >= 0) && (queue.back().node.x + i < 25) &&
+          (queue.back().node.y + j >= 0) && (queue.back().node.y + j < 25))
           {
             // current update
             current.node = sf::Vector2i(queue.back().node.x + i, queue.back().node.y + j);
@@ -175,7 +175,9 @@ std::vector<sf::Vector2i> TileMap::request_path(const sf::Vector2i& start,const 
     }
   }
   //return
-  return makePath(explored.back(), start);
+  // empty.push_back(end);
+  empty = makePath(explored.back(), start);
+  return empty;
 }
 
 float TileMap::heuristics(sf::Vector2i tile, sf::Vector2i start, sf::Vector2i end)
@@ -186,16 +188,18 @@ float TileMap::heuristics(sf::Vector2i tile, sf::Vector2i start, sf::Vector2i en
 
 void TileMap::sortPath(std::vector<NodePath> & queue)
 {
-  sort(queue.rend(), queue.rbegin());
+  sort(queue.rbegin(), queue.rend());
 }
 
 std::vector<sf::Vector2i> TileMap::makePath(const NodePath & from, const sf::Vector2i & start)
 {
   std::vector<sf::Vector2i> res;
   NodePath current = from;
+  std::cout << "return path : " << '\n';
   while (current.node != start)
   {
     res.push_back(current.node);
+    std::cout << current.node.x << " | " << current.node.y << '\n';
     current = (*current.from);
   }
   return res;

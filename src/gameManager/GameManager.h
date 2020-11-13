@@ -40,6 +40,7 @@ private:
   std::shared_ptr<TileMap> tm;
   std::shared_ptr<UI_ProgressBar> pb;
   std::shared_ptr<UI_TextBox> tb;
+  std::shared_ptr<UI_VisualPath> vp;
   std::vector<std::thread> entities;
   std::shared_ptr<AlienGroup> ag;
 };
