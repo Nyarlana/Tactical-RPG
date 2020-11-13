@@ -19,25 +19,25 @@ RoverBase::RoverBase(int _x_pos, int _y_pos, int _objective, string _rovers) : E
             case 'h':
             {
                 type = "Healer";
-                rovers.push_back(make_shared<Healer>(pos.x+1, pos.y));
+                rovers.push_back(make_shared<Healer>());
                 break;
             }
             case 'm':
             {
                 type = "Miner";
-                rovers.push_back(make_shared<Miner>(pos.x, pos.y+1));
+                rovers.push_back(make_shared<Miner>());
                 break;
             }
             case 'r':
             {
                 type = "Raider";
-                rovers.push_back(make_shared<Raider>(pos.x-1, pos.y));
+                rovers.push_back(make_shared<Raider>());
                 break;
             }
             case 't':
             {
                 type = "Tank";
-                rovers.push_back(make_shared<Tank>(pos.x, pos.y-1));
+                rovers.push_back(make_shared<Tank>());
                 break;
             }
         }
@@ -132,8 +132,14 @@ void RoverBase::moveTo(sf::Vector2i newPos) //doesn't move at all
 
 void RoverBase::missionComplete()
 {
-    //call to all Rovers to come back with timeOut
-    //until notifying the GameManager that the game is over
+    int timeOut=3;
+
+    //call to all Rovers to come back with timeOut (distance from farthest rover)
+
+    while((timeOut--)>0)
+        pause();
+
+    //notify the GameManager that the game is over
 }
 
 void RoverBase::die()
@@ -219,7 +225,10 @@ RoverBase RoverBase::launchMission(string mission)
 
 void RoverBase::getOneOre()
 {
+    ore_amount++;
 
+    if(ore_amount==objective)
+        missionComplete();
 }
 
 void RoverBase::putRover(int rover_number, int x, int y)

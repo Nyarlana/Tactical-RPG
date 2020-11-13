@@ -35,6 +35,8 @@ class Miner : public Entity
         /** @brief looks for ore on the map and saves their positions in
         objectives_positions */
         void checkForOre();
+        void addOreObjective(sf::Vector2i pos);
+        sf::Vector2i getTopOre();
         /** @brief takes ore next to it (1 tile distance) */
         void mine();
         /** @brief gives the base the collected ore (1 tile distance) */

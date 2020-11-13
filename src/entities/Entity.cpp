@@ -42,10 +42,15 @@ sf::Vector2i Entity::getTopTargetPos()
     return top_target;
 }
 
-int Entity::getDistanceTo(shared_ptr<Entity> e)
+int Entity::getDistanceTo(std::shared_ptr<Entity> e)
 {
-    int x = e.get()->getPos().x-pos.x;
-    int y = e.get()->getPos().y-pos.y;
+    return getDistanceTo(e->getPos());
+}
+
+int Entity::getDistanceTo(sf::Vector2i other_pos)
+{
+    int x = other_pos.x-pos.x;
+    int y = other_pos.y-pos.y;
 
     return (int) sqrt(x*x+y*y);
 }

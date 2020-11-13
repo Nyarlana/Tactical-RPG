@@ -67,6 +67,14 @@ class TileMap : public Component, public Observer, public Subject
         @param pos base position from where to move
         @return the given move*/
         std::vector<sf::Vector2i> getRandomMove(sf::Vector2i pos);
+        /**@brief Gives positions of ores around pos within radius
+        @param pos base position from where to look for
+        @param radius max distance from pos to look
+        @return a list of positions*/
+        std::vector<sf::Vector2i> loofForOre(sf::Vector2i pos, int radius);
+        /**@brief transforms the Tile at position pos to an empty tile
+        @param pos position where the ore is mined*/
+        void mine(sf::Vector2i pos);
 
         // Surcharge
         virtual void on_Notify(Component* subject, Event event);

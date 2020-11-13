@@ -48,9 +48,10 @@ class Entity : public Component, public Observer, public Subject
         void _draw(sf::RenderWindow & window);
 
         //Getter
-        /** @brief gets the distance to another Entity */
         sf::Vector2i getPos();
+        /** @brief gets the distance to another Entity */
         int getDistanceTo(std::shared_ptr<Entity> e);
+        int getDistanceTo(sf::Vector2i other_pos);
         virtual int stateValue() = 0;
         sf::Vector2i getTopTargetPos();
         void setTopTargetPos(sf::Vector2i pos);

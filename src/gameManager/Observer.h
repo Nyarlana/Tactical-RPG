@@ -14,7 +14,12 @@ enum Event {
   E_OUT_REQ,
   E_GET_RANDOM_PATH,
   E_GET_PATH_TARGET,
-  E_PAUSE
+  E_PAUSE,
+  E_EXP_ORE_CHECK,
+  E_GET_PATH_ORE,
+  E_MINE_OCCURS,
+  E_REQ_PATH_BASE,
+  E_DEP_ORE
 };
 
 /**@class Observer
