@@ -129,10 +129,12 @@ void TileMap::_draw(sf::RenderWindow & window)
 
 std::vector<sf::Vector2i> TileMap::request_path(const sf::Vector2i& start,const sf::Vector2i& end)
 {
+  std::cout << "----- Computing path from "<<start.x<<'|'<<start.y<<" to "<<end.x<<'|'<<end.y<<" -----" << '\n';
   //exceptions
   std::vector<sf::Vector2i> empty;
   if (tilemap_tab[end.x][end.y].returnTileObstacle() || tilemap_tab[start.x][start.y].returnTileObstacle())
   {
+    std::cout << "  empty path returned" << '\n';
     return empty;
   }
   //used variables
@@ -147,6 +149,11 @@ std::vector<sf::Vector2i> TileMap::request_path(const sf::Vector2i& start,const 
   //loop
   while (queue.back().node != end)
   {
+    if (queue.back().from != 0) {
+      std::cout << "  inserting node "<<queue.back().node.x<<'|'<<queue.back().node.y << " from "<<queue.back().from->node.x<<'|'<<queue.back().from->node.x<< '\n';
+    } else {
+      std::cout << "  inserting node "<<queue.back().node.x<<'|'<<queue.back().node.y << '\n';
+    }
     for (int i = -1; i <= 1; i++)
     {
       for (int j = -1; j <= 1; j++)
@@ -161,6 +168,7 @@ std::vector<sf::Vector2i> TileMap::request_path(const sf::Vector2i& start,const 
             //update vectors
             if (current.node != queue.back().node && isNotIn(current, explored))
             {
+              std::cout << "    added " << current.node.x << '|' << current.node.y << " from : "<<current.from->node.x<<'|'<<current.from->node.y<< '\n';
               queue.insert(queue.end()-1,current);
             }
           }
@@ -199,7 +207,7 @@ std::vector<sf::Vector2i> TileMap::makePath(const NodePath & from, const sf::Vec
   while (current.node != start)
   {
     res.push_back(current.node);
-    std::cout << current.node.x << " | " << current.node.y << '\n';
+    std::cout << current.node.x << '|' << current.node.y << " -> " << current.from->node.x<<'|'<<current.from->node.y<< '\n';
     current = (*current.from);
   }
   return res;
