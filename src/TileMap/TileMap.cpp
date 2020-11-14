@@ -185,7 +185,7 @@ std::vector<sf::Vector2i> TileMap::request_path(const sf::Vector2i& start,const 
   }
   //return
   empty = makePath(explored.back(), start);
-  empty.push_back(end);
+  empty.insert(empty.begin(),end);
   return empty;
 }
 
@@ -211,7 +211,6 @@ std::vector<sf::Vector2i> TileMap::makePath(const NodePath & from, const sf::Vec
     std::cout << current.node.x << '|' << current.node.y << " -> " << current.from->node.x<<'|'<<current.from->node.y<< '\n';
     current = (*current.from);
   }
-  std::reverse(res.begin(),res.end());
   return res;
 }
 
