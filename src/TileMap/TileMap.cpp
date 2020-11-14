@@ -150,20 +150,22 @@ std::vector<sf::Vector2i> TileMap::request_path(const sf::Vector2i& start,const 
   while (queue.back().node != end)
   {
     if (queue.back().from != 0) {
-      std::cout << "  inserting node "<<queue.back().node.x<<'|'<<queue.back().node.y << " from "<<queue.back().from->node.x<<'|'<<queue.back().from->node.x<< '\n';
+      std::cout << "  inserting node "<<queue.back().node.x<<'|'<<queue.back().node.y << " from "<<queue.back().from->node.x<<'|'<<queue.back().from->node.y<< '\n';
     } else {
       std::cout << "  inserting node "<<queue.back().node.x<<'|'<<queue.back().node.y << '\n';
     }
+    explored.push_back(queue.back());
     for (int i = -1; i <= 1; i++)
     {
       for (int j = -1; j <= 1; j++)
       {
-        if ((queue.back().node.x + i >= 0) && (queue.back().node.x + i < 25) &&
-          (queue.back().node.y + j >= 0) && (queue.back().node.y + j < 25))
+        if ((queue.back().node.x + i >= 0) && (queue.back().node.x + i < TM_X_TAB) &&
+          (queue.back().node.y + j >= 0) && (queue.back().node.y + j < TM_Y_TAB) &&
+        !tilemap_tab[queue.back().node.x+i][queue.back().node.y+j].returnTileObstacle())
           {
             // current update
             current.node = sf::Vector2i(queue.back().node.x + i, queue.back().node.y + j);
-            current.from = &queue.back();
+            current.from = &explored.back();
             current.hcost = heuristics(current.node, start, end);
             //update vectors
             if (current.node != queue.back().node && isNotIn(current, explored))
@@ -175,7 +177,6 @@ std::vector<sf::Vector2i> TileMap::request_path(const sf::Vector2i& start,const 
       }
     }
     // update vectors
-    explored.push_back(queue.back());
     queue.pop_back();
     sortPath(queue);
     if (queue.empty()) {
@@ -183,8 +184,8 @@ std::vector<sf::Vector2i> TileMap::request_path(const sf::Vector2i& start,const 
     }
   }
   //return
-  // empty.push_back(end);
   empty = makePath(explored.back(), start);
+  empty.push_back(end);
   return empty;
 }
 
@@ -210,6 +211,7 @@ std::vector<sf::Vector2i> TileMap::makePath(const NodePath & from, const sf::Vec
     std::cout << current.node.x << '|' << current.node.y << " -> " << current.from->node.x<<'|'<<current.from->node.y<< '\n';
     current = (*current.from);
   }
+  std::reverse(res.begin(),res.end());
   return res;
 }
 
