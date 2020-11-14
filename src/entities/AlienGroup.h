@@ -28,6 +28,7 @@ class AlienGroup : public Component, public Observer, public Subject
         void _draw(sf::RenderWindow & window);
         void action();
         void die();
+        void answer_radar(std::shared_ptr<Entity> e);
     private:
         std::vector<std::shared_ptr<Alien>> aliens;
         int alien_number;

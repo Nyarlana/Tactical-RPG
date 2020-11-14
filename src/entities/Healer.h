@@ -7,6 +7,7 @@
 
 #include <SFML/Graphics.hpp>
 #include <SFML/Main.hpp>
+#include <string>
 
 /**@class Healer class
 @brief Type of Entity meant to heal and protect other entities, able to fight
@@ -24,7 +25,9 @@ class Healer : public Fighter
         void _init();
         void _update();
         int stateValue();
+        void check();
         void action();
+        void answer_radar(std::shared_ptr<Entity> e);
         // void increaseThreat(std::shared_ptr<Entity> target, int threatIncrease);
         void attack(std::shared_ptr<Entity> target);
 
@@ -40,6 +43,7 @@ class Healer : public Fighter
         /** @brief looks for targets in its areas and erases targets outside
         them */
         void checkHealTargets();
+        void tostring();
 
     protected:
 

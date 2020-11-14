@@ -7,7 +7,7 @@
 
 /**@class Component class
   @brief components of the GM class*/
-class Component : public std::enable_shared_from_this<Component> {
+class Component {
 public:
   /**@brief class constructor*/
   Component();

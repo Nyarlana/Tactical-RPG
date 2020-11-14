@@ -12,6 +12,7 @@ void ThreadContainer::operator()()
     while(!e->isDead())
     {
         e->pause();
+        e->check();
         e->action();
     }
 }

@@ -69,11 +69,14 @@ int Miner::stateValue()
     return value;
 }
 
-void Miner::action()
+void Miner::check()
 {
     if(state!=OUTER && state!=END_GAME)
         checkForOre();
+}
 
+void Miner::action()
+{
     switch(state)
     {
         case OUTER:
@@ -130,13 +133,28 @@ void Miner::action()
         case END_GAME:
         {
             std::cout << "mission complete : back to rover base" << '\n';
-            notify(this,E_REQ_PATH_BASE);
+            if(path.empty() && pos.x!=-1)
+                notify(this,E_REQ_PATH_BASE);
+            /*else
+            {
+                moveTo(path.back());
+                path.pop_back();
+            }*/
             break;
         }
         default:
         {
             state = EXPLORATION;
         }
+    }
+}
+
+void Miner::answer_radar(std::shared_ptr<Entity> e)
+{
+    if(e.get()!=this && !isDead())
+    {
+        shared_ptr<Entity> me = std::dynamic_pointer_cast<Entity>(Observer::shared_from_this());
+        e->add(true,me);
     }
 }
 
@@ -192,4 +210,9 @@ void Miner::depositOre()
 
     if(objectives_positions.empty())
         state = EXPLORATION;
+}
+
+void Miner::tostring()
+{
+    std::cout<<"j'suis un miner"<<std::endl;
 }

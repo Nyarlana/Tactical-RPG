@@ -7,6 +7,7 @@
 #include <memory>
 #include <vector>
 #include <mutex>
+#include <thread>
 #include "Component.h"
 #include "Observer.h"
 #include "ThreadContainer.h"

@@ -91,6 +91,11 @@ void Healer::_update()
     super::checkTargets();
 }
 
+void Healer::check()
+{
+
+}
+
 void Healer::action()
 {
     switch(state)
@@ -142,6 +147,15 @@ void Healer::action()
 //         super::increaseThreat(make_shared<Entity>(target), threatIncrease);
 // }
 
+void Healer::answer_radar(std::shared_ptr<Entity> e)
+{
+    if(e.get()!=this && !isDead())
+    {
+        shared_ptr<Entity> me = std::dynamic_pointer_cast<Entity>(Observer::shared_from_this());
+        e->add(true,me);
+    }
+}
+
 void Healer::attack(shared_ptr<Entity> target)
 {
     target->takeDamage(1);
@@ -187,4 +201,9 @@ void Healer::checkHealTargets()
         heal_targets.erase(to_remove.front());
         to_remove.pop_front();
     }
+}
+
+void Healer::tostring()
+{
+    std::cout<<"j'suis un healer"<<std::endl;
 }

@@ -13,13 +13,15 @@ enum Event {
   GM_ADD_THREAD,
   E_OUT_REQ,
   E_GET_RANDOM_PATH,
-  E_GET_PATH_TARGET,
+  E_GET_PATH_E_TARGET,
   E_PAUSE,
   E_EXP_ORE_CHECK,
   E_GET_PATH_ORE,
   E_MINE_OCCURS,
   E_REQ_PATH_BASE,
-  E_DEP_ORE
+  E_DEP_ORE,
+  E_LF_ROV,
+  E_LF_AL
 };
 
 /**@class Observer

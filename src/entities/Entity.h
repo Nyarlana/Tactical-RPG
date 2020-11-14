@@ -14,7 +14,8 @@
 #include <math.h>
 #include <iostream>
 #include <memory>
-#include <thread>
+#include <mutex>
+#include <string>
 
 /* @brief State enum */
 enum State {
@@ -60,6 +61,8 @@ class Entity : public Component, public Observer, public Subject
         bool isDead();
 
         //modifiers
+        /** @brief groups all the checks an Entity is going to make before its action*/
+        virtual void check() = 0;
         /** @brief Lowers this.lp by value, then if lp<=0, the entity is considered dead and so calls die()
         @param value amount of points lp is lowered*/
         void takeDamage(int value);
@@ -67,6 +70,11 @@ class Entity : public Component, public Observer, public Subject
         void setTopTarget(sf::Vector2i pos);
         /** @brief dying action (including the destruction of the object) */
         void die();
+        /** @brief adds e to either rov or al depending on isRov
+        @param isRov tells if e is to add to rov, or to al
+        @param e Entity to add
+        */
+        void add(bool isRov, std::shared_ptr<Entity> e);
 
         //actions
         /** @brief The Entity specific behavior*/
@@ -74,6 +82,8 @@ class Entity : public Component, public Observer, public Subject
         /** @brief action to move for an Entity*/
         void moveTo(sf::Vector2i newPos);
         void pause();
+        virtual void answer_radar(std::shared_ptr<Entity> e) = 0;
+        virtual void tostring() = 0;
 
     protected:
         int speed;                  //number of Tiles the Entity can go through in one move()
@@ -85,9 +95,12 @@ class Entity : public Component, public Observer, public Subject
         int target_distance;
         std::vector<sf::Vector2i> path;
         sf::Vector2i top_target;
+        //std::mutex m;
         int last_pause;
         int delta_pause;
         std::shared_ptr<sf::Clock> clock;
+        std::vector<std::shared_ptr<Entity>> rov;
+        std::vector<std::shared_ptr<Entity>> al;
 
     private:
         //Base type definition

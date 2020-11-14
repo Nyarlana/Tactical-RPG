@@ -10,7 +10,7 @@ AlienGroup::AlienGroup(int alien_number, int average_alien_stats) : alien_number
 {
     for(int i=0; i<alien_number; i++)
     {
-        aliens.push_back(make_shared<Alien>(5, i+3, i+3, i*2+2, 3, 5, true));
+        aliens.push_back(make_shared<Alien>(5, i+3, i+3, i*2+2, 3, 5));
     }
 }
 
@@ -58,4 +58,12 @@ void AlienGroup::action()
 void AlienGroup::die()
 {
     std::cout << "This AlienGroup was eradicated" << '\n';
+}
+
+void AlienGroup::answer_radar(std::shared_ptr<Entity> e)
+{
+    for(int i=0; i<alien_number; i++)
+    {
+        aliens[i]->answer_radar(e);
+    }
 }

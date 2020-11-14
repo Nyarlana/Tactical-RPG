@@ -1,7 +1,6 @@
 /**@file game manager code*/
 #include "GameManager.h"
 
-#include <thread>
 #include <iostream>
 
 // sf::Clock GameManager::clock = new sf::Clock;
@@ -168,6 +167,19 @@ void GameManager::on_Notify(Component* subject, Event event)
 
         break;
     }
+    case E_GET_PATH_E_TARGET:
+    {
+        Fighter* e = (Fighter*) subject;
+
+        std::cout << "acquiring entity position..." << e->getPos().x<<","<<e->getPos().y<< '\n';
+
+        std::cout <<"\n\nacquiring target position..." << '\n';
+        sf::Vector2i t_pos = e->getTopTarget()->getPos();
+
+        compute_and_set_path(e, t_pos);
+
+        break;
+    }
     case E_GET_PATH_ORE:
     {
         Miner* e = (Miner*) subject;
@@ -206,6 +218,24 @@ void GameManager::on_Notify(Component* subject, Event event)
     {
         rb->getOneOre();
         std::cout << "ore deposited" << '\n';
+        break;
+    }
+    case E_LF_ROV:
+    {
+        rb->answer_radar(
+            std::dynamic_pointer_cast<Entity>(
+                ((Entity*) subject)->shared_from_this()
+            )
+        );
+        break;
+    }
+    case E_LF_AL:
+    {
+        ag->answer_radar(
+            std::dynamic_pointer_cast<Entity>(
+                ((Entity*) subject)->shared_from_this()
+            )
+        );
         break;
     }
   }

@@ -22,7 +22,9 @@ class Raider : public Fighter
         void on_Notify(Component* subject, Event event);
         void _init();
         int stateValue();
+        void check();
         void action();
+        void answer_radar(std::shared_ptr<Entity> e);
         // void increaseThreat(std::shared_ptr<Entity> target, int threatIncrease);
         void attack(std::shared_ptr<Entity> target);
 
@@ -31,6 +33,7 @@ class Raider : public Fighter
         void speedup();
         /** @brief decreases the Raider's threat value by ?? points the Aliens see in this Raider */
         void lowProfile();
+        void tostring();
 
     protected:
 

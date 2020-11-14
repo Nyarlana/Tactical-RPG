@@ -63,6 +63,11 @@ int Raider::stateValue()
     return value;
 }
 
+void Raider::check()
+{
+
+}
+
 void Raider::action()
 {
     switch(state)
@@ -90,6 +95,15 @@ void Raider::action()
     }
 }
 
+void Raider::answer_radar(std::shared_ptr<Entity> e)
+{
+    if(e.get()!=this && !isDead())
+    {
+        shared_ptr<Entity> me = std::dynamic_pointer_cast<Entity>(Observer::shared_from_this());
+        e->add(true,me);
+    }
+}
+
 // void Raider::increaseThreat(shared_ptr<Entity> target, int threatIncrease)
 // {
 //     if(typeid(target.get())==typeid(Alien()))
@@ -112,4 +126,9 @@ void Raider::speedup()
 void Raider::lowProfile()
 {
     //calls the GM to decrease this' threat for Aliens by ??
+}
+
+void Raider::tostring()
+{
+    std::cout<<"j'suis un raider"<<std::endl;
 }

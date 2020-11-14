@@ -106,6 +106,11 @@ void RoverBase::_draw(sf::RenderWindow & window)
         rovers[i]->_draw(window);
 }
 
+void RoverBase::check()
+{
+
+}
+
 void RoverBase::action()
 {
     switch(state)
@@ -128,6 +133,20 @@ void RoverBase::action()
 void RoverBase::moveTo(sf::Vector2i newPos) //doesn't move at all
 {
 
+}
+
+void RoverBase::answer_radar(std::shared_ptr<Entity> e)
+{
+    if(e.get()!=this && !isDead())
+    {
+        shared_ptr<Entity> me = std::dynamic_pointer_cast<Entity>(Observer::shared_from_this());
+        e->add(false,me);
+
+        for(int i=0; i<rovers.size(); i++)
+        {
+            rovers[i]->answer_radar(e);
+        }
+    }
 }
 
 void RoverBase::missionComplete()
@@ -240,3 +259,14 @@ void RoverBase::putRover(int rover_number, int x, int y)
 {
 
 }*/
+
+void RoverBase::takeDamage(int value)
+{
+    Entity::takeDamage(value);
+    std::cout << "Oh là là " << value << "pv, pv restants = "<< lp << '\n';
+}
+
+void RoverBase::tostring()
+{
+    std::cout<<"j'suis une roverbase"<<std::endl;
+}

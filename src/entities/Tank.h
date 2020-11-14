@@ -11,7 +11,6 @@
 #include <SFML/Main.hpp>
 
 #include <memory>
-#include <vector>
 
 /**@class Tank class
 @brief Type of Entity meant to be able to fight against other entities*/
@@ -27,7 +26,9 @@ class Tank : public Fighter
         void on_Notify(Component* subject, Event event);
         void _init();
         int stateValue();
+        void check();
         void action();
+        void answer_radar(std::shared_ptr<Entity> e);
         // void increaseThreat(std::shared_ptr<Entity> target, int threatIncrease);
         void attack(std::shared_ptr<Entity> target);
 
@@ -36,6 +37,7 @@ class Tank : public Fighter
         void tease();
         /** @brief multiplies by ?? the threat the selected Alien see in this Tank */
         void taunt(std::shared_ptr<Alien> alien);
+        void tostring();
 
     protected:
 

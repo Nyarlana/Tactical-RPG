@@ -12,6 +12,7 @@
 #include <string>
 #include <vector>
 #include <utility>
+#include <string>
 
 /**@class Miner class
 @brief Type of Entity meant to mine for Ore, which is the objective of a game */
@@ -29,7 +30,9 @@ class Miner : public Entity
         void on_Notify(Component* subject, Event event);
         void _init();
         int stateValue();
+        void check();
         void action();
+        void answer_radar(std::shared_ptr<Entity> e);
 
         //Class skills
         /** @brief looks for ore on the map and saves their positions in
@@ -41,6 +44,8 @@ class Miner : public Entity
         void mine();
         /** @brief gives the base the collected ore (1 tile distance) */
         void depositOre();
+        void tostring();
+
 
     protected:
 

@@ -68,6 +68,11 @@ int Tank::stateValue()
     return value;
 }
 
+void Tank::check()
+{
+
+}
+
 void Tank::action()
 {
     switch(state)
@@ -105,6 +110,15 @@ void Tank::action()
 //         super::increaseThreat(make_shared<Entity>(target), threatIncrease);
 // }
 
+void Tank::answer_radar(std::shared_ptr<Entity> e)
+{
+    if(e.get()!=this && !isDead())
+    {
+        shared_ptr<Entity> me = std::dynamic_pointer_cast<Entity>(Observer::shared_from_this());
+        e->add(true,me);
+    }
+}
+
 void Tank::attack(shared_ptr<Entity> target)
 {
     target->takeDamage(3);
@@ -121,4 +135,9 @@ void Tank::tease()
 void Tank::taunt(shared_ptr<Alien> alien)
 {
     //alien->increaseThreat(shared_ptr<Entity>(this), ??)
+}
+
+void Tank::tostring()
+{
+    std::cout<<"j'suis un tank"<<std::endl;
 }

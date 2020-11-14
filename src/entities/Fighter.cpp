@@ -52,8 +52,8 @@ void Fighter::increaseThreat(shared_ptr<Entity> target, int threatIncrease)
     else
         targets[got->first]+=threatIncrease;
 
-    if(targets[got->first]==0)
-        targets.erase(got->first);
+    if(targets[target]==0 && getDistanceTo(target)>targetCheckArea)
+        targets.erase(target);
 }
 
 void Fighter::checkTargets()

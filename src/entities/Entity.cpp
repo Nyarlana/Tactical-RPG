@@ -3,6 +3,7 @@
 #include <vector>
 #include <chrono>
 #include <iostream>
+#include <thread>
 
 using namespace std;
 
@@ -11,21 +12,22 @@ Entity::Entity(int _max_LP, int _xPos, int _yPos, int _speed) : max_LP(_max_LP),
     path(std::vector<sf::Vector2i>())
 {
   clock = make_shared<sf::Clock>();
+  last_pause = clock->restart().asMilliseconds();
 }
 
 void Entity::_update()
 {
-
-    bool estDebout = (clock->getElapsedTime().asMilliseconds() % 1000) >= ANIM_TIME;
-
-    int state_value = stateValue(); //à ajouter à la place du 0 quand il y aura suffisamment d'images
-
-    sprite.setTextureRect(sf::IntRect(estDebout*32,0*32,32,32));
+    if(lp>0)
+    {
+        bool estDebout = (clock->getElapsedTime().asMilliseconds() % 1000) >= ANIM_TIME;
+        int state_value = stateValue(); //à ajouter à la place du 0 quand il y aura suffisamment d'images
+        sprite.setTextureRect(sf::IntRect(estDebout*32,0*32,32,32));
+    }
 }
 
 void Entity::_draw(sf::RenderWindow & window)
 {
-    if(pos.x!=-1)
+    if(lp>0 && pos.x!=-1)
     {
         sprite.setPosition(pos.x*32,pos.y*32);
         window.draw(sprite);
@@ -96,6 +98,30 @@ void Entity::die()
 {
     std::cout<<"Deleted at "<<pos.x<<", "<<pos.y<<std::endl;
     deactivate();
+}
+
+void Entity::add(bool isRov, std::shared_ptr<Entity> e)
+{
+    bool is_already_in = false;
+    
+    if(isRov)
+    {
+        for(int i=0; i<rov.size(); i++)
+            if(e==rov[i])
+                is_already_in=true;
+
+        if(!is_already_in)
+            rov.push_back(e);
+    }
+    else
+    {
+        for(int i=0; i<al.size(); i++)
+            if(e==al[i])
+                is_already_in=true;
+
+        if(!is_already_in)
+            al.push_back(e);
+    }
 }
 
 void Entity::moveTo(sf::Vector2i newPos)
