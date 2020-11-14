@@ -9,3 +9,4 @@ P | Print Tilemap content
 Left | Reduce test bar
 Right | Augment test bar
 Left click | Place text box
+Right click | Display test A* path

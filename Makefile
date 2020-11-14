@@ -14,8 +14,8 @@ main : GameManager.o
 	g++ -std=c++11 -pthread $(INCLUDE) -c src/main.cpp -o obj/main.o obj/GameManager.o
 	g++ -std=c++11 -pthread $(LIB) -o bin/main.exe -g obj/*.o $(LINKER_FLAGS)
 
-GameManager.o : Component.o Observer.o ThreadContainer.o TileMap.o UI_ProgressBar.o UI_TextBox.o Entity.o AlienGroup.o RoverBase.o
-	g++ -std=c++11 -pthread $(INCLUDE) -c src/gameManager/GameManager.cpp -o obj/GameManager.o -g obj/Component.o obj/Observer.o obj/ThreadContainer.o obj/TileMap.o obj/UI_ProgressBar.o obj/UI_TextBox.o obj/Entity.o obj/AlienGroup.o obj/RoverBase.o
+GameManager.o : Component.o Observer.o ThreadContainer.o TileMap.o UI_ProgressBar.o UI_VisualPath.o UI_TextBox.o UI_Point.o Entity.o AlienGroup.o RoverBase.o
+	g++ -std=c++11 -pthread $(INCLUDE) -c src/gameManager/GameManager.cpp -o obj/GameManager.o -g obj/Component.o obj/Observer.o obj/ThreadContainer.o obj/TileMap.o obj/UI_ProgressBar.o obj/UI_VisualPath.o obj/UI_TextBox.o obj/UI_Point.o obj/Entity.o obj/AlienGroup.o obj/RoverBase.o
 
 Observer.o : Component.o
 	g++ $(INCLUDE) -c src/gameManager/Observer.cpp -o obj/Observer.o $(LINKER_FLAGS)
@@ -68,5 +68,11 @@ UI_Component.o : Observer.o Component.o
 UI_ProgressBar.o : UI_Component.o
 	g++ $(INCLUDE) -c src/UI/UI_ProgressBar.cpp -o obj/UI_ProgressBar.o -g obj/UI_Component.o $(LINKER_FLAGS)
 
+UI_VisualPath.o : UI_Component.o
+	g++ $(INCLUDE) -c src/UI/UI_VisualPath.cpp -o obj/UI_VisualPath.o -g obj/UI_Component.o $(LINKER_FLAGS)
+
 UI_TextBox.o : UI_Component.o
 	g++ $(INCLUDE) -c src/UI/UI_TextBox.cpp -o obj/UI_TextBox.o -g obj/UI_Component.o $(LINKER_FLAGS)
+
+UI_Point.o : UI_Component.o
+	g++ $(INCLUDE) -c src/UI/UI_Point.cpp -o obj/UI_Point.o -g obj/UI_Component.o $(LINKER_FLAGS)

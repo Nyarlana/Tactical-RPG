@@ -55,6 +55,7 @@ void GameManager::init()
 
 void GameManager::mainloop()
 {
+  bool once = true;
   while (window.isOpen()) // game loop
   {
     // Event block : polls all SFML events, stock relevant ones in an array
@@ -97,6 +98,16 @@ void GameManager::mainloop()
           if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
           {
             tb->set_Position(sf::Mouse::getPosition(window));
+          }
+          else if (sf::Mouse::isButtonPressed(sf::Mouse::Right) && once)
+          {
+            vp = std::make_shared<UI_VisualPath>(tm->request_path(sf::Vector2i(3,3), sf::Vector2i(23,5)));
+            start = std::make_shared<UI_Point>(sf::Vector2i(3,3));
+            finish = std::make_shared<UI_Point>(sf::Vector2i(23,5), sf::Color::Blue);
+            components.push_back(vp);
+            components.push_back(start);
+            components.push_back(finish);
+            once = false;
           }
         }
       }
