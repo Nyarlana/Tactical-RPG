@@ -58,6 +58,14 @@ int Entity::getDistanceTo(sf::Vector2i other_pos)
     return (int) sqrt(x*x+y*y);
 }
 
+int Entity::lacksLP()
+{
+    if(!isDead())
+        return max_LP-lp;
+    else
+        return -1;
+}
+
 void Entity::setPos(sf::Vector2i newPos)
 {
     pos = newPos;
@@ -90,16 +98,22 @@ void Entity::takeDamage(int value) //critical section
     {
         die();
     }
-    else if(lp>max_LP)
+    else
     {
-        lp = max_LP;
-        //pb.set_Value(26);
+        if(lp>max_LP)
+        {
+            lp = max_LP;
+            //pb.set_Value(26);
+        }
+
+        notify(this,E_LP_CHANGED);
     }
 }
 
 void Entity::die()
 {
     std::cout<<"Deleted at "<<pos.x<<", "<<pos.y<<std::endl;
+    lp = 0;
     notify(this, E_DIED);
     deactivate();
 }

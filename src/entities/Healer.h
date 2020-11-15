@@ -23,26 +23,30 @@ class Healer : public Fighter
         //inherited functions
         void on_Notify(Component* subject, Event event);
         void _init();
-        void _update();
         int stateValue();
         void check();
         void action();
         void answer_radar(std::shared_ptr<Entity> e);
-        // void increaseThreat(std::shared_ptr<Entity> target, int threatIncrease);
+        void increaseThreat(std::shared_ptr<Entity> target, int threatIncrease);
         void attack(std::shared_ptr<Entity> target);
+        void checkTargets();
+        std::shared_ptr<Entity> getTopTarget();
+        std::shared_ptr<Entity> getTopHealTarget(int maxSeenNeed);
+        int getMaxNeed();
 
         //Class skills
-        /** @brief changes heal need of a specific target, if the target isn't
-        already is the target list, adds it to the list
-        @param target target thats need of heal changes
+        /** @brief set heal need of a specific target, if the target isn't
+        already is the target list and needs at least 1 lp, adds it to the list
+        @param target target thats need of heal is set
         @param value amount of point by which a target needs heal*/
-        void changeNeed(std::shared_ptr<Entity> heal_target, int value);
+        void setNeed(std::shared_ptr<Entity> heal_target, int value);
         /** @brief heals the target's life points by ?? points
         @param target target that will get a heal*/
         void heal(std::shared_ptr<Entity> heal_target);
         /** @brief looks for targets in its areas and erases targets outside
         them */
         void checkHealTargets();
+        void healing_action();
         void tostring();
 
     protected:

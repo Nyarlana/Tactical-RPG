@@ -54,6 +54,7 @@ class Entity : public Component, public Observer, public Subject
         /** @brief gets the distance to another Entity */
         int getDistanceTo(std::shared_ptr<Entity> e);
         int getDistanceTo(sf::Vector2i other_pos);
+        int lacksLP();
         virtual int stateValue() = 0;
         sf::Vector2i getTopTargetPos();
         void setTopTargetPos(sf::Vector2i pos);
