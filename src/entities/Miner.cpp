@@ -91,15 +91,17 @@ void Miner::action()
         }
         case EXPLORATION:
         {
+            std::cout << "miner exploring..." << '\n';
             if(path.empty())
                 notify(this, E_GET_RANDOM_PATH);
+
             moveTo(path.back());
             path.pop_back();
             break;
         }
         case MINER:
         {
-            std::cout << "miner mode" << '\n';
+            std::cout << "miner mining..." << '\n';
             if(!bagFull)
             {
                 std::cout << "bag not full" << '\n';
@@ -110,7 +112,6 @@ void Miner::action()
                 }
                 else
                 {
-                    std::cout << "next pos : " <<path.back().x<<","<<path.back().y<< '\n';
                     moveTo(path.back());
                     path.pop_back();
                 }
