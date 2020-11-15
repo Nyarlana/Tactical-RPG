@@ -1,11 +1,6 @@
-#include "Alien.h"
+#include "entities.h"
 
 #include <SFML/Graphics.hpp>
-
-#include "Healer.h"
-#include "Raider.h"
-#include "Tank.h"
-//#include "Rover.h"
 
 #include <memory>
 #include <vector>
@@ -13,7 +8,7 @@
 
 using namespace std;
 
-Alien::Alien(int max_LP, int xPos, int yPos, int speed, int targetCheckArea, int threatfulTargetCheckArea) : Fighter(max_LP, xPos, yPos, speed, targetCheckArea, threatfulTargetCheckArea), hasAggressiveBehavior(threatfulTargetCheckArea!=-1), isAKiller(false)
+Alien::Alien(int max_LP, int xPos, int yPos, int speed, int targetCheckArea, int threatfulTargetCheckArea) : Fighter(max_LP, xPos, yPos, speed, targetCheckArea, threatfulTargetCheckArea), hasAggressiveBehavior(threatfulTargetCheckArea!=-1)
 {
     //ctor
 }
@@ -67,8 +62,6 @@ void Alien::check()
         state = SEARCH;
     else
         state = OFFENSIVE;
-
-    std::cout << (state==SEARCH?"searching...blabla":"FIIIGHT") << '\n';
 }
 
 void Alien::action()
@@ -77,9 +70,6 @@ void Alien::action()
     {
         case SEARCH:
         {
-            if(isAKiller && !path.empty())
-                std::cout << "last of "<< path.size() <<": "<<path.back().x<<","<<path.back().y << '\n';
-
             if(path.empty())
                 notify(this, E_GET_RANDOM_PATH);
 
@@ -89,23 +79,7 @@ void Alien::action()
         }
         case OFFENSIVE:
         {
-            shared_ptr<Entity> t = getTopTarget();
-            t->tostring();
-
-            if(getDistanceTo(t)<2)
-            {
-                attack(t);
-            }
-            else
-            {
-                if(target_distance < getDistanceTo(t))
-                    notify(this, E_GET_PATH_E_TARGET);
-
-                moveTo(path.back());
-                path.pop_back();
-
-                target_distance = getDistanceTo(t);
-            }
+            offensive_action();
             break;
         }
         default:
@@ -151,7 +125,6 @@ void Alien::attack(shared_ptr<Entity> target)
         if (target->isDead())
         {
             targets.erase(target);
-            isAKiller = true;
             path.clear();
         }
     }

@@ -38,7 +38,6 @@ class Alien : public Fighter
 
         //attribute
         bool hasAggressiveBehavior;         //constant, inherited through its Alien-type
-        bool isAKiller;
 };
 
 #endif // ALIEN_H

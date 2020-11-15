@@ -20,7 +20,7 @@ void Fighter::on_Notify(Component* subject, Event event)
                 ((Entity*) subject)->shared_from_this()
             );
             unordered_map<shared_ptr<Entity>, int>::const_iterator got = targets.find(e);
-            
+
             e->remove_Observer(Observer::shared_from_this());
 
             if(got == targets.end())
@@ -77,6 +77,27 @@ void Fighter::increaseThreat(shared_ptr<Entity> target, int threatIncrease)
     {
         targets.erase(target);
         target->remove_Observer(Observer::shared_from_this());
+    }
+}
+
+void Fighter::offensive_action()
+{
+    shared_ptr<Entity> t = getTopTarget();
+    //t->tostring();
+
+    if(getDistanceTo(t)<2)
+    {
+        attack(t);
+    }
+    else
+    {
+        if(target_distance < getDistanceTo(t))
+            notify(this, E_GET_PATH_E_TARGET);
+
+        moveTo(path.back());
+        path.pop_back();
+
+        target_distance = getDistanceTo(t);
     }
 }
 
