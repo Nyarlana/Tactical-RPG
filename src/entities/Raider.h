@@ -25,8 +25,9 @@ class Raider : public Fighter
         void check();
         void action();
         void answer_radar(std::shared_ptr<Entity> e);
-        // void increaseThreat(std::shared_ptr<Entity> target, int threatIncrease);
+        void increaseThreat(std::shared_ptr<Entity> target, int threatIncrease);
         void attack(std::shared_ptr<Entity> target);
+        void checkTargets();
 
         //Class skills
         /** @brief raises the Raider's speed */
