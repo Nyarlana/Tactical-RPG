@@ -258,7 +258,7 @@ std::vector<sf::Vector2i> TileMap::getRandomMove(sf::Vector2i pos)
     return path;
 }
 
-std::vector<sf::Vector2i> TileMap::loofForOre(sf::Vector2i pos, int radius)
+std::vector<sf::Vector2i> TileMap::lookForOre(sf::Vector2i pos, int radius)
 {
     std::vector<sf::Vector2i> positions;
 
@@ -269,7 +269,7 @@ std::vector<sf::Vector2i> TileMap::loofForOre(sf::Vector2i pos, int radius)
             if((i!=0 || j!=0)
                 && (i+j!=0 && i+j!=radius*2 && i+j!=-(radius*2))
                 && isInMap(i+pos.x, j+pos.y)
-                && tilemap_tab[i+pos.x][j+pos.y].returnTileValue()==1
+                && tilemap_tab[i+pos.x][j+pos.y].returnTileValue()==2
             )
                 positions.push_back(sf::Vector2i(i+pos.x, j+pos.y));
         }

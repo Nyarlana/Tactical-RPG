@@ -7,6 +7,7 @@
 
 #include "../gameManager/Component.h"
 #include "../gameManager/Observer.h"
+#include "../UI/UI.h"
 
 #include <SFML/Graphics.hpp>
 #include <SFML/Main.hpp>
@@ -101,6 +102,7 @@ class Entity : public Component, public Observer, public Subject
         std::shared_ptr<sf::Clock> clock;
         std::vector<std::shared_ptr<Entity>> rov;
         std::vector<std::shared_ptr<Entity>> al;
+        //UI_ProgressBar pb;
 
     private:
         //Base type definition

@@ -22,7 +22,7 @@ class RoverBase : public Entity
 
         //inherited functions
         void on_Notify(Component* subject, Event event);
-        void add_Observer(std::shared_ptr<Observer> obs);
+        void add_Observer_and_Rovers(std::shared_ptr<Observer> obs);
         void _init();
         void _update();
         void _draw(sf::RenderWindow & window);

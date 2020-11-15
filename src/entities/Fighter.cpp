@@ -11,6 +11,22 @@ Fighter::Fighter(int max_LP, int xPos, int yPos, int speed, int targetCheckArea,
 
 }
 
+void Fighter::on_Notify(Component* subject, Event event)
+{
+    switch (event) {
+        case E_DIED:
+        {
+            shared_ptr<Entity> e = std::dynamic_pointer_cast<Entity>(
+                ((Entity*) subject)->shared_from_this()
+            );
+            unordered_map<shared_ptr<Entity>, int>::const_iterator got = targets.find(e);
+
+            if(got == targets.end())
+                targets.erase(got->first);
+        }
+    }
+}
+
 unordered_map<shared_ptr<Entity>, int> Fighter::getTargets()
 {
     return targets;

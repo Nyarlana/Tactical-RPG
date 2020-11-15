@@ -32,7 +32,7 @@ void GameManager::init()
   entities.push_back(std::thread(&AlienGroup::action, ag.get()));
 
   rb = std::make_shared<RoverBase>(RoverBase::launchMission("test"));
-  rb->add_Observer(Observer::shared_from_this());
+  rb->add_Observer_and_Rovers(Observer::shared_from_this());
   components.push_back(rb);
   rb->notify(rb.get(), GM_ADD_THREAD);
 
@@ -171,7 +171,7 @@ void GameManager::on_Notify(Component* subject, Event event)
     case E_EXP_ORE_CHECK:
     {
         Miner* e = (Miner*) subject;
-        std::vector<sf::Vector2i> pos = tm->loofForOre(e->getPos(), 2);
+        std::vector<sf::Vector2i> pos = tm->lookForOre(e->getPos(), 2);
 
         for(int i=0; i<pos.size(); i++)
             e->addOreObjective(pos[i]);

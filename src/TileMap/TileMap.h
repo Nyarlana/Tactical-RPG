@@ -71,7 +71,7 @@ class TileMap : public Component, public Observer, public Subject
         @param pos base position from where to look for
         @param radius max distance from pos to look
         @return a list of positions*/
-        std::vector<sf::Vector2i> loofForOre(sf::Vector2i pos, int radius);
+        std::vector<sf::Vector2i> lookForOre(sf::Vector2i pos, int radius);
         /**@brief transforms the Tile at position pos to an empty tile
         @param pos position where the ore is mined*/
         void mine(sf::Vector2i pos);

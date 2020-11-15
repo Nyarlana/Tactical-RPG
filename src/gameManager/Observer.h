@@ -21,7 +21,8 @@ enum Event {
   E_REQ_PATH_BASE,
   E_DEP_ORE,
   E_LF_ROV,
-  E_LF_AL
+  E_LF_AL,
+  E_DIED
 };
 
 /**@class Observer

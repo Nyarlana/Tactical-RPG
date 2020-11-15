@@ -52,9 +52,9 @@ void RoverBase::on_Notify(Component* subject, Event event)
 {
 }
 
-void RoverBase::add_Observer(std::shared_ptr<Observer> obs)
+void RoverBase::add_Observer_and_Rovers(std::shared_ptr<Observer> obs)
 {
-    Subject::add_Observer(obs);
+    add_Observer(obs);
 
     for(int i=0; i<rovers.size(); i++)
     {

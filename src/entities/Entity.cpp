@@ -9,7 +9,7 @@ using namespace std;
 
 Entity::Entity(int _max_LP, int _xPos, int _yPos, int _speed) : max_LP(_max_LP),
     lp(_max_LP), pos(sf::Vector2i(_xPos, _yPos)), speed(_speed), target_distance(0),
-    path(std::vector<sf::Vector2i>())
+    path(std::vector<sf::Vector2i>())//, pb(UI_ProgressBar(sf::Vector2i(pos.x*32, pos.y*32), sf::Vector2i(30, 4), 2, 28, (lp/max_LP)*26))
 {
   clock = make_shared<sf::Clock>();
   last_pause = clock->restart().asMilliseconds();
@@ -29,6 +29,7 @@ void Entity::_draw(sf::RenderWindow & window)
 {
     if(lp>0 && pos.x!=-1)
     {
+        //pb.set_Position(sf::Vector2i(pos.x*32+1, pos.y*32+1));
         sprite.setPosition(pos.x*32,pos.y*32);
         window.draw(sprite);
     }
@@ -83,6 +84,7 @@ void Entity::takeDamage(int value) //critical section
 
     //notify taken damage
     std::cout<<"An Entity took "<<value<<" damages\n";
+    //pb.substract_Value((value/max_LP)*26);
 
     if(lp<=0)
     {
@@ -91,19 +93,21 @@ void Entity::takeDamage(int value) //critical section
     else if(lp>max_LP)
     {
         lp = max_LP;
+        //pb.set_Value(26);
     }
 }
 
 void Entity::die()
 {
     std::cout<<"Deleted at "<<pos.x<<", "<<pos.y<<std::endl;
+    notify(this, E_DIED);
     deactivate();
 }
 
 void Entity::add(bool isRov, std::shared_ptr<Entity> e)
 {
     bool is_already_in = false;
-    
+
     if(isRov)
     {
         for(int i=0; i<rov.size(); i++)

@@ -16,7 +16,7 @@ class Fighter : public Entity
         Fighter(int max_LP, int xPos, int yPos, int speed, int targetCheckArea, int threatfulTargetCheckArea);
 
         //inherited functions
-        virtual void on_Notify(Component* subject, Event event) = 0;
+        void on_Notify(Component* subject, Event event);
         virtual void _init() = 0;
         virtual int stateValue() = 0;
 
