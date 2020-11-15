@@ -50,6 +50,24 @@ RoverBase::RoverBase(int _x_pos, int _y_pos, int _objective, string _rovers) : E
 //inherited functions
 void RoverBase::on_Notify(Component* subject, Event event)
 {
+    switch (event)
+    {
+        case E_OUT_REQ:
+        {
+            notify(this,E_GET_RANDOM_PATH);
+
+            Entity* e = (Entity*) subject;
+            e->setPos(path.back());
+            path.clear();
+            break;
+        }
+        case E_DEP_ORE:
+        {
+            getOneOre();
+            std::cout << "ore deposited" << '\n';
+            break;
+        }
+    }
 }
 
 void RoverBase::add_Observer_and_Rovers(std::shared_ptr<Observer> obs)
@@ -67,7 +85,7 @@ void RoverBase::_init()
     for(int i=0; i<rovers.size(); i++)
     {
         notify(rovers[i].get(), GM_ADD_THREAD);
-        // rovers[i]->add_Observer(Observer::shared_from_this());
+        rovers[i]->add_Observer(Observer::shared_from_this());
         rovers[i]->_init();
     }
 
@@ -140,7 +158,7 @@ void RoverBase::answer_radar(std::shared_ptr<Entity> e)
     if(e.get()!=this && !isDead())
     {
         shared_ptr<Entity> me = std::dynamic_pointer_cast<Entity>(Observer::shared_from_this());
-        e->add(false,me);
+        e->add(true,me);
 
         for(int i=0; i<rovers.size(); i++)
         {

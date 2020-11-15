@@ -29,6 +29,7 @@ void Subject::add_Observer(std::shared_ptr<Observer> obs)
   {
     actual = actual->next;
   }
+
   actual->next = std::make_shared<ObsNode>();
   actual->next->obs = obs;
   actual->next->next = nullptr;

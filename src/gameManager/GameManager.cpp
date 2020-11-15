@@ -26,7 +26,7 @@ void GameManager::init()
   components.push_back(pb);
   pb->add_Observer(Observer::shared_from_this());
 
-  ag = std::make_shared<AlienGroup>(2,5);
+  ag = std::make_shared<AlienGroup>(3,5);
   ag->add_Observer(Observer::shared_from_this());
   components.push_back(ag);
   entities.push_back(std::thread(&AlienGroup::action, ag.get()));
@@ -160,14 +160,6 @@ void GameManager::on_Notify(Component* subject, Event event)
       entities.push_back(std::thread(ThreadContainer((Entity*) subject)));
       break;
     }
-    case E_OUT_REQ:
-    {
-        sf::Vector2i pos = tm->getRandomMove(rb->getPos()).back();
-
-        Entity* e = (Entity*) subject;
-        e->setPos(pos);
-        break;
-    }
     case E_EXP_ORE_CHECK:
     {
         Miner* e = (Miner*) subject;
@@ -182,9 +174,6 @@ void GameManager::on_Notify(Component* subject, Event event)
     {
         Fighter* e = (Fighter*) subject;
 
-        std::cout << "acquiring entity position..." << e->getPos().x<<","<<e->getPos().y<< '\n';
-
-        std::cout <<"\n\nacquiring target position..." << '\n';
         sf::Vector2i t_pos = e->getTopTarget()->getPos();
 
         compute_and_set_path(e, t_pos);
@@ -223,12 +212,6 @@ void GameManager::on_Notify(Component* subject, Event event)
 
         compute_and_set_path(e, b_pos);
 
-        break;
-    }
-    case E_DEP_ORE:
-    {
-        rb->getOneOre();
-        std::cout << "ore deposited" << '\n';
         break;
     }
     case E_LF_ROV:
