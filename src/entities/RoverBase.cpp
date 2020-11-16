@@ -52,27 +52,28 @@ void RoverBase::on_Notify(Component* subject, Event event)
 {
     switch (event)
     {
-        case E_OUT_REQ:
-        {
-            notify(this,E_GET_RANDOM_PATH);
-
-            Entity* e = (Entity*) subject;
-            e->setPos(path.back());
-            path.clear();
-            break;
-        }
-        case E_DEP_ORE:
-        {
-            getOneOre();
-            std::cout << "ore deposited" << '\n';
-            break;
-        }
+        // case E_OUT_REQ:
+        // {
+        //     notify(this,E_GET_RANDOM_PATH);
+        //
+        //     Entity* e = (Entity*) subject;
+        //     e->setPos(path.back());
+        //     path.clear();
+        //     break;
+        // }
+        // case E_DEP_ORE:
+        // {
+        //     getOneOre();
+        //     std::cout << "ore deposited" << '\n';
+        //     break;
+        // }
     }
 }
 
 void RoverBase::add_Observer_and_Rovers(std::shared_ptr<Observer> obs)
 {
-    add_Observer(obs);
+    if(obs!=shared_from_this())
+        add_Observer(obs);
 
     for(int i=0; i<rovers.size(); i++)
     {

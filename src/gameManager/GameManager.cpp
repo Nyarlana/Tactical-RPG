@@ -33,6 +33,7 @@ void GameManager::init()
 
   rb = std::make_shared<RoverBase>(RoverBase::launchMission("test"));
   rb->add_Observer_and_Rovers(Observer::shared_from_this());
+  rb->add_Observer_and_Rovers(rb->shared_from_this());
   components.push_back(rb);
   rb->notify(rb.get(), GM_ADD_THREAD);
 
@@ -230,6 +231,18 @@ void GameManager::on_Notify(Component* subject, Event event)
                 ((Entity*) subject)->shared_from_this()
             )
         );
+        break;
+    }
+    case E_OUT_REQ:
+    {
+        Entity* e = (Entity*) subject;
+        e->setPos(tm->getRandomMove(rb->getPos()).back());
+        break;
+    }
+    case E_DEP_ORE:
+    {
+        rb->getOneOre();
+        std::cout << "ore deposited" << '\n';
         break;
     }
   }

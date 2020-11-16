@@ -186,7 +186,16 @@ void Healer::answer_radar(std::shared_ptr<Entity> e)
 
 void Healer::attack(shared_ptr<Entity> target)
 {
-    target->takeDamage(1);
+    if(typeid(target.get())==typeid(Alien()))
+    {
+        target->takeDamage(1);
+
+        if (target->isDead())
+        {
+            targets.erase(target);
+            path.clear();
+        }
+    }
 }
 
 void Healer::checkTargets()

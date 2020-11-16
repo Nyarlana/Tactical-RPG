@@ -30,6 +30,7 @@ void Entity::_draw(sf::RenderWindow & window)
 {
     if(lp>0 && pos.x!=-1)
     {
+        sprite.setPosition(pos.x*32, pos.y*32);
         window.draw(sprite);
         //pb->_draw(window);
     }
@@ -69,7 +70,6 @@ int Entity::lacksLP()
 void Entity::setPos(sf::Vector2i newPos)
 {
     pos = newPos;
-    std::cout << "pos reçue : "<<pos.x<<","<<pos.y << '\n';
     //pb->set_Position(sf::Vector2i(pos.x*32+4, pos.y*32));
 }
 
@@ -81,10 +81,6 @@ void Entity::setTopTarget(sf::Vector2i pos)
 void Entity::setPath(std::vector<sf::Vector2i> new_path)
 {
     path = new_path;
-    for (size_t i = 0; i < path.size(); i++)
-    {
-        std::cout << "path " << i <<" : "<< path.back().x<<","<<path.back().y << '\n';
-    }
 }
 
 bool Entity::isDead()
