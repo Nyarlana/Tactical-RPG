@@ -12,6 +12,8 @@
 
 #include <vector>
 
+static int alienGroupNumber = 0;
+
 /**@class AlienGroup class
 @brief Group of Aliens*/
 class AlienGroup : public Component, public Observer, public Subject
@@ -29,7 +31,9 @@ class AlienGroup : public Component, public Observer, public Subject
         void action();
         void die();
         void answer_radar(std::shared_ptr<Entity> e);
+        int getGroup();
     private:
+        int group_number;
         std::vector<std::shared_ptr<Alien>> aliens;
         int alien_number;
 };

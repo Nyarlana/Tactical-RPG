@@ -1,6 +1,8 @@
 /**@file game manager code*/
 #include "GameManager.h"
 
+#include "Parameters.h"
+
 #include <iostream>
 
 // sf::Clock GameManager::clock = new sf::Clock;
@@ -26,10 +28,15 @@ void GameManager::init()
   components.push_back(pb);
   pb->add_Observer(Observer::shared_from_this());
 
-  ag = std::make_shared<AlienGroup>(3,5);
-  ag->add_Observer(Observer::shared_from_this());
-  components.push_back(ag);
-  entities.push_back(std::thread(&AlienGroup::action, ag.get()));
+  ag.push_back(std::make_shared<AlienGroup>(1,5));
+  ag.push_back(std::make_shared<AlienGroup>(2,5));
+
+  for (size_t i = 0; i < ag.size(); i++)
+  {
+      ag[i]->add_Observer(Observer::shared_from_this());
+      components.push_back(ag[i]);
+      entities.push_back(std::thread(&AlienGroup::action, ag[i].get()));
+  }
 
   rb = std::make_shared<RoverBase>(RoverBase::launchMission("test"));
   rb->add_Observer_and_Rovers(Observer::shared_from_this());
@@ -185,10 +192,12 @@ void GameManager::on_Notify(Component* subject, Event event)
     {
         Miner* e = (Miner*) subject;
 
-        std::cout << "acquiring miner position..." << '\n';
+        if(STRINGS_UP)
+            std::cout << "acquiring miner position..." << '\n';
         sf::Vector2i m_start_pos = e->getPos();
 
-        std::cout << m_start_pos.x<<","<<m_start_pos.y<<"\n\nacquiring miner's top target position..." << '\n';
+        if(STRINGS_UP)
+            std::cout << m_start_pos.x<<","<<m_start_pos.y<<"\n\nacquiring miner's top target position..." << '\n';
         sf::Vector2i o_pos = e->getTopOre();
 
         compute_and_set_path(e, o_pos);
@@ -198,7 +207,9 @@ void GameManager::on_Notify(Component* subject, Event event)
     case E_MINE_OCCURS:
     {
         Miner* e = (Miner*) subject;
-        std::cout << "mining ore..." << '\n';
+
+        if(STRINGS_UP)
+            std::cout << "mining ore..." << '\n';
         tm->mine(e->getTopOre());
         break;
     }
@@ -206,9 +217,12 @@ void GameManager::on_Notify(Component* subject, Event event)
     {
         Entity* e = (Entity*) subject;
 
-        std::cout << "acquiring entity position..." << e->getPos().x<<","<<e->getPos().y<< '\n';
+        if(STRINGS_UP)
+        {
+            std::cout << "acquiring entity position..." << e->getPos().x<<","<<e->getPos().y<< '\n';
+            std::cout <<"\n\nacquiring base position..." << '\n';
+        }
 
-        std::cout <<"\n\nacquiring base position..." << '\n';
         sf::Vector2i b_pos = rb->getPos();
 
         compute_and_set_path(e, b_pos);
@@ -226,11 +240,12 @@ void GameManager::on_Notify(Component* subject, Event event)
     }
     case E_LF_AL:
     {
-        ag->answer_radar(
-            std::dynamic_pointer_cast<Entity>(
-                ((Entity*) subject)->shared_from_this()
-            )
-        );
+        for(int i =0; i<ag.size(); i++)
+            ag[i]->answer_radar(
+                std::dynamic_pointer_cast<Entity>(
+                    ((Entity*) subject)->shared_from_this()
+                )
+            );
         break;
     }
     case E_OUT_REQ:
@@ -242,8 +257,26 @@ void GameManager::on_Notify(Component* subject, Event event)
     case E_DEP_ORE:
     {
         rb->getOneOre();
-        std::cout << "ore deposited" << '\n';
+
+        if(STRINGS_UP)
+            std::cout << "ore deposited" << '\n';
         break;
+    }
+    case THIS_IS_A_WIN:
+    {
+        for(int i=0; i<entities.size(); i++)
+            entities[i].join();
+
+        if(STRINGS_UP)
+            std::cout << "Rovers got enough ore !" << '\n';
+    }
+    case THIS_IS_A_LOOSE:
+    {
+        for(int i=0; i<entities.size(); i++)
+            entities[i].join();
+
+        if(STRINGS_UP)
+            std::cout << "Aliens succeeded in keeping their ore !" << '\n';
     }
   }
 }
@@ -264,13 +297,16 @@ void GameManager::compute_and_set_path(Entity* e, sf::Vector2i e_target)
 
     if(false)//if distance with ore >=2 then compute path with request_path
     {
-        std::cout << e_target.x<<","<<e_target.y<<"\n\nacquiring a position around entity's target..." << '\n';
+        if(STRINGS_UP)
+            std::cout << e_target.x<<","<<e_target.y<<"\n\nacquiring a position around entity's target..." << '\n';
         sf::Vector2i m_end_pos = tm->getRandomMove(e_target).back();
 
-        std::cout << m_end_pos.x<<","<<m_end_pos.y<<"\n\ncomputing path to the acquired position..." << '\n';
+        if(STRINGS_UP)
+            std::cout << m_end_pos.x<<","<<m_end_pos.y<<"\n\ncomputing path to the acquired position..." << '\n';
         std::vector<sf::Vector2i> path = tm->request_path(e_start,m_end_pos);
 
-        std::cout << "path length : "<<path.size()<<"\n\nsending path to the entity" << '\n';
+        if(STRINGS_UP)
+            std::cout << "path length : "<<path.size()<<"\n\nsending path to the entity" << '\n';
         e->setPath(path);
     }
     else

@@ -50,7 +50,7 @@ private:
   std::shared_ptr<UI_Point> start;
   std::shared_ptr<UI_Point> finish;
   std::vector<std::thread> entities;
-  std::shared_ptr<AlienGroup> ag;
+  std::vector<std::shared_ptr<AlienGroup>> ag;
   std::shared_ptr<RoverBase> rb;
   std::mutex m;
 

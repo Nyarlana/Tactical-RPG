@@ -15,7 +15,7 @@ class Alien : public Fighter
 {
     public:
         /** @brief constructor */
-        Alien(int max_LP = 5, int xPos = 3, int yPos = 3, int speed = 3, int targetCheckArea = 3, int threatfulTargetCheckArea = 5);
+        Alien(int max_LP = 5, int xPos = 3, int yPos = 3, int speed = 3, int group_number = -1, int targetCheckArea = 3, int threatfulTargetCheckArea = 5);
 
         //inherited functions
         void on_Notify(Component* subject, Event event);
@@ -28,6 +28,8 @@ class Alien : public Fighter
         void increaseThreat(std::shared_ptr<Entity> target, int threatIncrease);
         void attack(std::shared_ptr<Entity> target);
         void checkTargets();
+        int getGroup();
+        bool isTargetable(std::shared_ptr<Entity> target);
         void tostring();
 
     protected:
@@ -38,6 +40,7 @@ class Alien : public Fighter
 
         //attribute
         bool hasAggressiveBehavior;         //constant, inherited through its Alien-type
+        int group_number;
 };
 
 #endif // ALIEN_H

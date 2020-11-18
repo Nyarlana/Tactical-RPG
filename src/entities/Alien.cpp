@@ -8,9 +8,9 @@
 
 using namespace std;
 
-Alien::Alien(int max_LP, int xPos, int yPos, int speed, int targetCheckArea, int threatfulTargetCheckArea) : Fighter(max_LP, xPos, yPos, speed, targetCheckArea, threatfulTargetCheckArea), hasAggressiveBehavior(threatfulTargetCheckArea!=-1)
+Alien::Alien(int max_LP, int xPos, int yPos, int speed, int group_number, int targetCheckArea, int threatfulTargetCheckArea) : Fighter(max_LP, xPos, yPos, speed, targetCheckArea, threatfulTargetCheckArea), group_number(group_number), hasAggressiveBehavior(threatfulTargetCheckArea!=-1)
 {
-    //ctor
+    std::cout << "alien in group n°"<<group_number << '\n';
 }
 
 //inherited functions
@@ -57,6 +57,9 @@ int Alien::stateValue()
 void Alien::check()
 {
     checkTargets();
+
+    // for ( auto it = targets.cbegin(); it != targets.cend(); ++it )
+    //     it->first->tostring();
 
     if(targets.empty())
         state = SEARCH;
@@ -105,7 +108,7 @@ void Alien::answer_radar(std::shared_ptr<Entity> e)
 
 void Alien::increaseThreat(shared_ptr<Entity> target, int threatIncrease)
 {
-    if(typeid(target.get())!=typeid(Alien()))
+    if(isTargetable(target))
     {
         super::increaseThreat(target, threatIncrease);
 
@@ -118,7 +121,7 @@ void Alien::increaseThreat(shared_ptr<Entity> target, int threatIncrease)
 
 void Alien::attack(shared_ptr<Entity> target)
 {
-    if(typeid(target.get())!=typeid(Alien()))
+    if(isTargetable(target))
     {
         target->takeDamage(2);
 
@@ -147,7 +150,35 @@ void Alien::checkTargets()
         }
 
         rov.clear();
+
+        notify(this, E_LF_AL);
+
+        for(int i=0; i<al.size(); i++)
+        {
+            if(getDistanceTo(al[i])<=targetCheckArea)
+            {
+                if(isTargetable(al[i]))
+                    increaseThreat(al[i], 0);
+            }
+        }
+
+        al.clear();
     }
+}
+
+bool Alien::isTargetable(shared_ptr<Entity> target)
+{
+    if(typeid(target.get())!=typeid(Alien()))
+        return true;
+
+    shared_ptr<Alien> other_alien = dynamic_pointer_cast<Alien>(target);
+
+    return other_alien->getGroup()!=group_number;
+}
+
+int Alien::getGroup()
+{
+    return group_number;
 }
 
 void Alien::tostring()
