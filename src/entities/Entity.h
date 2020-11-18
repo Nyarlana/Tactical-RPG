@@ -70,6 +70,7 @@ class Entity : public Component, public Observer, public Subject
         void takeDamage(int value);
         void setPos(sf::Vector2i newPos);
         void setTopTarget(sf::Vector2i pos);
+        void setState(State s);
         /** @brief dying action (including the destruction of the object) */
         void die();
         /** @brief adds e to either rov or al depending on isRov
@@ -103,7 +104,7 @@ class Entity : public Component, public Observer, public Subject
         std::shared_ptr<sf::Clock> clock;
         std::vector<std::shared_ptr<Entity>> rov;
         std::vector<std::shared_ptr<Entity>> al;
-        //UI_ProgressBar pb;
+        UI_ProgressBar* pb;
 
     private:
         //Base type definition

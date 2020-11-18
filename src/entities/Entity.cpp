@@ -9,7 +9,8 @@ using namespace std;
 
 Entity::Entity(int _max_LP, int _xPos, int _yPos, int _speed) : max_LP(_max_LP),
     lp(_max_LP), pos(sf::Vector2i(_xPos, _yPos)), speed(_speed), target_distance(0),
-    path(std::vector<sf::Vector2i>())//, pb(new UI_ProgressBar(sf::Vector2i(pos.x*32+4, pos.y*32), sf::Vector2i(24, 2), 2, max_LP, lp, sf::Color::Red, sf::Color::Green, sf::Color::Black))
+    path(std::vector<sf::Vector2i>()),
+    pb(new UI_ProgressBar(pos, sf::Vector2i(28,4), 2, max_LP, lp, sf::Color::Red, sf::Color::Green, sf::Color::Black))
 {
   clock = make_shared<sf::Clock>();
   last_pause = clock->restart().asMilliseconds();
@@ -21,8 +22,9 @@ void Entity::_update()
     {
         bool estDebout = (clock->getElapsedTime().asMilliseconds() % 1000) >= ANIM_TIME;
         int state_value = stateValue(); //à ajouter à la place du 0 quand il y aura suffisamment d'images
-        //pb->_update();
         sprite.setTextureRect(sf::IntRect(estDebout*32,0*32,32,32));
+        pb->set_Position(sf::Vector2i(pos.x*32+2, pos.y*32));
+        pb->_update();
     }
 }
 
@@ -32,7 +34,7 @@ void Entity::_draw(sf::RenderWindow & window)
     {
         sprite.setPosition(pos.x*32, pos.y*32);
         window.draw(sprite);
-        //pb->_draw(window);
+        pb->_draw(window);
     }
 }
 
@@ -70,12 +72,16 @@ int Entity::lacksLP()
 void Entity::setPos(sf::Vector2i newPos)
 {
     pos = newPos;
-    //pb->set_Position(sf::Vector2i(pos.x*32+4, pos.y*32));
 }
 
 void Entity::setTopTarget(sf::Vector2i pos)
 {
     top_target = pos;
+}
+
+void Entity::setState(State s)
+{
+    state = s;
 }
 
 void Entity::setPath(std::vector<sf::Vector2i> new_path)
@@ -92,9 +98,6 @@ void Entity::takeDamage(int value) //critical section
 {
     lp-=value;
 
-    //notify taken damage
-    std::cout<<"An Entity took "<<value<<" damages\n";
-
     if(lp<=0)
     {
         die();
@@ -106,7 +109,7 @@ void Entity::takeDamage(int value) //critical section
             lp = max_LP;
         }
 
-        //pb->set_Value(lp);
+        pb->substract_Value(value);
         notify(this,E_LP_CHANGED);
     }
 }
@@ -153,7 +156,6 @@ void Entity::moveTo(sf::Vector2i newPos)
     if(distanceOk)
     {
         pos = newPos;
-        //pb->set_Position(sf::Vector2i(pos.x*32+4, pos.y*32));
     }
 }
 
