@@ -1,5 +1,7 @@
 #include "UI_TextBox.h"
 
+#include "../gameManager/Parameters.h"
+
 UI_TextBox::UI_TextBox(sf::Vector2i pos, std::string txt, int font_size, sf::Vector2i mar, sf::Color text_col, sf::Color bg_col, std::string filename) : UI_Component(pos) {
   text.setString(txt);
   inner_text = txt;
@@ -11,7 +13,10 @@ UI_TextBox::UI_TextBox(sf::Vector2i pos, std::string txt, int font_size, sf::Vec
     {
       std::cout << "erreur" << '\n';
     }
-  } else std::cout<<"font loaded"<<std::endl;
+  }
+  else if(TRACE_EXEC)
+    std::cout<<"font loaded"<<std::endl;
+
   text.setCharacterSize(font_size);
   text.setFont(font);
   margins = sf::Vector2f(mar);
