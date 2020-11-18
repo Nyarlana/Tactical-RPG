@@ -1,6 +1,6 @@
 #include "Miner.h"
 
-#define STRINGS_UP 0
+
 
 using namespace std;
 

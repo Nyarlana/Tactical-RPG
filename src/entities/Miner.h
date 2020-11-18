@@ -4,6 +4,7 @@
 
 #include "Entity.h"
 #include "../gameManager/Observer.h"
+#include "../gameManager/Parameters.h"
 
 #include <SFML/Graphics.hpp>
 #include <SFML/Main.hpp>

@@ -4,8 +4,6 @@
 #include <vector>
 #include <list>
 
-#define STRINGS_UP 0
-
 using namespace std;
 
 Healer::Healer(int xPos, int yPos) : Fighter(8, xPos, yPos, 3, 1, 3), heal_power(2)
