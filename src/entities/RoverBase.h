@@ -3,6 +3,7 @@
 #define ROVER_BASE_H
 
 #include "entities.h"
+#include "../UI/UI.h"
 
 #include "../gameManager/Observer.h"
 
@@ -55,6 +56,8 @@ class RoverBase : public Entity
         int objective;
         int ore_amount;
         std::vector<std::shared_ptr<Entity>> rovers;
+        UI_Point point;
+        int deads;
 };
 
 

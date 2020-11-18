@@ -23,7 +23,9 @@ enum Event {
   E_LF_ROV,
   E_LF_AL,
   E_DIED,
-  E_LP_CHANGED
+  E_LP_CHANGED,
+  THIS_IS_A_WIN,
+  THIS_IS_A_LOOSE
 };
 
 /**@class Observer

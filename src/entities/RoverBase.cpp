@@ -8,7 +8,11 @@
 
 using namespace std;
 /** @brief constructor */
-RoverBase::RoverBase(int _x_pos, int _y_pos, int _objective, string _rovers) : Entity(20, _x_pos, _y_pos, 4), objective(_objective)
+RoverBase::RoverBase(int _x_pos, int _y_pos, int _objective, string _rovers) :
+    Entity(20, _x_pos, _y_pos, 4),
+    objective(_objective),
+    point(pos),
+    deads(0)
 {
     string type;
 
@@ -52,6 +56,15 @@ void RoverBase::on_Notify(Component* subject, Event event)
 {
     switch (event)
     {
+        case E_DIED:
+        {
+            if(typeid(*subject)!=typeid(Alien()))
+                deads++;
+
+            // if(deads == rovers.size())
+            //     notify(this,THIS_IS_A_LOOSE);
+            break;
+        }
         // case E_OUT_REQ:
         // {
         //     notify(this,E_GET_RANDOM_PATH);
@@ -121,6 +134,8 @@ void RoverBase::_draw(sf::RenderWindow & window)
 {
     Entity::_draw(window);
 
+    point._draw(window);
+
     for(int i=0; i<rovers.size(); i++)
         rovers[i]->_draw(window);
 }
@@ -170,14 +185,15 @@ void RoverBase::answer_radar(std::shared_ptr<Entity> e)
 
 void RoverBase::missionComplete()
 {
-    int timeOut=3;
-
     //call to all Rovers to come back with timeOut (distance from farthest rover)
+    for(int i=0; i<rovers.size(); i++)
+    {
+        rovers[i]->setState(END_GAME);
+        rovers[i]->setPos(sf::Vector2i(-1,-1));
+    }
 
-    while((timeOut--)>0)
-        pause();
-
-    //notify the GameManager that the game is over
+    state = END_GAME;
+    notify(this,THIS_IS_A_WIN);
 }
 
 void RoverBase::die()
@@ -185,6 +201,7 @@ void RoverBase::die()
     for(int i=0; i<rovers.size(); i++)
         rovers[i]->die();
     std::cout << "This RoverBase just died" << '\n';
+    notify(this,THIS_IS_A_LOOSE);
 }
 
 RoverBase RoverBase::launchMission(string mission)
