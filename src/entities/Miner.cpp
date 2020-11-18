@@ -1,5 +1,7 @@
 #include "Miner.h"
 
+#define STRINGS_UP 0
+
 using namespace std;
 
 Miner::Miner(int xPos, int yPos) : Entity(4, xPos, yPos, 3), bagFull(false)
@@ -84,14 +86,16 @@ void Miner::action()
             notify(this, E_OUT_REQ);
             while (pos.x==-1) {
                 pause();
-                std::cout << "miner is waiting..." << '\n';
+                if(STRINGS_UP)
+                    std::cout << "miner is waiting..." << '\n';
             }
             state=SEARCH;
             break;
         }
         case EXPLORATION:
         {
-            std::cout << "miner exploring..." << '\n';
+            if(STRINGS_UP)
+                std::cout << "miner exploring..." << '\n';
             if(path.empty())
                 notify(this, E_GET_RANDOM_PATH);
 
@@ -101,10 +105,12 @@ void Miner::action()
         }
         case MINER:
         {
-            std::cout << "miner mining..." << '\n';
+            if(STRINGS_UP)
+                std::cout << "miner mining..." << '\n';
             if(!bagFull)
             {
-                std::cout << "bag not full" << '\n';
+                if(STRINGS_UP)
+                    std::cout << "bag not full" << '\n';
                 if(path.empty() || (path.back().x==pos.x && path.back().y==pos.y))
                 {
                     path.clear();
@@ -118,7 +124,8 @@ void Miner::action()
             }
             else
             {
-                std::cout << "bag full" << '\n';
+                if(STRINGS_UP)
+                    std::cout << "bag full" << '\n';
                 notify(this,E_REQ_PATH_BASE);
                 //if(path.empty())
                     depositOre();
@@ -133,7 +140,8 @@ void Miner::action()
         }
         case END_GAME:
         {
-            std::cout << "mission complete : back to rover base" << '\n';
+            if(STRINGS_UP)
+                std::cout << "mission complete : back to rover base" << '\n';
             if(path.empty() && pos.x!=-1)
                 notify(this,E_REQ_PATH_BASE);
             /*else
@@ -168,11 +176,13 @@ void Miner::checkForOre()
 
     if(bagFull)
     {
-        std::cout << "--------------------------- back to RoverBase --------------------------" << '\n';
+        if(STRINGS_UP)
+            std::cout << "--------------------------- back to RoverBase --------------------------" << '\n';
     }
     if(!objectives_positions.empty())
     {
-        std::cout << "-----------------------------------------------------" << '\n';
+        if(STRINGS_UP)
+            std::cout << "-----------------------------------------------------" << '\n';
         state=MINER;
         notify(this, E_GET_PATH_ORE);
     }

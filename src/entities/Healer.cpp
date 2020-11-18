@@ -4,6 +4,8 @@
 #include <vector>
 #include <list>
 
+#define STRINGS_UP 0
+
 using namespace std;
 
 Healer::Healer(int xPos, int yPos) : Fighter(8, xPos, yPos, 3, 1, 3), heal_power(2)
@@ -118,14 +120,16 @@ void Healer::action()
             notify(this, E_OUT_REQ);
             while (pos.x==-1) {
                 pause();
-                std::cout << "healer is waiting..." << '\n';
+                if(STRINGS_UP)
+                    std::cout << "healer is waiting..." << '\n';
             }
             state=SEARCH;
             break;
         }
         case SEARCH:
         {
-            std::cout << "healer searching..." << '\n';
+            if(STRINGS_UP)
+                std::cout << "healer searching..." << '\n';
             if(path.empty())
                 notify(this, E_GET_RANDOM_PATH);
 
@@ -135,24 +139,28 @@ void Healer::action()
         }
         case PROTECTION:
         {
-            std::cout << "healer protecting..." << '\n';
+            if(STRINGS_UP)
+                std::cout << "healer protecting..." << '\n';
             break;
         }
         case HEAL:
         {
-            std::cout << "healer healing..." << '\n';
+            if(STRINGS_UP)
+                std::cout << "healer healing..." << '\n';
             healing_action();
             break;
         }
         case OFFENSIVE:
         {
-            std::cout << "healer attacking..." << '\n';
+            if(STRINGS_UP)
+                std::cout << "healer attacking..." << '\n';
             offensive_action();
             break;
         }
         case END_GAME:
         {
-            std::cout << "mission complete : back to rover base" << '\n';
+            if(STRINGS_UP)
+                std::cout << "mission complete : back to rover base" << '\n';
             if(path.empty() && pos.x!=-1)
                 notify(this,E_REQ_PATH_BASE);
             /*else
@@ -264,7 +272,8 @@ void Healer::checkHealTargets()
 
 void Healer::healing_action()
 {
-    std::cout << "\t--------healing_action-------" << '\n';
+    if(STRINGS_UP)
+        std::cout << "\t--------healing_action-------" << '\n';
     std::shared_ptr<Entity> t = getTopTarget();
     t->tostring();
 
