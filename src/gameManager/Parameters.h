@@ -2,6 +2,6 @@
 #ifndef PARAMETERS_H
 #define PARAMETERS_H
 
-static bool STRINGS_UP = false;
+static bool TRACE_EXEC = false;
 
 #endif

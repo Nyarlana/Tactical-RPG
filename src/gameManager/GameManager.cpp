@@ -28,9 +28,6 @@ void GameManager::init()
   components.push_back(pb);
   pb->add_Observer(Observer::shared_from_this());
 
-  ag.push_back(std::make_shared<AlienGroup>(1,5));
-  ag.push_back(std::make_shared<AlienGroup>(2,5));
-
   for (size_t i = 0; i < ag.size(); i++)
   {
       ag[i]->add_Observer(Observer::shared_from_this());
@@ -38,7 +35,6 @@ void GameManager::init()
       entities.push_back(std::thread(&AlienGroup::action, ag[i].get()));
   }
 
-  rb = std::make_shared<RoverBase>(RoverBase::launchMission("test"));
   rb->add_Observer_and_Rovers(Observer::shared_from_this());
   rb->add_Observer_and_Rovers(rb->shared_from_this());
   components.push_back(rb);
@@ -192,11 +188,11 @@ void GameManager::on_Notify(Component* subject, Event event)
     {
         Miner* e = (Miner*) subject;
 
-        if(STRINGS_UP)
+        if(TRACE_EXEC)
             std::cout << "acquiring miner position..." << '\n';
         sf::Vector2i m_start_pos = e->getPos();
 
-        if(STRINGS_UP)
+        if(TRACE_EXEC)
             std::cout << m_start_pos.x<<","<<m_start_pos.y<<"\n\nacquiring miner's top target position..." << '\n';
         sf::Vector2i o_pos = e->getTopOre();
 
@@ -208,7 +204,7 @@ void GameManager::on_Notify(Component* subject, Event event)
     {
         Miner* e = (Miner*) subject;
 
-        if(STRINGS_UP)
+        if(TRACE_EXEC)
             std::cout << "mining ore..." << '\n';
         tm->mine(e->getTopOre());
         break;
@@ -217,7 +213,7 @@ void GameManager::on_Notify(Component* subject, Event event)
     {
         Entity* e = (Entity*) subject;
 
-        if(STRINGS_UP)
+        if(TRACE_EXEC)
         {
             std::cout << "acquiring entity position..." << e->getPos().x<<","<<e->getPos().y<< '\n';
             std::cout <<"\n\nacquiring base position..." << '\n';
@@ -258,7 +254,7 @@ void GameManager::on_Notify(Component* subject, Event event)
     {
         rb->getOneOre();
 
-        if(STRINGS_UP)
+        if(TRACE_EXEC)
             std::cout << "ore deposited" << '\n';
         break;
     }
@@ -267,7 +263,7 @@ void GameManager::on_Notify(Component* subject, Event event)
         for(int i=0; i<entities.size(); i++)
             entities[i].join();
 
-        if(STRINGS_UP)
+        if(TRACE_EXEC)
             std::cout << "Rovers got enough ore !" << '\n';
     }
     case THIS_IS_A_LOOSE:
@@ -275,7 +271,7 @@ void GameManager::on_Notify(Component* subject, Event event)
         for(int i=0; i<entities.size(); i++)
             entities[i].join();
 
-        if(STRINGS_UP)
+        if(TRACE_EXEC)
             std::cout << "Aliens succeeded in keeping their ore !" << '\n';
     }
   }
@@ -291,21 +287,31 @@ void GameManager::testFunc()
   tm->testFunc();
 }
 
+void GameManager::setRoverBase(std::string mission)
+{
+    rb = std::make_shared<RoverBase>(RoverBase::launchMission(mission));
+}
+
+void GameManager::addAlienGroup(std::string mission)
+{
+    rb = std::make_shared<RoverBase>(RoverBase::launchMission(mission));
+}
+
 void GameManager::compute_and_set_path(Entity* e, sf::Vector2i e_target)
 {
     sf::Vector2i e_start = e->getPos();
 
     if(false)//if distance with ore >=2 then compute path with request_path
     {
-        if(STRINGS_UP)
+        if(TRACE_EXEC)
             std::cout << e_target.x<<","<<e_target.y<<"\n\nacquiring a position around entity's target..." << '\n';
         sf::Vector2i m_end_pos = tm->getRandomMove(e_target).back();
 
-        if(STRINGS_UP)
+        if(TRACE_EXEC)
             std::cout << m_end_pos.x<<","<<m_end_pos.y<<"\n\ncomputing path to the acquired position..." << '\n';
         std::vector<sf::Vector2i> path = tm->request_path(e_start,m_end_pos);
 
-        if(STRINGS_UP)
+        if(TRACE_EXEC)
             std::cout << "path length : "<<path.size()<<"\n\nsending path to the entity" << '\n';
         e->setPath(path);
     }

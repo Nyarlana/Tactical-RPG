@@ -86,7 +86,7 @@ void Miner::action()
             notify(this, E_OUT_REQ);
             while (pos.x==-1) {
                 pause();
-                if(STRINGS_UP)
+                if(TRACE_EXEC)
                     std::cout << "miner is waiting..." << '\n';
             }
             state=SEARCH;
@@ -94,7 +94,7 @@ void Miner::action()
         }
         case EXPLORATION:
         {
-            if(STRINGS_UP)
+            if(TRACE_EXEC)
                 std::cout << "miner exploring..." << '\n';
             if(path.empty())
                 notify(this, E_GET_RANDOM_PATH);
@@ -105,11 +105,11 @@ void Miner::action()
         }
         case MINER:
         {
-            if(STRINGS_UP)
+            if(TRACE_EXEC)
                 std::cout << "miner mining..." << '\n';
             if(!bagFull)
             {
-                if(STRINGS_UP)
+                if(TRACE_EXEC)
                     std::cout << "bag not full" << '\n';
                 if(path.empty() || (path.back().x==pos.x && path.back().y==pos.y))
                 {
@@ -124,7 +124,7 @@ void Miner::action()
             }
             else
             {
-                if(STRINGS_UP)
+                if(TRACE_EXEC)
                     std::cout << "bag full" << '\n';
                 notify(this,E_REQ_PATH_BASE);
                 //if(path.empty())
@@ -140,7 +140,7 @@ void Miner::action()
         }
         case END_GAME:
         {
-            if(STRINGS_UP)
+            if(TRACE_EXEC)
                 std::cout << "mission complete : back to rover base" << '\n';
             if(path.empty() && pos.x!=-1)
                 notify(this,E_REQ_PATH_BASE);
@@ -176,12 +176,12 @@ void Miner::checkForOre()
 
     if(bagFull)
     {
-        if(STRINGS_UP)
+        if(TRACE_EXEC)
             std::cout << "--------------------------- back to RoverBase --------------------------" << '\n';
     }
     if(!objectives_positions.empty())
     {
-        if(STRINGS_UP)
+        if(TRACE_EXEC)
             std::cout << "-----------------------------------------------------" << '\n';
         state=MINER;
         notify(this, E_GET_PATH_ORE);
