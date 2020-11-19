@@ -10,7 +10,6 @@ using namespace std;
 
 Alien::Alien(int max_LP, int xPos, int yPos, int speed, int group_number, int targetCheckArea, int threatfulTargetCheckArea) : Fighter(max_LP, xPos, yPos, speed, targetCheckArea, threatfulTargetCheckArea), group_number(group_number), hasAggressiveBehavior(threatfulTargetCheckArea!=-1)
 {
-    std::cout << "alien in group n°"<<group_number << '\n';
 }
 
 //inherited functions
@@ -58,8 +57,9 @@ void Alien::check()
 {
     checkTargets();
 
-    // for ( auto it = targets.cbegin(); it != targets.cend(); ++it )
-    //     it->first->tostring();
+    if(TRACE_EXEC)
+        for ( auto it = targets.cbegin(); it != targets.cend(); ++it )
+            it->first->tostring();
 
     if(targets.empty())
         state = SEARCH;
@@ -99,7 +99,7 @@ void Alien::die()
 
 void Alien::answer_radar(std::shared_ptr<Entity> e)
 {
-    if(e.get()!=this && !isDead())
+    if(!isDead())
     {
         shared_ptr<Entity> me = std::dynamic_pointer_cast<Entity>(Observer::shared_from_this());
         e->add(false,me);
@@ -123,6 +123,8 @@ void Alien::attack(shared_ptr<Entity> target)
 {
     if(isTargetable(target))
     {
+        std::cout << "alien gonna hit a" << '\n';
+        target->tostring();
         target->takeDamage(2);
 
         if (target->isDead())
@@ -168,12 +170,12 @@ void Alien::checkTargets()
 
 bool Alien::isTargetable(shared_ptr<Entity> target)
 {
-    if(typeid(target.get())!=typeid(Alien()))
-        return true;
+    shared_ptr<Alien> t = dynamic_pointer_cast<Alien>(target);
 
-    shared_ptr<Alien> other_alien = dynamic_pointer_cast<Alien>(target);
+    if(t!=nullptr && (id==t->getID() || t->getGroup()==group_number))
+        return false;
 
-    return other_alien->getGroup()!=group_number;
+    return true;
 }
 
 int Alien::getGroup()
