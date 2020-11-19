@@ -4,6 +4,8 @@
 
 #include "Entity.h"
 
+#include "../gameManager/Parameters.h"
+
 #include <unordered_map>
 #include <memory>
 

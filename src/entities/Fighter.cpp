@@ -83,7 +83,9 @@ void Fighter::increaseThreat(shared_ptr<Entity> target, int threatIncrease)
 void Fighter::offensive_action()
 {
     shared_ptr<Entity> t = getTopTarget();
-    //t->tostring();
+
+    if(TRACE_EXEC)
+        t->tostring();
 
     if(getDistanceTo(t)<2)
     {
