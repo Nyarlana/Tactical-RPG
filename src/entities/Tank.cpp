@@ -112,7 +112,7 @@ void Tank::action()
 
 void Tank::answer_radar(std::shared_ptr<Entity> e)
 {
-    if(e.get()!=this && !isDead())
+    if(!isDead())
     {
         shared_ptr<Entity> me = std::dynamic_pointer_cast<Entity>(Observer::shared_from_this());
         e->add(true,me);

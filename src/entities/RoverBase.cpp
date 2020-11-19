@@ -1,5 +1,7 @@
 #include "RoverBase.h"
 
+#include "../gameManager/Parameters.h"
+
 #include <string>
 #include <thread>
 #include <fstream>
@@ -46,7 +48,8 @@ RoverBase::RoverBase(int _x_pos, int _y_pos, int _objective, string _rovers) :
             }
         }
 
-        std::cout << "A "<<type<<" was created"<< '\n';
+        if(TRACE_EXEC)
+            std::cout << "A "<<type<<" was created"<< '\n';
         _rovers.pop_back();
     }
 }
@@ -171,7 +174,7 @@ void RoverBase::moveTo(sf::Vector2i newPos) //doesn't move at all
 
 void RoverBase::answer_radar(std::shared_ptr<Entity> e)
 {
-    if(e.get()!=this && !isDead())
+    if(!isDead())
     {
         shared_ptr<Entity> me = std::dynamic_pointer_cast<Entity>(Observer::shared_from_this());
         e->add(true,me);
@@ -200,6 +203,7 @@ void RoverBase::die()
 {
     for(int i=0; i<rovers.size(); i++)
         rovers[i]->die();
+        
     std::cout << "This RoverBase just died" << '\n';
     notify(this,THIS_IS_A_LOOSE);
 }
