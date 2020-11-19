@@ -177,13 +177,15 @@ void Healer::action()
 
 void Healer::increaseThreat(shared_ptr<Entity> target, int threatIncrease)
 {
-    if(typeid(target.get())==typeid(Alien()))
+    shared_ptr<Alien> t = dynamic_pointer_cast<Alien>(target);
+
+    if(t!=nullptr)
         super::increaseThreat(target, threatIncrease);
 }
 
 void Healer::answer_radar(std::shared_ptr<Entity> e)
 {
-    if(e.get()!=this && !isDead())
+    if(!isDead())
     {
         shared_ptr<Entity> me = std::dynamic_pointer_cast<Entity>(Observer::shared_from_this());
         e->add(true,me);
@@ -192,7 +194,9 @@ void Healer::answer_radar(std::shared_ptr<Entity> e)
 
 void Healer::attack(shared_ptr<Entity> target)
 {
-    if(typeid(target.get())==typeid(Alien()))
+    shared_ptr<Alien> t = dynamic_pointer_cast<Alien>(target);
+
+    if(t!=nullptr)
     {
         target->takeDamage(1);
 
@@ -249,7 +253,9 @@ void Healer::setNeed(shared_ptr<Entity> heal_target, int value)
 @param target target that will get a heal*/
 void Healer::heal(std::shared_ptr<Entity> heal_target)
 {
-    if(typeid(heal_target.get())!=typeid(Alien()))
+    shared_ptr<Alien> t = dynamic_pointer_cast<Alien>(heal_target);
+
+    if(t==nullptr)
         heal_target->takeDamage(heal_power*-1);
 }
 
