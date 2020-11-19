@@ -11,7 +11,7 @@ Entity::Entity(int _max_LP, int _xPos, int _yPos, int _speed) : max_LP(_max_LP),
     lp(_max_LP), pos(sf::Vector2i(_xPos, _yPos)), speed(_speed), target_distance(0),
     path(std::vector<sf::Vector2i>()),
     pb(new UI_ProgressBar(pos, sf::Vector2i(28,2), 2, max_LP, lp, sf::Color::Red, sf::Color::Green, sf::Color::Black)),
-    id(entity_number++), lp_is_changing(false)
+    id(entity_number++), m(new std::mutex())
 {
   clock = make_shared<sf::Clock>();
   last_pause = clock->restart().asMilliseconds();
@@ -103,30 +103,29 @@ int Entity::getID()
 
 void Entity::takeDamage(int value) //critical section
 {
-    while (lp_is_changing)
-        std::this_thread::sleep_for (std::chrono::milliseconds((100/speed)));
+    unique_lock<std::mutex> l(*m);
 
-    lp_is_changing=true;
-    lp-=value;
+    if(lp>0)
+    {
+        lp-=value;
 
-    if(lp<=0)
-    {
-        die();
-    }
-    else
-    {
-        if(lp>max_LP)
+        if(lp<=0)
         {
-            lp = max_LP;
+            die();
         }
+        else
+        {
+            if(lp>max_LP)
+            {
+                lp = max_LP;
+            }
 
-        pb->substract_Value(value);
-        notify(this,E_LP_CHANGED);
-        if(TRACE_EXEC)
-            std::cout << "lp left = "<<lp << '\n';
+            pb->substract_Value(value);
+            notify(this,E_LP_CHANGED);
+            if(TRACE_EXEC)
+                std::cout << "lp left = "<<lp << '\n';
+        }
     }
-
-    lp_is_changing = false;
 }
 
 void Entity::die()

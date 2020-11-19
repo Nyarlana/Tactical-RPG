@@ -16,8 +16,9 @@
 #include <math.h>
 #include <iostream>
 #include <memory>
-#include <mutex>
 #include <string>
+#include <mutex>
+#include <condition_variable>
 
 /* @brief State enum */
 enum State {
@@ -93,6 +94,7 @@ class Entity : public Component, public Observer, public Subject
         virtual void tostring() = 0;
 
     protected:
+        //attributes
         int speed;                  //number of Tiles the Entity can go through in one move()
         int lp;                     //life points of the Entity
         State state;
@@ -102,7 +104,8 @@ class Entity : public Component, public Observer, public Subject
         int target_distance;
         std::vector<sf::Vector2i> path;
         sf::Vector2i top_target;
-        bool lp_is_changing;
+        std::mutex* m;
+        // std::condition_variable* pv_changed;
         int last_pause;
         int delta_pause;
         std::shared_ptr<sf::Clock> clock;
@@ -110,13 +113,12 @@ class Entity : public Component, public Observer, public Subject
         std::vector<std::shared_ptr<Entity>> al;
         UI_ProgressBar* pb;
         int id;
+        int max_LP;                 //max life points of the Entity,
 
     private:
         //Base type definition
         typedef Component super;
 
-        //attributes
-        int max_LP;                 //max life points of the Entity,
 };
 
 #endif // ENTITY_H
