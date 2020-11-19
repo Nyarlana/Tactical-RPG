@@ -32,10 +32,12 @@ class AlienGroup : public Component, public Observer, public Subject
         void die();
         void answer_radar(std::shared_ptr<Entity> e);
         int getGroup();
+        void setPos(sf::Vector2i _pos);
     private:
         int group_number;
         std::vector<std::shared_ptr<Alien>> aliens;
         int alien_number;
+        sf::Vector2i pos;
 };
 
 #endif // ALIEN_GROUP_H

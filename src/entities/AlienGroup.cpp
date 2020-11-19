@@ -12,7 +12,7 @@ AlienGroup::AlienGroup(int alien_number, int average_alien_stats) : alien_number
 
     for(int i=0; i<alien_number; i++)
     {
-        aliens.push_back(make_shared<Alien>(5, 4*group_number+i+3, i+3, i*2+2, group_number, 3, 5));
+        aliens.push_back(make_shared<Alien>(5, pos.x, pos.y, i*2+2, group_number, 3, 5));
     }
 }
 
@@ -35,7 +35,10 @@ void AlienGroup::_init()
 {
     for(int i=0; i<aliens.size(); i++)
     {
-        // aliens[i]->add_Observer(Observer::shared_from_this());
+        notify(this,E_GET_RANDOM_POS);
+        // std::cout << pos.x << ","<< pos.y << '\n';
+        aliens[i]->setPos(pos);
+        aliens[i]->add_Observer(Observer::shared_from_this());
         notify(aliens[i].get(), GM_ADD_THREAD);
         aliens[i]->_init();
     }
@@ -73,4 +76,9 @@ void AlienGroup::answer_radar(std::shared_ptr<Entity> e)
 int AlienGroup::getGroup()
 {
     return group_number;
+}
+
+void AlienGroup::setPos(sf::Vector2i _pos)
+{
+    pos = _pos;
 }
