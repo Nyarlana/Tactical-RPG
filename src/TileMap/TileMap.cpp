@@ -258,6 +258,44 @@ std::vector<sf::Vector2i> TileMap::getRandomMove(sf::Vector2i pos)
     return path;
 }
 
+sf::Vector2i TileMap::getRandomValidPosition()
+{
+    int valid_pos_nb = 0;
+
+    for(int i=0;i<TM_X_TAB;++i)
+    {
+        for(int j=0;j<TM_Y_TAB;++j)
+        {
+            if(tilemap_tab[i][j].returnTileValue()==0)
+            {
+                valid_pos_nb++;
+            }
+        }
+    }
+
+    int pos_to_give = (rand()%valid_pos_nb)+1;
+    int x=0,y=0;
+
+    for(int i=0;i<TM_X_TAB;++i)
+    {
+        for(int j=0;j<TM_Y_TAB;++j)
+        {
+            if(tilemap_tab[i][j].returnTileValue()==0)
+            {
+                pos_to_give--;
+
+                if(pos_to_give==0)
+                {
+                    x=i;
+                    y=j;
+                }
+            }
+        }
+    }
+
+    return sf::Vector2i(x,y);
+}
+
 std::vector<sf::Vector2i> TileMap::lookForOre(sf::Vector2i pos, int radius)
 {
     std::vector<sf::Vector2i> positions;

@@ -67,6 +67,9 @@ class TileMap : public Component, public Observer, public Subject
         @param pos base position from where to move
         @return the given move*/
         std::vector<sf::Vector2i> getRandomMove(sf::Vector2i pos);
+        /**@brief Gives a random position thats valid in the TileMap
+        @return a valid position*/ 
+        sf::Vector2i getRandomValidPosition();
         /**@brief Gives positions of ores around pos within radius
         @param pos base position from where to look for
         @param radius max distance from pos to look
