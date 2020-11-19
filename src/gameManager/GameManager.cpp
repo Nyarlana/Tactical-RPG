@@ -24,9 +24,13 @@ void GameManager::init()
   components.push_back(tm);
   tm->add_Observer(Observer::shared_from_this());
 
+
   pb = std::make_shared<UI_ProgressBar>(sf::Vector2i(48,48), sf::Vector2i(128, 16), 3, 100, 30);
   components.push_back(pb);
   pb->add_Observer(Observer::shared_from_this());
+
+  // ag.push_back(std::make_shared<AlienGroup>(2, 5));
+  // ag.push_back(std::make_shared<AlienGroup>(1, 5));
 
   for (size_t i = 0; i < ag.size(); i++)
   {
@@ -35,6 +39,7 @@ void GameManager::init()
       entities.push_back(std::thread(&AlienGroup::action, ag[i].get()));
   }
 
+  // rb = std::make_shared<RoverBase>(RoverBase::launchMission("test"));
   rb->add_Observer_and_Rovers(Observer::shared_from_this());
   rb->add_Observer_and_Rovers(rb->shared_from_this());
   components.push_back(rb);
@@ -50,11 +55,6 @@ void GameManager::init()
   }
 
   mainloop();
-
-  // for (size_t i = 0; i < entities.size(); i++)
-  // {
-  //   entities[i].detach();
-  // }
 }
 
 void GameManager::mainloop()
@@ -146,6 +146,12 @@ void GameManager::on_Notify(Component* subject, Event event)
       std::cout<<"Test event"<<std::endl;
       break;
     }
+    case E_GET_RANDOM_POS:
+    {
+      AlienGroup* a = (AlienGroup*) subject;
+      a->setPos(tm->getRandomValidPosition());
+      break;
+    }
     case E_GET_RANDOM_PATH:
     {
       Entity* e = (Entity*) subject;
@@ -177,6 +183,9 @@ void GameManager::on_Notify(Component* subject, Event event)
     case E_GET_PATH_E_TARGET:
     {
         Fighter* e = (Fighter*) subject;
+
+        if(TRACE_EXEC)
+            std::cout << "je cherche à atteindre ma cible" << '\n';
 
         sf::Vector2i t_pos = e->getTopTarget()->getPos();
 
@@ -261,18 +270,22 @@ void GameManager::on_Notify(Component* subject, Event event)
     case THIS_IS_A_WIN:
     {
         for(int i=0; i<entities.size(); i++)
-            entities[i].join();
+            entities[i].detach();
 
         if(TRACE_EXEC)
             std::cout << "Rovers got enough ore !" << '\n';
+
+        window.close();
     }
     case THIS_IS_A_LOOSE:
     {
         for(int i=0; i<entities.size(); i++)
-            entities[i].join();
+            entities[i].detach();
 
         if(TRACE_EXEC)
             std::cout << "Aliens succeeded in keeping their ore !" << '\n';
+
+        window.close();
     }
   }
 }
@@ -292,9 +305,9 @@ void GameManager::setRoverBase(std::string mission)
     rb = std::make_shared<RoverBase>(RoverBase::launchMission(mission));
 }
 
-void GameManager::addAlienGroup(std::string mission)
+void GameManager::addAlienGroup(int alien_number, int alien_average_stats)
 {
-    rb = std::make_shared<RoverBase>(RoverBase::launchMission(mission));
+    ag.push_back(std::make_shared<AlienGroup>(alien_number, alien_average_stats));
 }
 
 void GameManager::compute_and_set_path(Entity* e, sf::Vector2i e_target)

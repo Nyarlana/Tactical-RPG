@@ -34,6 +34,10 @@ public:
   void add_Component(const std::shared_ptr<Component> comp);
   /**@brief test function*/
   void testFunc();
+  /**@brief */
+  void setRoverBase(std::string mission);
+  /**@brief */
+  void addAlienGroup(int alien_number, int alien_average_stats);
   /**@brief computes and sets an entity's path to a target position
   @param e pointer to the entity which path needs to be compute and set
   @param e_target position of the target*/
