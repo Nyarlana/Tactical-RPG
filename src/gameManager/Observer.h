@@ -25,7 +25,8 @@ enum Event {
   E_DIED,
   E_LP_CHANGED,
   THIS_IS_A_WIN,
-  THIS_IS_A_LOOSE
+  THIS_IS_A_LOOSE,
+  E_GET_RANDOM_POS
 };
 
 /**@class Observer
