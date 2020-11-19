@@ -7,6 +7,7 @@
 
 #include "../gameManager/Component.h"
 #include "../gameManager/Observer.h"
+#include "../gameManager/Parameters.h"
 #include "../UI/UI.h"
 
 #include <SFML/Graphics.hpp>
@@ -30,6 +31,8 @@ enum State {
     PICKER,
     END_GAME
 };
+
+static int entity_number = 0;
 
 /**@class Entity class
 @brief Base Class to emulate Rovers and Aliens */
@@ -61,6 +64,7 @@ class Entity : public Component, public Observer, public Subject
         void setPath(std::vector<sf::Vector2i> new_path);
         /** @brief tells if the Entity is dead */
         bool isDead();
+        int getID();
 
         //modifiers
         /** @brief groups all the checks an Entity is going to make before its action*/
@@ -98,13 +102,14 @@ class Entity : public Component, public Observer, public Subject
         int target_distance;
         std::vector<sf::Vector2i> path;
         sf::Vector2i top_target;
-        //std::mutex m;
+        bool lp_is_changing;
         int last_pause;
         int delta_pause;
         std::shared_ptr<sf::Clock> clock;
         std::vector<std::shared_ptr<Entity>> rov;
         std::vector<std::shared_ptr<Entity>> al;
         UI_ProgressBar* pb;
+        int id;
 
     private:
         //Base type definition
