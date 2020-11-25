@@ -111,7 +111,7 @@ void Miner::action()
             {
                 if(TRACE_EXEC)
                     std::cout << "bag not full" << '\n';
-                if(path.empty() || (path.back().x==pos.x && path.back().y==pos.y))
+                if(path.size() < 2 || (path.back().x==pos.x && path.back().y==pos.y))
                 {
                     path.clear();
                     mine();
@@ -126,14 +126,14 @@ void Miner::action()
             {
                 if(TRACE_EXEC)
                     std::cout << "bag full" << '\n';
-                notify(this,E_REQ_PATH_BASE);
-                //if(path.empty())
+
+                if(path.size() < 2)
                     depositOre();
-                /*else
+                else
                 {
                     moveTo(path.back());
                     path.pop_back();
-                }*/
+                }
             }
 
             break;
@@ -142,13 +142,11 @@ void Miner::action()
         {
             if(TRACE_EXEC)
                 std::cout << "mission complete : back to rover base" << '\n';
-            if(path.empty() && pos.x!=-1)
-                notify(this,E_REQ_PATH_BASE);
-            /*else
+            if(path.size() >= 2)
             {
                 moveTo(path.back());
                 path.pop_back();
-            }*/
+            }
             break;
         }
         default:
@@ -184,7 +182,9 @@ void Miner::checkForOre()
         if(TRACE_EXEC)
             std::cout << "-----------------------------------------------------" << '\n';
         state=MINER;
-        notify(this, E_GET_PATH_ORE);
+
+        if(getDistanceTo(objectives_positions.back())>=2)
+            notify(this, E_GET_PATH_ORE);
     }
 }
 
@@ -210,8 +210,18 @@ void Miner::mine()
 {
     notify(this,E_MINE_OCCURS);
     pause();
+
+    if(bagFull)
+    {
+        objectives_positions.pop_back();
+        notify(this,E_REQ_PATH_BASE);
+    }
+}
+
+/** @brief permits the bag to get filled */
+void Miner::fillBag()
+{
     bagFull = true;
-    objectives_positions.pop_back();
 }
 
 void Miner::depositOre()

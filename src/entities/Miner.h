@@ -43,6 +43,8 @@ class Miner : public Entity
         sf::Vector2i getTopOre();
         /** @brief takes ore next to it (1 tile distance) */
         void mine();
+        /** @brief permits the bag to get filled */
+        void fillBag();
         /** @brief gives the base the collected ore (1 tile distance) */
         void depositOre();
         void tostring();
