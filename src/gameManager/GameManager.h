@@ -42,8 +42,7 @@ public:
   @param e pointer to the entity which path needs to be compute and set
   @param e_target position of the target*/
   void compute_and_set_path(Entity* e, sf::Vector2i e_target);
-  /**@brief Game Clock*/
-  inline static sf::Clock * clock;
+  
 private:
   sf::RenderWindow window;
   std::vector<std::shared_ptr<Component>> components;

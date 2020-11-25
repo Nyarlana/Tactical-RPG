@@ -15,7 +15,6 @@ Alien::Alien(int max_LP, int xPos, int yPos, int speed, int group_number, int ta
 //inherited functions
 void Alien::on_Notify(Component* subject, Event event)
 {
-
 }
 
 void Alien::_init()
@@ -56,10 +55,6 @@ int Alien::stateValue()
 void Alien::check()
 {
     checkTargets();
-
-    if(TRACE_EXEC)
-        for ( auto it = targets.cbegin(); it != targets.cend(); ++it )
-            it->first->tostring();
 
     if(targets.empty())
         state = SEARCH;
@@ -123,8 +118,6 @@ void Alien::attack(shared_ptr<Entity> target)
 {
     if(isTargetable(target))
     {
-        std::cout << "alien gonna hit a" << '\n';
-        target->tostring();
         target->takeDamage(2);
 
         if (target->isDead())
