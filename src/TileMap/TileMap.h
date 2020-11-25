@@ -3,12 +3,19 @@
 #define TM_Y_TAB 25
 #ifndef TILEMAP_H
 #define TILEMAP_H
+
 #include <SFML/Graphics.hpp>
+
 #include <vector>
+#include <unordered_map>
+#include <memory>
+#include <mutex>
+
 #include "FileReader.h"
+#include "Tile.h"
 #include "../gameManager/Component.h"
 #include "../gameManager/Observer.h"
-#include "Tile.h"
+#include "../entities/Entity.h"
 
 /**@brief A* implementation
   Explored node, stocks where it came from*/
@@ -68,7 +75,7 @@ class TileMap : public Component, public Observer, public Subject
         @return the given move*/
         std::vector<sf::Vector2i> getRandomMove(sf::Vector2i pos);
         /**@brief Gives a random position thats valid in the TileMap
-        @return a valid position*/ 
+        @return a valid position*/
         sf::Vector2i getRandomValidPosition();
         /**@brief Gives positions of ores around pos within radius
         @param pos base position from where to look for
@@ -77,7 +84,7 @@ class TileMap : public Component, public Observer, public Subject
         std::vector<sf::Vector2i> lookForOre(sf::Vector2i pos, int radius);
         /**@brief transforms the Tile at position pos to an empty tile
         @param pos position where the ore is mined*/
-        void mine(sf::Vector2i pos);
+        bool mine(sf::Vector2i pos);
 
         // Surcharge
         virtual void on_Notify(Component* subject, Event event);
@@ -89,11 +96,15 @@ class TileMap : public Component, public Observer, public Subject
 
     private:
         Tile tilemap_tab[TM_X_TAB][TM_Y_TAB];
+        std::unordered_map<std::shared_ptr<Entity>, sf::Vector2i> entities;
+
         sf::Texture tile_texture;
         sf::Sprite empty_tile_sprite;
         sf::Sprite full_tile_sprite;
         sf::Sprite resource_tile_sprite;
         sf::Sprite resource2_tile_sprite;
+
+        std::mutex* m;
 };
 
 #endif // TILEMAP_H

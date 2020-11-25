@@ -1,12 +1,11 @@
 #include "TileMap.h"
-#include "Tile.h"
-#include "FileReader.h"
+
 #include <iostream>
 #include <set>
 #include <algorithm>
 #include <math.h>
 
-TileMap::TileMap()
+TileMap::TileMap() : m(new std::mutex())
 {
     //ctor
 }
@@ -51,8 +50,31 @@ void TileMap::testFunc()
 
 void TileMap::on_Notify(Component* subject, Event event)
 {
-  switch (event) {
-    case EVENT_TEST: printf("hello\n");
+  switch (event)
+  {
+    case E_MOVED:
+    {
+        std::shared_ptr<Entity> e = std::dynamic_pointer_cast<Entity>(
+            ((Entity*) subject)->shared_from_this()
+        );
+
+        std::unordered_map<std::shared_ptr<Entity>, sf::Vector2i>::const_iterator got = entities.find(e);
+
+        if(got == entities.end())
+            entities.emplace(e, e->getPos());
+        else
+            entities[e]=e->getPos();
+        break;
+    }
+    case E_DIED:
+    {
+        std::shared_ptr<Entity> e = std::dynamic_pointer_cast<Entity>(
+            ((Entity*) subject)->shared_from_this()
+        );
+
+        entities.erase(e);
+        break;
+    }
   }
 }
 
@@ -129,10 +151,12 @@ void TileMap::_draw(sf::RenderWindow & window)
 
 std::vector<sf::Vector2i> TileMap::request_path(const sf::Vector2i& start,const sf::Vector2i& end)
 {
+  std::unique_lock<std::mutex> l(*m);
   std::cout << "----- Computing path from "<<start.x<<'|'<<start.y<<" to "<<end.x<<'|'<<end.y<<" -----" << '\n';
   //exceptions
   std::vector<sf::Vector2i> empty;
-  if (tilemap_tab[end.x][end.y].returnTileObstacle() || tilemap_tab[start.x][start.y].returnTileObstacle())
+  if (tilemap_tab[end.x][end.y].returnTileObstacle()
+  || tilemap_tab[start.x][start.y].returnTileObstacle())
   {
     std::cout << "  empty path returned" << '\n';
     return empty;
@@ -159,8 +183,7 @@ std::vector<sf::Vector2i> TileMap::request_path(const sf::Vector2i& start,const 
     {
       for (int j = -1; j <= 1; j++)
       {
-        if ((queue.back().node.x + i >= 0) && (queue.back().node.x + i < TM_X_TAB) &&
-          (queue.back().node.y + j >= 0) && (queue.back().node.y + j < TM_Y_TAB) &&
+        if (isInMap(queue.back().node.x + i, queue.back().node.y + j) &&
         !tilemap_tab[queue.back().node.x+i][queue.back().node.y+j].returnTileObstacle())
           {
             // current update
@@ -168,7 +191,7 @@ std::vector<sf::Vector2i> TileMap::request_path(const sf::Vector2i& start,const 
             current.from = &explored.back();
             current.hcost = heuristics(current.node, start, end);
             //update vectors
-            if (current.node != queue.back().node && isNotIn(current, explored))
+            if (current.node != queue.back().node && isNotIn(current, explored) && isInMap(current.node.x, current.node.y))
             {
               std::cout << "    added " << current.node.x << '|' << current.node.y << " from : "<<current.from->node.x<<'|'<<current.from->node.y<< '\n';
               queue.insert(queue.end()-1,current);
@@ -184,8 +207,21 @@ std::vector<sf::Vector2i> TileMap::request_path(const sf::Vector2i& start,const 
     }
   }
   //return
+  std::cout << "start = " <<start.x<<", "<<start.y<< '\n';
+  std::cout << "end   = " <<end.x<<", "<<end.y<< '\n';
+
+  // NodePath end_node;
+  // current.node = end;
+  // current.from = &explored.back();
+  // current.hcost = heuristics(end, start, end);
+  //
+  // explored.push_back(end_node);
+
   empty = makePath(explored.back(), start);
-  empty.insert(empty.begin(),end);
+
+  for(int i=0; i<empty.size(); i++)
+    std::cout << "return node -> ("<<empty[i].x<<";"<<empty[i].y<<")"<< '\n';
+
   return empty;
 }
 
@@ -205,12 +241,18 @@ std::vector<sf::Vector2i> TileMap::makePath(const NodePath & from, const sf::Vec
   std::vector<sf::Vector2i> res;
   NodePath current = from;
   std::cout << "return path : " << '\n';
-  while (current.node != start)
+
+  while (res.size()==0 || res.back() != start)
   {
     res.push_back(current.node);
     std::cout << current.node.x << '|' << current.node.y << " -> " << current.from->node.x<<'|'<<current.from->node.y<< '\n';
-    current = (*current.from);
+
+    if(!isInMap(current.from->node.x,current.from->node.y))
+        res.push_back(start);
+    else
+        current = (*current.from);
   }
+
   return res;
 }
 
@@ -316,7 +358,15 @@ std::vector<sf::Vector2i> TileMap::lookForOre(sf::Vector2i pos, int radius)
     return positions;
 }
 
-void TileMap::mine(sf::Vector2i pos)
+bool TileMap::mine(sf::Vector2i pos)
 {
-    tilemap_tab[pos.x][pos.y].setTile('0');
+    std::unique_lock<std::mutex> l(*m);
+
+    if(tilemap_tab[pos.x][pos.y].returnTileValue()==2)
+    {
+        tilemap_tab[pos.x][pos.y].setTile('0');
+        return true;
+    }
+
+    return false;
 }

@@ -26,8 +26,8 @@ Component.o :
 ThreadContainer.o : Entity.o
 	g++ $(INCLUDE) -c src/gameManager/ThreadContainer.cpp -o obj/ThreadContainer.o -g obj/Entity.o $(LINKER_FLAGS)
 
-TileMap.o : FileReader.o Tile.o Component.o Observer.o
-	g++ $(INCLUDE) -c src/TileMap/TileMap.cpp -o obj/TileMap.o -g obj/FileReader.o obj/Tile.o obj/Component.o obj/Observer.o
+TileMap.o : FileReader.o Tile.o Component.o Observer.o Entity.o
+	g++ $(INCLUDE) -c src/TileMap/TileMap.cpp -o obj/TileMap.o -g obj/FileReader.o obj/Tile.o obj/Component.o obj/Observer.o obj/Entity.o
 
 FileReader.o :
 	g++ $(INCLUDE) -c src/TileMap/FileReader.cpp -o obj/FileReader.o $(LINKER_FLAGS)
