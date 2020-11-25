@@ -74,6 +74,7 @@ int Entity::lacksLP()
 void Entity::setPos(sf::Vector2i newPos)
 {
     pos = newPos;
+    notify(this,E_MOVED);
 }
 
 void Entity::setTopTarget(sf::Vector2i pos)
@@ -166,12 +167,14 @@ void Entity::moveTo(sf::Vector2i newPos)
     int x = newPos.x-pos.x;
     int y = newPos.y-pos.y;
 
-    bool distanceOk = ((int) sqrt(x*x+y*y))==1;
+    bool distanceOk = ((int) sqrt(x*x+y*y))<2;
 
     if(distanceOk)
     {
         pos = newPos;
     }
+
+    notify(this,E_MOVED);
 }
 
 void Entity::pause()
