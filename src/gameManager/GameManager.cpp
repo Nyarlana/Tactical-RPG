@@ -29,19 +29,18 @@ void GameManager::init()
   components.push_back(pb);
   pb->add_Observer(Observer::shared_from_this());
 
-  // ag.push_back(std::make_shared<AlienGroup>(2, 5));
-  // ag.push_back(std::make_shared<AlienGroup>(1, 5));
 
   for (size_t i = 0; i < ag.size(); i++)
   {
       ag[i]->add_Observer(Observer::shared_from_this());
+      ag[i]->add_Observer(tm->shared_from_this());
       components.push_back(ag[i]);
       entities.push_back(std::thread(&AlienGroup::action, ag[i].get()));
   }
 
-  // rb = std::make_shared<RoverBase>(RoverBase::launchMission("test"));
   rb->add_Observer_and_Rovers(Observer::shared_from_this());
   rb->add_Observer_and_Rovers(rb->shared_from_this());
+  rb->add_Observer_and_Rovers(tm->shared_from_this());
   components.push_back(rb);
   rb->notify(rb.get(), GM_ADD_THREAD);
 
@@ -215,7 +214,8 @@ void GameManager::on_Notify(Component* subject, Event event)
 
         if(TRACE_EXEC)
             std::cout << "mining ore..." << '\n';
-        tm->mine(e->getTopOre());
+        if(tm->mine(e->getTopOre()))
+            e->fillBag();
         break;
     }
     case E_REQ_PATH_BASE:
@@ -269,8 +269,11 @@ void GameManager::on_Notify(Component* subject, Event event)
     }
     case THIS_IS_A_WIN:
     {
+        for (size_t i = 0; i < ag.size(); i++)
+            ag[i]->die();
+
         for(int i=0; i<entities.size(); i++)
-            entities[i].detach();
+            entities[i].join();
 
         if(TRACE_EXEC)
             std::cout << "Rovers got enough ore !" << '\n';
@@ -317,12 +320,8 @@ void GameManager::compute_and_set_path(Entity* e, sf::Vector2i e_target)
     if(false)//if distance with ore >=2 then compute path with request_path
     {
         if(TRACE_EXEC)
-            std::cout << e_target.x<<","<<e_target.y<<"\n\nacquiring a position around entity's target..." << '\n';
-        sf::Vector2i m_end_pos = tm->getRandomMove(e_target).back();
-
-        if(TRACE_EXEC)
-            std::cout << m_end_pos.x<<","<<m_end_pos.y<<"\n\ncomputing path to the acquired position..." << '\n';
-        std::vector<sf::Vector2i> path = tm->request_path(e_start,m_end_pos);
+            std::cout << e_target.x<<","<<e_target.y<<"\n\ncomputing path to the acquired position..." << '\n';
+        std::vector<sf::Vector2i> path = tm->request_path(e_start,e_target);
 
         if(TRACE_EXEC)
             std::cout << "path length : "<<path.size()<<"\n\nsending path to the entity" << '\n';
