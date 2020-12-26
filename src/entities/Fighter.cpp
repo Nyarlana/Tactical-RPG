@@ -23,7 +23,7 @@ void Fighter::on_Notify(Component* subject, Event event)
 
             e->remove_Observer(Observer::shared_from_this());
 
-            if(got == targets.end())
+            if(got != targets.end())
                 targets.erase(got->first);
         }
     }

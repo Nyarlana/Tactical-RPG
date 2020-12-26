@@ -15,7 +15,7 @@ FileReader::~FileReader()
 
 }
 
-void FileReader::readFile(char tab[TM_X_TAB][TM_Y_TAB])
+void FileReader::readFile(char tab[X_SIZE][Y_SIZE])
 {
     string line;
     int line_index=0;
@@ -25,7 +25,7 @@ void FileReader::readFile(char tab[TM_X_TAB][TM_Y_TAB])
         while (getline (tilemap_file,line))
         {
             // cout<<(line_index+1)<<" - ";
-            for(int i=0;i<TM_X_TAB;++i)
+            for(int i=0;i<X_SIZE;++i)
             {
                 tab[i][line_index]=line[i];
                 // cout<<tab[line_index][i];
@@ -43,7 +43,7 @@ void FileReader::readFile(char tab[TM_X_TAB][TM_Y_TAB])
         {
             while (getline (tilemap_file2,line))
             {
-                for(int i=0;i<TM_X_TAB;++i)
+                for(int i=0;i<X_SIZE;++i)
                 {
                     tab[line_index][i]=line[i];
                 }

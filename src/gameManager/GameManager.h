@@ -42,7 +42,7 @@ public:
   @param e pointer to the entity which path needs to be compute and set
   @param e_target position of the target*/
   void compute_and_set_path(Entity* e, sf::Vector2i e_target);
-  
+
 private:
   sf::RenderWindow window;
   std::vector<std::shared_ptr<Component>> components;
@@ -55,8 +55,7 @@ private:
   std::vector<std::thread> entities;
   std::vector<std::shared_ptr<AlienGroup>> ag;
   std::shared_ptr<RoverBase> rb;
-  std::mutex m;
-
+  std::mutex* m;
 };
 
 #endif

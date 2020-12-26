@@ -1,10 +1,8 @@
 #include "Miner.h"
 
-
-
 using namespace std;
 
-Miner::Miner(int xPos, int yPos) : Entity(4, xPos, yPos, 3), bagFull(false)
+Miner::Miner(int xPos, int yPos) : Entity(4, xPos, yPos, 3)
 {
     //ctor
 }
@@ -57,9 +55,14 @@ int Miner::stateValue()
             value = 2;
             break;
         }
-        case END_GAME:
+        case GIVER:
         {
             value = 3;
+            break;
+        }
+        case END_GAME:
+        {
+            value = 4;
             break;
         }
         default:
@@ -94,10 +97,13 @@ void Miner::action()
         }
         case EXPLORATION:
         {
+            path.clear();
             if(TRACE_EXEC)
-                std::cout << "miner exploring..." << '\n';
-            if(path.empty())
-                notify(this, E_GET_RANDOM_PATH);
+            {
+                std::cout << "miner exploring...\n";
+            }
+
+            notify(this, E_GET_RANDOM_PATH);
 
             moveTo(path.back());
             path.pop_back();
@@ -105,35 +111,40 @@ void Miner::action()
         }
         case MINER:
         {
-            if(TRACE_EXEC)
-                std::cout << "miner mining..." << '\n';
-            if(!bagFull)
+
+            if(path.size() < 2 || (path.back().x==pos.x && path.back().y==pos.y))
             {
                 if(TRACE_EXEC)
-                    std::cout << "bag not full" << '\n';
-                if(path.size() < 2 || (path.back().x==pos.x && path.back().y==pos.y))
-                {
-                    path.clear();
-                    mine();
-                }
-                else
-                {
-                    moveTo(path.back());
-                    path.pop_back();
-                }
+                    std::cout << "miner mining..." << '\n';
+
+                path.clear();
+                mine();
             }
             else
             {
                 if(TRACE_EXEC)
-                    std::cout << "bag full" << '\n';
+                    std::cout << "approaching mining target..." << '\n';
 
-                if(path.size() < 2)
-                    depositOre();
-                else
-                {
-                    moveTo(path.back());
-                    path.pop_back();
-                }
+
+                moveTo(path.back());
+                path.pop_back();
+            }
+
+            break;
+        }
+        case GIVER:
+        {
+            if(TRACE_EXEC)
+                std::cout << "miner giving..." << '\n';
+
+            if(path.size() < 2)
+            {
+                depositOre();
+            }
+            else
+            {
+                moveTo(path.back());
+                path.pop_back();
             }
 
             break;
@@ -147,6 +158,8 @@ void Miner::action()
                 moveTo(path.back());
                 path.pop_back();
             }
+            else
+                std::cout << "arrived at roverbase" << '\n';
             break;
         }
         default:
@@ -172,11 +185,6 @@ void Miner::checkForOre()
 {
     notify(this,E_EXP_ORE_CHECK);
 
-    if(bagFull)
-    {
-        if(TRACE_EXEC)
-            std::cout << "--------------------------- back to RoverBase --------------------------" << '\n';
-    }
     if(!objectives_positions.empty())
     {
         if(TRACE_EXEC)
@@ -209,11 +217,11 @@ sf::Vector2i Miner::getTopOre()
 void Miner::mine()
 {
     notify(this,E_MINE_OCCURS);
+    objectives_positions.pop_back();
     pause();
 
-    if(bagFull)
+    if(state == GIVER)
     {
-        objectives_positions.pop_back();
         notify(this,E_REQ_PATH_BASE);
     }
 }
@@ -221,13 +229,13 @@ void Miner::mine()
 /** @brief permits the bag to get filled */
 void Miner::fillBag()
 {
-    bagFull = true;
+    state = GIVER;
 }
 
 void Miner::depositOre()
 {
     notify(this,E_DEP_ORE);
-    bagFull = false;
+    state = MINER;
 
     if(objectives_positions.empty())
         state = EXPLORATION;

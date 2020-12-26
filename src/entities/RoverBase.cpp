@@ -13,6 +13,7 @@ using namespace std;
 RoverBase::RoverBase(int _x_pos, int _y_pos, int _objective, string _rovers) :
     Entity(20, _x_pos, _y_pos, 4),
     objective(_objective),
+    ore_amount(0),
     point(pos),
     deads(0)
 {
@@ -88,7 +89,7 @@ void RoverBase::on_Notify(Component* subject, Event event)
 
 void RoverBase::add_Observer_and_Rovers(std::shared_ptr<Observer> obs)
 {
-    if(obs!=shared_from_this())
+    if(obs!=Observer::shared_from_this())
         add_Observer(obs);
 
     for(int i=0; i<rovers.size(); i++)
@@ -199,11 +200,11 @@ void RoverBase::missionComplete()
     notify(this,THIS_IS_A_WIN);
 }
 
+int RoverBase::getOreAmount() { return ore_amount; }
+int RoverBase::getObjective() { return objective; }
+
 void RoverBase::die()
 {
-    for(int i=0; i<rovers.size(); i++)
-        rovers[i]->die();
-        
     std::cout << "This RoverBase just died" << '\n';
     notify(this,THIS_IS_A_LOOSE);
 }

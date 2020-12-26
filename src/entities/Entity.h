@@ -29,6 +29,7 @@ enum State {
     OFFENSIVE,
     EXPLORATION,
     MINER,
+    GIVER,
     PICKER,
     END_GAME
 };

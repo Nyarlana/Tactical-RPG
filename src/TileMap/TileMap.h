@@ -1,6 +1,4 @@
 /**@file Tile Map header*/
-#define TM_X_TAB 25
-#define TM_Y_TAB 25
 #ifndef TILEMAP_H
 #define TILEMAP_H
 
@@ -9,10 +7,10 @@
 #include <vector>
 #include <unordered_map>
 #include <memory>
-#include <mutex>
 
 #include "FileReader.h"
 #include "Tile.h"
+#include "../gameManager/Parameters.h"
 #include "../gameManager/Component.h"
 #include "../gameManager/Observer.h"
 #include "../entities/Entity.h"
@@ -83,8 +81,13 @@ class TileMap : public Component, public Observer, public Subject
         @return a list of positions*/
         std::vector<sf::Vector2i> lookForOre(sf::Vector2i pos, int radius);
         /**@brief transforms the Tile at position pos to an empty tile
-        @param pos position where the ore is mined*/
+        @param pos position where the ore is mined
+        @return if the mine was possible*/
         bool mine(sf::Vector2i pos);
+        /**@brief tells if the position is taken by an Entity
+        @param pos position to test
+        @return is the position is taken*/
+        bool isTaken(sf::Vector2i pos);
 
         // Surcharge
         virtual void on_Notify(Component* subject, Event event);
@@ -95,7 +98,7 @@ class TileMap : public Component, public Observer, public Subject
     protected:
 
     private:
-        Tile tilemap_tab[TM_X_TAB][TM_Y_TAB];
+        Tile tilemap_tab[X_SIZE][Y_SIZE];
         std::unordered_map<std::shared_ptr<Entity>, sf::Vector2i> entities;
 
         sf::Texture tile_texture;
@@ -103,8 +106,6 @@ class TileMap : public Component, public Observer, public Subject
         sf::Sprite full_tile_sprite;
         sf::Sprite resource_tile_sprite;
         sf::Sprite resource2_tile_sprite;
-
-        std::mutex* m;
 };
 
 #endif // TILEMAP_H
