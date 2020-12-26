@@ -27,6 +27,20 @@ void Healer::on_Notify(Component* subject, Event event)
             setNeed(e,e->lacksLP());
             break;
         }
+        case E_DIED:
+        {
+            Fighter::on_Notify(subject, event);
+
+            shared_ptr<Entity> e = std::dynamic_pointer_cast<Entity>(
+                ((Entity*) subject)->shared_from_this()
+            );
+            unordered_map<shared_ptr<Entity>, int>::const_iterator got = heal_targets.find(e);
+
+            e->remove_Observer(Observer::shared_from_this());
+
+            if(got != heal_targets.end())
+                heal_targets.erase(got->first);
+        }
     }
 }
 

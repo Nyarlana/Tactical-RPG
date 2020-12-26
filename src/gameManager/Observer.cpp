@@ -5,15 +5,12 @@
 
 void Subject::notify(Component * subject, Event event)
 {
-  if (first!=nullptr)
-  {
     std::shared_ptr<ObsNode> actual = first;
-    while (actual->next != nullptr)
+    while (actual != nullptr)
     {
-      actual->obs->on_Notify(subject, event);
-      actual = actual->next;
+        actual->obs->on_Notify(subject, event);
+        actual = actual->next;
     }
-  }
 }
 
 void Subject::add_Observer(std::shared_ptr<Observer> obs)
@@ -24,20 +21,25 @@ void Subject::add_Observer(std::shared_ptr<Observer> obs)
     first->obs = obs;
     first->next = nullptr;
   }
+
   std::shared_ptr<ObsNode> actual = first;
-  while (actual->next != nullptr)
+  while (actual != nullptr && actual->obs != obs)
   {
-    actual = actual->next;
+      actual = actual->next;
   }
 
-  actual->next = std::make_shared<ObsNode>();
-  actual->next->obs = obs;
-  actual->next->next = nullptr;
+  if(actual == nullptr)
+  {
+      actual = std::make_shared<ObsNode>();
+      actual->next = nullptr;
+  }
+
+  actual->obs = obs;
 }
 
 void Subject::remove_Observer(std::shared_ptr<Observer> obs)
 {
-  if (first != nullptr)
+  if (first != nullptr && first->obs != obs)
   {
     std::shared_ptr<ObsNode> actual = first;
     while (actual->next != nullptr)
@@ -48,5 +50,9 @@ void Subject::remove_Observer(std::shared_ptr<Observer> obs)
       }
       actual = actual->next;
     }
+  }
+  else if(first->obs == obs)
+  {
+      first = first->next;
   }
 }

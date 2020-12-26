@@ -29,6 +29,8 @@ public:
   called every frame, draws component on window
   @param window window to draw in*/
   virtual void _draw(sf::RenderWindow & window) = 0;
+  
+private:
   bool active = true;
 };
 

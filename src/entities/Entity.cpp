@@ -73,8 +73,11 @@ int Entity::lacksLP()
 
 void Entity::setPos(sf::Vector2i newPos)
 {
-    pos = newPos;
-    notify(this,E_MOVED);
+    if(newPos.x>=0 && newPos.y>=0 && newPos.x<X_SIZE && newPos.y<Y_SIZE)
+    {
+        pos = newPos;
+        notify(this,E_MOVED);
+    }
 }
 
 void Entity::setTopTarget(sf::Vector2i pos)
@@ -104,7 +107,7 @@ int Entity::getID()
 
 void Entity::takeDamage(int value) //critical section
 {
-    unique_lock<std::mutex> l(*m);
+    m->lock();
 
     if(lp>0)
     {
@@ -121,12 +124,14 @@ void Entity::takeDamage(int value) //critical section
                 lp = max_LP;
             }
 
-            pb->substract_Value(value);
+            pb->set_Value(lp);
             notify(this,E_LP_CHANGED);
             if(TRACE_EXEC)
                 std::cout << "lp left = "<<lp << '\n';
         }
     }
+
+    m->unlock();
 }
 
 void Entity::die()
@@ -171,10 +176,8 @@ void Entity::moveTo(sf::Vector2i newPos)
 
     if(distanceOk)
     {
-        pos = newPos;
+        setPos(newPos);
     }
-
-    notify(this,E_MOVED);
 }
 
 void Entity::pause()

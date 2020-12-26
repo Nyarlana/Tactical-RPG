@@ -5,7 +5,7 @@
 #include <algorithm>
 #include <math.h>
 
-TileMap::TileMap() : m(new std::mutex())
+TileMap::TileMap()
 {
     //ctor
 }
@@ -18,13 +18,13 @@ TileMap::~TileMap()
 void TileMap::setTab()
 {
     FileReader f;
-    char intermediate_tab[TM_X_TAB][TM_Y_TAB];
+    char intermediate_tab[X_SIZE][Y_SIZE];
     f.readFile(intermediate_tab);
 
-    // std::cout << intermediate_tab[TM_X_TAB][TM_Y_TAB] << '\n';
-    for(int j=0;j<TM_Y_TAB;++j)
+    // std::cout << intermediate_tab[X_SIZE][Y_SIZE] << '\n';
+    for(int j=0;j<Y_SIZE;++j)
     {
-        for(int i=0;i<TM_X_TAB;++i)
+        for(int i=0;i<X_SIZE;++i)
         {
             tilemap_tab[i][j].setTile(intermediate_tab[i][j]);
         }
@@ -33,9 +33,9 @@ void TileMap::setTab()
 
 void TileMap::printTab()
 {
-    for(int i=0;i<TM_X_TAB;++i)
+    for(int i=0;i<X_SIZE;++i)
     {
-        for(int j=0;TM_Y_TAB;++j)
+        for(int j=0;Y_SIZE;++j)
         {
             std::cout<<tilemap_tab[i][j].returnTileValue();
         }
@@ -60,10 +60,15 @@ void TileMap::on_Notify(Component* subject, Event event)
 
         std::unordered_map<std::shared_ptr<Entity>, sf::Vector2i>::const_iterator got = entities.find(e);
 
+        std::cout << e->getPos().x << "," << e->getPos().y << '\n';
+
         if(got == entities.end())
             entities.emplace(e, e->getPos());
         else
             entities[e]=e->getPos();
+
+        std::cout << entities.size() << '\n';
+
         break;
     }
     case E_DIED:
@@ -107,9 +112,9 @@ void TileMap::_update()
 
 void TileMap::_draw(sf::RenderWindow & window)
 {
-  for(int j=0; j<TM_X_TAB; ++j)
+  for(int j=0; j<X_SIZE; ++j)
   {
-    for(int i=0; i<TM_Y_TAB; ++i)
+    for(int i=0; i<Y_SIZE; ++i)
     {
       switch(tilemap_tab[i][j].returnTileValue())
       {
@@ -151,7 +156,6 @@ void TileMap::_draw(sf::RenderWindow & window)
 
 std::vector<sf::Vector2i> TileMap::request_path(const sf::Vector2i& start,const sf::Vector2i& end)
 {
-  std::unique_lock<std::mutex> l(*m);
   std::cout << "----- Computing path from "<<start.x<<'|'<<start.y<<" to "<<end.x<<'|'<<end.y<<" -----" << '\n';
   //exceptions
   std::vector<sf::Vector2i> empty;
@@ -285,7 +289,7 @@ bool operator < (const NodePath & a,const NodePath & b)
 
 bool TileMap::isInMap(int x, int y)
 {
-    return x>=0 && y>=0 && x<TM_X_TAB && y<TM_Y_TAB;
+    return x>=0 && y>=0 && x<X_SIZE && y<Y_SIZE;
 }
 
 std::vector<sf::Vector2i> TileMap::getRandomMove(sf::Vector2i pos)
@@ -297,7 +301,8 @@ std::vector<sf::Vector2i> TileMap::getRandomMove(sf::Vector2i pos)
     }
     while(!isInMap(arrivee.x, arrivee.y) ||
             (arrivee==pos) ||
-            tilemap_tab[arrivee.x][arrivee.y].returnTileObstacle());
+            tilemap_tab[arrivee.x][arrivee.y].returnTileObstacle() ||
+            isTaken(arrivee));
 
     std::vector<sf::Vector2i> path;
     path.push_back(arrivee);
@@ -309,9 +314,9 @@ sf::Vector2i TileMap::getRandomValidPosition()
 {
     int valid_pos_nb = 0;
 
-    for(int i=0;i<TM_X_TAB;++i)
+    for(int i=0;i<X_SIZE;++i)
     {
-        for(int j=0;j<TM_Y_TAB;++j)
+        for(int j=0;j<Y_SIZE;++j)
         {
             if(tilemap_tab[i][j].returnTileValue()==0)
             {
@@ -323,9 +328,9 @@ sf::Vector2i TileMap::getRandomValidPosition()
     int pos_to_give = (rand()%valid_pos_nb)+1;
     int x=0,y=0;
 
-    for(int i=0;i<TM_X_TAB;++i)
+    for(int i=0;i<X_SIZE;++i)
     {
-        for(int j=0;j<TM_Y_TAB;++j)
+        for(int j=0;j<Y_SIZE;++j)
         {
             if(tilemap_tab[i][j].returnTileValue()==0)
             {
@@ -365,13 +370,25 @@ std::vector<sf::Vector2i> TileMap::lookForOre(sf::Vector2i pos, int radius)
 
 bool TileMap::mine(sf::Vector2i pos)
 {
-    std::unique_lock<std::mutex> l(*m);
+    std::cout << "mine lancée sur "<<pos.x<<","<<pos.y << '\n';
 
     if(tilemap_tab[pos.x][pos.y].returnTileValue()==2)
     {
         tilemap_tab[pos.x][pos.y].setTile('0');
+        std::cout << "mine effectuée" << '\n';
+
         return true;
     }
 
+    std::cout << "position vide" << '\n';
+
+    return false;
+}
+
+bool TileMap::isTaken(sf::Vector2i pos)
+{
+    for ( auto it = entities.begin(); it != entities.end(); ++it )
+        if(entities[it->first].x == pos.x && entities[it->first].y == pos.y)
+            return true;
     return false;
 }

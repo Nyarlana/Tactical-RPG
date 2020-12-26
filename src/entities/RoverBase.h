@@ -31,6 +31,8 @@ class RoverBase : public Entity
         void check();
         void action();
         void moveTo(sf::Vector2i newPos); //doesn't move at all
+        int getOreAmount();
+        int getObjective();
         void die(); //kills all Rovers and notifies the GameManager that the
                     //game is over
         void answer_radar(std::shared_ptr<Entity> e);

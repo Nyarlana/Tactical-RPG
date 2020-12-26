@@ -57,7 +57,6 @@ class Miner : public Entity
         typedef Entity super;
 
         //attributes
-        bool bagFull;                                         //has an ore
         std::vector<sf::Vector2i> objectives_positions; //positions of the ora objectives to collect
 };
 
