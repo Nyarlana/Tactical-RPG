@@ -123,7 +123,7 @@ void GameManager::mainloop()
 
     for (size_t i = 0; i < components.size(); i++)
     {
-      if (components[i]->active)
+      if (components[i]->is_Active())
       {
          components[i]->_update();
       }
@@ -132,7 +132,7 @@ void GameManager::mainloop()
     window.clear();
     for (size_t i = 0; i < components.size(); i++)
     {
-      if (components[i]->active)
+      if (components[i]->is_Active())
       {
         components[i]->_draw(window);
       }
@@ -357,7 +357,7 @@ void GameManager::compute_and_set_path(Entity* e, sf::Vector2i e_target)
 {
     sf::Vector2i e_start = e->getPos();
 
-    if(false)//if distance with ore >=2 then compute path with request_path
+    if(true)//if distance with ore >=2 then compute path with request_path
     {
         if(TRACE_EXEC)
             std::cout << e_target.x<<","<<e_target.y<<"\n\ncomputing path to the acquired position..." << '\n';
