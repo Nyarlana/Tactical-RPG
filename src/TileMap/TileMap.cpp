@@ -159,7 +159,7 @@ std::vector<sf::Vector2i> TileMap::request_path(const sf::Vector2i& start,const 
   std::cout << "----- Computing path from "<<start.x<<'|'<<start.y<<" to "<<end.x<<'|'<<end.y<<" -----" << '\n';
   //exceptions
   std::vector<sf::Vector2i> empty;
-  //empty.reserve(TM_X_TAB*TM_Y_TAB);
+  //empty.reserve(X_SIZE*Y_SIZE);
   if (tilemap_tab[end.x][end.y].returnTileObstacle()
   || tilemap_tab[start.x][start.y].returnTileObstacle())
   {
@@ -168,9 +168,9 @@ std::vector<sf::Vector2i> TileMap::request_path(const sf::Vector2i& start,const 
   }
   //used variables
   std::vector<NodePath> queue;
-  //queue.reserve(TM_X_TAB*TM_Y_TAB);
+  //queue.reserve(X_SIZE*Y_SIZE);
   std::vector<NodePath> explored;
-  explored.reserve(TM_X_TAB*TM_Y_TAB);
+  explored.reserve(X_SIZE*Y_SIZE);
   NodePath current;
   //add first node
   current.node = start;

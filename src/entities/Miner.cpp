@@ -112,12 +112,11 @@ void Miner::action()
         case MINER:
         {
 
-            if(path.size() < 2 || (path.back().x==pos.x && path.back().y==pos.y))
+            if(path.empty())
             {
                 if(TRACE_EXEC)
                     std::cout << "miner mining..." << '\n';
 
-                path.clear();
                 mine();
             }
             else
@@ -137,7 +136,7 @@ void Miner::action()
             if(TRACE_EXEC)
                 std::cout << "miner giving..." << '\n';
 
-            if(path.size() < 2)
+            if(path.empty())
             {
                 depositOre();
             }
@@ -216,9 +215,9 @@ sf::Vector2i Miner::getTopOre()
 /** @brief takes ore next to it (1 tile distance) */
 void Miner::mine()
 {
+    pause();
     notify(this,E_MINE_OCCURS);
     objectives_positions.pop_back();
-    pause();
 
     if(state == GIVER)
     {

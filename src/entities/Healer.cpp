@@ -246,20 +246,23 @@ already is the target list and needs at least 1 lp, adds it to the list
 @param value amount of point by which a target needs heal*/
 void Healer::setNeed(shared_ptr<Entity> heal_target, int value)
 {
-    unordered_map<shared_ptr<Entity>, int>::const_iterator got = heal_targets.find (heal_target);
+    if(value>0)
+    {
+        unordered_map<shared_ptr<Entity>, int>::const_iterator got = heal_targets.find (heal_target);
 
-    if(getDistanceTo(heal_target)>targetCheckArea*2 && got!=heal_targets.end())
-    {
-        heal_targets.erase(heal_target);
-        heal_target->remove_Observer(Observer::shared_from_this());
-    }
-    else
-    {
-        if ( got == heal_targets.end())
-            heal_targets.emplace (heal_target, value);
+        if(getDistanceTo(heal_target)>targetCheckArea*2 && got!=heal_targets.end())
+        {
+            heal_targets.erase(heal_target);
+            heal_target->remove_Observer(Observer::shared_from_this());
+        }
         else
-            heal_targets[got->first]=value;
-        heal_target->add_Observer(Observer::shared_from_this());
+        {
+            if ( got == heal_targets.end())
+                heal_targets.emplace (heal_target, value);
+            else
+                heal_targets[got->first]=value;
+            heal_target->add_Observer(Observer::shared_from_this());
+        }
     }
 }
 
@@ -271,6 +274,8 @@ void Healer::heal(std::shared_ptr<Entity> heal_target)
 
     if(t==nullptr)
         heal_target->takeDamage(heal_power*-1);
+
+    pause();
 }
 
 void Healer::checkHealTargets()

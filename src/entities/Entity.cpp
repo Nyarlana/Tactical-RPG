@@ -10,7 +10,7 @@ using namespace std;
 Entity::Entity(int _max_LP, int _xPos, int _yPos, int _speed) : max_LP(_max_LP),
     lp(_max_LP), pos(sf::Vector2i(_xPos, _yPos)), speed(_speed), target_distance(0),
     path(std::vector<sf::Vector2i>()),
-    pb(new UI_ProgressBar(pos, sf::Vector2i(28,2), 2, max_LP, lp, sf::Color::Red, sf::Color::Green, sf::Color::Black)),
+    pb(new UI_ProgressBar(sf::Vector2i(_xPos, _yPos), sf::Vector2i(28,2), 2, _max_LP, _max_LP)),
     id(entity_number++), m(new std::mutex())
 {
   clock = make_shared<sf::Clock>();
@@ -124,7 +124,7 @@ void Entity::takeDamage(int value) //critical section
                 lp = max_LP;
             }
 
-            pb->set_Value(lp);
+            pb->substract_Value(value);
             notify(this,E_LP_CHANGED);
             if(TRACE_EXEC)
                 std::cout << "lp left = "<<lp << '\n';
