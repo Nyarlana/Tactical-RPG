@@ -246,7 +246,7 @@ std::vector<sf::Vector2i> TileMap::makePath(const NodePath & from, const sf::Vec
   NodePath current = from;
   std::cout << "return path : " << '\n';
 
-  while (res.size()==0 || res.back() != start)
+  while (res.size()==0 || current.from->node != start)
   {
     res.push_back(current.node);
     std::cout << current.node.x << '|' << current.node.y << " -> " << current.from->node.x<<'|'<<current.from->node.y<< '\n';
@@ -257,6 +257,8 @@ std::vector<sf::Vector2i> TileMap::makePath(const NodePath & from, const sf::Vec
         current = (*current.from);
   }
 
+  res.push_back(current.node);
+  res.push_back(start);
   return res;
 }
 
