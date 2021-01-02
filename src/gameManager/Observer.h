@@ -22,7 +22,7 @@ enum Event {
   E_DEP_ORE,
   E_LF_ROV,
   E_LF_AL,
-  E_MOVED,
+  E_MOVE,
   E_DIED,
   E_LP_CHANGED,
   THIS_IS_A_WIN,

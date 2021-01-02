@@ -44,8 +44,6 @@ void GameManager::init()
   std::cout << "heeeeeeiiiiiiinnnnnnn ?????" << '\n';
   rb->notify(rb.get(), GM_ADD_THREAD);
   std::cout << "sop cétrolol" << '\n';
-  tm->notify(rb.get(), E_MOVED);
-  std::cout << "abamince1signaleman" << '\n';
   components.push_back(rb);
 
   tb = std::make_shared<UI_TextBox>(sf::Vector2i(64,64), "Hello World");
@@ -238,6 +236,15 @@ void GameManager::on_Notify(Component* subject, Event event)
             e->fillBag();
             std::cout << "bag was filled" << '\n';
         }
+        m->unlock();
+        break;
+    }
+    case E_MOVE:
+    {
+        m->lock();
+        Entity* e = (Entity*) subject;
+        if(tm->check_and_move(e->getPos(), e->getNextPos()))
+            e->setPos(e->getNextPos());
         m->unlock();
         break;
     }

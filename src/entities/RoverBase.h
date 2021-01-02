@@ -30,7 +30,7 @@ class RoverBase : public Entity
         int stateValue();
         void check();
         void action();
-        void moveTo(sf::Vector2i newPos); //doesn't move at all
+        void move(); //doesn't move at all
         int getOreAmount();
         int getObjective();
         void die(); //kills all Rovers and notifies the GameManager that the

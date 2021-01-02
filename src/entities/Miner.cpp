@@ -105,8 +105,7 @@ void Miner::action()
 
             notify(this, E_GET_RANDOM_PATH);
 
-            moveTo(path.back());
-            path.pop_back();
+            move();
             break;
         }
         case MINER:
@@ -125,8 +124,7 @@ void Miner::action()
                     std::cout << "approaching mining target..." << '\n';
 
 
-                moveTo(path.back());
-                path.pop_back();
+                move();
             }
 
             break;
@@ -142,8 +140,7 @@ void Miner::action()
             }
             else
             {
-                moveTo(path.back());
-                path.pop_back();
+                move();
             }
 
             break;
@@ -154,8 +151,7 @@ void Miner::action()
                 std::cout << "mission complete : back to rover base" << '\n';
             if(path.size() >= 2)
             {
-                moveTo(path.back());
-                path.pop_back();
+                move();
             }
             else
                 std::cout << "arrived at roverbase" << '\n';

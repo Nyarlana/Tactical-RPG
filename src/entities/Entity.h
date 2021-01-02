@@ -59,6 +59,7 @@ class Entity : public Component, public Observer, public Subject
         /** @brief gets the distance to another Entity */
         int getDistanceTo(std::shared_ptr<Entity> e);
         int getDistanceTo(sf::Vector2i other_pos);
+        sf::Vector2i getNextPos();
         int lacksLP();
         virtual int stateValue() = 0;
         sf::Vector2i getTopTargetPos();
@@ -89,7 +90,7 @@ class Entity : public Component, public Observer, public Subject
         /** @brief The Entity specific behavior*/
         virtual void action() = 0;
         /** @brief action to move for an Entity*/
-        void moveTo(sf::Vector2i newPos);
+        void move();
         void pause();
         virtual void answer_radar(std::shared_ptr<Entity> e) = 0;
         virtual void tostring() = 0;

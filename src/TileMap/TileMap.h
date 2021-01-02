@@ -5,7 +5,7 @@
 #include <SFML/Graphics.hpp>
 
 #include <vector>
-#include <unordered_map>
+#include <set>
 #include <memory>
 
 #include "FileReader.h"
@@ -68,6 +68,10 @@ class TileMap : public Component, public Observer, public Subject
           @param x x value of the position to test
           @param y y value of the position to test*/
         bool isInMap(int x, int y);
+        /**
+        
+        */
+        bool check_and_move(sf::Vector2i origin, sf::Vector2i dest);
         /**@brief Gives a random correct move
         @param pos base position from where to move
         @return the given move*/
@@ -99,7 +103,7 @@ class TileMap : public Component, public Observer, public Subject
 
     private:
         Tile tilemap_tab[X_SIZE][Y_SIZE];
-        std::unordered_map<std::shared_ptr<Entity>, sf::Vector2i> entities;
+        std::set<sf::Vector2i> entities;
 
         sf::Texture tile_texture;
         sf::Sprite empty_tile_sprite;

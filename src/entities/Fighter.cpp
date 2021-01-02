@@ -96,8 +96,7 @@ void Fighter::offensive_action()
         if(target_distance < getDistanceTo(t))
             notify(this, E_GET_PATH_E_TARGET);
 
-        moveTo(path.back());
-        path.pop_back();
+        move();
 
         target_distance = getDistanceTo(t);
     }

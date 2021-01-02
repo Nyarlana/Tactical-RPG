@@ -145,8 +145,7 @@ void Healer::action()
             if(path.empty())
                 notify(this, E_GET_RANDOM_PATH);
 
-            moveTo(path.back());
-            path.pop_back();
+            move();
             break;
         }
         case PROTECTION:
@@ -309,8 +308,7 @@ void Healer::healing_action()
         if(target_distance < getDistanceTo(t))
             notify(this, E_GET_PATH_E_TARGET);
 
-        moveTo(path.back());
-        path.pop_back();
+        move();
 
         target_distance = getDistanceTo(t);
     }
