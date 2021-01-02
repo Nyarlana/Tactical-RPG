@@ -273,11 +273,6 @@ bool TileMap::isInMap(int x, int y)
     return x>=0 && y>=0 && x<X_SIZE && y<Y_SIZE;
 }
 
-// bool operator < (const sf::Vector2i & a, const sf::Vector2i & b)
-// {
-//     return (a.x < b.x || (a.x == b.x && a.y < b.y));
-// }
-
 namespace sf
 {
 	bool operator <(sf::Vector2i Left, sf::Vector2i Right)
