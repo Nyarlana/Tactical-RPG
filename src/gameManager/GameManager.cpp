@@ -241,6 +241,15 @@ void GameManager::on_Notify(Component* subject, Event event)
         m->unlock();
         break;
     }
+    case E_MOVE:
+    {
+        m->lock();
+        Entity* e = (Entity*) subject;
+        if(tm->check_and_move(e->getPos(), e->getNextPos()))
+            e->setPos(e->getNextPos());
+        m->unlock();
+        break;
+    }
     case E_REQ_PATH_BASE:
     {
         m->lock();

@@ -52,32 +52,13 @@ void TileMap::on_Notify(Component* subject, Event event)
 {
   switch (event)
   {
-    case E_MOVED:
-    {
-        std::shared_ptr<Entity> e = std::dynamic_pointer_cast<Entity>(
-            ((Entity*) subject)->shared_from_this()
-        );
-
-        std::unordered_map<std::shared_ptr<Entity>, sf::Vector2i>::const_iterator got = entities.find(e);
-
-        std::cout << e->getPos().x << "," << e->getPos().y << '\n';
-
-        if(got == entities.end())
-            entities.emplace(e, e->getPos());
-        else
-            entities[e]=e->getPos();
-
-        std::cout << entities.size() << '\n';
-
-        break;
-    }
     case E_DIED:
     {
         std::shared_ptr<Entity> e = std::dynamic_pointer_cast<Entity>(
             ((Entity*) subject)->shared_from_this()
         );
 
-        entities.erase(e);
+        entities.erase(e->getPos());
         break;
     }
   }
@@ -292,6 +273,22 @@ bool TileMap::isInMap(int x, int y)
     return x>=0 && y>=0 && x<X_SIZE && y<Y_SIZE;
 }
 
+bool operator < (const sf::Vector2i & a, const sf::Vector2i & b)
+{
+    return (a.x < b.x || (a.x == b.x && a.y < b.y));
+}
+
+bool TileMap::check_and_move(sf::Vector2i origin, sf::Vector2i dest)
+{
+    if(entities.count(dest)==0)
+    {
+        entities.erase(origin);
+        entities.insert(dest);
+    }
+
+    return false;
+}
+
 std::vector<sf::Vector2i> TileMap::getRandomMove(sf::Vector2i pos)
 {
     sf::Vector2i arrivee;
@@ -382,13 +379,5 @@ bool TileMap::mine(sf::Vector2i pos)
 
     std::cout << "position vide" << '\n';
 
-    return false;
-}
-
-bool TileMap::isTaken(sf::Vector2i pos)
-{
-    for ( auto it = entities.begin(); it != entities.end(); ++it )
-        if(entities[it->first].x == pos.x && entities[it->first].y == pos.y)
-            return true;
     return false;
 }

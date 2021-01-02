@@ -5,7 +5,7 @@
 #include <SFML/Graphics.hpp>
 
 #include <vector>
-#include <unordered_map>
+#include <set>
 #include <memory>
 
 #include "FileReader.h"
@@ -99,7 +99,7 @@ class TileMap : public Component, public Observer, public Subject
 
     private:
         Tile tilemap_tab[X_SIZE][Y_SIZE];
-        std::unordered_map<std::shared_ptr<Entity>, sf::Vector2i> entities;
+        std::set<sf::Vector2i> entities;
 
         sf::Texture tile_texture;
         sf::Sprite empty_tile_sprite;

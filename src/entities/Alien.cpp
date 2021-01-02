@@ -71,8 +71,7 @@ void Alien::action()
             if(path.empty())
                 notify(this, E_GET_RANDOM_PATH);
 
-            moveTo(path.back());
-            path.pop_back();
+            move();
             break;
         }
         case OFFENSIVE:

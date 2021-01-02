@@ -168,7 +168,7 @@ void RoverBase::action()
     }
 }
 
-void RoverBase::moveTo(sf::Vector2i newPos) //doesn't move at all
+void RoverBase::move() //doesn't move at all
 {
 
 }

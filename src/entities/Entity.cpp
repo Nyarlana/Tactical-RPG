@@ -73,11 +73,13 @@ int Entity::lacksLP()
 
 void Entity::setPos(sf::Vector2i newPos)
 {
-    if(newPos.x>=0 && newPos.y>=0 && newPos.x<X_SIZE && newPos.y<Y_SIZE)
-    {
-        pos = newPos;
-        notify(this,E_MOVED);
-    }
+    path.pop_back();
+    pos = newPos;
+}
+
+sf::Vector2i Entity::getNextPos()
+{
+    return path.back();
 }
 
 void Entity::setTopTarget(sf::Vector2i pos)
@@ -167,17 +169,9 @@ void Entity::add(bool isRov, std::shared_ptr<Entity> e)
     }
 }
 
-void Entity::moveTo(sf::Vector2i newPos)
+void Entity::move()
 {
-    int x = newPos.x-pos.x;
-    int y = newPos.y-pos.y;
-
-    bool distanceOk = ((int) sqrt(x*x+y*y))<2;
-
-    if(distanceOk)
-    {
-        setPos(newPos);
-    }
+    notify(this, E_MOVE);
 }
 
 void Entity::pause()
