@@ -137,14 +137,16 @@ void TileMap::_draw(sf::RenderWindow & window)
 
 std::vector<sf::Vector2i> TileMap::request_path(const sf::Vector2i& start,const sf::Vector2i& end)
 {
-  std::cout << "----- Computing path from "<<start.x<<'|'<<start.y<<" to "<<end.x<<'|'<<end.y<<" -----" << '\n';
+  if(TRACE_EXEC && TM_TRACE)
+    std::cout << "----- Computing path from "<<start.x<<'|'<<start.y<<" to "<<end.x<<'|'<<end.y<<" -----" << '\n';
   //exceptions
   std::vector<sf::Vector2i> empty;
   //empty.reserve(X_SIZE*Y_SIZE);
   if (tilemap_tab[end.x][end.y].returnTileObstacle()
   || tilemap_tab[start.x][start.y].returnTileObstacle())
   {
-    std::cout << "  empty path returned" << '\n';
+    if(TRACE_EXEC && TM_TRACE)
+        std::cout << "  empty path returned" << '\n';
     return empty;
   }
   //used variables
@@ -161,11 +163,12 @@ std::vector<sf::Vector2i> TileMap::request_path(const sf::Vector2i& start,const 
   //loop
   while (queue.back().node != end)
   {
-    if (queue.back().from != 0) {
-      std::cout << "  inserting node "<<queue.back().node.x<<'|'<<queue.back().node.y << " from "<<queue.back().from->node.x<<'|'<<queue.back().from->node.y<< '\n';
-    } else {
-      std::cout << "  inserting node "<<queue.back().node.x<<'|'<<queue.back().node.y << '\n';
-    }
+    if(TRACE_EXEC && TM_TRACE)
+        if (queue.back().from != 0) {
+          std::cout << "  inserting node "<<queue.back().node.x<<'|'<<queue.back().node.y << " from "<<queue.back().from->node.x<<'|'<<queue.back().from->node.y<< '\n';
+        } else {
+          std::cout << "  inserting node "<<queue.back().node.x<<'|'<<queue.back().node.y << '\n';
+        }
     explored.push_back(queue.back());
     for (int i = -1; i <= 1; i++)
     {
@@ -181,7 +184,8 @@ std::vector<sf::Vector2i> TileMap::request_path(const sf::Vector2i& start,const 
             //update vectors
             if (current.node != queue.back().node && isNotIn(current, explored) && isInMap(current.node.x, current.node.y))
             {
-              std::cout << "    added " << current.node.x << '|' << current.node.y << " from : "<<current.from->node.x<<'|'<<current.from->node.y<< '\n';
+              if(TRACE_EXEC && TM_TRACE)
+                std::cout << "    added " << current.node.x << '|' << current.node.y << " from : "<<current.from->node.x<<'|'<<current.from->node.y<< '\n';
               queue.insert(queue.end()-1,current);
             }
           }
@@ -195,8 +199,11 @@ std::vector<sf::Vector2i> TileMap::request_path(const sf::Vector2i& start,const 
     }
   }
   //return
-  std::cout << "start = " <<start.x<<", "<<start.y<< '\n';
-  std::cout << "end   = " <<end.x<<", "<<end.y<< '\n';
+  if(TRACE_EXEC && TM_TRACE)
+  {
+      std::cout << "start = " <<start.x<<", "<<start.y<< '\n';
+      std::cout << "end   = " <<end.x<<", "<<end.y<< '\n';
+  }
 
   // NodePath end_node;
   // current.node = end;
@@ -207,8 +214,9 @@ std::vector<sf::Vector2i> TileMap::request_path(const sf::Vector2i& start,const 
 
   empty = makePath(explored.back(), start);
 
-  for(int i=0; i<empty.size(); i++)
-    std::cout << "return node -> ("<<empty[i].x<<";"<<empty[i].y<<")"<< '\n';
+  if(TRACE_EXEC && TM_TRACE)
+      for(int i=0; i<empty.size(); i++)
+        std::cout << "return node -> ("<<empty[i].x<<";"<<empty[i].y<<")"<< '\n';
 
   return empty;
 }
@@ -228,7 +236,8 @@ std::vector<sf::Vector2i> TileMap::makePath(const NodePath & from, const sf::Vec
 {
   std::vector<sf::Vector2i> res;
   NodePath current = from;
-  std::cout << "return path : " << '\n';
+  if(TRACE_EXEC && TM_TRACE)
+    std::cout << "return path : " << '\n';
 
   while (res.size()==0 || current.from->node != start)
   {
@@ -277,7 +286,6 @@ namespace sf
 {
 	bool operator <(sf::Vector2i Left, sf::Vector2i Right)
 	{
-
 		if (Left.x != Right.x)
 			return (Left.x < Right.x);
 		else
@@ -287,14 +295,20 @@ namespace sf
 
 bool TileMap::check_and_move(sf::Vector2i origin, sf::Vector2i dest)
 {
+    if(TRACE_EXEC && TM_TRACE)
+        std::cout << "on check : (" << dest.x << ", " << dest.y << ")\n";
     if(entities.count(dest)==0)
     {
         entities.erase(origin);
         entities.insert(dest);
 
+        if(TRACE_EXEC && TM_TRACE)
+            std::cout << "on move" << '\n';
         return true;
     }
 
+    if(TRACE_EXEC && TM_TRACE)
+        std::cout << "on move pas" << '\n';
     return false;
 }
 
@@ -363,7 +377,7 @@ std::vector<sf::Vector2i> TileMap::lookForOre(sf::Vector2i pos, int radius)
         for(int j=-radius; j<=radius; j++)
         {
             if((i!=0 || j!=0)
-                && (i+j!=0 && i+j!=radius*2 && i+j!=-(radius*2))
+                && ((i*i+j*j)<=radius*radius)
                 && isInMap(i+pos.x, j+pos.y)
                 && tilemap_tab[i+pos.x][j+pos.y].returnTileValue()==2
             )
@@ -376,17 +390,20 @@ std::vector<sf::Vector2i> TileMap::lookForOre(sf::Vector2i pos, int radius)
 
 bool TileMap::mine(sf::Vector2i pos)
 {
-    std::cout << "mine lancée sur "<<pos.x<<","<<pos.y << '\n';
+    if(TRACE_EXEC && TM_TRACE)
+        std::cout << "mine lancée sur "<<pos.x<<","<<pos.y << '\n';
 
     if(tilemap_tab[pos.x][pos.y].returnTileValue()==2)
     {
         tilemap_tab[pos.x][pos.y].setTile('0');
-        std::cout << "mine effectuée" << '\n';
+        if(TRACE_EXEC && TM_TRACE)
+            std::cout << "mine effectuée" << '\n';
 
         return true;
     }
 
-    std::cout << "position vide" << '\n';
+    if(TRACE_EXEC && TM_TRACE)
+        std::cout << "position vide" << '\n';
 
     return false;
 }

@@ -21,6 +21,8 @@ class Raider : public Fighter
         //inherited functions
         void on_Notify(Component* subject, Event event);
         void _init();
+        void _update();
+        void _draw(sf::RenderWindow & window);
         int stateValue();
         void check();
         void action();
@@ -41,6 +43,7 @@ class Raider : public Fighter
     private:
         //Base type definition
         typedef Fighter super;
+        UI_Point point;
 };
 
 #endif // RAIDER_H

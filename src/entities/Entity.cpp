@@ -73,13 +73,17 @@ int Entity::lacksLP()
 
 void Entity::setPos(sf::Vector2i newPos)
 {
-    path.pop_back();
+    if(!path.empty())
+        path.pop_back();
     pos = newPos;
 }
 
 sf::Vector2i Entity::getNextPos()
 {
-    return path.back();
+    if(!path.empty())
+        return path.back();
+
+    return sf::Vector2i(-1,-1);
 }
 
 void Entity::setTopTarget(sf::Vector2i pos)
@@ -128,7 +132,7 @@ void Entity::takeDamage(int value) //critical section
 
             pb->substract_Value(value);
             notify(this,E_LP_CHANGED);
-            if(TRACE_EXEC)
+            if(TRACE_EXEC && ENTITY_TRACE)
                 std::cout << "lp left = "<<lp << '\n';
         }
     }

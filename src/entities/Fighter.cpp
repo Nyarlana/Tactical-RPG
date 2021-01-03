@@ -84,7 +84,7 @@ void Fighter::offensive_action()
 {
     shared_ptr<Entity> t = getTopTarget();
 
-    if(TRACE_EXEC)
+    if(TRACE_EXEC && FIGHTER_TRACE)
         t->tostring();
 
     if(getDistanceTo(t)<2)
@@ -96,7 +96,15 @@ void Fighter::offensive_action()
         if(target_distance < getDistanceTo(t))
             notify(this, E_GET_PATH_E_TARGET);
 
-        move();
+        //path.pop_back();
+        std::cout << id << "pos actuelle : " << pos.x << "," << pos.y << '\n';
+        std::cout << id << "pos ciblée   : " << path.back().x << "," << path.back().y << '\n';
+
+        if(pos.x == path.back().x && pos.y == path.back().y)
+            path.pop_back();
+
+        if(!path.empty())
+            move();
 
         target_distance = getDistanceTo(t);
     }

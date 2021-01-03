@@ -89,16 +89,16 @@ void Miner::action()
             notify(this, E_OUT_REQ);
             while (pos.x==-1) {
                 pause();
-                if(TRACE_EXEC)
+                if(TRACE_EXEC && MINER_TRACE)
                     std::cout << "miner is waiting..." << '\n';
             }
-            state=SEARCH;
+            state=EXPLORATION;
             break;
         }
         case EXPLORATION:
         {
             path.clear();
-            if(TRACE_EXEC)
+            if(TRACE_EXEC && MINER_TRACE)
             {
                 std::cout << "miner exploring...\n";
             }
@@ -110,19 +110,17 @@ void Miner::action()
         }
         case MINER:
         {
-
             if(path.empty())
             {
-                if(TRACE_EXEC)
+                if(TRACE_EXEC && MINER_TRACE)
                     std::cout << "miner mining..." << '\n';
 
                 mine();
             }
             else
             {
-                if(TRACE_EXEC)
+                if(TRACE_EXEC && MINER_TRACE)
                     std::cout << "approaching mining target..." << '\n';
-
 
                 move();
             }
@@ -131,8 +129,8 @@ void Miner::action()
         }
         case GIVER:
         {
-            if(TRACE_EXEC)
-                std::cout << "miner giving..." << '\n';
+            if(TRACE_EXEC && MINER_TRACE)
+                std::cout << "miner giving... " << path.size() << '\n';
 
             if(path.empty())
             {
@@ -140,6 +138,8 @@ void Miner::action()
             }
             else
             {
+                std::cout << "pos actuelle : " << pos.x << "," << pos.y << '\n';
+                std::cout << "next pos     : " << path.back().x << "," << path.back().y << '\n';
                 move();
             }
 
@@ -147,7 +147,7 @@ void Miner::action()
         }
         case END_GAME:
         {
-            if(TRACE_EXEC)
+            if(TRACE_EXEC && MINER_TRACE)
                 std::cout << "mission complete : back to rover base" << '\n';
             if(path.size() >= 2)
             {
@@ -182,7 +182,7 @@ void Miner::checkForOre()
 
     if(!objectives_positions.empty())
     {
-        if(TRACE_EXEC)
+        if(TRACE_EXEC && MINER_TRACE)
             std::cout << "-----------------------------------------------------" << '\n';
         state=MINER;
 
@@ -213,11 +213,14 @@ void Miner::mine()
 {
     pause();
     notify(this,E_MINE_OCCURS);
+
     objectives_positions.pop_back();
 
     if(state == GIVER)
     {
-        notify(this,E_REQ_PATH_BASE);
+        path.clear();
+        notify(this, E_REQ_PATH_BASE);
+        path.pop_back();
     }
 }
 

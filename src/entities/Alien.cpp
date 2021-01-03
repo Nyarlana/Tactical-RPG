@@ -139,7 +139,7 @@ void Alien::checkTargets()
         {
             if(getDistanceTo(rov[i])<=targetCheckArea)
             {
-                increaseThreat(rov[i], 0);
+                increaseThreat(rov[i], 1);
             }
         }
 

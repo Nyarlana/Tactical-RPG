@@ -8,7 +8,8 @@ using namespace std;
 
 AlienGroup::AlienGroup(int alien_number, int average_alien_stats) : alien_number(alien_number), group_number(++alienGroupNumber)
 {
-    std::cout << "AlienGroup n°" << group_number << '\n';
+    if(TRACE_EXEC && ALIEN_GRP_TRACE)
+        std::cout << "AlienGroup n°" << group_number << '\n';
 
     for(int i=0; i<alien_number; i++)
     {

@@ -49,7 +49,7 @@ RoverBase::RoverBase(int _x_pos, int _y_pos, int _objective, string _rovers) :
             }
         }
 
-        if(TRACE_EXEC)
+        if(TRACE_EXEC && ROVERBASE_TRACE)
             std::cout << "A "<<type<<" was created"<< '\n';
         _rovers.pop_back();
     }
@@ -65,25 +65,10 @@ void RoverBase::on_Notify(Component* subject, Event event)
             if(typeid(*subject)!=typeid(Alien()))
                 deads++;
 
-            // if(deads == rovers.size())
-            //     notify(this,THIS_IS_A_LOOSE);
+            if(deads == rovers.size())
+                notify(this,THIS_IS_A_LOOSE);
             break;
         }
-        // case E_OUT_REQ:
-        // {
-        //     notify(this,E_GET_RANDOM_PATH);
-        //
-        //     Entity* e = (Entity*) subject;
-        //     e->setPos(path.back());
-        //     path.clear();
-        //     break;
-        // }
-        // case E_DEP_ORE:
-        // {
-        //     getOneOre();
-        //     std::cout << "ore deposited" << '\n';
-        //     break;
-        // }
     }
 }
 
@@ -168,22 +153,12 @@ void RoverBase::action()
     }
 }
 
-void RoverBase::move() //doesn't move at all
-{
-
-}
-
 void RoverBase::answer_radar(std::shared_ptr<Entity> e)
 {
     if(!isDead())
     {
         shared_ptr<Entity> me = std::dynamic_pointer_cast<Entity>(Observer::shared_from_this());
         e->add(true,me);
-
-        for(int i=0; i<rovers.size(); i++)
-        {
-            rovers[i]->answer_radar(e);
-        }
     }
 }
 

@@ -39,11 +39,7 @@ void GameManager::init()
   }
 
   rb->add_Observer_and_Rovers(Observer::shared_from_this());
-  // rb->add_Observer_and_Rovers(tm->shared_from_this());
-  // rb->add_Observer_and_Rovers(rb->shared_from_this());
-  std::cout << "heeeeeeiiiiiiinnnnnnn ?????" << '\n';
   rb->notify(rb.get(), GM_ADD_THREAD);
-  std::cout << "sop cétrolol" << '\n';
   components.push_back(rb);
 
   tb = std::make_shared<UI_TextBox>(sf::Vector2i(64,64), "Hello World");
@@ -55,6 +51,7 @@ void GameManager::init()
     components[i]->_init();
   }
 
+  tm->check_and_move(rb->getPos(), rb->getPos());
   mainloop();
 }
 
@@ -173,8 +170,10 @@ void GameManager::on_Notify(Component* subject, Event event)
     }
     case GM_ADD_THREAD:
     {
-      std::cout << "oh un thread " << ((Entity*) subject)->getID() << '\n';
       m->lock();
+
+      if(TRACE_EXEC && GM_TRACE)
+        std::cout << "oh un thread " << ((Entity*) subject)->getID() << '\n';
       entities.push_back(std::thread(ThreadContainer((Entity*) subject)));
       m->unlock();
       break;
@@ -196,7 +195,7 @@ void GameManager::on_Notify(Component* subject, Event event)
         m->lock();
         Fighter* e = (Fighter*) subject;
 
-        if(TRACE_EXEC)
+        if(TRACE_EXEC && GM_TRACE)
             std::cout << "je cherche à atteindre ma cible" << '\n';
 
         sf::Vector2i t_pos = e->getTopTarget()->getPos();
@@ -211,11 +210,11 @@ void GameManager::on_Notify(Component* subject, Event event)
         m->lock();
         Miner* e = (Miner*) subject;
 
-        if(TRACE_EXEC)
+        if(TRACE_EXEC && GM_TRACE)
             std::cout << "acquiring miner position..." << '\n';
         sf::Vector2i m_start_pos = e->getPos();
 
-        if(TRACE_EXEC)
+        if(TRACE_EXEC && GM_TRACE)
             std::cout << m_start_pos.x<<","<<m_start_pos.y<<"\n\nacquiring miner's top target position..." << '\n';
         sf::Vector2i o_pos = e->getTopOre();
 
@@ -229,7 +228,7 @@ void GameManager::on_Notify(Component* subject, Event event)
         m->lock();
         Miner* e = (Miner*) subject;
 
-        if(TRACE_EXEC)
+        if(TRACE_EXEC && GM_TRACE)
             std::cout << "mining ore..." << '\n';
         if(tm->mine(e->getTopOre()))
         {
@@ -241,11 +240,14 @@ void GameManager::on_Notify(Component* subject, Event event)
     }
     case E_MOVE:
     {
-        m->lock();
-        Entity* e = (Entity*) subject;
-        if(tm->check_and_move(e->getPos(), e->getNextPos()))
-            e->setPos(e->getNextPos());
-        m->unlock();
+        if(((RoverBase*) subject)!=nullptr)
+        {
+            m->lock();
+            Entity* e = (Entity*) subject;
+            if(tm->check_and_move(e->getPos(), e->getNextPos()))
+                e->setPos(e->getNextPos());
+            m->unlock();
+        }
         break;
     }
     case E_REQ_PATH_BASE:
@@ -253,7 +255,7 @@ void GameManager::on_Notify(Component* subject, Event event)
         m->lock();
         Entity* e = (Entity*) subject;
 
-        if(TRACE_EXEC)
+        if(TRACE_EXEC && GM_TRACE)
         {
             std::cout << "acquiring entity position..." << e->getPos().x<<","<<e->getPos().y<< '\n';
             std::cout <<"\n\nacquiring base position..." << '\n';
@@ -302,7 +304,7 @@ void GameManager::on_Notify(Component* subject, Event event)
         m->lock();
         rb->getOneOre();
 
-        if(TRACE_EXEC)
+        if(TRACE_EXEC && GM_TRACE)
             std::cout << "ore deposited" << '\n';
         m->unlock();
         break;
@@ -312,7 +314,7 @@ void GameManager::on_Notify(Component* subject, Event event)
         for(int i=0; i<entities.size(); i++)
             entities[i].detach();
 
-        if(TRACE_EXEC)
+        if(TRACE_EXEC && GM_TRACE)
             std::cout << "Rovers got enough ore !" << '\n';
 
         window.close();
@@ -322,7 +324,7 @@ void GameManager::on_Notify(Component* subject, Event event)
         for(int i=0; i<entities.size(); i++)
             entities[i].detach();
 
-        if(TRACE_EXEC)
+        if(TRACE_EXEC && GM_TRACE)
             std::cout << "Aliens succeeded in keeping their ore !" << '\n';
 
         window.close();
@@ -366,11 +368,12 @@ void GameManager::compute_and_set_path(Entity* e, sf::Vector2i e_target)
 
     if(true)//if distance with ore >=2 then compute path with request_path
     {
-        if(TRACE_EXEC)
+        if(TRACE_EXEC && GM_TRACE)
             std::cout << e_target.x<<","<<e_target.y<<"\n\ncomputing path to the acquired position..." << '\n';
         std::vector<sf::Vector2i> path = tm->request_path(e_start,e_target);
+        path.pop_back();
 
-        if(TRACE_EXEC)
+        if(TRACE_EXEC && GM_TRACE)
             std::cout << "path length : "<<path.size()<<"\n\nsending path to the entity" << '\n';
         e->setPath(path);
     }

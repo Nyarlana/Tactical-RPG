@@ -41,14 +41,14 @@ AlienGroup.o : Alien.o
 Alien.o : Fighter.o
 	g++ $(INCLUDE) -c src/entities/Alien.cpp -o obj/Alien.o -g obj/Fighter.o $(LINKER_FLAGS)
 
-Healer.o : Fighter.o
-	g++ $(INCLUDE) -c src/entities/Healer.cpp -o obj/Healer.o -g obj/Fighter.o $(LINKER_FLAGS)
+Healer.o : Fighter.o Entity.o
+	g++ $(INCLUDE) -c src/entities/Healer.cpp -o obj/Healer.o -g obj/Fighter.o obj/Entity.o $(LINKER_FLAGS)
 
-Tank.o : Fighter.o
-	g++ $(INCLUDE) -c src/entities/Tank.cpp -o obj/Tank.o -g obj/Fighter.o $(LINKER_FLAGS)
+Tank.o : Fighter.o Entity.o
+	g++ $(INCLUDE) -c src/entities/Tank.cpp -o obj/Tank.o -g obj/Fighter.o obj/Entity.o $(LINKER_FLAGS)
 
-Raider.o : Fighter.o
-	g++ $(INCLUDE) -c src/entities/Raider.cpp -o obj/Raider.o -g obj/Fighter.o $(LINKER_FLAGS)
+Raider.o : Fighter.o Entity.o
+	g++ $(INCLUDE) -c src/entities/Raider.cpp -o obj/Raider.o -g obj/Fighter.o obj/Entity.o $(LINKER_FLAGS)
 
 Fighter.o : Entity.o
 	g++ $(INCLUDE) -c src/entities/Fighter.cpp -o obj/Fighter.o -g obj/Entity.o $(LINKER_FLAGS)

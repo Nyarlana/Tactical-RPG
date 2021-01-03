@@ -132,7 +132,7 @@ void Healer::action()
             notify(this, E_OUT_REQ);
             while (pos.x==-1) {
                 pause();
-                if(TRACE_EXEC)
+                if(TRACE_EXEC && HEALER_TRACE)
                     std::cout << "healer is waiting..." << '\n';
             }
             state=SEARCH;
@@ -140,7 +140,7 @@ void Healer::action()
         }
         case SEARCH:
         {
-            if(TRACE_EXEC)
+            if(TRACE_EXEC && HEALER_TRACE)
                 std::cout << "healer searching..." << '\n';
             if(path.empty())
                 notify(this, E_GET_RANDOM_PATH);
@@ -150,27 +150,27 @@ void Healer::action()
         }
         case PROTECTION:
         {
-            if(TRACE_EXEC)
+            if(TRACE_EXEC && HEALER_TRACE)
                 std::cout << "healer protecting..." << '\n';
             break;
         }
         case HEAL:
         {
-            if(TRACE_EXEC)
+            if(TRACE_EXEC && HEALER_TRACE)
                 std::cout << "healer healing..." << '\n';
             healing_action();
             break;
         }
         case OFFENSIVE:
         {
-            if(TRACE_EXEC)
+            if(TRACE_EXEC && HEALER_TRACE)
                 std::cout << "healer attacking..." << '\n';
             offensive_action();
             break;
         }
         case END_GAME:
         {
-            if(TRACE_EXEC)
+            if(TRACE_EXEC && HEALER_TRACE)
                 std::cout << "mission complete : back to rover base" << '\n';
             if(path.empty() && pos.x!=-1)
                 notify(this,E_REQ_PATH_BASE);
@@ -294,7 +294,7 @@ void Healer::checkHealTargets()
 
 void Healer::healing_action()
 {
-    if(TRACE_EXEC)
+    if(TRACE_EXEC && HEALER_TRACE)
         std::cout << "\t--------healing_action-------" << '\n';
     std::shared_ptr<Entity> t = getTopTarget();
     t->tostring();

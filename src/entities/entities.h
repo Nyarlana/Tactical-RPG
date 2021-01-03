@@ -7,6 +7,5 @@
 #include "Miner.h"
 // #include "Protector.h"
 #include "Raider.h"
-// #include "Rover.h"
 #include "RoverBase.h"
 #include "Tank.h"

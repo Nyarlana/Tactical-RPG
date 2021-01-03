@@ -7,7 +7,7 @@
 
 using namespace std;
 
-Raider::Raider(int xPos, int yPos) : Fighter(6, xPos, yPos, 4, 3, 4)
+Raider::Raider(int xPos, int yPos) : Fighter(6, xPos, yPos, 4, 3, 4), point(pos, sf::Color::Black)
 {
     //ctor
 }
@@ -25,7 +25,7 @@ void Raider::on_Notify(Component* subject, Event event)
 
 void Raider::_init()
 {
-    super::state = OUTER;
+    Entity::state = OUTER;
 
     // if(!texture.loadFromFile("data/entities/raider.png"))
     // {
@@ -37,6 +37,19 @@ void Raider::_init()
     //
     // sprite.setTexture(texture);
     // sprite.setTextureRect(sf::IntRect(0,0,32,32));
+}
+
+void Raider::_update()
+{
+    Entity::_update();
+    point.set_Position(sf::Vector2i(32*pos.x+14,32*pos.y+14));
+}
+
+void Raider::_draw(sf::RenderWindow & window)
+{
+    Entity::_draw(window);
+
+    point._draw(window);
 }
 
 int Raider::stateValue()
@@ -81,7 +94,7 @@ void Raider::check()
         checkTargets();
 
         if(targets.empty())
-            state = SEARCH;
+            state = EXPLORATION;
         else
             state = OFFENSIVE;
     }
@@ -116,11 +129,22 @@ void Raider::action()
         }
         case END_GAME:
         {
+            std::cout << "END_GAME" << '\n';
+            if(TRACE_EXEC && RAIDER_TRACE)
+                std::cout << "mission complete : back to rover base" << '\n';
+            if(path.size() >= 2)
+            {
+                move();
+            }
+            else
+                std::cout << "arrived at roverbase" << '\n';
             break;
         }
         default:
         {
-            Entity::state = EXPLORATION;
+            std::cout << "WTF ?" << '\n';
+            state = EXPLORATION;
+            break;
         }
     }
 }
@@ -171,7 +195,7 @@ void Raider::checkTargets()
     {
         if(getDistanceTo(al[i])<=targetCheckArea)
         {
-            increaseThreat(al[i], 0);
+            increaseThreat(al[i], 1);
         }
     }
 
