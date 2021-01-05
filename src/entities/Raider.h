@@ -37,7 +37,7 @@ class Raider : public Fighter
         void speedup();
         /** @brief decreases the Raider's threat value by ?? points the Aliens see in this Raider */
         void lowProfile();
-        void tostring();
+        std::string tostring();
 
     protected:
 

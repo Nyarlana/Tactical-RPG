@@ -49,7 +49,7 @@ class Healer : public Fighter
         them */
         void checkHealTargets();
         void healing_action();
-        void tostring();
+        std::string tostring();
 
     protected:
 

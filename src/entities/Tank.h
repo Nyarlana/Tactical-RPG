@@ -38,7 +38,7 @@ class Tank : public Fighter
         void tease();
         /** @brief multiplies by ?? the threat the selected Alien see in this Tank */
         void taunt(std::shared_ptr<Alien> alien);
-        void tostring();
+        std::string tostring();
 
     protected:
 

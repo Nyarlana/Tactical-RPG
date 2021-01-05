@@ -47,7 +47,7 @@ class RoverBase : public Entity
         void putRover(int rover_number, int x, int y);
         //void getRover(Entity r);
         void takeDamage(int value);
-        void tostring();
+        std::string tostring();
 
     protected:
 

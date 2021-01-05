@@ -14,7 +14,7 @@ UI_TextBox::UI_TextBox(sf::Vector2i pos, std::string txt, int font_size, sf::Vec
       std::cout << "erreur" << '\n';
     }
   }
-  else if(TRACE_EXEC)
+  else if(TEXT_BOX_TRACE && TRACE_EXEC)
     std::cout<<"font loaded"<<std::endl;
 
   text.setCharacterSize(font_size);

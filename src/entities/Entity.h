@@ -95,7 +95,7 @@ class Entity : public Component, public Observer, public Subject
         void move();
         void pause();
         virtual void answer_radar(std::shared_ptr<Entity> e) = 0;
-        virtual void tostring() = 0;
+        virtual std::string tostring() = 0;
 
     protected:
         //attributes

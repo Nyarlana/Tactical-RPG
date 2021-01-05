@@ -40,6 +40,9 @@ void Healer::on_Notify(Component* subject, Event event)
 
             if(got != heal_targets.end())
                 heal_targets.erase(got->first);
+
+            if(!heal_targets.empty())
+                state = HEAL;
         }
     }
 }
@@ -323,7 +326,6 @@ void Healer::healing_action()
     if(TRACE_EXEC && HEALER_TRACE)
         std::cout << "\t--------healing_action-------" << '\n';
     std::shared_ptr<Entity> t = getTopTarget();
-    t->tostring();
 
     if(getDistanceTo(t)<2)
     {
@@ -381,7 +383,7 @@ int Healer::getMaxNeed()
     return maxSeenNeed;
 }
 
-void Healer::tostring()
+std::string Healer::tostring()
 {
-    std::cout<<"j'suis un healer"<<std::endl;
+    return "healer";
 }

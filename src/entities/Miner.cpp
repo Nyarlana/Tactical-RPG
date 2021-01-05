@@ -122,9 +122,7 @@ void Miner::action()
         {
             path.clear();
             if(TRACE_EXEC && MINER_TRACE)
-            {
                 std::cout << "miner exploring...\n";
-            }
 
             notify(this, E_GET_RANDOM_PATH);
 
@@ -262,7 +260,7 @@ void Miner::depositOre()
         state = EXPLORATION;
 }
 
-void Miner::tostring()
+std::string Miner::tostring()
 {
-    std::cout<<"j'suis un miner"<<std::endl;
+    return "miner";
 }

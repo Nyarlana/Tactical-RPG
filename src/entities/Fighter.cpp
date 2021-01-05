@@ -83,25 +83,34 @@ void Fighter::increaseThreat(shared_ptr<Entity> target, int threatIncrease)
 
 void Fighter::offensive_action()
 {
+    std::cout << tostring() << " : action offensive" << '\n';
     shared_ptr<Entity> t = getTopTarget();
 
     if(TRACE_EXEC && FIGHTER_TRACE)
-        t->tostring();
-
+        std::cout << id << " : j'ai fait parler ma cible " << t->tostring() << t->getID() << '\n';
     if(getDistanceTo(t)<2)
     {
+        std::cout << "j'attaque !" << '\n';
         attack(t);
     }
     else
     {
+        std::cout << "je veux me rapprocher" << '\n';
         if(target_distance < getDistanceTo(t))
             notify(this, E_GET_PATH_E_TARGET);
 
-        if(pos.x == path.back().x && pos.y == path.back().y)
-            path.pop_back();
-
+        std::cout << "je clean le chemin" << '\n';
         if(!path.empty())
-            move();
+        {
+            if(pos.x == path.back().x && pos.y == path.back().y)
+                path.pop_back();
+
+            if(!path.empty())
+            {
+                std::cout << "allez je move !" << '\n';
+                move();
+            }
+        }
 
         target_distance = getDistanceTo(t);
     }

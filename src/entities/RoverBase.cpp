@@ -252,11 +252,14 @@ RoverBase RoverBase::launchMission(string mission)
             }
         }
 
-        cout<<"pos : " << x_pos << "," << y_pos <<endl;
-        cout<<"obj : " << obj <<endl;
-        cout<<"rov : " << rovers <<endl;
+        if(TRACE_EXEC && ROVERBASE_TRACE)
+        {
+            cout<<"pos : " << x_pos << "," << y_pos <<endl;
+            cout<<"obj : " << obj <<endl;
+            cout<<"rov : " << rovers <<endl;
 
-        cout<<"test open : "<< (mission_file.is_open()?"yes":"no") <<endl;
+            cout<<"test open : "<< (mission_file.is_open()?"yes":"no") <<endl;
+        }
 
         mission_file.close();
     }
@@ -290,7 +293,7 @@ void RoverBase::takeDamage(int value)
     std::cout << "Oh là là " << value << "pv, pv restants = "<< lp << '\n';
 }
 
-void RoverBase::tostring()
+std::string RoverBase::tostring()
 {
-    std::cout<<"j'suis une roverbase"<<std::endl;
+    return "roverbase";
 }

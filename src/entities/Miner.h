@@ -48,7 +48,7 @@ class Miner : public Entity
         void fillBag();
         /** @brief gives the base the collected ore (1 tile distance) */
         void depositOre();
-        void tostring();
+        std::string tostring();
 
 
     protected:

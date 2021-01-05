@@ -152,7 +152,6 @@ void Raider::action()
         }
         case END_GAME:
         {
-            std::cout << "END_GAME" << '\n';
             if(TRACE_EXEC && RAIDER_TRACE)
                 std::cout << "mission complete : back to rover base" << '\n';
             if(path.size() >= 2)
@@ -235,7 +234,7 @@ void Raider::lowProfile()
     //notify(this,E_LOW_PROFILE);
 }
 
-void Raider::tostring()
+std::string Raider::tostring()
 {
-    std::cout<<"j'suis un raider"<<std::endl;
+    return "raider";
 }

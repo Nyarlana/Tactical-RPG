@@ -94,6 +94,12 @@ void Alien::action()
         }
         case OFFENSIVE:
         {
+            shared_ptr<Alien> t = dynamic_pointer_cast<Alien>(getTopTarget());
+            if(t != nullptr)
+                std::cout << "coucou je cible un alien" << '\n';
+            else
+                std::cout << "coucou je cible PAS un alien" << '\n';
+            std::cout << "ma cible est déclarée" << '\n';
             offensive_action();
             break;
         }
@@ -190,7 +196,7 @@ int Alien::getGroup()
     return group_number;
 }
 
-void Alien::tostring()
+std::string Alien::tostring()
 {
-    std::cout<<"j'suis un alien"<<std::endl;
+    return "alien";
 }

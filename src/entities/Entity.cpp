@@ -14,9 +14,10 @@ Entity::Entity(int _max_LP, int _xPos, int _yPos, int _speed) : max_LP(_max_LP),
     tb(new UI_TextBox(sf::Vector2i(_xPos, _yPos), "state", 12, sf::Vector2i(2,2), sf::Color::White, sf::Color(0,0,0,100), "data/font.ttf")),
     id(entity_number++), m(new std::mutex())
 {
-  clock = make_shared<sf::Clock>();
-  last_pause = clock->restart().asMilliseconds();
-  std::cout << id << '\n';
+    clock = make_shared<sf::Clock>();
+    last_pause = clock->restart().asMilliseconds();
+    if(TRACE_EXEC && ENTITY_TRACE)
+        std::cout << id << '\n';
 }
 
 void Entity::_update()
@@ -182,7 +183,8 @@ void Entity::add(bool isRov, std::shared_ptr<Entity> e)
 
 void Entity::move()
 {
-    notify(this, E_MOVE);
+    if(!path.empty())
+        notify(this, E_MOVE);
 }
 
 void Entity::pause()

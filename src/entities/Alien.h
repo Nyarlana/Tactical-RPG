@@ -33,7 +33,7 @@ class Alien : public Fighter
         void checkTargets();
         int getGroup();
         bool isTargetable(std::shared_ptr<Entity> target);
-        void tostring();
+        std::string tostring();
 
     protected:
 

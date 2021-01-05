@@ -161,7 +161,7 @@ void Tank::taunt(shared_ptr<Alien> alien)
     //alien->increaseThreat(shared_ptr<Entity>(this), ??)
 }
 
-void Tank::tostring()
+std::string Tank::tostring()
 {
-    std::cout<<"j'suis un tank"<<std::endl;
+    return "tank";
 }
