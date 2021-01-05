@@ -23,6 +23,7 @@ class Alien : public Fighter
         void on_Notify(Component* subject, Event event);
         void _init();
         int stateValue();
+        std::string getStateS();
         void check();
         void action();
         void die();                                                 //overrides Entity::die(), destructs itself after notifying its group of its death

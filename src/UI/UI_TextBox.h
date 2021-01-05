@@ -17,7 +17,7 @@ public:
     @param text_col color of text
     @param bg_col color of background
     @param filename adress of font*/
-  UI_TextBox(sf::Vector2i pos, std::string text,int font_size = 24, sf::Vector2i mar = sf::Vector2i(2,2), sf::Color text_col = sf::Color::White, sf::Color bg_col = sf::Color(0,0,0,100), std::string filename = "data/font.ttf");
+  UI_TextBox(sf::Vector2i pos, std::string text, int font_size = 24, sf::Vector2i mar = sf::Vector2i(2,2), sf::Color text_col = sf::Color::White, sf::Color bg_col = sf::Color(0,0,0,100), std::string filename = "data/font.ttf");
   /**@brief sets inner text
   @param str string to display*/
   void setText(std::string str);

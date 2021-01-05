@@ -28,6 +28,7 @@ class RoverBase : public Entity
         void _update();
         void _draw(sf::RenderWindow & window);
         int stateValue();
+        std::string getStateS();
         void check();
         void action();
         int getOreAmount();

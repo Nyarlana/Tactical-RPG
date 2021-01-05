@@ -52,6 +52,24 @@ int Alien::stateValue()
     return value;
 }
 
+std::string Alien::getStateS()
+{
+    std::string the_string;
+
+    switch (state)
+    {
+        case SEARCH:
+            the_string = "SEARCH"; break;
+        case OFFENSIVE:
+            the_string = "OFFENSIVE"; break;
+        default:
+            the_string = "ERROR";
+    }
+
+    the_string += " : " + std::to_string(targets.size());
+    return the_string;
+}
+
 void Alien::check()
 {
     checkTargets();
@@ -120,10 +138,7 @@ void Alien::attack(shared_ptr<Entity> target)
         target->takeDamage(2);
 
         if (target->isDead())
-        {
-            targets.erase(target);
             path.clear();
-        }
     }
 }
 
@@ -139,7 +154,7 @@ void Alien::checkTargets()
         {
             if(getDistanceTo(rov[i])<=targetCheckArea)
             {
-                increaseThreat(rov[i], 1);
+                increaseThreat(rov[i], 2);
             }
         }
 
@@ -152,7 +167,7 @@ void Alien::checkTargets()
             if(getDistanceTo(al[i])<=targetCheckArea)
             {
                 if(isTargetable(al[i]))
-                    increaseThreat(al[i], 0);
+                    increaseThreat(al[i], 1);
             }
         }
 

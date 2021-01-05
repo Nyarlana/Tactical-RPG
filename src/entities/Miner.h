@@ -31,6 +31,7 @@ class Miner : public Entity
         void on_Notify(Component* subject, Event event);
         void _init();
         int stateValue();
+        std::string getStateS();
         void check();
         void action();
         void answer_radar(std::shared_ptr<Entity> e);

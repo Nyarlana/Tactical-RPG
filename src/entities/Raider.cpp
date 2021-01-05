@@ -87,6 +87,29 @@ int Raider::stateValue()
     return value;
 }
 
+std::string Raider::getStateS()
+{
+
+    std::string the_string;
+
+    switch (Entity::state)
+    {
+        case OUTER:
+            the_string = "OUTER"; break;
+        case EXPLORATION:
+            the_string = "EXPLORATION"; break;
+        case OFFENSIVE:
+            the_string = "OFFENSIVE"; break;
+        case END_GAME:
+            the_string = "END_GAME"; break;
+        default:
+            the_string = "ERROR";
+    }
+
+    the_string += " : " + std::to_string(targets.size());
+    return the_string;
+}
+
 void Raider::check()
 {
     if(state!=OUTER && state!=END_GAME)
@@ -178,10 +201,7 @@ void Raider::attack(shared_ptr<Entity> target)
         target->takeDamage(5);
 
         if (target->isDead())
-        {
-            targets.erase(target);
             path.clear();
-        }
     }
 }
 

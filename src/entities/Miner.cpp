@@ -74,6 +74,29 @@ int Miner::stateValue()
     return value;
 }
 
+std::string Miner::getStateS()
+{
+    std::string the_string;
+
+    switch (Entity::state)
+    {
+        case OUTER:
+            return "OUTER";
+        case EXPLORATION:
+            return "SEARCH";
+        case MINER:
+            return "PROTECTION";
+        case GIVER:
+            return "GIVER";
+        case END_GAME:
+            return "END_GAME";
+        default:
+            return "ERROR";
+    }
+
+    return the_string;
+}
+
 void Miner::check()
 {
     if(state!=OUTER && state!=END_GAME)

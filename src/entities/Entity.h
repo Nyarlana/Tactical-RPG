@@ -31,7 +31,8 @@ enum State {
     MINER,
     GIVER,
     PICKER,
-    END_GAME
+    END_GAME,
+    RANDOM
 };
 
 static int entity_number = 0;
@@ -62,6 +63,7 @@ class Entity : public Component, public Observer, public Subject
         sf::Vector2i getNextPos();
         int lacksLP();
         virtual int stateValue() = 0;
+        virtual std::string getStateS() = 0;
         sf::Vector2i getTopTargetPos();
         void setTopTargetPos(sf::Vector2i pos);
         void setPath(std::vector<sf::Vector2i> new_path);
@@ -107,13 +109,13 @@ class Entity : public Component, public Observer, public Subject
         std::vector<sf::Vector2i> path;
         sf::Vector2i top_target;
         std::mutex* m;
-        // std::condition_variable* pv_changed;
         int last_pause;
         int delta_pause;
         std::shared_ptr<sf::Clock> clock;
         std::vector<std::shared_ptr<Entity>> rov;
         std::vector<std::shared_ptr<Entity>> al;
         UI_ProgressBar* pb;
+        UI_TextBox* tb;
         int id;
         int max_LP;                 //max life points of the Entity,
 

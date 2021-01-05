@@ -11,6 +11,7 @@ Entity::Entity(int _max_LP, int _xPos, int _yPos, int _speed) : max_LP(_max_LP),
     lp(_max_LP), pos(sf::Vector2i(_xPos, _yPos)), speed(_speed), target_distance(0),
     path(std::vector<sf::Vector2i>()),
     pb(new UI_ProgressBar(sf::Vector2i(_xPos, _yPos), sf::Vector2i(28,2), 2, _max_LP, _max_LP)),
+    tb(new UI_TextBox(sf::Vector2i(_xPos, _yPos), "state", 12, sf::Vector2i(2,2), sf::Color::White, sf::Color(0,0,0,100), "data/font.ttf")),
     id(entity_number++), m(new std::mutex())
 {
   clock = make_shared<sf::Clock>();
@@ -27,6 +28,9 @@ void Entity::_update()
         sprite.setTextureRect(sf::IntRect(estDebout*32,0*32,32,32));
         pb->set_Position(sf::Vector2i(pos.x*32+2, pos.y*32));
         pb->_update();
+        tb->set_Position(sf::Vector2i(pos.x*32+6, pos.y*32+10));
+        tb->setText(getStateS());
+        tb->_update();
     }
 }
 
@@ -37,6 +41,7 @@ void Entity::_draw(sf::RenderWindow & window)
         sprite.setPosition(pos.x*32, pos.y*32);
         window.draw(sprite);
         pb->_draw(window);
+        tb->_draw(window);
     }
 }
 
@@ -52,7 +57,9 @@ sf::Vector2i Entity::getTopTargetPos()
 
 int Entity::getDistanceTo(std::shared_ptr<Entity> e)
 {
-    return getDistanceTo(e->getPos());
+    if(!e->isDead())
+        return getDistanceTo(e->getPos());
+    return 1000000;
 }
 
 int Entity::getDistanceTo(sf::Vector2i other_pos)

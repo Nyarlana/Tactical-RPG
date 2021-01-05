@@ -111,6 +111,11 @@ int RoverBase::stateValue()
     return (Entity::state==PICKER || Entity::state==END_GAME)?1:-1;
 }
 
+std::string RoverBase::getStateS()
+{
+    return "Who cares ?";
+}
+
 void RoverBase::_update()
 {
     Entity::_update();
@@ -159,6 +164,9 @@ void RoverBase::answer_radar(std::shared_ptr<Entity> e)
     {
         shared_ptr<Entity> me = std::dynamic_pointer_cast<Entity>(Observer::shared_from_this());
         e->add(true,me);
+
+        for (int i = 0; i < rovers.size(); i++)
+            rovers[i]->answer_radar(e);
     }
 }
 

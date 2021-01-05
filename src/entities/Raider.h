@@ -24,6 +24,7 @@ class Raider : public Fighter
         void _update();
         void _draw(sf::RenderWindow & window);
         int stateValue();
+        std::string getStateS();
         void check();
         void action();
         void answer_radar(std::shared_ptr<Entity> e);

@@ -68,6 +68,30 @@ int Tank::stateValue()
     return value;
 }
 
+std::string Tank::getStateS()
+{
+    std::string the_string;
+
+    switch (Entity::state)
+    {
+        case OUTER:
+            the_string = "OUTER"; break;
+        case SEARCH:
+            the_string = "SEARCH"; break;
+        case PROTECTION:
+            the_string = "PROTECTION"; break;
+        case OFFENSIVE:
+            the_string = "OFFENSIVE"; break;
+        case END_GAME:
+            the_string = "END_GAME"; break;
+        default:
+            the_string = "ERROR";
+    }
+
+    the_string += " : " + std::to_string(targets.size());
+    return the_string;
+}
+
 void Tank::check()
 {
 

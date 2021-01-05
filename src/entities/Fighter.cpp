@@ -25,6 +25,9 @@ void Fighter::on_Notify(Component* subject, Event event)
 
             if(got != targets.end())
                 targets.erase(got->first);
+
+            if(targets.empty())
+                state = RANDOM;
         }
     }
 }
@@ -38,20 +41,18 @@ std::shared_ptr<Entity> Fighter::getTopTarget()
 {
     if(!targets.empty())
     {
-        shared_ptr<Entity> t = nullptr;
-        int  maxSeenThreat   = 0;
+        shared_ptr<Entity> t  = nullptr;
+        int maxRelativeThreat = 0;
+        int relativeThreat;
 
         for ( auto it = targets.cbegin(); it != targets.cend(); ++it )
         {
-            if(t == nullptr || targets[it->first]>maxSeenThreat)
+            relativeThreat = targets[it->first]/getDistanceTo(it->first);
+
+            if(t == nullptr || relativeThreat>maxRelativeThreat)
             {
                 t = it->first;
-                maxSeenThreat = targets[it->first];
-            }
-            else if(targets[it->first]==maxSeenThreat &&
-                    getDistanceTo(it->first)<getDistanceTo(t))
-            {
-                t = it->first;
+                maxRelativeThreat = relativeThreat;
             }
         }
 
@@ -95,10 +96,6 @@ void Fighter::offensive_action()
     {
         if(target_distance < getDistanceTo(t))
             notify(this, E_GET_PATH_E_TARGET);
-
-        //path.pop_back();
-        std::cout << id << "pos actuelle : " << pos.x << "," << pos.y << '\n';
-        std::cout << id << "pos ciblée   : " << path.back().x << "," << path.back().y << '\n';
 
         if(pos.x == path.back().x && pos.y == path.back().y)
             path.pop_back();

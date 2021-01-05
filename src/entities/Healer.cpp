@@ -105,6 +105,32 @@ int Healer::stateValue()
     return value;
 }
 
+std::string Healer::getStateS()
+{
+    std::string the_string;
+
+    switch (Entity::state)
+    {
+        case OUTER:
+            the_string = "OUTER"; break;
+        case SEARCH:
+            the_string = "SEARCH"; break;
+        case PROTECTION:
+            the_string = "PROTECTION"; break;
+        case HEAL:
+            the_string = "HEAL"; break;
+        case OFFENSIVE:
+            the_string = "OFFENSIVE"; break;
+        case END_GAME:
+            the_string = "END_GAME"; break;
+        default:
+            the_string = "ERROR";
+    }
+
+    the_string += " : " + std::to_string(targets.size());
+    return the_string;
+}
+
 void Healer::check()
 {
     if(state!=OUTER && state!=END_GAME)

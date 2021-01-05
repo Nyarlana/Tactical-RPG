@@ -5,7 +5,7 @@
 static bool TRACE_EXEC = true;
 
 static bool GM_TRACE = false;
-static bool TM_TRACE = true;
+static bool TM_TRACE = false;
 
 static bool ALIEN_TRACE     = true;
 static bool ALIEN_GRP_TRACE = false;
