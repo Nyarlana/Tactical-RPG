@@ -408,6 +408,11 @@ bool TileMap::mine(sf::Vector2i pos)
     return false;
 }
 
+bool TileMap::isFree(sf::Vector2i pos)
+{
+    return isInMap(pos.x, pos.y) && tilemap_tab[pos.x][pos.y].returnTileValue()==0 && !isTaken(pos);
+}
+
 bool TileMap::isTaken(sf::Vector2i pos)
 {
     return entities.count(pos)>0;

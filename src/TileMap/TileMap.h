@@ -69,7 +69,7 @@ class TileMap : public Component, public Observer, public Subject
           @param y y value of the position to test*/
         bool isInMap(int x, int y);
         /**
-        
+
         */
         bool check_and_move(sf::Vector2i origin, sf::Vector2i dest);
         /**@brief Gives a random correct move
@@ -88,6 +88,10 @@ class TileMap : public Component, public Observer, public Subject
         @param pos position where the ore is mined
         @return if the mine was possible*/
         bool mine(sf::Vector2i pos);
+        /**@brief tells if the position is completely free
+        @param pos position to test
+        @return is the position is free*/
+        bool isFree(sf::Vector2i pos);
         /**@brief tells if the position is taken by an Entity
         @param pos position to test
         @return is the position is taken*/

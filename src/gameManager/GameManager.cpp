@@ -217,8 +217,32 @@ void GameManager::on_Notify(Component* subject, Event event)
         if(TRACE_EXEC && GM_TRACE)
             std::cout << m_start_pos.x<<","<<m_start_pos.y<<"\n\nacquiring miner's top target position..." << '\n';
         sf::Vector2i o_pos = e->getTopOre();
+        sf::Vector2i t_pos = sf::Vector2i(-1,-1);
+        sf::Vector2i inter_pos;
+        int dist = e->getDistanceTo(o_pos)+3;
+        int inter_dist;
 
-        compute_and_set_path(e, o_pos);
+        for(int i=-1; i<2; i++)
+        {
+            for(int j=-1; j<2; j++)
+            {
+                if(i!=0 || j!=0)
+                {
+                    inter_pos  = sf::Vector2i(o_pos.x+i,o_pos.y+j);
+                    inter_dist = e->getDistanceTo(inter_pos);
+
+                    if((t_pos.x==-1) ||
+                        tm->isFree(inter_pos) && (e->getDistanceTo(inter_pos) < dist)
+                        )
+                    {
+                        t_pos = inter_pos;
+                        dist  = inter_dist;
+                    }
+                }
+            }
+        }
+
+        compute_and_set_path(e, t_pos);
         m->unlock();
 
         break;
