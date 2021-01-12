@@ -85,7 +85,7 @@ std::string Miner::getStateS()
         case EXPLORATION:
             return "SEARCH";
         case MINER:
-            return "PROTECTION";
+            return "MINER";
         case GIVER:
             return "GIVER";
         case END_GAME:
