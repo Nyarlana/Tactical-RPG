@@ -20,9 +20,10 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="alien_big.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Tactical RPG - Projet L3
-   &#160;<span id="projectnumber">0.2</span>
+   &#160;<span id="projectnumber">0.95</span>
    </div>
    <div id="projectbrief">Un jeu de tactical rpg/simulation créé dans le cadre d&#39;un projet de L3 informatique</div>
   </td>
@@ -73,29 +74,30 @@ $(function() {
 <div class="contents">
 <div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#include &quot;../gameManager/Observer.h&quot;</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#include &quot;../gameManager/Component.h&quot;</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &quot;../gameManager/GameManager.h&quot;</span></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;SFML/Graphics.hpp&gt;</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160; </div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#ifndef UI_COMPONENT</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#define UI_COMPONENT</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160; </div>
-<div class="line"><a name="l00011"></a><span class="lineno"><a class="line" href="class_u_i___component.html">   11</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_u_i___component.html">UI_Component</a> : <span class="keyword">public</span> <a class="code" href="class_observer.html">Observer</a>, <span class="keyword">public</span> <a class="code" href="class_subject.html">Subject</a>, <span class="keyword">public</span> <a class="code" href="class_component.html">Component</a></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;{</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;  <a class="code" href="class_u_i___component.html#a7b72c210160c634cc2d08191ee8223b3">UI_Component</a>();</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;  <a class="code" href="class_u_i___component.html#a7b72c210160c634cc2d08191ee8223b3">UI_Component</a>(sf::Vector2i pos);</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="class_u_i___component.html#a87e2eec4bab92516ef2139de642de8cd">set_Position</a>(sf::Vector2i pos);</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="keyword">protected</span>:</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;  sf::Vector2i position;</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;};</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &lt;SFML/Graphics.hpp&gt;</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160; </div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#ifndef UI_COMPONENT</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#define UI_COMPONENT</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160; </div>
+<div class="line"><a name="l00010"></a><span class="lineno"><a class="line" href="class_u_i___component.html">   10</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_u_i___component.html">UI_Component</a> : <span class="keyword">public</span> <a class="code" href="class_observer.html">Observer</a>, <span class="keyword">public</span> <a class="code" href="class_subject.html">Subject</a>, <span class="keyword">public</span> <a class="code" href="class_component.html">Component</a></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;{</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;  <a class="code" href="class_u_i___component.html#a7b72c210160c634cc2d08191ee8223b3">UI_Component</a>();</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;  <a class="code" href="class_u_i___component.html#a7b72c210160c634cc2d08191ee8223b3">UI_Component</a>(sf::Vector2i pos);</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_u_i___component.html#a87e2eec4bab92516ef2139de642de8cd">set_Position</a>(sf::Vector2i pos);</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;  sf::Vector2i <a class="code" href="class_u_i___component.html#a1d6c09834ed76bfc48da423f7196dcda">get_Position</a>();</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;  sf::Vector2i position;</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;};</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#endif</span></div>
 </div><!-- fragment --></div><!-- contents -->
-<div class="ttc" id="aclass_observer_html"><div class="ttname"><a href="class_observer.html">Observer</a></div><div class="ttdoc">observer class observes a subject and react to events</div><div class="ttdef"><b>Definition:</b> Observer.h:21</div></div>
+<div class="ttc" id="aclass_observer_html"><div class="ttname"><a href="class_observer.html">Observer</a></div><div class="ttdoc">observer class observes a subject and react to events</div><div class="ttdef"><b>Definition:</b> Observer.h:36</div></div>
 <div class="ttc" id="aclass_component_html"><div class="ttname"><a href="class_component.html">Component</a></div><div class="ttdoc">components of the GM class</div><div class="ttdef"><b>Definition:</b> Component.h:10</div></div>
-<div class="ttc" id="aclass_subject_html"><div class="ttname"><a href="class_subject.html">Subject</a></div><div class="ttdoc">subject class observed by observers, can notify them</div><div class="ttdef"><b>Definition:</b> Observer.h:41</div></div>
+<div class="ttc" id="aclass_subject_html"><div class="ttname"><a href="class_subject.html">Subject</a></div><div class="ttdoc">subject class observed by observers, can notify them</div><div class="ttdef"><b>Definition:</b> Observer.h:56</div></div>
 <div class="ttc" id="aclass_u_i___component_html_a7b72c210160c634cc2d08191ee8223b3"><div class="ttname"><a href="class_u_i___component.html#a7b72c210160c634cc2d08191ee8223b3">UI_Component::UI_Component</a></div><div class="ttdeci">UI_Component()</div><div class="ttdoc">empty constructor inheritance purposes</div><div class="ttdef"><b>Definition:</b> UI_Component.cpp:3</div></div>
-<div class="ttc" id="aclass_u_i___component_html"><div class="ttname"><a href="class_u_i___component.html">UI_Component</a></div><div class="ttdoc">generic class for all UI Components</div><div class="ttdef"><b>Definition:</b> UI_Component.h:11</div></div>
-<div class="ttc" id="aclass_u_i___component_html_a87e2eec4bab92516ef2139de642de8cd"><div class="ttname"><a href="class_u_i___component.html#a87e2eec4bab92516ef2139de642de8cd">UI_Component::set_Position</a></div><div class="ttdeci">void set_Position(sf::Vector2i pos)</div><div class="ttdoc">position setter</div><div class="ttdef"><b>Definition:</b> UI_Component.cpp:10</div></div>
+<div class="ttc" id="aclass_u_i___component_html_a1d6c09834ed76bfc48da423f7196dcda"><div class="ttname"><a href="class_u_i___component.html#a1d6c09834ed76bfc48da423f7196dcda">UI_Component::get_Position</a></div><div class="ttdeci">sf::Vector2i get_Position()</div><div class="ttdoc">position getter</div><div class="ttdef"><b>Definition:</b> UI_Component.cpp:14</div></div>
+<div class="ttc" id="aclass_u_i___component_html"><div class="ttname"><a href="class_u_i___component.html">UI_Component</a></div><div class="ttdoc">generic class for all UI Components</div><div class="ttdef"><b>Definition:</b> UI_Component.h:10</div></div>
+<div class="ttc" id="aclass_u_i___component_html_a87e2eec4bab92516ef2139de642de8cd"><div class="ttname"><a href="class_u_i___component.html#a87e2eec4bab92516ef2139de642de8cd">UI_Component::set_Position</a></div><div class="ttdeci">virtual void set_Position(sf::Vector2i pos)</div><div class="ttdoc">position setter</div><div class="ttdef"><b>Definition:</b> UI_Component.cpp:10</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by &#160;<a href="http://www.doxygen.org/index.html">

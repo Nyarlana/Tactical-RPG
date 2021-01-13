@@ -20,9 +20,10 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="alien_big.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Tactical RPG - Projet L3
-   &#160;<span id="projectnumber">0.2</span>
+   &#160;<span id="projectnumber">0.95</span>
    </div>
    <div id="projectbrief">Un jeu de tactical rpg/simulation créé dans le cadre d&#39;un projet de L3 informatique</div>
   </td>
@@ -84,41 +85,53 @@ $(function() {
 <div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="class_raider.html">   13</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_raider.html">Raider</a> : <span class="keyword">public</span> <a class="code" href="class_fighter.html">Fighter</a></div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;{</div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;        <a class="code" href="class_raider.html#a9dffb2507c1db0920edc65d675ce8aeb">Raider</a>(<span class="keywordtype">int</span> xPos, <span class="keywordtype">int</span> yPos);</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;        <a class="code" href="class_raider.html#a93e96fcb6c0a462c761a959a3d80bd39">Raider</a>(<span class="keywordtype">int</span> xPos=-1, <span class="keywordtype">int</span> yPos=-1);</div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;        <a class="code" href="class_raider.html#a06b75c1fbbd12d526423776bc751c867">~Raider</a>();</div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;        <span class="comment">//inherited functions</span></div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_raider.html#a37be8d1b69dfbdb6054a86d79cf5d8cc">on_Notify</a>(<span class="keyword">const</span> <a class="code" href="class_component.html">Component</a>* subject, Event event);</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_raider.html#a123236ccbaf6710c18d2b0edc309f5d6">on_Notify</a>(<a class="code" href="class_component.html">Component</a>* subject, Event event);</div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_raider.html#a442b30d966f695cdb79246a897207baa">_init</a>();</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        <span class="keywordtype">int</span> stateValue();</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_raider.html#ab97ba4aa3e2701b7c6bda3d45bd15dd8">action</a>();</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        <span class="comment">// void increaseThreat(std::shared_ptr&lt;Entity&gt; target, int threatIncrease);</span></div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_raider.html#ac0273202faa69a14e92bf96db2cff68c">attack</a>(std::shared_ptr&lt;Entity&gt; target);</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        <span class="comment">//Class skills</span></div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="comment"></span>        <span class="keywordtype">void</span> <a class="code" href="class_raider.html#a2c29882a2fe873250e116dce69d40868">speedup</a>();</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_raider.html#ae73ccbf26c564853054befdcee521254">lowProfile</a>();</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_raider.html#ab371a7b34549cd2a9f5e5357336ad635">_update</a>();</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_raider.html#aaae018fbacd1bf4cbc4c979e50704606">_draw</a>(sf::RenderWindow &amp; window);</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        <span class="keywordtype">int</span> stateValue();</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        std::string getStateS();</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_raider.html#a58ad98d2b5e203eff38b04fd55c81094">check</a>();</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_raider.html#ab97ba4aa3e2701b7c6bda3d45bd15dd8">action</a>();</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        <span class="keywordtype">void</span> answer_radar(std::shared_ptr&lt;Entity&gt; e);</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        <span class="keywordtype">void</span> increaseThreat(std::shared_ptr&lt;Entity&gt; target, <span class="keywordtype">int</span> threatIncrease);</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_raider.html#ac0273202faa69a14e92bf96db2cff68c">attack</a>(std::shared_ptr&lt;Entity&gt; target);</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        <span class="keywordtype">void</span> checkTargets();</div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keyword">protected</span>:</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        <span class="comment">//Base type definition</span></div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        <span class="keyword">typedef</span> <a class="code" href="class_fighter.html">Fighter</a> <a class="code" href="class_component.html">super</a>;</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;};</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        <span class="comment">//Class skills</span></div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="comment"></span>        <span class="keywordtype">void</span> <a class="code" href="class_raider.html#a2c29882a2fe873250e116dce69d40868">speedup</a>();</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_raider.html#ae73ccbf26c564853054befdcee521254">lowProfile</a>();</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        std::string tostring();</div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; </div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="preprocessor">#endif // RAIDER_H</span></div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; </div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        <span class="comment">//Base type definition</span></div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        <span class="keyword">typedef</span> <a class="code" href="class_fighter.html">Fighter</a> <a class="code" href="class_component.html">super</a>;</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        <a class="code" href="class_u_i___point.html">UI_Point</a> point;</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;};</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160; </div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="preprocessor">#endif // RAIDER_H</span></div>
 </div><!-- fragment --></div><!-- contents -->
-<div class="ttc" id="aclass_fighter_html"><div class="ttname"><a href="class_fighter.html">Fighter</a></div><div class="ttdoc">Type of Entity meant to be able to fight against other entities.</div><div class="ttdef"><b>Definition:</b> Fighter.h:12</div></div>
-<div class="ttc" id="aclass_raider_html_ac0273202faa69a14e92bf96db2cff68c"><div class="ttname"><a href="class_raider.html#ac0273202faa69a14e92bf96db2cff68c">Raider::attack</a></div><div class="ttdeci">void attack(std::shared_ptr&lt; Entity &gt; target)</div><div class="ttdoc">simple attack against another Entity, depending on the subclass of this Fighter</div><div class="ttdef"><b>Definition:</b> Raider.cpp:89</div></div>
+<div class="ttc" id="aclass_fighter_html"><div class="ttname"><a href="class_fighter.html">Fighter</a></div><div class="ttdoc">Type of Entity meant to be able to fight against other entities.</div><div class="ttdef"><b>Definition:</b> Fighter.h:14</div></div>
+<div class="ttc" id="aclass_raider_html_ac0273202faa69a14e92bf96db2cff68c"><div class="ttname"><a href="class_raider.html#ac0273202faa69a14e92bf96db2cff68c">Raider::attack</a></div><div class="ttdeci">void attack(std::shared_ptr&lt; Entity &gt; target)</div><div class="ttdoc">simple attack against another Entity, depending on the subclass of this Fighter</div><div class="ttdef"><b>Definition:</b> Raider.cpp:196</div></div>
 <div class="ttc" id="aclass_component_html"><div class="ttname"><a href="class_component.html">Component</a></div><div class="ttdoc">components of the GM class</div><div class="ttdef"><b>Definition:</b> Component.h:10</div></div>
 <div class="ttc" id="aclass_raider_html_a442b30d966f695cdb79246a897207baa"><div class="ttname"><a href="class_raider.html#a442b30d966f695cdb79246a897207baa">Raider::_init</a></div><div class="ttdeci">void _init()</div><div class="ttdoc">init method overwritten by children classes, called at gm init</div><div class="ttdef"><b>Definition:</b> Raider.cpp:26</div></div>
+<div class="ttc" id="aclass_raider_html_ab371a7b34549cd2a9f5e5357336ad635"><div class="ttname"><a href="class_raider.html#ab371a7b34549cd2a9f5e5357336ad635">Raider::_update</a></div><div class="ttdeci">void _update()</div><div class="ttdoc">update method called every frame, updates game logic</div><div class="ttdef"><b>Definition:</b> Raider.cpp:42</div></div>
+<div class="ttc" id="aclass_raider_html_aaae018fbacd1bf4cbc4c979e50704606"><div class="ttname"><a href="class_raider.html#aaae018fbacd1bf4cbc4c979e50704606">Raider::_draw</a></div><div class="ttdeci">void _draw(sf::RenderWindow &amp;window)</div><div class="ttdoc">draw method called every frame, draws component on window</div><div class="ttdef"><b>Definition:</b> Raider.cpp:48</div></div>
+<div class="ttc" id="aclass_u_i___point_html"><div class="ttname"><a href="class_u_i___point.html">UI_Point</a></div><div class="ttdef"><b>Definition:</b> UI_Point.h:8</div></div>
 <div class="ttc" id="aclass_raider_html"><div class="ttname"><a href="class_raider.html">Raider</a></div><div class="ttdoc">Type of Entity meant to be able to fight against other entities.</div><div class="ttdef"><b>Definition:</b> Raider.h:13</div></div>
 <div class="ttc" id="aclass_raider_html_a06b75c1fbbd12d526423776bc751c867"><div class="ttname"><a href="class_raider.html#a06b75c1fbbd12d526423776bc751c867">Raider::~Raider</a></div><div class="ttdeci">~Raider()</div><div class="ttdef"><b>Definition:</b> Raider.cpp:15</div></div>
-<div class="ttc" id="aclass_raider_html_a9dffb2507c1db0920edc65d675ce8aeb"><div class="ttname"><a href="class_raider.html#a9dffb2507c1db0920edc65d675ce8aeb">Raider::Raider</a></div><div class="ttdeci">Raider(int xPos, int yPos)</div><div class="ttdoc">constructor</div><div class="ttdef"><b>Definition:</b> Raider.cpp:10</div></div>
-<div class="ttc" id="aclass_raider_html_ab97ba4aa3e2701b7c6bda3d45bd15dd8"><div class="ttname"><a href="class_raider.html#ab97ba4aa3e2701b7c6bda3d45bd15dd8">Raider::action</a></div><div class="ttdeci">void action()</div><div class="ttdoc">The Entity specific behavior.</div><div class="ttdef"><b>Definition:</b> Raider.cpp:56</div></div>
-<div class="ttc" id="aclass_raider_html_a37be8d1b69dfbdb6054a86d79cf5d8cc"><div class="ttname"><a href="class_raider.html#a37be8d1b69dfbdb6054a86d79cf5d8cc">Raider::on_Notify</a></div><div class="ttdeci">void on_Notify(const Component *subject, Event event)</div><div class="ttdoc">class destructor</div><div class="ttdef"><b>Definition:</b> Raider.cpp:21</div></div>
-<div class="ttc" id="aclass_raider_html_ae73ccbf26c564853054befdcee521254"><div class="ttname"><a href="class_raider.html#ae73ccbf26c564853054befdcee521254">Raider::lowProfile</a></div><div class="ttdeci">void lowProfile()</div><div class="ttdoc">decreases the Raider's threat value by ?? points the Aliens see in this Raider</div><div class="ttdef"><b>Definition:</b> Raider.cpp:102</div></div>
-<div class="ttc" id="aclass_raider_html_a2c29882a2fe873250e116dce69d40868"><div class="ttname"><a href="class_raider.html#a2c29882a2fe873250e116dce69d40868">Raider::speedup</a></div><div class="ttdeci">void speedup()</div><div class="ttdoc">raises the Raider's speed</div><div class="ttdef"><b>Definition:</b> Raider.cpp:96</div></div>
+<div class="ttc" id="aclass_raider_html_a123236ccbaf6710c18d2b0edc309f5d6"><div class="ttname"><a href="class_raider.html#a123236ccbaf6710c18d2b0edc309f5d6">Raider::on_Notify</a></div><div class="ttdeci">void on_Notify(Component *subject, Event event)</div><div class="ttdoc">class destructor</div><div class="ttdef"><b>Definition:</b> Raider.cpp:21</div></div>
+<div class="ttc" id="aclass_raider_html_ab97ba4aa3e2701b7c6bda3d45bd15dd8"><div class="ttname"><a href="class_raider.html#ab97ba4aa3e2701b7c6bda3d45bd15dd8">Raider::action</a></div><div class="ttdeci">void action()</div><div class="ttdoc">The Entity specific behavior.</div><div class="ttdef"><b>Definition:</b> Raider.cpp:126</div></div>
+<div class="ttc" id="aclass_raider_html_a58ad98d2b5e203eff38b04fd55c81094"><div class="ttname"><a href="class_raider.html#a58ad98d2b5e203eff38b04fd55c81094">Raider::check</a></div><div class="ttdeci">void check()</div><div class="ttdoc">groups all the checks an Entity is going to make before its action</div><div class="ttdef"><b>Definition:</b> Raider.cpp:113</div></div>
+<div class="ttc" id="aclass_raider_html_a93e96fcb6c0a462c761a959a3d80bd39"><div class="ttname"><a href="class_raider.html#a93e96fcb6c0a462c761a959a3d80bd39">Raider::Raider</a></div><div class="ttdeci">Raider(int xPos=-1, int yPos=-1)</div><div class="ttdoc">constructor</div><div class="ttdef"><b>Definition:</b> Raider.cpp:10</div></div>
+<div class="ttc" id="aclass_raider_html_ae73ccbf26c564853054befdcee521254"><div class="ttname"><a href="class_raider.html#ae73ccbf26c564853054befdcee521254">Raider::lowProfile</a></div><div class="ttdeci">void lowProfile()</div><div class="ttdoc">decreases the Raider's threat value by ?? points the Aliens see in this Raider</div><div class="ttdef"><b>Definition:</b> Raider.cpp:232</div></div>
+<div class="ttc" id="aclass_raider_html_a2c29882a2fe873250e116dce69d40868"><div class="ttname"><a href="class_raider.html#a2c29882a2fe873250e116dce69d40868">Raider::speedup</a></div><div class="ttdeci">void speedup()</div><div class="ttdoc">raises the Raider's speed</div><div class="ttdef"><b>Definition:</b> Raider.cpp:226</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by &#160;<a href="http://www.doxygen.org/index.html">

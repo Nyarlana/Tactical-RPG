@@ -20,9 +20,10 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="alien_big.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Tactical RPG - Projet L3
-   &#160;<span id="projectnumber">0.2</span>
+   &#160;<span id="projectnumber">0.95</span>
    </div>
    <div id="projectbrief">Un jeu de tactical rpg/simulation créé dans le cadre d&#39;un projet de L3 informatique</div>
   </td>
@@ -74,26 +75,33 @@ $(function() {
   <tr><td class="entry"><a class="el" href="class_tile_map.html#a178fda66a0b791e52e0417b9a59b854f">_init</a>()</td><td class="entry"><a class="el" href="class_tile_map.html">TileMap</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="class_tile_map.html#a1a12f8c5fb9a0465126d05ff6c52cbf1">_update</a>()</td><td class="entry"><a class="el" href="class_tile_map.html">TileMap</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
   <tr><td class="entry"><a class="el" href="class_component.html#aaab29ea159109b4d0f63e9c519be6139">activate</a>()</td><td class="entry"><a class="el" href="class_component.html">Component</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>active</b> (defined in <a class="el" href="class_component.html">Component</a>)</td><td class="entry"><a class="el" href="class_component.html">Component</a></td><td class="entry"></td></tr>
-  <tr><td class="entry"><a class="el" href="class_subject.html#a43a10fc9d535375a324310205855da22">add_Observer</a>(std::shared_ptr&lt; Observer &gt; obs)</td><td class="entry"><a class="el" href="class_subject.html">Subject</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_subject.html#a43a10fc9d535375a324310205855da22">add_Observer</a>(std::shared_ptr&lt; Observer &gt; obs)</td><td class="entry"><a class="el" href="class_subject.html">Subject</a></td><td class="entry"></td></tr>
+  <tr bgcolor="#f0f0f0"><td class="entry"><b>check_and_move</b>(sf::Vector2i origin, sf::Vector2i dest) (defined in <a class="el" href="class_tile_map.html">TileMap</a>)</td><td class="entry"><a class="el" href="class_tile_map.html">TileMap</a></td><td class="entry"></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="class_component.html#a8775db6d1a2c1afc2e77cd3c8f39da6f">Component</a>()</td><td class="entry"><a class="el" href="class_component.html">Component</a></td><td class="entry"></td></tr>
   <tr><td class="entry"><a class="el" href="class_component.html#aa4d1e5e0656ed03f7ff469db25f65053">deactivate</a>()</td><td class="entry"><a class="el" href="class_component.html">Component</a></td><td class="entry"></td></tr>
   <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>first</b> (defined in <a class="el" href="class_subject.html">Subject</a>)</td><td class="entry"><a class="el" href="class_subject.html">Subject</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_tile_map.html#a3fee1d611279cf419bf091a59db16dbf">getRandomMove</a>(sf::Vector2i pos)</td><td class="entry"><a class="el" href="class_tile_map.html">TileMap</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_tile_map.html#adb7d0f7a624708e78fdd7b241d599d4e">getRandomValidPosition</a>()</td><td class="entry"><a class="el" href="class_tile_map.html">TileMap</a></td><td class="entry"></td></tr>
   <tr><td class="entry"><a class="el" href="class_tile_map.html#abf6907fda618ef12f21777554a75624c">heuristics</a>(sf::Vector2i tile, sf::Vector2i start, sf::Vector2i end)</td><td class="entry"><a class="el" href="class_tile_map.html">TileMap</a></td><td class="entry"></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="class_component.html#a6c35fa67b2f0f691b58fa2809a1a4bdd">is_Active</a>()</td><td class="entry"><a class="el" href="class_component.html">Component</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="class_tile_map.html#a76f33b35cf16f1cd264367bc9567cea7">isFree</a>(sf::Vector2i pos)</td><td class="entry"><a class="el" href="class_tile_map.html">TileMap</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_tile_map.html#a6e637cdf812d1bca27cef192ac69f91f">isInMap</a>(int x, int y)</td><td class="entry"><a class="el" href="class_tile_map.html">TileMap</a></td><td class="entry"></td></tr>
   <tr><td class="entry"><a class="el" href="class_tile_map.html#a3c52a6c2839b10ba9a7833dfdaa40bab">isNotIn</a>(const NodePath &amp;current, const std::vector&lt; NodePath &gt; &amp;explored)</td><td class="entry"><a class="el" href="class_tile_map.html">TileMap</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_tile_map.html#aa82821936c6ccca67e5d775937a7ffb6">isTaken</a>(sf::Vector2i pos)</td><td class="entry"><a class="el" href="class_tile_map.html">TileMap</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="class_tile_map.html#aa29ba77d7055d2f901dd55c948191b19">lookForOre</a>(sf::Vector2i pos, int radius)</td><td class="entry"><a class="el" href="class_tile_map.html">TileMap</a></td><td class="entry"></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="class_tile_map.html#a8c42efb3cc620577fb17d14344335154">makePath</a>(const NodePath &amp;from, const sf::Vector2i &amp;start)</td><td class="entry"><a class="el" href="class_tile_map.html">TileMap</a></td><td class="entry"></td></tr>
-  <tr><td class="entry"><a class="el" href="class_subject.html#aac7252a877d827d97b81a1aad19441ca">notify</a>(const Component *subject, Event event)</td><td class="entry"><a class="el" href="class_subject.html">Subject</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_tile_map.html#a11774b6f7f0cb236985900511ec1db00">on_Notify</a>(const Component *subject, Event event)</td><td class="entry"><a class="el" href="class_tile_map.html">TileMap</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
-  <tr><td class="entry"><a class="el" href="class_tile_map.html#a9e35f89584f388288f7654466a556286">printTab</a>()</td><td class="entry"><a class="el" href="class_tile_map.html">TileMap</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_subject.html#a4a327738992312141160470c8c6172e8">remove_Observer</a>(std::shared_ptr&lt; Observer &gt; obs)</td><td class="entry"><a class="el" href="class_subject.html">Subject</a></td><td class="entry"></td></tr>
-  <tr><td class="entry"><a class="el" href="class_tile_map.html#a0815d125cb38f10cd463ff3c35b3d312">request_path</a>(const sf::Vector2i &amp;start, const sf::Vector2i &amp;end)</td><td class="entry"><a class="el" href="class_tile_map.html">TileMap</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_tile_map.html#af82b5d6e11329ccd1b987b2a0c5cadd5">setTab</a>()</td><td class="entry"><a class="el" href="class_tile_map.html">TileMap</a></td><td class="entry"></td></tr>
-  <tr><td class="entry"><a class="el" href="class_tile_map.html#a241615dac86976a01d3d2b7293e32305">sortPath</a>(std::vector&lt; NodePath &gt; &amp;queue)</td><td class="entry"><a class="el" href="class_tile_map.html">TileMap</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_tile_map.html#a1096f728583fb64267fc1a790fe641fe">testFunc</a>()</td><td class="entry"><a class="el" href="class_tile_map.html">TileMap</a></td><td class="entry"></td></tr>
-  <tr><td class="entry"><a class="el" href="class_tile_map.html#a89efb398413e7fed8cdf9f3a0b58c9d0">TileMap</a>()</td><td class="entry"><a class="el" href="class_tile_map.html">TileMap</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_component.html#ab8378fa275af98e568a7e91d33d867af">~Component</a>()</td><td class="entry"><a class="el" href="class_component.html">Component</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
-  <tr><td class="entry"><a class="el" href="class_tile_map.html#a3448728e45d6a43fff3a02d4c6d72e9d">~TileMap</a>()</td><td class="entry"><a class="el" href="class_tile_map.html">TileMap</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="class_tile_map.html#a2941e28edd5d4a72ce1819fb1f759fe3">mine</a>(sf::Vector2i pos)</td><td class="entry"><a class="el" href="class_tile_map.html">TileMap</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_subject.html#a3689aa6a3abc8ddf1f01418fed265e57">notify</a>(Component *subject, Event event)</td><td class="entry"><a class="el" href="class_subject.html">Subject</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_tile_map.html#ab42044740c08b1150fec23ca24b19513">on_Notify</a>(Component *subject, Event event)</td><td class="entry"><a class="el" href="class_tile_map.html">TileMap</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_tile_map.html#a9e35f89584f388288f7654466a556286">printTab</a>()</td><td class="entry"><a class="el" href="class_tile_map.html">TileMap</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="class_subject.html#a4a327738992312141160470c8c6172e8">remove_Observer</a>(std::shared_ptr&lt; Observer &gt; obs)</td><td class="entry"><a class="el" href="class_subject.html">Subject</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_tile_map.html#a0815d125cb38f10cd463ff3c35b3d312">request_path</a>(const sf::Vector2i &amp;start, const sf::Vector2i &amp;end)</td><td class="entry"><a class="el" href="class_tile_map.html">TileMap</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="class_tile_map.html#af82b5d6e11329ccd1b987b2a0c5cadd5">setTab</a>()</td><td class="entry"><a class="el" href="class_tile_map.html">TileMap</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_tile_map.html#a241615dac86976a01d3d2b7293e32305">sortPath</a>(std::vector&lt; NodePath &gt; &amp;queue)</td><td class="entry"><a class="el" href="class_tile_map.html">TileMap</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="class_tile_map.html#a1096f728583fb64267fc1a790fe641fe">testFunc</a>()</td><td class="entry"><a class="el" href="class_tile_map.html">TileMap</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_tile_map.html#a89efb398413e7fed8cdf9f3a0b58c9d0">TileMap</a>()</td><td class="entry"><a class="el" href="class_tile_map.html">TileMap</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="class_component.html#ab8378fa275af98e568a7e91d33d867af">~Component</a>()</td><td class="entry"><a class="el" href="class_component.html">Component</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_tile_map.html#a3448728e45d6a43fff3a02d4c6d72e9d">~TileMap</a>()</td><td class="entry"><a class="el" href="class_tile_map.html">TileMap</a></td><td class="entry"></td></tr>
 </table></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
