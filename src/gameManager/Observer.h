@@ -2,7 +2,6 @@
 #ifndef OBSRV_SUBJ_H
 #define OBSRV_SUBJ_H
 
-// #include <vector>
 #include <memory>
 #include "Component.h"
 
@@ -35,8 +34,6 @@ enum Event {
 observes a subject and react to events*/
 class Observer : public std::enable_shared_from_this<Observer> {
 public:
-  /**@brief class destructor*/
-  //virtual ~Observer();
   /**@brief called by subject notify, launches different method based on the event
      overriten by every child, forks to a function
      @param subject the subject that sent the signal
@@ -65,7 +62,6 @@ public:
   void remove_Observer(std::shared_ptr<Observer> obs);
 
 protected:
-  // std::vector<std::shared_ptr<Observer>> observers;
   std::shared_ptr<ObsNode> first = nullptr;
 };
 

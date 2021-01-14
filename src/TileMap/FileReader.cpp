@@ -24,13 +24,10 @@ void FileReader::readFile(char tab[X_SIZE][Y_SIZE])
     {
         while (getline (tilemap_file,line))
         {
-            // cout<<(line_index+1)<<" - ";
             for(int i=0;i<X_SIZE;++i)
             {
                 tab[i][line_index]=line[i];
-                // cout<<tab[line_index][i];
             }
-            // cout<<endl;
             line_index++;
         }
 
