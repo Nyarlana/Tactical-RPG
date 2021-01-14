@@ -31,7 +31,16 @@ class AlienGroup : public Component, public Observer, public Subject
         void action();
         void die();
         void answer_radar(std::shared_ptr<Entity> e);
+
+        //class functions
+        /** @brief Gives this number's group
+        @return the group number
+        */
         int getGroup();
+
+        /** @brief Modifies pos
+        @parameter _pos new value of pos
+        */
         void setPos(sf::Vector2i _pos);
     private:
         int group_number;

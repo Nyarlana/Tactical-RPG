@@ -43,7 +43,7 @@ class Fighter : public Entity
             of this Fighter
             @param target target that will be attacked*/
         virtual void attack(std::shared_ptr<Entity> target) = 0;
-
+        /***/
         void offensive_action();
 
 

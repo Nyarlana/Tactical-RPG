@@ -37,7 +37,6 @@ void AlienGroup::_init()
     for(int i=0; i<aliens.size(); i++)
     {
         notify(this,E_GET_RANDOM_POS);
-        // std::cout << pos.x << ","<< pos.y << '\n';
         aliens[i]->setPos(pos);
         aliens[i]->add_Observer(Observer::shared_from_this());
         notify(aliens[i].get(), GM_ADD_THREAD);

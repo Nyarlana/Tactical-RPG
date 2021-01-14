@@ -13,10 +13,16 @@ class Explorer
         Explorer(int acuity);
 
         //Class skills
-        /* @brief
+        /** @brief looks for a position to reach on the map in order to complete
+        the map in an optimized and coordinated way
         */
         void computePositionToExplore();
+        /** @brief completes the shared map, telling which type of Tile the Tiles
+        in acuity radius are*/
         void completeMap();
+        /** @brief helps the other Explorers to know if a position is already
+        targeted as an exploration target to avoid for several Explorer to try and
+        explore the same position*/
         void setExplorerObjective(std::vector<sf::Vector2i> obj);
 
     protected:

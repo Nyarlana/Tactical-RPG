@@ -56,19 +56,25 @@ class Entity : public Component, public Observer, public Subject
         void _draw(sf::RenderWindow & window);
 
         //Getter
+        /** @brief Gives this Entity position */
         sf::Vector2i getPos();
         /** @brief gets the distance to another Entity */
         int getDistanceTo(std::shared_ptr<Entity> e);
+        /** @brief gets the distance to other_pos */
         int getDistanceTo(sf::Vector2i other_pos);
+        /** @brief gets the next position in the Entity's path */
         sf::Vector2i getNextPos();
+        /** @brief gets how much lp the Entity lacks */
         int lacksLP();
+        /** @brief gives an int value corresponding to the Entity's state */
         virtual int stateValue() = 0;
+        /** @brief gives a string value corresponding to the Entity's state */
         virtual std::string getStateS() = 0;
+        /** @brief gives the targeted position */
         sf::Vector2i getTopTargetPos();
-        void setTopTargetPos(sf::Vector2i pos);
-        void setPath(std::vector<sf::Vector2i> new_path);
-        /** @brief tells if the Entity is dead */
+        /** @brief Tells if this Entity is at 0 life points */
         bool isDead();
+        /** @brief returns the Entity's ID */
         int getID();
 
         //modifiers
@@ -77,8 +83,11 @@ class Entity : public Component, public Observer, public Subject
         /** @brief Lowers this.lp by value, then if lp<=0, the entity is considered dead and so calls die()
         @param value amount of points lp is lowered*/
         void takeDamage(int value);
+        /** @brief sets this' position */
         void setPos(sf::Vector2i newPos);
+        /** @brief sets the targeted position */
         void setTopTarget(sf::Vector2i pos);
+        /** @brief sets this Entity's state */
         void setState(State s);
         /** @brief dying action (including the destruction of the object) */
         void die();
@@ -87,14 +96,27 @@ class Entity : public Component, public Observer, public Subject
         @param e Entity to add
         */
         void add(bool isRov, std::shared_ptr<Entity> e);
+        /** @brief sets the targeted position */
+        void setTopTargetPos(sf::Vector2i pos);
+        /** @brief sets this Entity's registered path */
+        void setPath(std::vector<sf::Vector2i> new_path);
+        /** @brief tells if the Entity is dead */
 
         //actions
         /** @brief The Entity specific behavior*/
         virtual void action() = 0;
         /** @brief action to move for an Entity*/
         void move();
+        /** @brief applies a thread pause, the higher the Entity speed is, the
+        shorter the pause will take*/
         void pause();
+        /** @brief Answers another Entity's radar, telling them which kind of
+        Entity it is*/
         virtual void answer_radar(std::shared_ptr<Entity> e) = 0;
+
+        /** @brief
+        @return A little description of the class
+        */
         virtual std::string tostring() = 0;
 
     protected:

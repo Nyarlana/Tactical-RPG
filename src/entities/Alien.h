@@ -31,9 +31,18 @@ class Alien : public Fighter
         void increaseThreat(std::shared_ptr<Entity> target, int threatIncrease);
         void attack(std::shared_ptr<Entity> target);
         void checkTargets();
-        int getGroup();
-        bool isTargetable(std::shared_ptr<Entity> target);
         std::string tostring();
+
+        //clss functions
+        /** @brief Tells if the Alien's group number
+        @return the group's number*/
+        int getGroup();
+
+        /** @brief Tells if the given target is an enemy
+        @parameter target shared pointer of the given target
+        @return is the target an enemy ?
+        */
+        bool isTargetable(std::shared_ptr<Entity> target);
 
     protected:
 
