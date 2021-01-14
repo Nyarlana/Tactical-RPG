@@ -20,9 +20,10 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="alien.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Tactical RPG - Projet L3
-   &#160;<span id="projectnumber">0.2</span>
+   &#160;<span id="projectnumber">0.95</span>
    </div>
    <div id="projectbrief">Un jeu de tactical rpg/simulation créé dans le cadre d&#39;un projet de L3 informatique</div>
   </td>
@@ -65,7 +66,6 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pub-attribs">Public Attributes</a> &#124;
 <a href="class_component-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">Component Class Reference<span class="mlabels"><span class="mlabel">abstract</span></span></div>  </div>
@@ -80,19 +80,21 @@ Inheritance diagram for Component:</div>
  <div class="center">
   <img src="class_component.png" usemap="#Component_map" alt=""/>
   <map id="Component_map" name="Component_map">
-<area href="class_entity.html" title="Base Class to emulate Rovers and Aliens." alt="Entity" shape="rect" coords="955,112,1218,136"/>
-<area href="class_tile_map.html" title="The map on which the game happens." alt="TileMap" shape="rect" coords="1228,112,1491,136"/>
-<area href="class_u_i___component.html" title="generic class for all UI Components" alt="UI_Component" shape="rect" coords="1501,112,1764,136"/>
-<area href="class_fighter.html" title="Type of Entity meant to be able to fight against other entities." alt="Fighter" shape="rect" coords="409,168,672,192"/>
-<area href="class_miner.html" title="Type of Entity meant to mine for Ore, which is the objective of a game." alt="Miner" shape="rect" coords="682,168,945,192"/>
-<area href="class_rover.html" title="Rover type of Entity." alt="Rover" shape="rect" coords="1228,168,1491,192"/>
-<area href="class_rover_base.html" title="RoverBase type of Entity." alt="RoverBase" shape="rect" coords="1501,168,1764,192"/>
-<area href="class_alien.html" title="Type of Entity meant to annoy Rovers." alt="Alien" shape="rect" coords="0,224,263,248"/>
-<area href="class_healer.html" title="Type of Entity meant to heal and protect other entities, able to fight but hits weakly." alt="Healer" shape="rect" coords="273,224,536,248"/>
-<area href="class_raider.html" title="Type of Entity meant to be able to fight against other entities." alt="Raider" shape="rect" coords="546,224,809,248"/>
-<area href="class_tank.html" title="Type of Entity meant to be able to fight against other entities." alt="Tank" shape="rect" coords="819,224,1082,248"/>
-<area href="class_explorer.html" title="Explorer type of Rover." alt="Explorer" shape="rect" coords="1092,224,1355,248"/>
-<area href="class_protector.html" title="Protector type of Rover." alt="Protector" shape="rect" coords="1365,224,1628,248"/>
+<area href="class_alien_group.html" title="Group of Aliens." alt="AlienGroup" shape="rect" coords="0,56,101,80"/>
+<area href="class_entity.html" title="Base Class to emulate Rovers and Aliens." alt="Entity" shape="rect" coords="277,56,378,80"/>
+<area href="class_tile_map.html" title="The map on which the game happens." alt="TileMap" shape="rect" coords="388,56,489,80"/>
+<area href="class_u_i___component.html" title="generic class for all UI Components" alt="UI_Component" shape="rect" coords="666,56,767,80"/>
+<area href="class_fighter.html" title="Type of Entity meant to be able to fight against other entities." alt="Fighter" shape="rect" coords="166,112,267,136"/>
+<area href="class_miner.html" title="Type of Entity meant to mine for Ore, which is the objective of a game." alt="Miner" shape="rect" coords="277,112,378,136"/>
+<area href="class_rover_base.html" title="RoverBase type of Entity." alt="RoverBase" shape="rect" coords="388,112,489,136"/>
+<area href="class_u_i___point.html" alt="UI_Point" shape="rect" coords="499,112,600,136"/>
+<area href="class_u_i___progress_bar.html" title="Overlapping bars representing a progressing value." alt="UI_ProgressBar" shape="rect" coords="610,112,711,136"/>
+<area href="class_u_i___text_box.html" title="rendered line of text w/ a background" alt="UI_TextBox" shape="rect" coords="721,112,822,136"/>
+<area href="class_u_i___visual_path.html" title="displays selected tile with a small square" alt="UI_VisualPath" shape="rect" coords="832,112,933,136"/>
+<area href="class_alien.html" title="Type of Entity meant to annoy Rovers." alt="Alien" shape="rect" coords="0,168,101,192"/>
+<area href="class_healer.html" title="Type of Entity meant to heal and protect other entities, able to fight but hits weakly." alt="Healer" shape="rect" coords="111,168,212,192"/>
+<area href="class_raider.html" title="Type of Entity meant to be able to fight against other entities." alt="Raider" shape="rect" coords="222,168,323,192"/>
+<area href="class_tank.html" title="Type of Entity meant to be able to fight against other entities." alt="Tank" shape="rect" coords="333,168,434,192"/>
   </map>
 </div></div>
 <table class="memberdecls">
@@ -129,12 +131,6 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" hr
 <tr class="memitem:a56712f5491879798ca4a052defc7dabc"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_component.html#a56712f5491879798ca4a052defc7dabc">_draw</a> (sf::RenderWindow &amp;window)=0</td></tr>
 <tr class="memdesc:a56712f5491879798ca4a052defc7dabc"><td class="mdescLeft">&#160;</td><td class="mdescRight">draw method called every frame, draws component on window  <a href="class_component.html#a56712f5491879798ca4a052defc7dabc">More...</a><br /></td></tr>
 <tr class="separator:a56712f5491879798ca4a052defc7dabc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
-Public Attributes</h2></td></tr>
-<tr class="memitem:a2ebc869395d66425690dfeae99d1b791"><td class="memItemLeft" align="right" valign="top"><a id="a2ebc869395d66425690dfeae99d1b791"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>active</b> = true</td></tr>
-<tr class="separator:a2ebc869395d66425690dfeae99d1b791"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>components of the GM class </p>
@@ -171,7 +167,7 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>active</b> = true</td
   </dd>
 </dl>
 
-<p>Implemented in <a class="el" href="class_tile_map.html#a2db1841ac6df40b0c400eb51935f6aee">TileMap</a>, <a class="el" href="class_entity.html#a9a75900a4d3fa2a75090684e1c190667">Entity</a>, and <a class="el" href="class_rover_base.html#a539fd1deea37ec0070085f64ae48c85e">RoverBase</a>.</p>
+<p>Implemented in <a class="el" href="class_tile_map.html#a2db1841ac6df40b0c400eb51935f6aee">TileMap</a>, <a class="el" href="class_entity.html#a9a75900a4d3fa2a75090684e1c190667">Entity</a>, <a class="el" href="class_u_i___progress_bar.html#a38e0398b430001e8cec137997e5fff67">UI_ProgressBar</a>, <a class="el" href="class_alien_group.html#a913128c7af4943892d1957c341906e8f">AlienGroup</a>, <a class="el" href="class_rover_base.html#a539fd1deea37ec0070085f64ae48c85e">RoverBase</a>, <a class="el" href="class_u_i___text_box.html#a455e598e8aa840a608c85d91a730708b">UI_TextBox</a>, <a class="el" href="class_raider.html#aaae018fbacd1bf4cbc4c979e50704606">Raider</a>, <a class="el" href="class_u_i___point.html#ac0b0e802e31d8f25ee5385b948628e20">UI_Point</a>, and <a class="el" href="class_u_i___visual_path.html#a2b575daf48b6f90860d009b021d1cf0e">UI_VisualPath</a>.</p>
 
 </div>
 </div>

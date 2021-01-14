@@ -20,9 +20,10 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="alien.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Tactical RPG - Projet L3
-   &#160;<span id="projectnumber">0.2</span>
+   &#160;<span id="projectnumber">0.95</span>
    </div>
    <div id="projectbrief">Un jeu de tactical rpg/simulation créé dans le cadre d&#39;un projet de L3 informatique</div>
   </td>
@@ -81,34 +82,36 @@ Inheritance diagram for Observer:</div>
  <div class="center">
   <img src="class_observer.png" usemap="#Observer_map" alt=""/>
   <map id="Observer_map" name="Observer_map">
-<area href="class_entity.html" title="Base Class to emulate Rovers and Aliens." alt="Entity" shape="rect" coords="924,112,1178,136"/>
-<area href="class_game_manager.html" title="manages the game" alt="GameManager" shape="rect" coords="1188,112,1442,136"/>
-<area href="class_tile_map.html" title="The map on which the game happens." alt="TileMap" shape="rect" coords="1452,112,1706,136"/>
-<area href="class_u_i___component.html" title="generic class for all UI Components" alt="UI_Component" shape="rect" coords="1716,112,1970,136"/>
+<area href="class_alien_group.html" title="Group of Aliens." alt="AlienGroup" shape="rect" coords="0,112,254,136"/>
+<area href="class_entity.html" title="Base Class to emulate Rovers and Aliens." alt="Entity" shape="rect" coords="660,112,914,136"/>
+<area href="class_game_manager.html" title="manages the game" alt="GameManager" shape="rect" coords="924,112,1178,136"/>
+<area href="class_tile_map.html" title="The map on which the game happens." alt="TileMap" shape="rect" coords="1188,112,1442,136"/>
+<area href="class_u_i___component.html" title="generic class for all UI Components" alt="UI_Component" shape="rect" coords="1584,112,1838,136"/>
 <area href="class_fighter.html" title="Type of Entity meant to be able to fight against other entities." alt="Fighter" shape="rect" coords="396,168,650,192"/>
 <area href="class_miner.html" title="Type of Entity meant to mine for Ore, which is the objective of a game." alt="Miner" shape="rect" coords="660,168,914,192"/>
-<area href="class_rover.html" title="Rover type of Entity." alt="Rover" shape="rect" coords="1188,168,1442,192"/>
-<area href="class_rover_base.html" title="RoverBase type of Entity." alt="RoverBase" shape="rect" coords="1452,168,1706,192"/>
+<area href="class_rover_base.html" title="RoverBase type of Entity." alt="RoverBase" shape="rect" coords="924,168,1178,192"/>
+<area href="class_u_i___point.html" alt="UI_Point" shape="rect" coords="1188,168,1442,192"/>
+<area href="class_u_i___progress_bar.html" title="Overlapping bars representing a progressing value." alt="UI_ProgressBar" shape="rect" coords="1452,168,1706,192"/>
+<area href="class_u_i___text_box.html" title="rendered line of text w/ a background" alt="UI_TextBox" shape="rect" coords="1716,168,1970,192"/>
+<area href="class_u_i___visual_path.html" title="displays selected tile with a small square" alt="UI_VisualPath" shape="rect" coords="1980,168,2234,192"/>
 <area href="class_alien.html" title="Type of Entity meant to annoy Rovers." alt="Alien" shape="rect" coords="0,224,254,248"/>
 <area href="class_healer.html" title="Type of Entity meant to heal and protect other entities, able to fight but hits weakly." alt="Healer" shape="rect" coords="264,224,518,248"/>
 <area href="class_raider.html" title="Type of Entity meant to be able to fight against other entities." alt="Raider" shape="rect" coords="528,224,782,248"/>
 <area href="class_tank.html" title="Type of Entity meant to be able to fight against other entities." alt="Tank" shape="rect" coords="792,224,1046,248"/>
-<area href="class_explorer.html" title="Explorer type of Rover." alt="Explorer" shape="rect" coords="1056,224,1310,248"/>
-<area href="class_protector.html" title="Protector type of Rover." alt="Protector" shape="rect" coords="1320,224,1574,248"/>
   </map>
 </div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ad4b9095bbad027952054ac36652c06bb"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_observer.html#ad4b9095bbad027952054ac36652c06bb">on_Notify</a> (const <a class="el" href="class_component.html">Component</a> *subject, Event event)=0</td></tr>
-<tr class="memdesc:ad4b9095bbad027952054ac36652c06bb"><td class="mdescLeft">&#160;</td><td class="mdescRight">class destructor  <a href="class_observer.html#ad4b9095bbad027952054ac36652c06bb">More...</a><br /></td></tr>
-<tr class="separator:ad4b9095bbad027952054ac36652c06bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeb22e328e3106f0263c56cedc0c4dea1"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_observer.html#aeb22e328e3106f0263c56cedc0c4dea1">on_Notify</a> (<a class="el" href="class_component.html">Component</a> *subject, Event event)=0</td></tr>
+<tr class="memdesc:aeb22e328e3106f0263c56cedc0c4dea1"><td class="mdescLeft">&#160;</td><td class="mdescRight">class destructor  <a href="class_observer.html#aeb22e328e3106f0263c56cedc0c4dea1">More...</a><br /></td></tr>
+<tr class="separator:aeb22e328e3106f0263c56cedc0c4dea1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>observer class observes a subject and react to events </p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
-<a id="ad4b9095bbad027952054ac36652c06bb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad4b9095bbad027952054ac36652c06bb">&#9670;&nbsp;</a></span>on_Notify()</h2>
+<a id="aeb22e328e3106f0263c56cedc0c4dea1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aeb22e328e3106f0263c56cedc0c4dea1">&#9670;&nbsp;</a></span>on_Notify()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -119,7 +122,7 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="memname">virtual void Observer::on_Notify </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="class_component.html">Component</a> *&#160;</td>
+          <td class="paramtype"><a class="el" href="class_component.html">Component</a> *&#160;</td>
           <td class="paramname"><em>subject</em>, </td>
         </tr>
         <tr>
@@ -150,7 +153,7 @@ Public Member Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p>Implemented in <a class="el" href="class_entity.html#a2da7e8eb04c6e55ce0468874d88a072b">Entity</a>, <a class="el" href="class_rover.html#a7eeaa855012b3d4731f1420053bca907">Rover</a>, <a class="el" href="class_tile_map.html#a11774b6f7f0cb236985900511ec1db00">TileMap</a>, <a class="el" href="class_miner.html#a64350bf97d87eb8da86d9b2a289d4d04">Miner</a>, <a class="el" href="class_rover_base.html#a8d6851f5fb36d7f73e97eab98306601a">RoverBase</a>, <a class="el" href="class_tank.html#a6ec9d35cffba0f585eb5f59da8d7cd23">Tank</a>, <a class="el" href="class_game_manager.html#a525e5d8c02d0c3f8c709fc94d1a5495a">GameManager</a>, <a class="el" href="class_healer.html#a040aeed8795e614d6db4abb22864fa72">Healer</a>, <a class="el" href="class_raider.html#a37be8d1b69dfbdb6054a86d79cf5d8cc">Raider</a>, <a class="el" href="class_alien.html#ad192a9930f94d4e34a75d7a726cd7a78">Alien</a>, <a class="el" href="class_explorer.html#af0167548dd89aa3b5766c7942d38897b">Explorer</a>, and <a class="el" href="class_protector.html#a988de68a0dc629988253c902f3bd9cfa">Protector</a>.</p>
+<p>Implemented in <a class="el" href="class_entity.html#a90f9dc930f0a97f2b7ebc83a7f56e7a3">Entity</a>, <a class="el" href="class_tile_map.html#ab42044740c08b1150fec23ca24b19513">TileMap</a>, <a class="el" href="class_u_i___progress_bar.html#a9ee744b1682f6c55effbdf47775d3689">UI_ProgressBar</a>, <a class="el" href="class_miner.html#a7e5c4992cf10553d3302ec0156158e72">Miner</a>, <a class="el" href="class_game_manager.html#a5316f35fa4551680b661730146358966">GameManager</a>, <a class="el" href="class_u_i___text_box.html#ad5d18d0d434ecb0d6bd48b75cb712b9c">UI_TextBox</a>, <a class="el" href="class_alien_group.html#adf86ab8b1930fd702ddd17323f768de6">AlienGroup</a>, <a class="el" href="class_tank.html#aa6022fd5c68a61a115ca645f9550a826">Tank</a>, <a class="el" href="class_healer.html#aef65a1e2d8a6cfd019d2df704cceed41">Healer</a>, <a class="el" href="class_rover_base.html#a27b82a5f286d8e076af358eaeb4c401d">RoverBase</a>, <a class="el" href="class_alien.html#abd5dd94e3d456e216ec58ff703b1c754">Alien</a>, <a class="el" href="class_raider.html#a123236ccbaf6710c18d2b0edc309f5d6">Raider</a>, <a class="el" href="class_fighter.html#a8f1c44f1226eb01f447a4f6716b44cee">Fighter</a>, <a class="el" href="class_u_i___point.html#a93908ed76dc66eab369d71430b205f3b">UI_Point</a>, and <a class="el" href="class_u_i___visual_path.html#a0dcd1a787871fd83be5596fd3ded706c">UI_VisualPath</a>.</p>
 
 </div>
 </div>

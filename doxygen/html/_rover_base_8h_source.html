@@ -20,9 +20,10 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="alien.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Tactical RPG - Projet L3
-   &#160;<span id="projectnumber">0.2</span>
+   &#160;<span id="projectnumber">0.95</span>
    </div>
    <div id="projectbrief">Un jeu de tactical rpg/simulation créé dans le cadre d&#39;un projet de L3 informatique</div>
   </td>
@@ -72,12 +73,12 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 <div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160; </div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#ifndef RoverBase_H</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#define RoverBase_H</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#ifndef ROVER_BASE_H</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#define ROVER_BASE_H</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160; </div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;Entity.h&quot;</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160; </div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &quot;../gameManager/GameManager.h&quot;</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;entities.h&quot;</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &quot;../UI/UI.h&quot;</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160; </div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &quot;../gameManager/Observer.h&quot;</span></div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160; </div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &lt;SFML/Graphics.hpp&gt;</span></div>
@@ -85,57 +86,67 @@ $(function() {
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &lt;memory&gt;</span></div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#include &lt;thread&gt;</span></div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
-<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="class_rover_base.html">   20</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_rover_base.html">RoverBase</a> : <span class="keyword">public</span> <a class="code" href="class_entity.html">Entity</a></div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;{</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        <a class="code" href="class_rover_base.html#a4b0d4892edef3dd30e2b50ec02224994">RoverBase</a>(<span class="keywordtype">int</span> _x_pos, <span class="keywordtype">int</span> _y_pos, <span class="keywordtype">int</span> _objective, std::string _rovers);</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        <span class="comment">//inherited functions</span></div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_rover_base.html#a8d6851f5fb36d7f73e97eab98306601a">on_Notify</a>(<span class="keyword">const</span> <a class="code" href="class_component.html">Component</a>* subject, Event event);</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_rover_base.html#a7e9507f8667c4dd98e9e7a0763d4b8a3">_init</a>();</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        <span class="keywordtype">int</span> stateValue();</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_rover_base.html#ac94ac1d4f2d163f483d9218edbf67ad8">_update</a>();</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_rover_base.html#a539fd1deea37ec0070085f64ae48c85e">_draw</a>(sf::RenderWindow &amp; window);</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_rover_base.html#a38c9b21a10309933484fc0e148089aaf">action</a>();</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        <span class="keywordtype">void</span> moveTo(sf::Vector2i newPos); <span class="comment">//doesn&#39;t move at all</span></div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        <span class="keywordtype">void</span> missionComplete();<span class="comment">//call to all Rovers to come back with timeOut</span></div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;                               <span class="comment">//until notifying the GameManager that the game is over</span></div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        <span class="keywordtype">void</span> die(); <span class="comment">//kills all Rovers and notifies the GameManager that the game</span></div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;                    <span class="comment">//is over</span></div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; </div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        <span class="keyword">static</span> <a class="code" href="class_rover_base.html">RoverBase</a> launchMission(std::string mission);</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        <span class="comment">//Rovers management</span></div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        <span class="keywordtype">void</span> setGameManager(std::shared_ptr&lt;GameManager&gt; gm);</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        <span class="keywordtype">void</span> getOneOre();</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        <span class="keywordtype">void</span> putRover(<span class="keywordtype">int</span> rover_number, <span class="keywordtype">int</span> x, <span class="keywordtype">int</span> y);</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        <span class="comment">//void getRover(Entity r);</span></div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160; </div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="keyword">protected</span>:</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160; </div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        <span class="comment">//Base type definition</span></div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        <span class="keyword">typedef</span> <a class="code" href="class_entity.html">Entity</a> <a class="code" href="class_component.html">super</a>;</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        <span class="keywordtype">int</span> objective;</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        <span class="keywordtype">int</span> ore_amount;</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        std::vector&lt;std::thread&gt; threads;</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        std::vector&lt;std::shared_ptr&lt;Entity&gt;&gt; rovers;</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;};</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160; </div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160; </div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="preprocessor">#endif // RoverBase_H</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160; </div>
+<div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="class_rover_base.html">   18</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_rover_base.html">RoverBase</a> : <span class="keyword">public</span> <a class="code" href="class_entity.html">Entity</a></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;{</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;        <a class="code" href="class_rover_base.html#a4b0d4892edef3dd30e2b50ec02224994">RoverBase</a>(<span class="keywordtype">int</span> _x_pos, <span class="keywordtype">int</span> _y_pos, <span class="keywordtype">int</span> _objective, std::string _rovers);</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        <span class="comment">//inherited functions</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_rover_base.html#a27b82a5f286d8e076af358eaeb4c401d">on_Notify</a>(<a class="code" href="class_component.html">Component</a>* subject, Event event);</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        <span class="keywordtype">void</span> add_Observer_and_Rovers(std::shared_ptr&lt;Observer&gt; obs);</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_rover_base.html#a7e9507f8667c4dd98e9e7a0763d4b8a3">_init</a>();</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_rover_base.html#ac94ac1d4f2d163f483d9218edbf67ad8">_update</a>();</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_rover_base.html#a539fd1deea37ec0070085f64ae48c85e">_draw</a>(sf::RenderWindow &amp; window);</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        <span class="keywordtype">int</span> stateValue();</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        std::string getStateS();</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_rover_base.html#aa774a070e581662504c2f6f26fce6cba">check</a>();</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_rover_base.html#a38c9b21a10309933484fc0e148089aaf">action</a>();</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        <span class="keywordtype">int</span> getOreAmount();</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        <span class="keywordtype">int</span> getObjective();</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        <span class="keywordtype">void</span> die(); <span class="comment">//kills all Rovers and notifies the GameManager that the</span></div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;                    <span class="comment">//game is over</span></div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        <span class="keywordtype">void</span> answer_radar(std::shared_ptr&lt;Entity&gt; e);</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; </div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        <span class="comment">//class skills</span></div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        <span class="keywordtype">void</span> missionComplete();<span class="comment">//call to all Rovers to come back with timeOut</span></div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;                               <span class="comment">//until notifying the GameManager that the game is over</span></div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; </div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        <span class="keyword">static</span> <a class="code" href="class_rover_base.html">RoverBase</a> launchMission(std::string mission);</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        <span class="comment">//Rovers management</span></div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        <span class="keywordtype">void</span> getOneOre();</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        <span class="keywordtype">void</span> putRover(<span class="keywordtype">int</span> rover_number, <span class="keywordtype">int</span> x, <span class="keywordtype">int</span> y);</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        <span class="comment">//void getRover(Entity r);</span></div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        <span class="keywordtype">void</span> takeDamage(<span class="keywordtype">int</span> value);</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        std::string tostring();</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160; </div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160; </div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        <span class="comment">//Base type definition</span></div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        <span class="keyword">typedef</span> <a class="code" href="class_entity.html">Entity</a> <a class="code" href="class_component.html">super</a>;</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        std::vector&lt;sf::Vector2i&gt; path;</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        <span class="keywordtype">int</span> objective;</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        <span class="keywordtype">int</span> ore_amount;</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        std::vector&lt;std::shared_ptr&lt;Entity&gt;&gt; rovers;</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        <a class="code" href="class_u_i___point.html">UI_Point</a> point;</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        <span class="keywordtype">int</span> deads;</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;};</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160; </div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160; </div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;<span class="preprocessor">#endif // ROVER_BASE_H</span></div>
 </div><!-- fragment --></div><!-- contents -->
-<div class="ttc" id="aclass_rover_base_html_a38c9b21a10309933484fc0e148089aaf"><div class="ttname"><a href="class_rover_base.html#a38c9b21a10309933484fc0e148089aaf">RoverBase::action</a></div><div class="ttdeci">void action()</div><div class="ttdoc">The Entity specific behavior.</div><div class="ttdef"><b>Definition:</b> RoverBase.cpp:115</div></div>
-<div class="ttc" id="aclass_rover_base_html_a7e9507f8667c4dd98e9e7a0763d4b8a3"><div class="ttname"><a href="class_rover_base.html#a7e9507f8667c4dd98e9e7a0763d4b8a3">RoverBase::_init</a></div><div class="ttdeci">void _init()</div><div class="ttdoc">init method overwritten by children classes, called at gm init</div><div class="ttdef"><b>Definition:</b> RoverBase.cpp:72</div></div>
-<div class="ttc" id="aclass_rover_base_html_a539fd1deea37ec0070085f64ae48c85e"><div class="ttname"><a href="class_rover_base.html#a539fd1deea37ec0070085f64ae48c85e">RoverBase::_draw</a></div><div class="ttdeci">void _draw(sf::RenderWindow &amp;window)</div><div class="ttdoc">draw method called every frame, draws component on window</div><div class="ttdef"><b>Definition:</b> RoverBase.cpp:107</div></div>
+<div class="ttc" id="aclass_rover_base_html_a38c9b21a10309933484fc0e148089aaf"><div class="ttname"><a href="class_rover_base.html#a38c9b21a10309933484fc0e148089aaf">RoverBase::action</a></div><div class="ttdeci">void action()</div><div class="ttdoc">The Entity specific behavior.</div><div class="ttdef"><b>Definition:</b> RoverBase.cpp:142</div></div>
+<div class="ttc" id="aclass_rover_base_html_a7e9507f8667c4dd98e9e7a0763d4b8a3"><div class="ttname"><a href="class_rover_base.html#a7e9507f8667c4dd98e9e7a0763d4b8a3">RoverBase::_init</a></div><div class="ttdeci">void _init()</div><div class="ttdoc">init method overwritten by children classes, called at gm init</div><div class="ttdef"><b>Definition:</b> RoverBase.cpp:86</div></div>
+<div class="ttc" id="aclass_rover_base_html_a539fd1deea37ec0070085f64ae48c85e"><div class="ttname"><a href="class_rover_base.html#a539fd1deea37ec0070085f64ae48c85e">RoverBase::_draw</a></div><div class="ttdeci">void _draw(sf::RenderWindow &amp;window)</div><div class="ttdoc">draw method called every frame, draws component on window</div><div class="ttdef"><b>Definition:</b> RoverBase.cpp:127</div></div>
 <div class="ttc" id="aclass_component_html"><div class="ttname"><a href="class_component.html">Component</a></div><div class="ttdoc">components of the GM class</div><div class="ttdef"><b>Definition:</b> Component.h:10</div></div>
-<div class="ttc" id="aclass_rover_base_html_ac94ac1d4f2d163f483d9218edbf67ad8"><div class="ttname"><a href="class_rover_base.html#ac94ac1d4f2d163f483d9218edbf67ad8">RoverBase::_update</a></div><div class="ttdeci">void _update()</div><div class="ttdoc">update method called every frame, updates game logic</div><div class="ttdef"><b>Definition:</b> RoverBase.cpp:99</div></div>
-<div class="ttc" id="aclass_rover_base_html_a8d6851f5fb36d7f73e97eab98306601a"><div class="ttname"><a href="class_rover_base.html#a8d6851f5fb36d7f73e97eab98306601a">RoverBase::on_Notify</a></div><div class="ttdeci">void on_Notify(const Component *subject, Event event)</div><div class="ttdoc">class destructor</div><div class="ttdef"><b>Definition:</b> RoverBase.cpp:58</div></div>
-<div class="ttc" id="aclass_rover_base_html_a4b0d4892edef3dd30e2b50ec02224994"><div class="ttname"><a href="class_rover_base.html#a4b0d4892edef3dd30e2b50ec02224994">RoverBase::RoverBase</a></div><div class="ttdeci">RoverBase(int _x_pos, int _y_pos, int _objective, std::string _rovers)</div><div class="ttdoc">constructor</div><div class="ttdef"><b>Definition:</b> RoverBase.cpp:18</div></div>
-<div class="ttc" id="aclass_rover_base_html"><div class="ttname"><a href="class_rover_base.html">RoverBase</a></div><div class="ttdoc">RoverBase type of Entity.</div><div class="ttdef"><b>Definition:</b> RoverBase.h:20</div></div>
-<div class="ttc" id="aclass_entity_html"><div class="ttname"><a href="class_entity.html">Entity</a></div><div class="ttdoc">Base Class to emulate Rovers and Aliens.</div><div class="ttdef"><b>Definition:</b> Entity.h:33</div></div>
+<div class="ttc" id="aclass_rover_base_html_ac94ac1d4f2d163f483d9218edbf67ad8"><div class="ttname"><a href="class_rover_base.html#ac94ac1d4f2d163f483d9218edbf67ad8">RoverBase::_update</a></div><div class="ttdeci">void _update()</div><div class="ttdoc">update method called every frame, updates game logic</div><div class="ttdef"><b>Definition:</b> RoverBase.cpp:119</div></div>
+<div class="ttc" id="aclass_rover_base_html_a4b0d4892edef3dd30e2b50ec02224994"><div class="ttname"><a href="class_rover_base.html#a4b0d4892edef3dd30e2b50ec02224994">RoverBase::RoverBase</a></div><div class="ttdeci">RoverBase(int _x_pos, int _y_pos, int _objective, std::string _rovers)</div><div class="ttdoc">constructor</div><div class="ttdef"><b>Definition:</b> RoverBase.cpp:13</div></div>
+<div class="ttc" id="aclass_u_i___point_html"><div class="ttname"><a href="class_u_i___point.html">UI_Point</a></div><div class="ttdef"><b>Definition:</b> UI_Point.h:8</div></div>
+<div class="ttc" id="aclass_rover_base_html"><div class="ttname"><a href="class_rover_base.html">RoverBase</a></div><div class="ttdoc">RoverBase type of Entity.</div><div class="ttdef"><b>Definition:</b> RoverBase.h:18</div></div>
+<div class="ttc" id="aclass_rover_base_html_a27b82a5f286d8e076af358eaeb4c401d"><div class="ttname"><a href="class_rover_base.html#a27b82a5f286d8e076af358eaeb4c401d">RoverBase::on_Notify</a></div><div class="ttdeci">void on_Notify(Component *subject, Event event)</div><div class="ttdoc">class destructor</div><div class="ttdef"><b>Definition:</b> RoverBase.cpp:59</div></div>
+<div class="ttc" id="aclass_entity_html"><div class="ttname"><a href="class_entity.html">Entity</a></div><div class="ttdoc">Base Class to emulate Rovers and Aliens.</div><div class="ttdef"><b>Definition:</b> Entity.h:42</div></div>
+<div class="ttc" id="aclass_rover_base_html_aa774a070e581662504c2f6f26fce6cba"><div class="ttname"><a href="class_rover_base.html#aa774a070e581662504c2f6f26fce6cba">RoverBase::check</a></div><div class="ttdeci">void check()</div><div class="ttdoc">groups all the checks an Entity is going to make before its action</div><div class="ttdef"><b>Definition:</b> RoverBase.cpp:137</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by &#160;<a href="http://www.doxygen.org/index.html">
