@@ -36,18 +36,16 @@ class RoverBase : public Entity
         void die(); //kills all Rovers and notifies the GameManager that the
                     //game is over
         void answer_radar(std::shared_ptr<Entity> e);
+        std::string tostring();
 
         //class skills
+        /** @brief Sets all the Rovers to END_GAME state so they come back to the base */
         void missionComplete();//call to all Rovers to come back with timeOut
                                //until notifying the GameManager that the game is over
-
+        /** @brief Parsing method to return a mission based on a file called "mission".txt */
         static RoverBase launchMission(std::string mission);
-        //Rovers management
+        /** @brief adds one ore to the account */
         void getOneOre();
-        void putRover(int rover_number, int x, int y);
-        //void getRover(Entity r);
-        void takeDamage(int value);
-        std::string tostring();
 
     protected:
 

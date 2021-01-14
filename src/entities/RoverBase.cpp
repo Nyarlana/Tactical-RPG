@@ -6,7 +6,7 @@
 #include <thread>
 #include <fstream>
 #include <iostream>
-#include <stdexcept>      // std::invalid_argument
+#include <stdexcept>
 
 using namespace std;
 /** @brief constructor */
@@ -275,22 +275,6 @@ void RoverBase::getOneOre()
 
     if(ore_amount==objective)
         missionComplete();
-}
-
-void RoverBase::putRover(int rover_number, int x, int y)
-{
-
-}
-
-/*void getRover(Rover r)
-{
-
-}*/
-
-void RoverBase::takeDamage(int value)
-{
-    Entity::takeDamage(value);
-    std::cout << "Oh là là " << value << "pv, pv restants = "<< lp << '\n';
 }
 
 std::string RoverBase::tostring()

@@ -128,11 +128,11 @@ void Tank::action()
     }
 }
 
-// void Tank::increaseThreat(shared_ptr<Entity> target, int threatIncrease)
-// {
-//     if(typeid(target.get())==typeid(Alien()))
-//         super::increaseThreat(make_shared<Entity>(target), threatIncrease);
-// }
+void Tank::increaseThreat(shared_ptr<Entity> target, int threatIncrease)
+{
+    if(typeid(target.get())==typeid(Alien()))
+        super::increaseThreat(target, threatIncrease);
+}
 
 void Tank::answer_radar(std::shared_ptr<Entity> e)
 {

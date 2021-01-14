@@ -19,7 +19,7 @@ void Protector::die()
     if(underProtection.size()>0)
         notify(ref(this), E_DISCALL);
     super::die();
-} //notifies it's dead and launches a distress_call its position
+}
 
 //class skills
 void Protector::lookForEntities()
@@ -35,8 +35,8 @@ void Protector::identifyEntity(std::shared_ptr<Entity> e)
 
 std::shared_ptr<Rover> Protector::getFirstToProtect()
 {
-    //tri des underProtection en fonction de leurs pv restants puis
-    //de leur distance à getPos()
+    //tri des underProtection en fonction de leurs pv restants et
+    //de leur distance
     return null_ptr;
 }
 

@@ -35,12 +35,15 @@ class Miner : public Entity
         void check();
         void action();
         void answer_radar(std::shared_ptr<Entity> e);
+        std::string tostring();
 
         //Class skills
         /** @brief looks for ore on the map and saves their positions in
         objectives_positions */
         void checkForOre();
+        /** @brief */
         void addOreObjective(sf::Vector2i pos);
+        /** @brief */
         sf::Vector2i getTopOre();
         /** @brief takes ore next to it (1 tile distance) */
         void mine();
@@ -48,7 +51,6 @@ class Miner : public Entity
         void fillBag();
         /** @brief gives the base the collected ore (1 tile distance) */
         void depositOre();
-        std::string tostring();
 
 
     protected:

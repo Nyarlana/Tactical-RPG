@@ -25,7 +25,7 @@ void Entity::_update()
     if(lp>0)
     {
         bool estDebout = (clock->getElapsedTime().asMilliseconds() % 1000) >= ANIM_TIME;
-        int state_value = stateValue(); //à ajouter à la place du 0 quand il y aura suffisamment d'images
+        int state_value = stateValue();
         sprite.setTextureRect(sf::IntRect(estDebout*32,0*32,32,32));
         pb->set_Position(sf::Vector2i(pos.x*32+2, pos.y*32));
         pb->_update();

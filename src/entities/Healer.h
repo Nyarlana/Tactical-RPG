@@ -33,8 +33,7 @@ class Healer : public Fighter
         void attack(std::shared_ptr<Entity> target);
         void checkTargets();
         std::shared_ptr<Entity> getTopTarget();
-        std::shared_ptr<Entity> getTopHealTarget(int maxSeenNeed);
-        int getMaxNeed();
+        std::string tostring();
 
         //Class skills
         /** @brief set heal need of a specific target, if the target isn't
@@ -48,8 +47,12 @@ class Healer : public Fighter
         /** @brief looks for targets in its areas and erases targets outside
         them */
         void checkHealTargets();
+        /** @brief gives the best target to heal */
+        std::shared_ptr<Entity> getTopHealTarget(int maxSeenNeed);
+        /** @brief gives the highest lp lack amount met in the heal_targets */
+        int getMaxNeed();
+        /** @brief action to get near a heal_target or heal it */
         void healing_action();
-        std::string tostring();
 
     protected:
 
@@ -59,7 +62,7 @@ class Healer : public Fighter
 
         //attributes
         int heal_power;
-        std::unordered_map<std::shared_ptr<Entity>, int> heal_targets; //targets associated with their threat level
+        std::unordered_map<std::shared_ptr<Entity>, int> heal_targets; //targets associated with their heal need
 };
 
 #endif // HEALER_H

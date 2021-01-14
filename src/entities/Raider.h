@@ -31,13 +31,13 @@ class Raider : public Fighter
         void increaseThreat(std::shared_ptr<Entity> target, int threatIncrease);
         void attack(std::shared_ptr<Entity> target);
         void checkTargets();
+        std::string tostring();
 
         //Class skills
         /** @brief raises the Raider's speed */
         void speedup();
         /** @brief decreases the Raider's threat value by ?? points the Aliens see in this Raider */
         void lowProfile();
-        std::string tostring();
 
     protected:
 
