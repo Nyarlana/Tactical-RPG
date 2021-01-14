@@ -21,7 +21,9 @@ void TileMap::setTab()
     char intermediate_tab[X_SIZE][Y_SIZE];
     f.readFile(intermediate_tab);
 
-    // std::cout << intermediate_tab[X_SIZE][Y_SIZE] << '\n';
+    if(TRACE_EXEC && TM_TRACE)
+        std::cout << intermediate_tab[X_SIZE][Y_SIZE] << '\n';
+
     for(int j=0;j<Y_SIZE;++j)
     {
         for(int i=0;i<X_SIZE;++i)
@@ -119,16 +121,6 @@ void TileMap::_draw(sf::RenderWindow & window)
             window.draw(resource2_tile_sprite);
           }
       }
-      /*if(j>10)
-      {
-        empty_tile_sprite.setPosition(i*32,j*32);
-        window.draw(empty_tile_sprite);
-      }
-      else
-      {
-        full_tile_sprite.setPosition(i*32,j*32);
-        window.draw(full_tile_sprite);
-      }*/
     }
   }
 }
